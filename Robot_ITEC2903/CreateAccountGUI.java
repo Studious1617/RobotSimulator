@@ -27,6 +27,6 @@ public class CreateAccountGUI extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here ,
+        // TODO: place custom component creation code here.
     }
 }
