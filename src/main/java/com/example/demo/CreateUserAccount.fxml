@@ -2,12 +2,25 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="223.0" layoutY="162.0" />
-      <TextField layoutX="224.0" layoutY="268.0" />
-      <Label layoutX="252.0" layoutY="115.0" prefHeight="18.0" prefWidth="90.0" text="Enter username here:" textAlignment="CENTER" />
-      <Label layoutX="251.0" layoutY="230.0" prefHeight="18.0" prefWidth="90.0" text="Enter password here:" textAlignment="CENTER" />
+      <TextField layoutX="155.0" layoutY="175.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField layoutX="155.0" layoutY="270.0" prefHeight="25.0" prefWidth="283.0" />
+      <Label alignment="CENTER" layoutX="157.0" layoutY="148.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="155.0" layoutY="236.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
+      <Label layoutX="97.0" layoutY="55.0" text="Welcome to the Robot Simulator App">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="224.0" layoutY="100.0" text="Create an Account">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="19.0" layoutY="355.0" mnemonicParsing="false" text="Log In Here" />
+      <Button layoutX="380.0" layoutY="310.0" mnemonicParsing="false" text="Enter" />
    </children>
 </AnchorPane>
