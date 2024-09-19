@@ -24,8 +24,12 @@ public class RobotSimulatorFX extends Application {
         pop_up.setSpacing(10);
 
         // username label and textfield
-        Label usernameLabel = new Label("Enter username here:");
-        TextField usernameTextfield = new TextField();
+        Label nameLabel = new Label("Enter name here:");
+        TextField nameTextfield = new TextField();
+
+        // Email label and TextField
+        Label emailLabel = new Label("Enter email address here:");
+        TextField emailTextfield = new TextField();
 
         // password label and textfield
         Label passwordLabel = new Label("Enter password here:");
@@ -37,7 +41,8 @@ public class RobotSimulatorFX extends Application {
 
         // adds all the elements
         pop_up.getChildren().addAll(
-                usernameLabel, usernameTextfield,
+                nameLabel, nameTextfield,
+                emailLabel, emailTextfield,
                 passwordLabel, passwordTextfield,
                 createAccountButton);
 

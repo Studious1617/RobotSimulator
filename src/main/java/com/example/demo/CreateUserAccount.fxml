@@ -6,10 +6,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="155.0" layoutY="175.0" prefHeight="25.0" prefWidth="283.0" />
-      <TextField layoutX="155.0" layoutY="270.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField layoutX="164.0" layoutY="174.0" prefHeight="25.0" prefWidth="283.0" />
+      <TextField layoutX="164.0" layoutY="305.0" prefHeight="25.0" prefWidth="283.0" />
       <Label alignment="CENTER" layoutX="157.0" layoutY="148.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="155.0" layoutY="236.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="164.0" layoutY="278.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
       <Label layoutX="97.0" layoutY="55.0" text="Welcome to the Robot Simulator App">
          <font>
             <Font size="24.0" />
@@ -21,6 +21,8 @@
          </font>
       </Label>
       <Button layoutX="19.0" layoutY="355.0" mnemonicParsing="false" text="Log In Here" />
-      <Button layoutX="380.0" layoutY="310.0" mnemonicParsing="false" text="Enter" />
+      <Button layoutX="425.0" layoutY="342.0" mnemonicParsing="false" text="Enter" />
+      <TextField layoutX="164.0" layoutY="240.0" prefHeight="25.0" prefWidth="283.0" />
+      <Label alignment="CENTER" layoutX="164.0" layoutY="212.0" prefHeight="18.0" prefWidth="283.0" text="Enter email address here:" textAlignment="CENTER" />
    </children>
 </AnchorPane>
