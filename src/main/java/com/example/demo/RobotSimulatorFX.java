@@ -14,30 +14,32 @@ public class RobotSimulatorFX extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //
+    // creates the
     @Override
     public void start(Stage stageOne) {
         // setup
         stageOne.setTitle("Create account or sign in");
 
         VBox pop_up = new VBox();
+        pop_up.setSpacing(10);
 
         // username label and textfield
         Label usernameLabel = new Label("Enter username here:");
         TextField usernameTextfield = new TextField();
-        pop_up.getChildren().add(usernameLabel);
-        pop_up.getChildren().add(usernameTextfield);
 
         // password label and textfield
         Label passwordLabel = new Label("Enter password here:");
         TextField passwordTextfield = new TextField();
-        pop_up.getChildren().add(passwordLabel);
-        pop_up.getChildren().add(passwordTextfield);
 
         // button to make the accounts and save them to the database
         Button createAccountButton = new Button("Create account");
         pop_up.setAlignment(Pos.CENTER);
-        pop_up.getChildren().add(createAccountButton);
+
+        // adds all the elements
+        pop_up.getChildren().addAll(
+                usernameLabel, usernameTextfield,
+                passwordLabel, passwordTextfield,
+                createAccountButton);
 
         // window stuff
         Scene sceneOne = new Scene(pop_up);
