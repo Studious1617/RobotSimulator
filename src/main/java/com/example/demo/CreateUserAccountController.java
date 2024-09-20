@@ -18,7 +18,13 @@ public class CreateUserAccountController {
     @FXML
     protected void onCreateAccountButtonClick() {
         // get text from textfields
+        String fullName = CreateAccount_EnterNameTF.getText();
+        String userEmail = CreateAccount_EnterEmailTF.getText();
+        String password = CreateAccount_EnterPasswordTF.getText();
+        String confirmPassword = CreateAccount_ConfirmPasswordTF.getText();
+
         // check password
+
         // check if there's no match in database
         // add them to the database
         // switch to dashboard

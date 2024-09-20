@@ -11,9 +11,9 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="EnterEmailTF" layoutX="226.0" layoutY="166.0" promptText="abc123@email.com" />
+      <TextField fx:id="LogIn_EnterEmailTF" layoutX="226.0" layoutY="166.0" promptText="abc123@email.com" />
       <Label alignment="CENTER" layoutX="245.0" layoutY="225.0" text="Enter password here:" />
-      <TextField fx:id="EnterPasswordTF" layoutX="227.0" layoutY="254.0" promptText="secret password" />
+      <TextField fx:id="LogIn_EnterPasswordTF" layoutX="227.0" layoutY="254.0" promptText="secret password" />
       <Button fx:id="LogInButton" layoutX="329.0" layoutY="302.0" mnemonicParsing="false" onAction="#onLogInButtonClick" text="Log In" />
    </children>
 </AnchorPane>
