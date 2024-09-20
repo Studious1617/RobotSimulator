@@ -6,14 +6,20 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
    <children>
-      <Label alignment="CENTER" layoutX="234.0" layoutY="135.0" text="Enter email address here:" />
-      <Label layoutX="188.0" layoutY="63.0" text="Log In with Existing Account">
+      <Label alignment="CENTER" layoutX="223.0" layoutY="155.0" text="Enter email address here:">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font></Label>
-      <TextField fx:id="EnterEmailTF" layoutX="226.0" layoutY="166.0" promptText="abc123@email.com" />
-      <Label alignment="CENTER" layoutX="245.0" layoutY="225.0" text="Enter password here:" />
-      <TextField fx:id="EnterPasswordTF" layoutX="227.0" layoutY="254.0" promptText="secret password" />
-      <Button fx:id="LogInButton" layoutX="329.0" layoutY="302.0" mnemonicParsing="false" onAction="#onLogInButtonClick" text="Log In" />
+      <Label layoutX="152.0" layoutY="76.0" text="Log In with Existing Account">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <TextField fx:id="EnterEmailTF" layoutX="164.0" layoutY="175.0" prefHeight="25.0" prefWidth="292.0" promptText="abc123@email.com" />
+      <Label alignment="CENTER" layoutX="246.0" layoutY="210.0" text="Enter password here:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" text="Log In" />
+      <PasswordField layoutX="168.0" layoutY="230.0" prefHeight="25.0" prefWidth="292.0" />
    </children>
 </AnchorPane>

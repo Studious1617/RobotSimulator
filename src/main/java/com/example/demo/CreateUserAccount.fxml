@@ -7,25 +7,25 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
       <TextField fx:id="CreateAccount_EnterNameTF" layoutX="153.0" layoutY="144.0" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" />
-      <TextField fx:id="CreateAccount_EnterPasswordTF" layoutX="154.0" layoutY="284.0" prefHeight="25.0" prefWidth="283.0" promptText="secret password" />
-      <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" layoutX="154.0" layoutY="111.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
+      <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" layoutX="153.0" layoutY="120.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
       <Label alignment="CENTER" layoutX="153.0" layoutY="253.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
       <Label layoutX="96.0" layoutY="28.0" text="Welcome to the Robot Simulator App">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="222.0" layoutY="63.0" text="Create an Account">
+      <Label layoutX="223.0" layoutY="83.0" text="Create an Account">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="CreateAccount_LogInButton" layoutX="47.0" layoutY="421.0" mnemonicParsing="false" text="Log In Here" />
-      <Button fx:id="CreateAccountButton" layoutX="382.0" layoutY="395.0" mnemonicParsing="false" text="Enter" />
+      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" text="Log In Here" />
+      <Button fx:id="CreateAccountButton" layoutX="398.0" layoutY="381.0" mnemonicParsing="false" text="Enter" />
       <Label alignment="CENTER" layoutX="227.0" layoutY="185.0" prefHeight="18.0" prefWidth="146.0" text="Enter email address here:" />
       <TextField fx:id="CreateAccount_EnterEmailTF" layoutX="153.0" layoutY="217.0" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com" />
-      <TextField fx:id="CreateAccount_ConfirmPasswordTF" layoutX="153.0" layoutY="348.0" prefHeight="26.0" prefWidth="283.0" promptText="secret password" />
-      <Label alignment="CENTER" layoutX="244.0" layoutY="320.0" prefHeight="18.0" prefWidth="102.0" text="Confirm password" />
+      <Label alignment="CENTER" layoutX="245.0" layoutY="320.0" prefHeight="18.0" prefWidth="102.0" text="Confirm password" />
       <Label alignment="CENTER" layoutX="16.0" layoutY="393.0" prefHeight="27.0" prefWidth="139.0" text="Already have an account?" />
+      <PasswordField layoutX="153.0" layoutY="279.0" prefHeight="25.0" prefWidth="283.0" />
+      <PasswordField layoutX="159.0" layoutY="338.0" prefHeight="25.0" prefWidth="283.0" />
    </children>
 </AnchorPane>
