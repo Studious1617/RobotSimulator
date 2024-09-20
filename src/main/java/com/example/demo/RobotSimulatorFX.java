@@ -18,7 +18,7 @@ public class RobotSimulatorFX extends Application {
     // calls everything
     @Override
     public void start(Stage stageOne) throws Exception {
-        // gets the
+        //
         Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
 
         stageOne.setTitle("Welcome to the Robot Simulator");

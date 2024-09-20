@@ -6,8 +6,8 @@ import javafx.scene.control.TextField;
 
 public class LogInController {
     @FXML
-    public TextField EnterEmailTF;
-    public TextField EnterPasswordTF;
+    public TextField LogIn_EnterEmailTF;
+    public TextField LogIn_EnterPasswordTF;
 
     public Button LogInButton;
 
