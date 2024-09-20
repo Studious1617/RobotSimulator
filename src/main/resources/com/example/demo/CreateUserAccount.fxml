@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
-      <TextField fx:id="CreateAccount_EnterNameTF" layoutX="153.0" layoutY="144.0" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" />
+      <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" layoutX="153.0" layoutY="144.0" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;" />
       <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" layoutX="153.0" layoutY="120.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
       <Label alignment="CENTER" layoutX="153.0" layoutY="253.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
-      <Label layoutX="96.0" layoutY="28.0" text="Welcome to the Robot Simulator App">
+      <Label layoutX="96.0" layoutY="28.0" style="-fx-font-family: serif;" text="Welcome to the Robot Simulator App">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="223.0" layoutY="83.0" text="Create an Account">
+      <Label layoutX="223.0" layoutY="83.0" style="-fx-font-family: serif;" text="Create an Account" textAlignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" text="Log In Here" />
+      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" style="-fx-background-color: #c17600;" text="Log In Here" />
       <Button fx:id="CreateAccountButton" layoutX="398.0" layoutY="381.0" mnemonicParsing="false" style="-fx-background-color: #c17600;" text="Enter" />
       <Label alignment="CENTER" layoutX="227.0" layoutY="185.0" prefHeight="18.0" prefWidth="146.0" text="Enter email address here:" />
       <TextField fx:id="CreateAccount_EnterEmailTF" layoutX="153.0" layoutY="217.0" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com" />
@@ -29,4 +30,7 @@
       <PasswordField layoutX="153.0" layoutY="338.0" prefHeight="25.0" prefWidth="283.0" />
       <VBox layoutX="27.0" layoutY="103.0" prefHeight="200.0" prefWidth="100.0" />
    </children>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
 </AnchorPane>
