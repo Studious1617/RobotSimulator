@@ -26,6 +26,6 @@
       <Label alignment="CENTER" layoutX="245.0" layoutY="320.0" prefHeight="18.0" prefWidth="102.0" text="Confirm password" />
       <Label alignment="CENTER" layoutX="16.0" layoutY="393.0" prefHeight="27.0" prefWidth="139.0" text="Already have an account?" />
       <PasswordField layoutX="153.0" layoutY="279.0" prefHeight="25.0" prefWidth="283.0" />
-      <PasswordField layoutX="159.0" layoutY="338.0" prefHeight="25.0" prefWidth="283.0" />
+      <PasswordField layoutX="153.0" layoutY="338.0" prefHeight="25.0" prefWidth="283.0" />
    </children>
 </AnchorPane>
