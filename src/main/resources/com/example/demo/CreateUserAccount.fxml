@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="400.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
       <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" layoutX="153.0" layoutY="144.0" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;" />
       <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" layoutX="153.0" layoutY="120.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
