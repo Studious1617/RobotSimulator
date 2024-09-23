@@ -40,9 +40,10 @@
       <VBox layoutX="14.0" layoutY="363.0" prefHeight="71.0" prefWidth="162.0">
          <children>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="139.0" text="Already have an account?" />
-            <Button fx:id="CreateAccount_LogInButton" mnemonicParsing="false" style="-fx-background-color: #c17600;" text="Log In Here" />
+            <Button fx:id="CreateAccount_LogInButton" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: #c17600;" text="Log In Here" />
          </children>
       </VBox>
+      <VBox layoutX="486.0" layoutY="31.0" prefHeight="97.0" prefWidth="100.0" />
    </children>
    <padding>
       <Insets bottom="100.0" left="100.0" right="50.0" top="50.0" />

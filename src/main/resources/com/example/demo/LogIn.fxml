@@ -24,7 +24,7 @@
       <VBox layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="174.0">
          <children>
             <Label text="Don't have an account?" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #c17600;" text="Create an Account" />
+            <Button fx:id="CreateAnAccountButton" mnemonicParsing="false" onAction="#onCreateAnAccountButtonClick" style="-fx-background-color: #c17600;" text="Create an Account" />
          </children>
       </VBox>
    </children>
