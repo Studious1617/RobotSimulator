@@ -1,15 +1,9 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class CreateUserAccountController {
     @FXML
@@ -44,14 +38,9 @@ public class CreateUserAccountController {
 
     // event for log in button
     @FXML
-    protected void onCreateAccount_LogInButtonClick(Stage stageTwo) throws IOException {
+    protected void onCreateAccount_LogInButtonClick() {
         // go to log in page
-        Parent popUp2 = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
 
-        stageTwo.setTitle("Welcome to the Robot Simulator");
-        Scene sceneOne = new Scene(popUp2, 300, 400);
-        stageTwo.setScene(sceneOne);
-        stageTwo.show();
         //
     }
 }

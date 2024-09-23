@@ -17,7 +17,7 @@ public class LogInController {
     public PasswordField LogIn_EnterPasswordTF;
 
     public Button LogInButton;
-    public Button CreateAnAccountButton;
+    //public Button CreateAnAccountButton;
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     CreateUserAccountController cuaController = new CreateUserAccountController();
@@ -37,11 +37,11 @@ public class LogInController {
 
     @FXML
     protected void onCreateAnAccountButtonClick(Stage stageOne) throws IOException {
-        Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
-
-        stageOne.setTitle("Welcome to the Robot Simulator");
-        Scene sceneOne = new Scene(popUp, 300, 400);
-        stageOne.setScene(sceneOne);
-        stageOne.show();
+//        Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
+//
+//        stageOne.setTitle("Welcome to the Robot Simulator");
+//        Scene sceneOne = new Scene(popUp, 300, 400);
+//        stageOne.setScene(sceneOne);
+//        stageOne.show();
     }
 }

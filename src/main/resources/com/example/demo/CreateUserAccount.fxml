@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -43,7 +44,11 @@
             <Button fx:id="CreateAccount_LogInButton" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: #c17600;" text="Log In Here" />
          </children>
       </VBox>
-      <VBox layoutX="486.0" layoutY="31.0" prefHeight="97.0" prefWidth="100.0" />
+      <VBox layoutX="486.0" layoutY="31.0" prefHeight="97.0" prefWidth="100.0" style="-fx-background-image: C:\Users\Access Point\Desktop\Java Projects Ultimate\RobotSimulator2\src\main\java\com\example\demo\HoneycombImageForProject.png;">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="100.0" left="100.0" right="50.0" top="50.0" />
