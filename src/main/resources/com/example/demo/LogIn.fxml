@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
    <children>
       <Label alignment="CENTER" layoutX="223.0" layoutY="155.0" text="Enter email address here:">
          <font>
@@ -19,7 +19,13 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" text="Log In" />
-      <PasswordField layoutX="168.0" layoutY="230.0" prefHeight="25.0" prefWidth="292.0" />
+      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" style="-fx-background-color: #c17600;" text="Log In" />
+      <PasswordField layoutX="165.0" layoutY="230.0" prefHeight="25.0" prefWidth="292.0" />
+      <VBox layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="174.0">
+         <children>
+            <Label text="Don't have an account?" />
+            <Button mnemonicParsing="false" style="-fx-background-color: #c17600;" text="Create an Account" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
