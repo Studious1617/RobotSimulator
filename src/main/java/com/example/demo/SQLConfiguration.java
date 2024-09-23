@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class SQLConfiguration {
     // url to access the database
-    static String databaseURL = "robot_simulator_db.public.useraccounts";
+    static String databaseURL = "jdbc:postgresql://robotsimulatordatabase.cdimocs062ok.us-east-2.rds.amazonaws.com:5433/robot_simulator_db";
 
     // makes table
     public SQLConfiguration () {
