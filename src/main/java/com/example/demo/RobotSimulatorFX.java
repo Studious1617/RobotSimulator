@@ -15,14 +15,16 @@ public class RobotSimulatorFX extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    // calls everything
+    //
     @Override
     public void start(Stage stageOne) throws Exception {
         //
         Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
 
         stageOne.setTitle("Welcome to the Robot Simulator");
-        stageOne.setScene(new Scene(popUp));
+        Scene sceneOne = new Scene(popUp, 300, 400);
+        stageOne.setScene(sceneOne);
         stageOne.show();
     }
+
 }
