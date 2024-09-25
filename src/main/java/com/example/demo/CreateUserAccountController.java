@@ -1,15 +1,25 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CreateUserAccountController {
+    public Stage stageOne;
+    public Scene sceneOne;
     @FXML
     public TextField CreateAccount_EnterNameTF;
     public TextField CreateAccount_EnterEmailTF;
-    public PasswordField CreateAccount_EnterPasswordTF;
+    public TextField CreateAccount_EnterPasswordTF;
     public PasswordField CreateAccount_ConfirmPasswordTF;
 
     public Button CreateAccountButton;
@@ -19,7 +29,7 @@ public class CreateUserAccountController {
 
     // event for create account button
     @FXML
-    protected void onCreateAccountButtonClick() {
+    protected void onCreateAccountButtonClick(ActionEvent e) throws IOException {
         // get text from textfields
         String fullName = CreateAccount_EnterNameTF.getText();
         String userEmail = CreateAccount_EnterEmailTF.getText();
@@ -31,16 +41,22 @@ public class CreateUserAccountController {
         // add them to the database
         if (confirmPassword.equals(password)) {
             sqlConfiguration.addNewUser(fullName, userEmail, password);
+            // switch to dashboard
+            Parent dashboardPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+            Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            Scene sceneThree = new Scene(dashboardPopUp);
+            stageThree.setScene(sceneThree);
+            stageThree.show();
         }
-        // switch to dashboard
-
     }
 
     // event for log in button
-    @FXML
-    protected void onCreateAccount_LogInButtonClick() {
+    public void onCreateAccount_LogInButtonClick(ActionEvent event) throws IOException {
         // go to log in page
-
-        //
+        Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        sceneOne = new Scene(logInPopUp);
+        stageOne.setScene(sceneOne);
+        stageOne.show();
     }
 }

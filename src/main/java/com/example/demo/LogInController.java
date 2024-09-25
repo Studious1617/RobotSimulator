@@ -1,7 +1,9 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,13 +19,14 @@ public class LogInController {
     public PasswordField LogIn_EnterPasswordTF;
 
     public Button LogInButton;
-    //public Button CreateAnAccountButton;
+    public Button CreateAnAccountButton;
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     CreateUserAccountController cuaController = new CreateUserAccountController();
 
+
     @FXML
-    protected void onLogInButtonClick() {
+    protected void onLogInButtonClick(ActionEvent e) throws IOException{
         // get text from both textfields
         String name = cuaController.CreateAccount_EnterNameTF.getText();
         String email = LogIn_EnterEmailTF.getText();
@@ -32,16 +35,19 @@ public class LogInController {
         // cross-reference them in the database
         sqlConfiguration.userLogIn(name, email, password);
         // if there's a match go to dashboard
-
+        Parent dashboardPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneThree = new Scene(dashboardPopUp);
+        stageThree.setScene(sceneThree);
+        stageThree.show();
     }
 
-    @FXML
-    protected void onCreateAnAccountButtonClick(Stage stageOne) throws IOException {
-//        Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
-//
-//        stageOne.setTitle("Welcome to the Robot Simulator");
-//        Scene sceneOne = new Scene(popUp, 300, 400);
-//        stageOne.setScene(sceneOne);
-//        stageOne.show();
+    public void onCreateAnAccountButtonClick(ActionEvent event) throws IOException {
+        Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
+        Stage stageTwo = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene sceneTwo = new Scene(popUp);
+        stageTwo.setScene(sceneTwo);
+        stageTwo.show();
     }
+
 }
