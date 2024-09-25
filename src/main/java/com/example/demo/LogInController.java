@@ -7,30 +7,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class LogInController {
     @FXML
-    public TextField LogIn_EnterEmailTF;
-    public PasswordField LogIn_EnterPasswordTF;
-
     public Button LogInButton;
     public Button CreateAnAccountButton;
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
-    CreateUserAccountController cuaController = new CreateUserAccountController();
 
-
-    @FXML
-    protected void onLogInButtonClick(ActionEvent e) throws IOException{
-        // get text from both textfields
-        String name = cuaController.CreateAccount_EnterNameTF.getText();
-        String email = LogIn_EnterEmailTF.getText();
-        String password = LogIn_EnterPasswordTF.getText();
+    public void onLogInButtonClick(ActionEvent e) throws IOException{
+        // get text from the textfields
+        String name = CreateUserAccountController.userName;
+        String email = CreateUserAccountController.email;
+        String password = CreateUserAccountController.pass;
 
         // cross-reference them in the database
         sqlConfiguration.userLogIn(name, email, password);

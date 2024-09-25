@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class SQLConfiguration {
     // url to access the database
-    static String databaseURL = "jdbc:postgresql://robotsimulatordatabase.cdimocs062ok.us-east-2.rds.amazonaws.com:5433/robot_simulator_db";
+    static String databaseURL = "jdbc:postgresql://robotsimulatordatabase.cdimocs062ok.us-east-2.rds.amazonaws.com:5433/robot_simulator_db?user=AccessPoint&password=AccessPoint9876";
 
     // makes table
     public SQLConfiguration () {
@@ -21,8 +21,23 @@ public class SQLConfiguration {
 
     //
     public void addNewUser (String name, String email, String password) {
-        String addUserSQL = "INSERT INTO useraccounts (fullname, emailaddress, password)" +
-                " VALUES (?, ?, ?)";
+        String addUserSQL = """
+                DO $$
+                DECLARE
+                    doesExist BOOLEAN;
+                BEGIN
+                    SELECT EXISTS (
+                        SELECT 2
+                        FROM useraccount
+                        WHERE emailaddress = ?
+                    ) INTO doesExist;
+
+                IF doesExist THEN
+                        RAISE NOTICE 'Email already in use. Please select a different one.', ?;
+                    ELSE
+                        INSERT INTO useraccounts VALUES (?, ?, ?)
+                    END IF;
+                END $$;""";
 
         try (Connection connection = DriverManager.getConnection(databaseURL);
              PreparedStatement preparedStatement = connection.prepareStatement(addUserSQL)) {
@@ -50,9 +65,9 @@ public class SQLConfiguration {
                     ) INTO doesExist;
 
                 IF doesExist THEN
-                        RAISE NOTICE '% already exists. Please choose a different email address.', ?;
+                        RAISE NOTICE 'Welcome, %.', ?;
                     ELSE
-                        RAISE NOTICE 'Account created.';
+                        RAISE NOTICE 'Invalid credentials. Please try again or make an account.';
                     END IF;
                 END $$;""";
 
@@ -60,7 +75,7 @@ public class SQLConfiguration {
         PreparedStatement preparedStatement = connection.prepareStatement(logInSQL)) {
 
             preparedStatement.setString(1, email);
-            preparedStatement.setString(2, email);
+            preparedStatement.setString(2, name);
 
             addNewUser(name, email, password);
 

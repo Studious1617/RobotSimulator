@@ -22,14 +22,17 @@ public class CreateUserAccountController {
     public TextField CreateAccount_EnterPasswordTF;
     public PasswordField CreateAccount_ConfirmPasswordTF;
 
+    public static String userName;
+    public static String email;
+    public static String pass;
+
     public Button CreateAccountButton;
     public Button CreateAccount_LogInButton;
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     // event for create account button
-    @FXML
-    protected void onCreateAccountButtonClick(ActionEvent e) throws IOException {
+    public void onCreateAccountButtonClick(ActionEvent e) throws IOException {
         // get text from textfields
         String fullName = CreateAccount_EnterNameTF.getText();
         String userEmail = CreateAccount_EnterEmailTF.getText();
@@ -40,6 +43,10 @@ public class CreateUserAccountController {
         // check if there's no match in database
         // add them to the database
         if (confirmPassword.equals(password)) {
+            userName = fullName;
+            email = userEmail;
+            pass = password;
+
             sqlConfiguration.addNewUser(fullName, userEmail, password);
             // switch to dashboard
             Parent dashboardPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
