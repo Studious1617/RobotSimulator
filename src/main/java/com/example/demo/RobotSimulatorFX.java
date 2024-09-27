@@ -28,3 +28,4 @@ public class RobotSimulatorFX extends Application {
         createAccountStage.show();
     }
 }
+
