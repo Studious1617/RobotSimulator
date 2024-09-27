@@ -16,7 +16,7 @@ public class FactoryLayoutController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //
+    //test
     @Override
     public void start(Stage createAccountStage) throws Exception {
         //
