@@ -38,7 +38,7 @@
                   <DropShadow />
                </effect>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="3">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="3">
                <children>
                   <Label text="Layout Name" />
                </children>
@@ -56,7 +56,7 @@
                      </HBox.margin></Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="4">
+            <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="4">
                <children>
                   <Label text="Layout Name">
                      <HBox.margin>
@@ -70,7 +70,7 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="5">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="5">
                <children>
                   <Label text="Layout Name">
                      <HBox.margin>
@@ -81,7 +81,7 @@
                   <Insets />
                </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="6">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="6">
                <children>
                   <Label text="Layout Name">
                      <HBox.margin>
@@ -92,7 +92,7 @@
                   <Insets />
                </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="7">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="7">
                <children>
                   <Label text="Layout Name">
                      <HBox.margin>

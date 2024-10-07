@@ -19,12 +19,12 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" style="-fx-background-color: #c17600;" text="Log In" />
+      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In" />
       <PasswordField layoutX="165.0" layoutY="230.0" prefHeight="25.0" prefWidth="292.0" />
       <VBox layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="174.0">
          <children>
             <Label text="Don't have an account?" />
-            <Button fx:id="CreateAnAccountButton" mnemonicParsing="false" onAction="#onCreateAnAccountButtonClick" style="-fx-background-color: #c17600;" text="Create an Account" />
+            <Button fx:id="CreateAnAccountButton" mnemonicParsing="false" onAction="#onCreateAnAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Create an Account" />
          </children>
       </VBox>
    </children>

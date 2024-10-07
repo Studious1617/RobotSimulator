@@ -20,8 +20,8 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: #c17600;" text="Log In Here" />
-      <Button fx:id="CreateAccountButton" layoutX="398.0" layoutY="381.0" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: #c17600;" text="Enter" />
+      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In Here" />
+      <Button fx:id="CreateAccountButton" layoutX="398.0" layoutY="381.0" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Enter" />
       <Label alignment="CENTER" layoutX="227.0" layoutY="185.0" prefHeight="18.0" prefWidth="146.0" text="Enter email address here:" />
       <TextField fx:id="CreateAccount_EnterEmailTF" layoutX="153.0" layoutY="217.0" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com" />
       <Label alignment="CENTER" layoutX="245.0" layoutY="320.0" prefHeight="18.0" prefWidth="102.0" text="Confirm password" />

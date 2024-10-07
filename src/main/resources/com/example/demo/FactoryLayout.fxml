@@ -2,55 +2,78 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane />
-      <GridPane gridLinesVisible="true" layoutX="50.0" layoutY="145.0" prefHeight="250.0">
+      <Button layoutX="503.0" layoutY="98.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: DODGERBLUE;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="14.599999999999994">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <VBox layoutX="14.0" layoutY="142.0" prefHeight="58.0" prefWidth="574.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
+      <VBox layoutX="14.0" layoutY="224.0" prefHeight="170.0" prefWidth="574.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.599999999999994" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.600000000000023" />
+      <GridPane gridLinesVisible="true" layoutX="29.0" layoutY="234.0" prefHeight="152.0" prefWidth="408.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="163.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox prefHeight="150.0" prefWidth="150.0" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.rowIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.rowIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.rowIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.rowIndex="4" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="4" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="150.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="60.0" prefWidth="160.0" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="4" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <TextField layoutX="50.0" layoutY="100.0" prefHeight="40.0" prefWidth="500.0" />
-      <BorderPane prefHeight="200.0" prefWidth="200.0" />
+      <ChoiceBox layoutX="467.0" layoutY="258.0" prefHeight="26.0" prefWidth="102.0" AnchorPane.bottomAnchor="115.60000000000002" AnchorPane.rightAnchor="30.599999999999994" />
+      <Label layoutX="468.0" layoutY="240.0" prefHeight="18.0" prefWidth="101.0" text="Facing Directions:" AnchorPane.bottomAnchor="141.6" AnchorPane.rightAnchor="30.400000000000006" />
+      <TextField layoutX="20.0" layoutY="149.0" prefHeight="45.0" prefWidth="561.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+      <VBox layoutX="14.0" layoutY="101.0" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" text="Back">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="71.0" prefWidth="574.0" style="-fx-background-color: GOLDENROD;">
+         <children>
+            <Label prefHeight="72.0" prefWidth="150.0" text="     App Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children></VBox>
    </children>
 </AnchorPane>
