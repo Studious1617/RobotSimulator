@@ -25,8 +25,8 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
-                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
+                  <Button fx:id="LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
+                  <Button fx:id="RulesetsPageButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Button>
@@ -48,9 +48,9 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                  <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                  <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                  <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
@@ -105,36 +105,36 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                  <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                  <Button fx:id="viewLayoutButton2" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                  <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
                </children></HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                  <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                  <Button fx:id="viewLayoutButton3" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                  <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
                </children></HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                  <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                  <Button fx:id="viewLayoutButton4" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                  <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
                </children></HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                  <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                  <Button fx:id="viewLayoutButton5" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                  <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
@@ -160,12 +160,12 @@
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Button mnemonicParsing="false" text="Reports" />
+                  <Button fx:id="reportsButton" mnemonicParsing="false" text="Reports" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button mnemonicParsing="false" text="Create" />
+                  <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" text="Create" />
                </children>
             </HBox>
          </children>
