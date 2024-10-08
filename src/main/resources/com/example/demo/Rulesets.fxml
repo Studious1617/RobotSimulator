@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsController">
     <children>
         <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray;">
             <columnConstraints>
@@ -25,8 +25,8 @@
             <children>
                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Button fx:id="LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
-                        <Button fx:id="RulesetsPageButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" style="-fx-background-color: Lightgray;" text="Rulesets">
+                        <Button fx:id="RulePage_LayoutsPageButton" mnemonicParsing="false" onAction="#onLayoutPageClick" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
+                        <Button fx:id="RulePage_RulesetsPageButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" style="-fx-background-color: Lightgray;" text="Rulesets">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin></Button>
@@ -141,7 +141,7 @@
                     </children></HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="300.0" style="-fx-background-color: gray;">
                     <children>
-                        <Label text="Dashboard Layouts">
+                        <Label text="Dashboard Rulesets">
                             <padding>
                                 <Insets left="10.0" />
                             </padding>
@@ -165,7 +165,7 @@
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" text="Create" />
+                        <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewRulesetClick" text="Create" />
                     </children>
                 </HBox>
             </children>

@@ -2,16 +2,23 @@ package com.example.demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class DashboardController {
     @FXML
     public GridPane DashboardGridPane;
     public Node leftHBox;
     public Node rightHBox;
+
+    public String FactoryLayoutName;
 
     public Button LayoutsPageButton;
     public Button RulesetsPageButton;
@@ -38,7 +45,19 @@ public class DashboardController {
 
     @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
-        //
-        RulesetsPageButton.setStyle("-fx-background-color: null");
+        Parent popUp = FXMLLoader.load(getClass().getResource("FactoryLayout.fxml"));
+        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneFive = new Scene(popUp);
+        stageFive.setScene(sceneFive);
+        stageFive.show();
+    }
+
+    @FXML
+    public void onRulesetsPageClick(ActionEvent e) throws Exception {
+        Parent popUp = FXMLLoader.load(getClass().getResource("Rulesets.fxml"));
+        Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSix = new Scene(popUp);
+        stageSix.setScene(sceneSix);
+        stageSix.show();
     }
 }

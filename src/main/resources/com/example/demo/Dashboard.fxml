@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
-      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray;">
+      <GridPane fx:id="DashboardGridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,8 +25,8 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
-                  <Button fx:id="RulesetsPageButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
+                  <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
+                  <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Button>

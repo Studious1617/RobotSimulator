@@ -58,7 +58,7 @@
       </GridPane>
       <ChoiceBox layoutX="467.0" layoutY="258.0" prefHeight="26.0" prefWidth="102.0" AnchorPane.bottomAnchor="115.60000000000002" AnchorPane.rightAnchor="30.599999999999994" />
       <Label layoutX="468.0" layoutY="240.0" prefHeight="18.0" prefWidth="101.0" text="Facing Directions:" AnchorPane.bottomAnchor="141.6" AnchorPane.rightAnchor="30.400000000000006" />
-      <TextField layoutX="20.0" layoutY="149.0" prefHeight="45.0" prefWidth="561.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+      <TextField fx:id="FactoryLayoutName" layoutX="20.0" layoutY="149.0" prefHeight="45.0" prefWidth="561.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
       <VBox layoutX="14.0" layoutY="101.0" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" text="Back">
