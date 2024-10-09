@@ -19,7 +19,7 @@
                                       <Font size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="12.0" top="10.0" />
+                  <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
             <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER">
