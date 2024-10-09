@@ -22,7 +22,7 @@ public class RobotSimulatorFX extends Application {
         //
         Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
 
-        //createAccountStage.setTitle("Welcome to the Robot Simulator");
+        // createAccountStage.setTitle("Welcome to the Robot Simulator");
         Scene createAccountScene = new Scene(popUp);
         createAccountStage.setScene(createAccountScene);
         createAccountStage.show();
