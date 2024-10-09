@@ -29,8 +29,14 @@
             </Label>
             <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;">
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="200.0" right="200.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </TextField>
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="246.0" text="Enter email address here:">
                <font>
@@ -39,8 +45,11 @@
             </Label>
             <TextField fx:id="CreateAccount_EnterEmailTF" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com">
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="200.0" right="200.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <Label alignment="CENTER" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER">
                <font>
@@ -49,8 +58,11 @@
             </Label>
             <PasswordField fx:id="CreateAccount_EnterPasswordTF" prefHeight="25.0" prefWidth="283.0">
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="200.0" right="200.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </PasswordField>
             <Label alignment="CENTER" text="Confirm password:">
                <font>
@@ -59,14 +71,17 @@
             </Label>
             <PasswordField fx:id="CreateAccount_ConfirmPasswordTF" prefHeight="25.0" prefWidth="283.0">
                <VBox.margin>
-                  <Insets bottom="5.0" />
+                  <Insets bottom="5.0" left="200.0" right="200.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </PasswordField>
             <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="396.0">
                <children>
                   <Button fx:id="CreateAccountButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Enter">
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="200.0" />
                      </HBox.margin>
                      <font>
                         <Font size="14.0" />
@@ -90,6 +105,9 @@
                      </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin>
             </VBox>
          </children>
          <padding>

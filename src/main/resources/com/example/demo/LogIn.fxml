@@ -1,31 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
+<AnchorPane minHeight="650.0" minWidth="1350.0" prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
    <children>
-      <Label alignment="CENTER" layoutX="223.0" layoutY="155.0" text="Enter email address here:">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label layoutX="152.0" layoutY="76.0" text="Log In with Existing Account">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <TextField fx:id="EnterEmailTF" layoutX="164.0" layoutY="175.0" prefHeight="25.0" prefWidth="292.0" promptText="abc123@email.com" />
-      <Label alignment="CENTER" layoutX="246.0" layoutY="210.0" text="Enter password here:">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Button fx:id="LogInButton" layoutX="410.0" layoutY="270.0" mnemonicParsing="false" onAction="#onLogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In" />
-      <PasswordField layoutX="165.0" layoutY="230.0" prefHeight="25.0" prefWidth="292.0" />
-      <VBox layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="174.0">
+      <VBox alignment="TOP_CENTER" layoutX="121.0" layoutY="136.0" minHeight="430.0" minWidth="1193.0" prefHeight="430.0" prefWidth="1193.0" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="36.0">
          <children>
-            <Label text="Don't have an account?" />
-            <Button fx:id="CreateAnAccountButton" mnemonicParsing="false" onAction="#onCreateAnAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Create an Account" />
+            <Label text="Log In with Existing Account">
+               <font>
+                  <Font name="Bell MT" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" text="Enter email address here:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EnterEmailTF" prefHeight="25.0" prefWidth="292.0" promptText="abc123@email.com">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="200.0" right="200.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" text="Enter password here:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField prefHeight="25.0" prefWidth="292.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="200.0" right="200.0" />
+               </VBox.margin>
+            </PasswordField>
+            <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="1057.0">
+               <children>
+                  <Button fx:id="LogInButton" mnemonicParsing="false" onAction="#onLogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="69.0" prefWidth="1091.0">
+               <children>
+                  <Label text="Don't have an account?">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="CreateAnAccountButton" mnemonicParsing="false" onAction="#onCreateAnAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Create an Account">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+            </VBox>
          </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
       </VBox>
    </children>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
 </AnchorPane>
