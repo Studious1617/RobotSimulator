@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
    <children>
-      <Button layoutX="503.0" layoutY="98.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: DODGERBLUE;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="14.599999999999994">
+      <Button fx:id="saveButton" layoutX="503.0" layoutY="98.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: DODGERBLUE;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="14.599999999999994">
          <font>
             <Font size="14.0" />
          </font>
@@ -29,39 +29,39 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ChoiceBox layoutX="10.0" layoutY="12.0" prefHeight="60.0" prefWidth="160.0" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="4" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ChoiceBox prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_00" layoutX="10.0" layoutY="12.0" prefHeight="60.0" prefWidth="160.0" />
+            <ChoiceBox fx:id="CB_10" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="CB_20" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" />
+            <ChoiceBox fx:id="CB_30" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" />
+            <ChoiceBox fx:id="CB_40" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" />
+            <ChoiceBox fx:id="CB_01" prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_11" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_21" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_31" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_41" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_02" prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_12" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_22" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_32" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_42" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_03" prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_13" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_23" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_33" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_43" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_04" prefHeight="60.0" prefWidth="160.0" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_14" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_24" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_34" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_44" prefHeight="60.0" prefWidth="160.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ChoiceBox layoutX="467.0" layoutY="258.0" prefHeight="26.0" prefWidth="102.0" AnchorPane.bottomAnchor="115.60000000000002" AnchorPane.rightAnchor="30.599999999999994" />
+      <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="26.0" prefWidth="102.0" AnchorPane.bottomAnchor="115.60000000000002" AnchorPane.rightAnchor="30.599999999999994" />
       <Label layoutX="468.0" layoutY="240.0" prefHeight="18.0" prefWidth="101.0" text="Facing Directions:" AnchorPane.bottomAnchor="141.6" AnchorPane.rightAnchor="30.400000000000006" />
       <TextField fx:id="FactoryLayoutName" layoutX="20.0" layoutY="149.0" prefHeight="45.0" prefWidth="561.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
       <VBox layoutX="14.0" layoutY="101.0" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" text="Back">
+            <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="35.0" prefWidth="82.0" text="Back">
                <font>
                   <Font size="14.0" />
                </font>
