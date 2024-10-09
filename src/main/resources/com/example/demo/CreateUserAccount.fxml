@@ -5,30 +5,97 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="400.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="650.0" minWidth="1350.0" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
-      <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" layoutX="153.0" layoutY="144.0" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;" />
-      <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" layoutX="153.0" layoutY="120.0" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="153.0" layoutY="253.0" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER" />
-      <Label layoutX="96.0" layoutY="28.0" style="-fx-font-family: serif;" text="Welcome to the Robot Simulator App">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="223.0" layoutY="83.0" style="-fx-font-family: serif;" text="Create an Account" textAlignment="CENTER">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="CreateAccount_LogInButton" layoutX="77.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In Here" />
-      <Button fx:id="CreateAccountButton" layoutX="398.0" layoutY="381.0" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Enter" />
-      <Label alignment="CENTER" layoutX="227.0" layoutY="185.0" prefHeight="18.0" prefWidth="146.0" text="Enter email address here:" />
-      <TextField fx:id="CreateAccount_EnterEmailTF" layoutX="153.0" layoutY="217.0" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com" />
-      <Label alignment="CENTER" layoutX="245.0" layoutY="320.0" prefHeight="18.0" prefWidth="102.0" text="Confirm password" />
-      <Label alignment="CENTER" layoutX="16.0" layoutY="393.0" prefHeight="27.0" prefWidth="139.0" text="Already have an account?" />
-      <PasswordField fx:id="CreateAccount_EnterPasswordTF" layoutX="153.0" layoutY="279.0" prefHeight="25.0" prefWidth="283.0" />
-      <PasswordField fx:id="CreateAccount_ConfirmPasswordTF" layoutX="153.0" layoutY="338.0" prefHeight="25.0" prefWidth="283.0" />
-      <VBox layoutX="27.0" layoutY="103.0" prefHeight="200.0" prefWidth="100.0" />
+      <VBox alignment="TOP_CENTER" layoutX="98.0" layoutY="47.0" minHeight="700.0" minWidth="800.0" prefHeight="700.0" prefWidth="800.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="-3.0">
+         <children>
+            <Label style="-fx-font-family: serif;" text="Welcome to the Robot Simulator App">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label style="-fx-font-family: serif;" text="Create an Account" textAlignment="CENTER">
+               <font>
+                                      <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label id="CreateAccount_EnterNameLabel" alignment="CENTER" prefHeight="18.0" prefWidth="283.0" text="Enter name here:" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" prefHeight="25.0" prefWidth="283.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="27.0" prefWidth="246.0" text="Enter email address here:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="CreateAccount_EnterEmailTF" prefHeight="26.0" prefWidth="283.0" promptText="abc123@email.com">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="283.0" text="Enter password here:" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="CreateAccount_EnterPasswordTF" prefHeight="25.0" prefWidth="283.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label alignment="CENTER" text="Confirm password:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="CreateAccount_ConfirmPasswordTF" prefHeight="25.0" prefWidth="283.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </PasswordField>
+            <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="396.0">
+               <children>
+                  <Button fx:id="CreateAccountButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Enter">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+                <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <VBox prefHeight="59.0" prefWidth="396.0">
+               <children>
+                  <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="179.0" text="Already have an account?">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="CreateAccount_LogInButton" mnemonicParsing="false" onAction="#onCreateAccount_LogInButtonClick" style="-fx-background-color: GOLDENROD;" text="Log In Here">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
