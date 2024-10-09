@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,6 +52,9 @@ public class DashboardController {
         Scene sceneFive = new Scene(popUp);
         stageFive.setScene(sceneFive);
         stageFive.show();
+        // list of the choicebox options
+        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
+
     }
 
     @FXML
