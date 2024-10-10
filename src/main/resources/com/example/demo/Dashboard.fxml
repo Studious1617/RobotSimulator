@@ -5,171 +5,194 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
+<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
-      <GridPane fx:id="DashboardGridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <HBox layoutX="-19.0" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Pane prefHeight="600.0" prefWidth="267.0" style="-fx-background-color: LightYellow;" />
+            <GridPane fx:id="DashboardGridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: lightgray;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
-                  <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
-                     <HBox.margin>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
+                        <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
                         <Insets />
-                     </HBox.margin></Button>
-               </children>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="3">
-               <children>
-                  <Label text="Layout Name" />
-               </children>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <children>
-                  <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="4">
-               <children>
-                  <Label text="Layout Name">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></Label>
-               </children>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="5">
-               <children>
-                  <Label text="Layout Name">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></Label>
-               </children>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="6">
-               <children>
-                  <Label text="Layout Name">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></Label>
-               </children>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="7">
-               <children>
-                  <Label text="Layout Name">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></Label>
-               </children>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
-                  <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button fx:id="viewLayoutButton2" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-               </children></HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <children>
-                  <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button fx:id="viewLayoutButton3" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-               </children></HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <children>
-                  <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button fx:id="viewLayoutButton4" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-               </children></HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
-               <children>
-                  <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                  <Button fx:id="viewLayoutButton5" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
-                  <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-               </children></HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="300.0" style="-fx-background-color: gray;">
-               <children>
-                  <Label text="Dashboard Layouts">
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="Layout Name" />
+                     </children>
                      <padding>
                         <Insets left="10.0" />
                      </padding>
-                  </Label>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="4">
+                     <children>
+                        <Label text="Layout Name">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="5">
+                     <children>
+                        <Label text="Layout Name">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="6">
+                     <children>
+                        <Label text="Layout Name">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="7">
+                     <children>
+                        <Label text="Layout Name">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                        <Button fx:id="viewLayoutButton2" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                        <Button fx:id="viewLayoutButton3" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                        <Button fx:id="viewLayoutButton4" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
+                        <Button fx:id="viewLayoutButton5" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="300.0" style="-fx-background-color: gray;">
+                     <children>
+                        <Label text="Dashboard Layouts">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Lightgray;" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Simulation Runner App">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="73.0" prefWidth="120.0" text="Reports" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" prefHeight="75.0" prefWidth="124.0" text="Create" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Lightgray;" GridPane.rowIndex="1">
-               <children>
-                  <Label text="Simulation Runner App">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-               <children>
-                  <Button fx:id="reportsButton" mnemonicParsing="false" text="Reports" />
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" text="Create" />
-               </children>
-            </HBox>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </GridPane>
+            <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: lightYellow;" />
          </children>
-      </GridPane>
+      </HBox>
       <ListView layoutX="100.0" layoutY="-165.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
