@@ -170,5 +170,6 @@
             </HBox>
          </children>
       </GridPane>
+      <ListView layoutX="100.0" layoutY="-165.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
