@@ -20,7 +20,7 @@ public class DashboardController {
     public Node leftHBox;
     public Node rightHBox;
 
-    public String FactoryLayoutName;
+
 
     public Button LayoutsPageButton;
     public Button RulesetsPageButton;
@@ -45,16 +45,31 @@ public class DashboardController {
     public Button deleteLayoutButton4;
     public Button deleteLayoutButton5;
 
+    private String emailAddress;
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
     @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
-        Parent popUp = FXMLLoader.load(getClass().getResource("FactoryLayout.fxml"));
+        // sets user's email into Factory Layout
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
+        Parent popUp = loader.load();
+        FactoryLayoutController factoryLayoutController = loader.getController();
+        factoryLayoutController.setEmailAddress(emailAddress);
+
+        // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(popUp);
         stageFive.setScene(sceneFive);
         stageFive.show();
-        // list of the choicebox options
-        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
 
+        // sets the options for all the choiceboxes
+        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
+        ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
     }
 
     @FXML

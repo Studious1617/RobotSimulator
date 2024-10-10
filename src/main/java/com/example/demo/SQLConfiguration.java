@@ -13,13 +13,22 @@ public class SQLConfiguration {
             statement.execute("CREATE TABLE IF NOT EXISTS userAccounts (" +
                     "fullname VARCHAR(50) NOT NULL," +
                     "emailAddress VARCHAR(50) NOT NULL UNIQUE," +
-                    "password VARCHAR(30) NOT NULL UNIQUE)");
+                    "password VARCHAR(30) NOT NULL)");
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e);
         }
     }
 
-    //
+    public boolean checkUserInfo (String checkName, String checkEmail, String checkPassword) {
+        return checkName != null && (!checkName.trim().isEmpty() &&
+                checkEmail != null) && (!checkEmail.trim().isEmpty() &&
+                checkPassword != null) && !checkPassword.trim().isEmpty();
+    }
+    public boolean checkUserLogIn (String checkEmail, String checkPassword) {
+        return checkEmail != null && !checkEmail.trim().isEmpty() &&
+                checkPassword != null && !checkPassword.trim().isEmpty();
+    }
+
     public void addNewUser (String name, String email, String password) {
         String addUserSQL = """
                 DO $$
@@ -33,7 +42,7 @@ public class SQLConfiguration {
                     ) INTO doesExist;
 
                 IF doesExist THEN
-                        RAISE NOTICE 'Email already in use. Please select a different one.', ?;
+                        RAISE NOTICE 'Email already in use. Please select a different one.';
                     ELSE
                         INSERT INTO useraccounts VALUES (?, ?, ?)
                     END IF;
@@ -41,16 +50,19 @@ public class SQLConfiguration {
 
         try (Connection connection = DriverManager.getConnection(databaseURL);
              PreparedStatement preparedStatement = connection.prepareStatement(addUserSQL)) {
+                if (checkUserInfo(name, email, password)) {
+                    preparedStatement.setString(1, email);
+                    preparedStatement.setString(2, name);
+                    preparedStatement.setString(3, email);
+                    preparedStatement.setString(4, password);
 
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-
-            preparedStatement.execute();
+                    preparedStatement.execute();
+                }
         } catch (SQLException e) {
             System.out.println("Error adding user: " + e);
         }
     }
+
 
     public void userLogIn (String name, String email, String password) {
         String logInSQL = """
@@ -70,18 +82,18 @@ public class SQLConfiguration {
                         RAISE NOTICE 'Invalid credentials. Please try again or make an account.';
                     END IF;
                 END $$;""";
+        if (checkUserInfo(name, email, password)) {
+            try (Connection connection = DriverManager.getConnection(databaseURL);
+                 PreparedStatement preparedStatement = connection.prepareStatement(logInSQL)) {
 
-        try (Connection connection = DriverManager.getConnection(databaseURL);
-        PreparedStatement preparedStatement = connection.prepareStatement(logInSQL)) {
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, name);
 
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, name);
+                addNewUser(name, email, password);
 
-            addNewUser(name, email, password);
-
-        } catch (SQLException e) {
-            System.out.println("Error checking user account: " + e);
+            } catch (SQLException e) {
+                System.out.println("Error checking user account: " + e);
+            }
         }
-
     }
 }

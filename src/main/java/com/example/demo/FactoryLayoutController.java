@@ -5,46 +5,59 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class FactoryLayoutController {
+public class FactoryLayoutController implements Initializable {
     @FXML
-    public ChoiceBox CB_00;
-    public ChoiceBox CB_10;
-    public ChoiceBox CB_20;
-    public ChoiceBox CB_30;
-    public ChoiceBox CB_40;
+    ChoiceBox<String>
+            CB_00, CB_10, CB_20, CB_30, CB_40,
+            CB_01, CB_11, CB_21, CB_31, CB_41,
+            CB_02, CB_12, CB_22, CB_32, CB_42,
+            CB_03, CB_13, CB_23, CB_33, CB_43,
+            CB_04, CB_14, CB_24, CB_34, CB_44;
+    @FXML
+    ChoiceBox<String> robotDirectionCB;
 
-    public ChoiceBox CB_01;
-    public ChoiceBox CB_11;
-    public ChoiceBox CB_21;
-    public ChoiceBox CB_31;
-    public ChoiceBox CB_41;
+    private String emailAddress;
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+    @FXML
+    public TextField factoryLayoutName;
 
-    public ChoiceBox CB_02;
-    public ChoiceBox CB_12;
-    public ChoiceBox CB_22;
-    public ChoiceBox CB_32;
-    public ChoiceBox CB_42;
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle) {
+        ChoiceBox<String>[] choiceBoxes = new ChoiceBox[]{
+                CB_00, CB_10, CB_20, CB_30, CB_40,
+                CB_01, CB_11, CB_21, CB_31, CB_41,
+                CB_02, CB_12, CB_22, CB_32, CB_42,
+                CB_03, CB_13, CB_23, CB_33, CB_43,
+                CB_04, CB_14, CB_24, CB_34, CB_44};
 
-    public ChoiceBox CB_03;
-    public ChoiceBox CB_13;
-    public ChoiceBox CB_23;
-    public ChoiceBox CB_33;
-    public ChoiceBox CB_43;
-
-    public ChoiceBox CB_04;
-    public ChoiceBox CB_14;
-    public ChoiceBox CB_24;
-    public ChoiceBox CB_34;
-    public ChoiceBox CB_44;
+        // sets the options for all the choiceboxes
+        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
+        ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
+        // adds the options
+        for (ChoiceBox<String> cell : choiceBoxes){
+            cell.setItems(choiceBoxOptions);
+        }
+        robotDirectionCB.setItems(robotDirection);
+    }
 
     @FXML
     public void onBackButton(ActionEvent event) throws Exception {
@@ -54,8 +67,15 @@ public class FactoryLayoutController {
         stageThree.setScene(sceneThree);
         stageThree.show();
     }
+
     @FXML
     public void onSaveLayoutButton(ActionEvent e) throws Exception {
+        // gets the info to save the layout to the database/table
+        String userEmail = getEmailAddress();
+        String layoutName = factoryLayoutName.getText();
+        // stream to get the choice boxes' value into a list
+        // get the value from the robotDirection choicebox
 
+        // enter the data into the layouts table
     }
 }

@@ -39,28 +39,34 @@ public class CreateUserAccountController {
         String password = CreateAccount_EnterPasswordTF.getText();
         String confirmPassword = CreateAccount_ConfirmPasswordTF.getText();
 
-        // check password
-        // check if there's no match in database
-        // add them to the database
-        if (confirmPassword.equals(password)) {
-            userName = fullName;
-            email = userEmail;
-            pass = password;
+        if (sqlConfiguration.checkUserInfo(fullName, userEmail, password)
+                && password.equals(confirmPassword)) {
+            // sets up loader for the fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            // loads the fxml
+            Parent dashboardPopUp = loader.load();
+            // gets the controller fx:id from the fxml
+            DashboardController dashboardController = loader.getController();
+            // makes a dashboard object with the user's email
+            dashboardController.setEmailAddress(userEmail);
 
+            // adds the user to the database
             sqlConfiguration.addNewUser(fullName, userEmail, password);
-            // switch to dashboard
-            Parent dashboardPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+
+            // switch to Dashboard
             Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
             Scene sceneThree = new Scene(dashboardPopUp);
             stageThree.setScene(sceneThree);
             stageThree.show();
+        } else {
+            System.out.println("Invalid credentials. Try again.");
         }
     }
 
     // event for log in button
     public void onCreateAccount_LogInButtonClick(ActionEvent event) throws IOException {
         // go to log in page
-        Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        Parent logInPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneOne = new Scene(logInPopUp);
         stageOne.setScene(sceneOne);
