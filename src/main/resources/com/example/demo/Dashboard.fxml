@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
@@ -26,40 +27,99 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: Silver;" text="Layouts" />
-                        <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="58.0" prefWidth="98.0" text="Rulesets">
+                        <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: white;" text="Layouts">
+                           <font>
+                              <Font name="Bodoni MT Condensed" size="24.0" />
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="58.0" prefWidth="120.0" style="-fx-background-color: LightCyan;" text="Rulesets">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font name="Bodoni MT Condensed" size="24.0" />
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
                         </Button>
                      </children>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                      <effect>
-                        <DropShadow />
+                        <InnerShadow />
                      </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="3">
                      <children>
-                        <Label text="Layout Name" />
+                        <Label text="Layout Name">
+                           <font>
+                              <Font name="Book Antiqua Italic" size="18.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
                         <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="4">
                      <children>
@@ -67,6 +127,9 @@
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua Italic" size="18.0" />
+                           </font>
                         </Label>
                      </children>
                      <GridPane.margin>
@@ -75,6 +138,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="5">
                      <children>
@@ -82,11 +148,17 @@
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua Italic" size="18.0" />
+                           </font>
                         </Label>
                      </children>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="6">
                      <children>
@@ -94,11 +166,17 @@
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua Italic" size="18.0" />
+                           </font>
                         </Label>
                      </children>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="7">
                      <children>
@@ -106,55 +184,172 @@
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua Italic" size="18.0" />
+                           </font>
                         </Label>
                      </children>
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
-                        <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                        <Button fx:id="viewLayoutButton2" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="viewLayoutButton2" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
                         <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                        <Button fx:id="viewLayoutButton3" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="viewLayoutButton3" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
                         <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
-                        <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                        <Button fx:id="viewLayoutButton4" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="viewLayoutButton4" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
                         <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete" />
-                        <Button fx:id="viewLayoutButton5" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View" />
+                        <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="viewLayoutButton5" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin></Button>
                         <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
-                              <Insets right="10.0" />
+                              <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="300.0" style="-fx-background-color: gray;">
                      <children>
@@ -162,6 +357,9 @@
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Bodoni MT Black" size="36.0" />
+                           </font>
                         </Label>
                      </children>
                   </HBox>
@@ -171,19 +369,51 @@
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Book Antiqua" size="24.0" />
+                           </font>
                         </Label>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="73.0" prefWidth="120.0" text="Reports" />
+                        <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="81.0" prefWidth="120.0" text="Reports">
+                           <font>
+                              <Font name="Bodoni MT Condensed" size="24.0" />
+                           </font>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
                      </children>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" prefHeight="75.0" prefWidth="124.0" text="Create" />
+                        <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" prefHeight="84.0" prefWidth="120.0" style="-fx-background-color: SkyBlue;" text="Create">
+                           <font>
+                              <Font name="Bodoni MT Condensed" size="24.0" />
+                           </font></Button>
                      </children>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </HBox>
                </children>
                <HBox.margin>
@@ -193,6 +423,6 @@
             <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: lightYellow;" />
          </children>
       </HBox>
-      <ListView layoutX="100.0" layoutY="-165.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView layoutX="114.0" layoutY="-247.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
