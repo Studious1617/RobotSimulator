@@ -9,15 +9,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class FactoryLayoutController implements Initializable {
     @FXML
@@ -40,21 +41,23 @@ public class FactoryLayoutController implements Initializable {
     @FXML
     public TextField factoryLayoutName;
 
+    public ChoiceBox<String>[] choiceBoxes = new ChoiceBox[]{
+            CB_00, CB_10, CB_20, CB_30, CB_40,
+            CB_01, CB_11, CB_21, CB_31, CB_41,
+            CB_02, CB_12, CB_22, CB_32, CB_42,
+            CB_03, CB_13, CB_23, CB_33, CB_43,
+            CB_04, CB_14, CB_24, CB_34, CB_44};
+
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
-        ChoiceBox<String>[] choiceBoxes = new ChoiceBox[]{
-                CB_00, CB_10, CB_20, CB_30, CB_40,
-                CB_01, CB_11, CB_21, CB_31, CB_41,
-                CB_02, CB_12, CB_22, CB_32, CB_42,
-                CB_03, CB_13, CB_23, CB_33, CB_43,
-                CB_04, CB_14, CB_24, CB_34, CB_44};
 
         // sets the options for all the choiceboxes
         ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
+
         // adds the options
-        for (ChoiceBox<String> cell : choiceBoxes){
-            cell.setItems(choiceBoxOptions);
+        for (ChoiceBox<String> box : choiceBoxes){
+            box.setItems(choiceBoxOptions);
         }
         robotDirectionCB.setItems(robotDirection);
     }
@@ -74,8 +77,12 @@ public class FactoryLayoutController implements Initializable {
         String userEmail = getEmailAddress();
         String layoutName = factoryLayoutName.getText();
         // stream to get the choice boxes' value into a list
+        List<String> choiceboxStream = Arrays.stream(choiceBoxes)
+                .map(choiceBoxes -> choiceBoxes.getValue())
+                .toList();
         // get the value from the robotDirection choicebox
-
+        String directionValue = robotDirectionCB.getValue();
         // enter the data into the layouts table
+
     }
 }

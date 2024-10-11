@@ -66,10 +66,6 @@ public class DashboardController {
         Scene sceneFive = new Scene(popUp);
         stageFive.setScene(sceneFive);
         stageFive.show();
-
-        // sets the options for all the choiceboxes
-        ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
-        ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
     }
 
     @FXML

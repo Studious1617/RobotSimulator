@@ -28,7 +28,7 @@ public class LogInController {
             sqlConfiguration.userLogIn(name, email, password);
 
             // sets user email instance into Dashboard
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LogIn.fxml"));
             Parent dashboardPopUp = loader.load();
             DashboardController dashboardController = loader.getController();
             dashboardController.setEmailAddress(email);

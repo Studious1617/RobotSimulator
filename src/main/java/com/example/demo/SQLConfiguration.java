@@ -63,7 +63,6 @@ public class SQLConfiguration {
         }
     }
 
-
     public void userLogIn (String name, String email, String password) {
         String logInSQL = """
                 DO $$
@@ -82,18 +81,19 @@ public class SQLConfiguration {
                         RAISE NOTICE 'Invalid credentials. Please try again or make an account.';
                     END IF;
                 END $$;""";
-        if (checkUserInfo(name, email, password)) {
+
             try (Connection connection = DriverManager.getConnection(databaseURL);
                  PreparedStatement preparedStatement = connection.prepareStatement(logInSQL)) {
+                if (checkUserLogIn(email, password)) {
+                    preparedStatement.setString(1, email);
+                    preparedStatement.setString(2, name);
 
-                preparedStatement.setString(1, email);
-                preparedStatement.setString(2, name);
-
-                addNewUser(name, email, password);
-
+                    addNewUser(name, email, password);
+                }
             } catch (SQLException e) {
                 System.out.println("Error checking user account: " + e);
             }
         }
-    }
+
 }
+

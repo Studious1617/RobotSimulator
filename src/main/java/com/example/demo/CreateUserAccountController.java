@@ -66,7 +66,7 @@ public class CreateUserAccountController {
     // event for log in button
     public void onCreateAccount_LogInButtonClick(ActionEvent event) throws IOException {
         // go to log in page
-        Parent logInPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
         stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneOne = new Scene(logInPopUp);
         stageOne.setScene(sceneOne);
