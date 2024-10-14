@@ -80,4 +80,19 @@ public class DashboardController {
         stageSix.setScene(sceneSix);
         stageSix.show();
     }
+
+
+    //Method for what happens when the first view button is clicked
+    //To make more versitle later
+    @FXML
+    public void onViewButton1Click(ActionEvent e) throws Exception {
+        Parent popUp = FXMLLoader.load(getClass().getResource("FactoryLayoutView1.fxml"));
+        Stage stageSeven = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSeven = new Scene(popUp);
+        stageSeven.setScene(sceneSeven);
+        stageSeven.show();
+
+
+    }
+
 }
