@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -15,17 +16,20 @@ public class LogInController {
     public Button LogInButton;
     public Button CreateAnAccountButton;
 
+    public TextField enterEmailTF;
+    public TextField enterPasswordTF;
+
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     public void onLogInButtonClick(ActionEvent e) throws IOException{
         // get text from the textfields
-        String name = CreateUserAccountController.userName;
-        String email = CreateUserAccountController.email;
-        String password = CreateUserAccountController.pass;
+        // String name = CreateUserAccountController.userName;
+        String email = enterEmailTF.getText();
+        String password = enterPasswordTF.getText();
 
         if (sqlConfiguration.checkUserLogIn(email, password)) {
             // cross-reference them in the database
-            sqlConfiguration.userLogIn(name, email, password);
+            sqlConfiguration.userLogIn(email, password);
 
             // sets user email instance into Dashboard
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));

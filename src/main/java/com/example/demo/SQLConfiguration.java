@@ -20,9 +20,9 @@ public class SQLConfiguration {
     }
 
     public boolean checkUserInfo (String checkName, String checkEmail, String checkPassword) {
-        return checkName != null && (!checkName.trim().isEmpty() &&
-                checkEmail != null) && (!checkEmail.trim().isEmpty() &&
-                checkPassword != null) && !checkPassword.trim().isEmpty();
+        return checkName != null && !checkName.trim().isEmpty() &&
+                checkEmail != null && !checkEmail.trim().isEmpty() &&
+                checkPassword != null && !checkPassword.trim().isEmpty();
     }
     public boolean checkUserLogIn (String checkEmail, String checkPassword) {
         return checkEmail != null && !checkEmail.trim().isEmpty() &&
@@ -30,70 +30,97 @@ public class SQLConfiguration {
     }
 
     public void addNewUser (String name, String email, String password) {
-        String addUserSQL = """
-                DO $$
-                DECLARE
-                    doesExist BOOLEAN;
-                BEGIN
-                    SELECT EXISTS (
-                        SELECT 2
-                        FROM useraccount
-                        WHERE emailaddress = ?
-                    ) INTO doesExist;
+        /*String createUserTable = """
+                CREATE TABLE ? || ? (
+                fullname VARCHAR(50) NOT NULL, +
+                emailAddress VARCHAR(50) NOT NULL UNIQUE, +
+                password VARCHAR(30) NOT NULL))""";*/
 
-                IF doesExist THEN
-                        RAISE NOTICE 'Email already in use. Please select a different one.';
-                    ELSE
-                        INSERT INTO useraccounts VALUES (?, ?, ?)
-                    END IF;
-                END $$;""";
+        String redoneAddUserSQL = "SELECT * FROM useraccounts WHERE emailaddress LIKE ?";
+        String insertUserSQL = "INSERT INTO useraccounts VALUES (?, ?, ?)";
+        boolean emailAlreadyInUse = false;
 
         try (Connection connection = DriverManager.getConnection(databaseURL);
-             PreparedStatement preparedStatement = connection.prepareStatement(addUserSQL)) {
-                if (checkUserInfo(name, email, password)) {
-                    preparedStatement.setString(1, email);
-                    preparedStatement.setString(2, name);
-                    preparedStatement.setString(3, email);
-                    preparedStatement.setString(4, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(redoneAddUserSQL)) {
+            if (checkUserInfo(name, email, password)) {
+                preparedStatement.setString(1, email);
+                ResultSet rs = preparedStatement.executeQuery();
 
-                    preparedStatement.execute();
+                while (rs.next()) {
+                    emailAlreadyInUse = true;
                 }
+
+                if (emailAlreadyInUse) {
+                    System.out.println("Email is already in use. Please choose a different one.");
+                } else {
+                    /* makes a table for the user
+                    PreparedStatement createPreparedStatement = connection.prepareStatement(createUserTable);
+                    createPreparedStatement.setString(1, name.trim());
+                    createPreparedStatement.setString(2, email);*/
+
+                    // adds the user's info to their table
+                    PreparedStatement addPreparedStatement = connection.prepareStatement(insertUserSQL);
+                    addPreparedStatement.setString(1, name);
+                    addPreparedStatement.setString(2, email);
+                    addPreparedStatement.setString(3, password);
+                    addPreparedStatement.executeUpdate();
+                }
+            }
         } catch (SQLException e) {
             System.out.println("Error adding user: " + e);
         }
     }
 
+    public void userLogIn (String email, String password) {
+        String redoneLogInSQL = "SELECT * FROM useraccounts WHERE emailaddress LIKE ?;";
+        boolean userAlreadyExists = false;
 
-    public void userLogIn (String name, String email, String password) {
-        String logInSQL = """
-                DO $$
-                DECLARE
-                    doesExist BOOLEAN;
-                BEGIN
-                    SELECT EXISTS (
-                        SELECT 2
-                        FROM useraccount
-                        WHERE emailaddress = ?
-                    ) INTO doesExist;
-
-                IF doesExist THEN
-                        RAISE NOTICE 'Welcome, %.', ?;
-                    ELSE
-                        RAISE NOTICE 'Invalid credentials. Please try again or make an account.';
-                    END IF;
-                END $$;""";
-        if (checkUserInfo(name, email, password)) {
-            try (Connection connection = DriverManager.getConnection(databaseURL);
-                 PreparedStatement preparedStatement = connection.prepareStatement(logInSQL)) {
-
+        try (Connection connection = DriverManager.getConnection(databaseURL);
+             PreparedStatement preparedStatement = connection.prepareStatement(redoneLogInSQL)) {
+            if (checkUserLogIn(email, password)) {
                 preparedStatement.setString(1, email);
-                preparedStatement.setString(2, name);
-
-                addNewUser(name, email, password);
-
-            } catch (SQLException e) {
-                System.out.println("Error checking user account: " + e);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    userAlreadyExists = true;
+                }
+                if (userAlreadyExists) {
+                    System.out.println("Invalid credentials. Please try again or make an account.");
+                } else {
+                    System.out.println("Welcome, " + rs.getString(1));
+                }
             }
+        } catch (SQLException e) {
+            System.out.println("Error checking user account: " + e);
+        }
+    }
+
+    public void insertLayout (String userEmail, String layoutName, String[] cbData, String direction) {
+        String layoutSQL = "INSERT INTO layouts (layout_name, layoutcells, facingdirection)" +
+                " VALUES (?, ?, ?) WHERE user_email = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL);
+        PreparedStatement preparedStatement = connection.prepareStatement(layoutSQL)) {
+            preparedStatement.setString(1, layoutName);
+            preparedStatement.setArray(2, connection.createArrayOf("VARCHAR", cbData));
+            preparedStatement.setString(3, direction);
+            preparedStatement.setString(4, userEmail);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Error saving layout: " + e);
+        }
+    }
+
+    public void deleteLayout (String userEmail, String layoutName, String[] cbData, String direction) {
+        String layoutSQL = "DELETE FROM useraccounts WHERE userEmail = ? AND layoutName IN (?)" +
+                " AND cbData IN (?) AND direction IN = (?)";
+        try (Connection connection = DriverManager.getConnection(databaseURL);
+        PreparedStatement preparedStatement = connection.prepareStatement(layoutSQL)) {
+            preparedStatement.setString(1, userEmail);
+            preparedStatement.setString(2, layoutName);
+            preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", cbData));
+            preparedStatement.setString(4, direction);
+        } catch (SQLException e) {
+            System.out.println("Error deleting layout: " + e);
         }
     }
 }
