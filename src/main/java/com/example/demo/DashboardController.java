@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+
 public class DashboardController {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     FactoryLayoutController flc = new FactoryLayoutController();
@@ -95,5 +97,23 @@ public class DashboardController {
         directionValue = getDirectionValue();
 
         sqlConfiguration.editLayout(emailAddress, layoutName, cbData, directionValue);
+    }
+
+    //Lets the user view previously made layouts
+    //Work in progress
+    public void onViewLayoutClick(ActionEvent e) throws Exception {
+        emailAddress = getEmailAddress();
+        System.out.println("This is the email address: " + emailAddress);  //For debugging purposes
+
+        layoutName = getLayoutName();
+        System.out.println("This is the layout name: " + layoutName);  //For debugging purposes
+
+        String[] cbData = flc.getChoiceboxStream();
+        System.out.println("This is the choicebox stream: " + Arrays.toString(cbData));  //For debugging purposes
+
+        directionValue = getDirectionValue();
+        System.out.println("This is the direction: " + directionValue);  //For debugging purposes
+
+        sqlConfiguration.viewLayout(emailAddress, layoutName, cbData, directionValue);
     }
 }

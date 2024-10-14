@@ -95,7 +95,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>

@@ -145,4 +145,20 @@ public class SQLConfiguration {
             System.out.println("Error editing layout: " + e);
         }
     }
+
+    public void viewLayout (String userEmail, String layoutName, String[] cbData, String direction) {
+        String viewLayoutSQL = "SELECT FROM useraccounts WHERE userEmail = ? AND layoutName IN (?)" +
+                " AND cbData IN (?) AND direction IN = (?)";
+        try (Connection connection = DriverManager.getConnection(databaseURL);
+             PreparedStatement preparedStatement = connection.prepareStatement(viewLayoutSQL)) {
+            preparedStatement.setString(1, userEmail);
+            preparedStatement.setString(2, layoutName);
+            preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", cbData));
+            preparedStatement.setString(4, direction);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error viewing layout: " + e);
+        }
+    }
 }
