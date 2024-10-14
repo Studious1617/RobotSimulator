@@ -6,24 +6,22 @@ public class SQLConfiguration {
     // url to access the database
     static String databaseURL = "jdbc:postgresql://robotsimulatordatabase.cdimocs062ok.us-east-2.rds.amazonaws.com:5433/robot_simulator_db?user=AccessPoint&password=AccessPoint9876";
 
-    CreateUserAccountController cuac = new CreateUserAccountController();
-    String name = cuac.CreateAccount_EnterNameTF.getText();
-    String email = cuac.CreateAccount_EnterEmailTF.getText();
-    String password = cuac.CreateAccount_EnterPasswordTF.getText();
-
     // makes table
     public SQLConfiguration () {
+        // possible change
         String createUserTable = """
                 CREATE TABLE ? || '_' || ? (
                 fullname VARCHAR(50) NOT NULL, +
                 emailAddress VARCHAR(50) NOT NULL UNIQUE, +
                 password VARCHAR(30) NOT NULL))""";
-        try (Connection connection = DriverManager.getConnection(databaseURL);
-             PreparedStatement createPreparedStatement = connection.prepareStatement(createUserTable)) {
-            createPreparedStatement.setString(1, name.trim());
-            createPreparedStatement.setString(2, email);
 
-            createPreparedStatement.executeUpdate();
+        try (Connection connection = DriverManager.getConnection(databaseURL);
+             Statement statement = connection.createStatement()) {
+            statement.execute("CREATE TABLE IF NOT EXISTS userAccounts (" +
+                    "fullname VARCHAR(50) NOT NULL," +
+                    "emailAddress VARCHAR(50) NOT NULL UNIQUE," +
+                    "password VARCHAR(30) NOT NULL)");
+
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e);
         }
@@ -40,6 +38,8 @@ public class SQLConfiguration {
     }
 
     public void addNewUser (String name, String email, String password) {
+
+
         String redoneAddUserSQL = "SELECT * FROM useraccounts WHERE emailaddress LIKE ?";
         String insertUserSQL = "INSERT INTO useraccounts VALUES (?, ?, ?)";
         boolean emailAlreadyInUse = false;
@@ -57,6 +57,11 @@ public class SQLConfiguration {
                 if (emailAlreadyInUse) {
                     System.out.println("Email is already in use. Please choose a different one.");
                 } else {
+                    /* makes a table for the user
+                    PreparedStatement createPreparedStatement = connection.prepareStatement(createUserTable);
+                    createPreparedStatement.setString(1, name.trim());
+                    createPreparedStatement.setString(2, email);*/
+
                     // adds the user's info to their table
                     PreparedStatement addPreparedStatement = connection.prepareStatement(insertUserSQL);
                     addPreparedStatement.setString(1, name);
