@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: lightyellow;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
-      <HBox layoutX="-19.0" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <HBox layoutX="-19.0" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <Pane prefHeight="600.0" prefWidth="178.0" style="-fx-background-color: LightYellow;" />
             <GridPane fx:id="DashboardGridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: lightgray;">
@@ -95,7 +95,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewButton1Click" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>

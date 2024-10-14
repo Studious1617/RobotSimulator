@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
+   <children>
+      <Button fx:id="saveButton" layoutX="1235.0" layoutY="111.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: DODGERBLUE;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="13.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
+      <VBox layoutX="14.0" layoutY="224.0" prefHeight="363.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="280.0" />
+      <GridPane gridLinesVisible="true" layoutX="29.0" layoutY="234.0" prefHeight="342.0" prefWidth="1158.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="300.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ChoiceBox fx:id="CB_00" prefHeight="1000.0" prefWidth="1000.0" />
+            <ChoiceBox fx:id="CB_10" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="CB_20" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="2" />
+            <ChoiceBox fx:id="CB_30" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" />
+            <ChoiceBox fx:id="CB_40" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" />
+            <ChoiceBox fx:id="CB_01" prefHeight="1000.0" prefWidth="1000.0" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_11" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_21" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_31" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_41" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="CB_02" prefHeight="1000.0" prefWidth="1000.0" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_12" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_22" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_32" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_42" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="CB_03" prefHeight="1000.0" prefWidth="1000.0" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_13" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_23" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_33" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_43" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="CB_04" prefHeight="1000.0" prefWidth="1000.0" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_14" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_24" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_34" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="CB_44" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="57.0" prefWidth="130.0" AnchorPane.bottomAnchor="213.0" AnchorPane.rightAnchor="31.0" />
+      <Label layoutX="500.0" layoutY="500.0" prefHeight="37.0" prefWidth="118.0" text="Facing Directions:" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="31.0" />
+      <TextField fx:id="FactoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+      <VBox layoutX="14.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
+         <children>
+            <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" text="Back">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children></VBox>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: GOLDENROD;">
+         <children>
+            <Label prefHeight="72.0" prefWidth="150.0" text="     App Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children></VBox>
+      <Pane layoutX="14.0" layoutY="279.0" prefHeight="370.0" prefWidth="1157.0" />
+   </children>
+</AnchorPane>
