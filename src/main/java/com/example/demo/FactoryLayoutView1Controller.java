@@ -89,14 +89,4 @@ public class FactoryLayoutView1Controller implements Initializable {
         stageThree.show();
     }
 
-//    @FXML
-//    public void onSaveLayoutButton(ActionEvent e) throws Exception {
-//        // gets the info to save the layout to the database/table
-//        String userEmail = getEmailAddress();
-//        String layoutName = factoryLayoutName.getText();
-//        // stream to get the choice boxes' value into a list
-//        // get the value from the robotDirection choicebox
-//
-//        // enter the data into the layouts table
-//    }
 }
