@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -39,7 +40,8 @@ public class FactoryLayoutView1Controller implements Initializable {
         this.emailAddress = emailAddress;
     }
     @FXML
-    public TextField factoryLayoutName;
+    public TextField FactoryLayoutName;
+    public Button FLV_BackButton;
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
@@ -55,9 +57,9 @@ public class FactoryLayoutView1Controller implements Initializable {
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
         // adds the options
         for (ChoiceBox<String> cell : choiceBoxes){
-            cell.setItems(choiceBoxOptions);
+            cell.getItems().addAll(choiceBoxOptions);
         }
-        robotDirectionCB.setItems(robotDirection);
+        robotDirectionCB.getItems().addAll(robotDirection);
     }
 
     // Method to view the current selections

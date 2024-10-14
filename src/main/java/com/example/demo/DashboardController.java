@@ -21,6 +21,7 @@ public class DashboardController {
 
     public Button reportsButton;
     public Button createLayoutButton;
+    public Button LayPage_RulesetsPageButton;
 
     public Button editLayoutButton1,
             editLayoutButton2,

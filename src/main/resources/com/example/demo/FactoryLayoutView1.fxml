@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutView1Controller">
    <children>
       <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
       <VBox layoutX="14.0" layoutY="224.0" prefHeight="363.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="280.0" />
@@ -56,7 +56,7 @@
       <TextField fx:id="FactoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
       <VBox layoutX="14.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
-            <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" text="Back">
+            <Button fx:id="FLV_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" text="Back">
                <font>
                   <Font size="14.0" />
                </font>
