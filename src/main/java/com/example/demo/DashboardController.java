@@ -89,6 +89,11 @@ public class DashboardController {
     }
 
     public void onEditLayoutClick (ActionEvent e) throws Exception {
-        //
+        emailAddress = getEmailAddress();
+        layoutName = getLayoutName();
+        String[] cbData = flc.getChoiceboxStream();
+        directionValue = getDirectionValue();
+
+        sqlConfiguration.editLayout(emailAddress, layoutName, cbData, directionValue);
     }
 }

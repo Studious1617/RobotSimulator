@@ -23,7 +23,6 @@ public class LogInController {
 
     public void onLogInButtonClick(ActionEvent e) throws IOException{
         // get text from the textfields
-        // String name = CreateUserAccountController.userName;
         String email = enterEmailTF.getText();
         String password = enterPasswordTF.getText();
 

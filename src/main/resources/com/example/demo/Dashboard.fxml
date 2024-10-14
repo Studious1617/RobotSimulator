@@ -29,7 +29,7 @@
                <children>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="LayPage_LayoutsPageButton" mnemonicParsing="false" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: white;" text="Layouts">
+                        <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: white;" text="Layouts">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font>
@@ -95,7 +95,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewButton1Click" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -105,7 +105,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
@@ -221,7 +221,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
@@ -259,7 +259,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
@@ -297,7 +297,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>
@@ -335,7 +335,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" right="10.0" />
                            </HBox.margin>

@@ -22,10 +22,6 @@ public class CreateUserAccountController {
     public TextField CreateAccount_EnterPasswordTF;
     public PasswordField CreateAccount_ConfirmPasswordTF;
 
-    public static String userName;
-    public static String email;
-    public static String pass;
-
     public Button CreateAccountButton;
     public Button CreateAccount_LogInButton;
 
