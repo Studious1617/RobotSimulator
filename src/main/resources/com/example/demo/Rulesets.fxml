@@ -29,7 +29,7 @@
                   <children>
                       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                           <children>
-                              <Button fx:id="RulePage_LayoutsPageButton" mnemonicParsing="false" onAction="#onLayoutPageClick" prefHeight="57.0" prefWidth="106.0" style="-fx-background-color: LightCyan;" text="Layouts">
+                              <Button fx:id="RulePage_LayoutsPageButton" mnemonicParsing="false" onAction="#onLayoutPageClick" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: LightCyan;" text="Layouts">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -43,7 +43,7 @@
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font></Button>
-                              <Button fx:id="RulePage_RulesetsPageButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" style="-fx-background-color: White;" text="Rulesets">
+                              <Button fx:id="RulePage_RulesetsPageButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: White;" text="Rulesets">
                                   <HBox.margin>
                                       <Insets />
                                   </HBox.margin>
@@ -345,7 +345,7 @@
                       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
                       <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                           <children>
-                              <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="86.0" prefWidth="119.0" text="Reports">
+                              <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="80.0" prefWidth="119.0" text="Reports">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font></Button>
@@ -363,7 +363,7 @@
                       </HBox>
                       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                           <children>
-                              <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewRulesetClick" prefHeight="76.0" prefWidth="98.0" style="-fx-background-color: SkyBlue;" text="Create">
+                              <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewRulesetClick" prefHeight="80.0" prefWidth="120.0" style="-fx-background-color: SkyBlue;" text="Create">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font></Button>
