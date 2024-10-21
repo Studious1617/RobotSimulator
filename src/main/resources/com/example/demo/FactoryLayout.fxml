@@ -58,7 +58,7 @@
       </GridPane>
       <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="57.0" prefWidth="130.0" AnchorPane.bottomAnchor="213.0" AnchorPane.rightAnchor="31.0" />
       <Label layoutX="500.0" layoutY="500.0" prefHeight="37.0" prefWidth="118.0" text="Facing Directions:" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="31.0" />
-      <TextField fx:id="FactoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+      <TextField fx:id="factoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
       <VBox layoutX="14.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
             <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" text="Back">
@@ -75,5 +75,6 @@
                </font>
             </Label>
          </children></VBox>
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="181.0" layoutY="134.0" prefHeight="30.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

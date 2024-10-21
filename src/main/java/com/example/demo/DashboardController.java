@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -23,7 +25,8 @@ public class DashboardController {
     public Button createLayoutButton;
     public Button LayPage_RulesetsPageButton;
 
-    public Button editLayoutButton1,
+    public Button
+            editLayoutButton1,
             editLayoutButton2,
             editLayoutButton3,
             editLayoutButton4,
@@ -41,9 +44,17 @@ public class DashboardController {
             deleteLayoutButton4,
             deleteLayoutButton5;
 
+    public Label
+            layoutNameLabel1,
+            layoutNameLabel2,
+            layoutNameLabel3,
+            layoutNameLabel4,
+            layoutNameLabel5;
+
     private String emailAddress;
     private String layoutName;
     private String directionValue;
+    private int layoutID;
 
     public String getEmailAddress() {
         return emailAddress;
@@ -57,6 +68,9 @@ public class DashboardController {
     }
     public String getDirectionValue() {
         return directionValue;
+    }
+    public int getLayoutID(String layoutName) {
+        return sqlConfiguration.getLayoutID(layoutName);
     }
 
     @FXML
@@ -84,20 +98,19 @@ public class DashboardController {
 
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
         emailAddress = getEmailAddress();
-        layoutName = getLayoutName();
-        String[] cbData = flc.getChoiceboxStream();
-        directionValue = getDirectionValue();
+        layoutID = getLayoutID(getLayoutName());
 
-        sqlConfiguration.deleteLayout(emailAddress, layoutName, cbData, directionValue);
+        sqlConfiguration.deleteLayout(emailAddress, layoutID);
     }
 
     public void onEditLayoutClick (ActionEvent e) throws Exception {
         emailAddress = getEmailAddress();
         layoutName = getLayoutName();
-        String[] cbData = flc.getChoiceboxStream();
+        String[] cbData = flc.getChoiceBox();
         directionValue = getDirectionValue();
+        layoutID = getLayoutID(layoutName);
 
-        sqlConfiguration.editLayout(emailAddress, layoutName, cbData, directionValue);
+        sqlConfiguration.editLayout(emailAddress, layoutName, cbData, directionValue, layoutID);
     }
 
     //Lets the user view previously made layouts
@@ -109,12 +122,15 @@ public class DashboardController {
         layoutName = getLayoutName();
         System.out.println("This is the layout name: " + layoutName);  //For debugging purposes
 
-        String[] cbData = flc.getChoiceboxStream();
+        String[] cbData = flc.getChoiceBox();
         System.out.println("This is the choicebox stream: " + Arrays.toString(cbData));  //For debugging purposes
 
         directionValue = getDirectionValue();
         System.out.println("This is the direction: " + directionValue);  //For debugging purposes
 
-        sqlConfiguration.viewLayout(emailAddress, layoutName, cbData, directionValue);
+        layoutID = getLayoutID(getLayoutName());
+        System.out.println("ID: " + layoutID);
+
+        sqlConfiguration.viewLayout(emailAddress, layoutID);
     }
 }

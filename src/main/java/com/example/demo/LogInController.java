@@ -20,8 +20,66 @@ public class LogInController {
     public TextField enterPasswordTF;
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
+    DashboardController dashboardController = new DashboardController();
 
-    public void onLogInButtonClick(ActionEvent e) throws IOException{
+    public void makeUserLayoutVisible() {
+        int layoutAmount = sqlConfiguration.getUserLayoutsAmount();
+        if (layoutAmount == 1) {
+            layoutOneVisibility();
+        } else if (layoutAmount == 2) {
+            layoutOneVisibility();
+            layoutTwoVisibility();
+        } else if (layoutAmount == 3) {
+            layoutOneVisibility();
+            layoutTwoVisibility();
+            layoutThreeVisibility();
+        } else if (layoutAmount == 4) {
+            layoutOneVisibility();
+            layoutTwoVisibility();
+            layoutThreeVisibility();
+            layoutFourVisibility();
+        } else if (layoutAmount == 5) {
+            layoutOneVisibility();
+            layoutTwoVisibility();
+            layoutThreeVisibility();
+            layoutFourVisibility();
+            layoutFiveVisibility();
+        }
+
+    }
+
+    private void layoutOneVisibility() {
+        dashboardController.layoutNameLabel1.setVisible(true);
+        dashboardController.editLayoutButton1.setVisible(true);
+        dashboardController.viewLayoutButton1.setVisible(true);
+        dashboardController.deleteLayoutButton1.setVisible(true);
+    }
+    private void layoutTwoVisibility() {
+        dashboardController.layoutNameLabel2.setVisible(true);
+        dashboardController.editLayoutButton2.setVisible(true);
+        dashboardController.viewLayoutButton2.setVisible(true);
+        dashboardController.deleteLayoutButton2.setVisible(true);
+    }
+    private void layoutThreeVisibility() {
+        dashboardController.layoutNameLabel3.setVisible(true);
+        dashboardController.editLayoutButton3.setVisible(true);
+        dashboardController.viewLayoutButton3.setVisible(true);
+        dashboardController.deleteLayoutButton3.setVisible(true);
+    }
+    private void layoutFourVisibility() {
+        dashboardController.layoutNameLabel4.setVisible(true);
+        dashboardController.editLayoutButton4.setVisible(true);
+        dashboardController.viewLayoutButton4.setVisible(true);
+        dashboardController.deleteLayoutButton4.setVisible(true);
+    }
+    private void layoutFiveVisibility() {
+        dashboardController.layoutNameLabel5.setVisible(true);
+        dashboardController.editLayoutButton5.setVisible(true);
+        dashboardController.viewLayoutButton5.setVisible(true);
+        dashboardController.deleteLayoutButton5.setVisible(true);
+    }
+
+    public void onLogInButtonClick(ActionEvent e) throws IOException {
         // get text from the textfields
         String email = enterEmailTF.getText();
         String password = enterPasswordTF.getText();
@@ -29,6 +87,10 @@ public class LogInController {
         if (sqlConfiguration.checkUserLogIn(email, password)) {
             // cross-reference them in the database
             if (sqlConfiguration.userLogIn(email, password)) {
+                makeUserLayoutVisible();
+                // add layouts to dashboard
+                sqlConfiguration.getUserLayoutData();
+
                 // sets user email instance into Dashboard
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                 Parent dashboardPopUp = loader.load();

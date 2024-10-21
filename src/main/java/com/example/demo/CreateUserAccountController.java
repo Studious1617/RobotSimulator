@@ -53,7 +53,6 @@ public class CreateUserAccountController {
                 Scene sceneThree = new Scene(dashboardPopUp);
                 stageThree.setScene(sceneThree);
                 stageThree.show();
-                // should be invisible
             }
             System.out.println("Account created.");
         } else {
