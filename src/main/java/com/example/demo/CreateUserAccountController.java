@@ -47,13 +47,15 @@ public class CreateUserAccountController {
             dashboardController.setEmailAddress(userEmail);
 
             // adds the user to the database
-            sqlConfiguration.addNewUser(fullName, userEmail, password);
-
-            // switch to Dashboard
-            Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            Scene sceneThree = new Scene(dashboardPopUp);
-            stageThree.setScene(sceneThree);
-            stageThree.show();
+            if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {
+                // switch to Dashboard
+                Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                Scene sceneThree = new Scene(dashboardPopUp);
+                stageThree.setScene(sceneThree);
+                stageThree.show();
+                // should be invisible
+            }
+            System.out.println("Account created.");
         } else {
             System.out.println("Invalid credentials. Try again.");
         }
@@ -62,7 +64,7 @@ public class CreateUserAccountController {
     // event for log in button
     public void onCreateAccount_LogInButtonClick(ActionEvent event) throws IOException {
         // go to log in page
-        Parent logInPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+        Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
         stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneOne = new Scene(logInPopUp);
         stageOne.setScene(sceneOne);

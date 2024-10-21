@@ -28,19 +28,19 @@ public class LogInController {
 
         if (sqlConfiguration.checkUserLogIn(email, password)) {
             // cross-reference them in the database
-            sqlConfiguration.userLogIn(email, password);
+            if (sqlConfiguration.userLogIn(email, password)) {
+                // sets user email instance into Dashboard
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                Parent dashboardPopUp = loader.load();
+                DashboardController dashboardController = loader.getController();
+                dashboardController.setEmailAddress(email);
 
-            // sets user email instance into Dashboard
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-            Parent dashboardPopUp = loader.load();
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setEmailAddress(email);
-
-            // switches to Dashboard
-            Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            Scene sceneThree = new Scene(dashboardPopUp);
-            stageThree.setScene(sceneThree);
-            stageThree.show();
+                // switches to Dashboard
+                Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                Scene sceneThree = new Scene(dashboardPopUp);
+                stageThree.setScene(sceneThree);
+                stageThree.show();
+            }
         } else {
             System.out.println("Invalid credentials or user doesn't exist. Please try again or make an account.");
         }
