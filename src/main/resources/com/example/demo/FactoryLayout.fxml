@@ -75,6 +75,9 @@
                </font>
             </Label>
          </children></VBox>
-      <Label fx:id="messageLabel" alignment="CENTER" layoutX="181.0" layoutY="134.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="181.0" layoutY="134.0" prefHeight="30.0" prefWidth="200.0" text="Layout saved" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

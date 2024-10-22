@@ -22,23 +22,6 @@ public class SQLConfiguration {
         }
     }
 
-    public int getLayoutID (String layout_name) {
-        String userIDSQL = "SELECT l.layout_id FROM layouts l LEFT JOIN useraccounts u" +
-                " ON l.email_address = u.email_address AND l.layout_name = ?";
-        int layout_id = 0;
-        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(userIDSQL)) {
-            preparedStatement.setString(1, layout_name);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                layout_id = rs.getInt("layout_id");
-            }
-        } catch (SQLException e) {
-            System.out.println("Error getting layout ID: " + e);
-        }
-        return layout_id;
-    }
-
     public boolean checkUserInfo (String checkName, String checkEmail, String checkPassword) {
         return checkName != null && !checkName.trim().isEmpty() &&
                 checkEmail != null && !checkEmail.trim().isEmpty() &&
@@ -107,16 +90,16 @@ public class SQLConfiguration {
         return userAlreadyExists;
     }
 
-    public void insertLayout (String userEmail, String layoutName, String[] cbData, String direction, int layoutID) {
-        String layoutSQL = "INSERT INTO layouts (layout_name, layout_data, direction)" +
-                " VALUES (?, ?, ?) WHERE user_email = ? AND layout_id = ?";
+    public void insertLayout (int layoutID, String layoutName, String[] cbData, String direction, String userEmail) {
+        String layoutSQL = "INSERT INTO layouts (layout_id, layout_name, layout_data, direction, email_address)" +
+                " VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(layoutSQL)) {
-            preparedStatement.setString(1, layoutName);
-            preparedStatement.setArray(2, connection.createArrayOf("VARCHAR", cbData));
-            preparedStatement.setString(3, direction);
-            preparedStatement.setString(4, userEmail);
-            preparedStatement.setInt(5, layoutID);
+            preparedStatement.setInt(1, layoutID);
+            preparedStatement.setString(2, layoutName);
+            preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", cbData));
+            preparedStatement.setString(4, direction);
+            preparedStatement.setString(5, userEmail);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -183,6 +166,23 @@ public class SQLConfiguration {
             System.out.println("Error getting layout data: " + e);
         }
         return numberOfLayouts;
+    }
+
+    public int getLayoutID (String layout_name) {
+        String userIDSQL = "SELECT l.layout_id FROM layouts l LEFT JOIN useraccounts u" +
+                " ON l.email_address = u.email_address AND l.layout_name = ?";
+        int layout_id = 1;
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(userIDSQL)) {
+            preparedStatement.setString(1, layout_name);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                layout_id = rs.getInt("layout_id");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting layout ID: " + e);
+        }
+        return layout_id;
     }
 
     // populate the factory layout with the saved layouts

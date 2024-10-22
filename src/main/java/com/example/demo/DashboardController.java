@@ -7,9 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.Arrays;
@@ -19,8 +17,6 @@ public class DashboardController {
     FactoryLayoutController flc = new FactoryLayoutController();
 
     @FXML
-    public GridPane DashboardGridPane;
-
     public Button reportsButton;
     public Button createLayoutButton;
     public Button LayPage_RulesetsPageButton;

@@ -43,12 +43,6 @@ public class FactoryLayoutController implements Initializable {
             CB_03, CB_13, CB_23, CB_33, CB_43,
             CB_04, CB_14, CB_24, CB_34, CB_44};
 
-    public void getBoxValue() {
-        for (int i = 0; i < choiceBoxes.length; i++) {
-
-        }
-    }
-
     private String emailAddress;
     @FXML
     public TextField factoryLayoutName;
@@ -73,7 +67,7 @@ public class FactoryLayoutController implements Initializable {
         int cbIndex = 0;
         for (ChoiceBox<String> choiceBox: choiceBoxes) {
             // adds the "Open" value to the list if the user left the space blank
-            if (choiceBox == null) {
+            if (choiceBox.getValue() == null) {
                 choiceBoxList[cbIndex++] = "Open";
             } else {
             // adds the value the user entered into the space to the list
@@ -88,7 +82,7 @@ public class FactoryLayoutController implements Initializable {
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
-        ChoiceBox<String>[] initializeChoiceBoxes = new ChoiceBox[]{
+        choiceBoxes = new ChoiceBox[]{
                 CB_00, CB_10, CB_20, CB_30, CB_40,
                 CB_01, CB_11, CB_21, CB_31, CB_41,
                 CB_02, CB_12, CB_22, CB_32, CB_42,
@@ -100,7 +94,7 @@ public class FactoryLayoutController implements Initializable {
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
 
         // adds the options
-        for (ChoiceBox<String> box : initializeChoiceBoxes){
+        for (ChoiceBox<String> box : choiceBoxes){
             box.getItems().addAll(choiceBoxOptions);
         }
         robotDirectionCB.getItems().addAll(robotDirection);
@@ -109,21 +103,21 @@ public class FactoryLayoutController implements Initializable {
     @FXML
     public void onBackButton(ActionEvent event) throws Exception {
         // set layout info to dashboard
-        Parent popup = FXMLLoader.load(getClass().getResource("Dashboard"));
+        Parent popup = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene sceneThree = new Scene(popup);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }
 
-    public boolean startEndBoxExist (ChoiceBox<String>[] choiceBox) {
+    public boolean startEndBoxExist (String[] choiceBox) {
         int startBox = 0;
         int endBox = 0;
 
-        for (ChoiceBox<String> box : choiceBox) {
+        for (String box : choiceBox) {
             if (box != null) {
-                if (box.getValue().equals("Start")) startBox++;
-                if (box.getValue().equals("Exit")) endBox++;
+                if (box.equals("Start")) startBox++;
+                if (box.equals("Exit")) endBox++;
             }
         }
         return startBox == 1 && endBox == 1;
@@ -139,16 +133,21 @@ public class FactoryLayoutController implements Initializable {
         int layoutID = sqlConfiguration.getLayoutID(layoutName);
 
         // enter the data into the layouts table
-        if (startEndBoxExist(choiceBoxes) && !layoutName.trim().isEmpty()) {
-            sqlConfiguration.insertLayout(userEmail, layoutName, cbData, directionValue, layoutID);
-            messageLabel.setText("Layout saved");
-        } else if (layoutName == null) {
+        if (startEndBoxExist(cbData) && !layoutName.isEmpty()) {
+            sqlConfiguration.insertLayout(layoutID, layoutName, cbData, directionValue, userEmail);
+
+            messageLabel.setVisible(true);
+            messageLabel.wait(3000);
+            messageLabel.setVisible(false);
+        } else if (layoutName.isEmpty()) {
             System.out.println("Enter a name for the layout.");
+        } else if (robotDirectionCB.getValue().isEmpty()) {
+            System.out.println("Enter a direction for the robot.");
         } else {
             System.out.println("You need one Start box and one Exit box selected to save the layout.");
+//        }
+//        if (layoutID > 1) {
+//            sqlConfiguration.insertLayout(layoutID, layoutName, cbData, directionValue, userEmail);
         }
-
     }
-
-
 }
