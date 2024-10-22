@@ -91,10 +91,10 @@ public class SQLConfiguration {
     }
 
     public void insertLayout (int layoutID, String layoutName, String[] cbData, String direction, String userEmail) {
-        String layoutSQL = "INSERT INTO layouts (layout_id, layout_name, layout_data, direction, email_address)" +
+        String enterLayoutSQL = "INSERT INTO layouts (layout_id, layout_name, layout_data, direction, email_address)" +
                 " VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(layoutSQL)) {
+        PreparedStatement preparedStatement = connection.prepareStatement(enterLayoutSQL)) {
             preparedStatement.setInt(1, layoutID);
             preparedStatement.setString(2, layoutName);
             preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", cbData));
@@ -152,11 +152,11 @@ public class SQLConfiguration {
 
     public int getUserLayoutsAmount () {
         // gets layout info by matching the emails
-        String getLayoutSQL = "SELECT * FROM useraccounts u RIGHT JOIN layouts l " +
+        String getLayoutAmountSQL = "SELECT * FROM useraccounts u RIGHT JOIN layouts l " +
                 "ON u.email_address = l.email_address";
         int numberOfLayouts = 0;
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(getLayoutSQL)) {
+        PreparedStatement preparedStatement = connection.prepareStatement(getLayoutAmountSQL)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -186,7 +186,23 @@ public class SQLConfiguration {
     }
 
     // populate the factory layout with the saved layouts
-    public void getUserLayoutData () {
-        
+    public void getUserLayoutData (String userEmail) {
+        String getLayoutSQL = "SELECT * FROM layouts WHERE email_address = ?";
+
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(getLayoutSQL)) {
+            preparedStatement.setString(1, userEmail);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int layoutID = rs.getInt("layout_id");
+                String layoutName = rs.getString("layout_name");
+                String[] layoutData = new String[]{rs.getString("layout_data")};
+                String direction = rs.getString("direction");
+                String email = rs.getString("email_address");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting user's layout(s): " + e);
+        }
     }
 }
