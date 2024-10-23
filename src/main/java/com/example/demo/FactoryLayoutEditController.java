@@ -14,10 +14,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.net.URL;
-import java.util.*;
 
-public class FactoryLayoutController implements Initializable {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class FactoryLayoutEditController implements Initializable {
     @FXML
     public Button saveButton;
     public Button FL_BackButton;
@@ -48,9 +50,6 @@ public class FactoryLayoutController implements Initializable {
 
     public String getEmailAddress() {
         return emailAddress;
-    }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 
     public String getFactoryLayoutName() {
@@ -114,6 +113,15 @@ public class FactoryLayoutController implements Initializable {
             box.getItems().addAll(choiceBoxOptions);
         }
         robotDirectionCB.getItems().addAll(robotDirection);
+
+        String[] savedChoiceBoxes = getLayouts().get(index).getLayoutData();
+        String direction = layouts.get(index).getDirectionValue();
+        int index = 0;
+        for (ChoiceBox<String> box : choiceBoxes) {
+            box.setValue(savedChoiceBoxes[index]);
+            index++;
+        }
+        robotDirectionCB.setValue(direction);
     }
 
     @FXML
@@ -123,7 +131,7 @@ public class FactoryLayoutController implements Initializable {
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
         // set layout info to dashboard
-        layouts = sqlConfiguration.getUserLayoutData(getEmailAddress());
+        layouts = getLayouts();
         dashboardController.setLayouts(layouts);
 
         // makes user's layouts appear

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: lightyellow;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
+<AnchorPane prefHeight="589.0" prefWidth="1077.0" style="-fx-background-color: lightyellow;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
       <HBox layoutX="-19.0" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -69,7 +69,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutOne_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" visible="false" GridPane.rowIndex="3">
+                  <HBox fx:id="layoutOne_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="3" visible="false">
                      <children>
                         <Label fx:id="layoutNameLabel1" text="Layout Name" visible="false">
                            <font>
@@ -83,7 +83,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutOne_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox fx:id="layoutOne_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3" visible="false">
                      <children>
                         <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete" visible="false">
                            <font>
@@ -121,7 +121,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutTwo_Left" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" visible="false" GridPane.rowIndex="4">
+                  <HBox fx:id="layoutTwo_Left" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="4" visible="false">
                      <children>
                         <Label fx:id="layoutNameLabel2" text="Layout Name" visible="false">
                            <HBox.margin>
@@ -142,7 +142,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutThree_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" visible="false" GridPane.rowIndex="5">
+                  <HBox fx:id="layoutThree_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="5" visible="false">
                      <children>
                         <Label fx:id="layoutNameLabel3" text="Layout Name" visible="false">
                            <HBox.margin>
@@ -160,7 +160,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFour_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" visible="false" GridPane.rowIndex="6">
+                  <HBox fx:id="layoutFour_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="6" visible="false">
                      <children>
                         <Label fx:id="layoutNameLabel4" text="Layout Name" visible="false">
                            <HBox.margin>
@@ -178,7 +178,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFive_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" visible="false" GridPane.rowIndex="7">
+                  <HBox fx:id="layoutFive_Left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: GOLDENROD;" GridPane.rowIndex="7" visible="false">
                      <children>
                         <Label fx:id="layoutNameLabel5" text="Layout Name" visible="false">
                            <HBox.margin>
@@ -196,7 +196,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutTwo_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <HBox fx:id="layoutTwo_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false">
                      <children>
                         <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete" visible="false">
                            <font>
@@ -237,7 +237,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutThree_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <HBox fx:id="layoutThree_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
                         <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete" visible="false">
                            <font>
@@ -275,7 +275,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFour_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <HBox fx:id="layoutFour_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
                         <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete" visible="false">
                            <font>
@@ -313,7 +313,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFive_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <HBox fx:id="layoutFive_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
                         <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete" visible="false">
                            <font>
@@ -420,7 +420,10 @@
                   <Insets />
                </HBox.margin>
             </GridPane>
-            <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: lightYellow;" />
+            <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: lightYellow;">
+               <padding>
+                  <Insets right="20.0" />
+               </padding></Pane>
          </children>
       </HBox>
    </children>
