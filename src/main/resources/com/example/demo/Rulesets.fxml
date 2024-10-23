@@ -345,7 +345,7 @@
                       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
                       <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                           <children>
-                              <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="80.0" prefWidth="119.0" text="Reports">
+                              <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="79.0" prefWidth="119.0" text="Reports">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font></Button>
