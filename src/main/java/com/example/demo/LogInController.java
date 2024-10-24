@@ -42,7 +42,9 @@ public class LogInController {
                 dashboardController.setEmailAddress(email);
                 dashboardController.setLayouts(layouts);
                 // reveals the user's layouts
-                dashboardController.makeUserLayoutVisible();
+                if (dashboardController.index > 0) {
+                    dashboardController.makeUserLayoutVisible();
+                }
                 // switches to Dashboard
                 Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 Scene sceneThree = new Scene(dashboardPopUp);
