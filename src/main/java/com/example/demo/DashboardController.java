@@ -155,6 +155,7 @@ public class DashboardController {
         directionValue = layouts.get(index).getDirectionValue();
         layoutID = layouts.get(index).getLayoutID();
 
+
         sqlConfiguration.editLayout(emailAddress, layoutName, layoutData, directionValue, layoutID);
         // goes to edit page
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutEdit.fxml"));
@@ -163,8 +164,9 @@ public class DashboardController {
         layouts = sqlConfiguration.getUserLayoutData(emailAddress);
         layoutEditController.setLayouts(layouts);
         layoutEditController.setIndex(index);
+        layoutEditController.setEmailAddress(emailAddress);
 
-        // switches to Factory Layout
+        // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(editPopUp);
         stageFive.setScene(sceneFive);
@@ -227,6 +229,8 @@ public class DashboardController {
             layoutThreeVisibility();
             layoutFourVisibility();
             layoutFiveVisibility();
+        } else {
+            System.out.println();
         }
 
     }
@@ -235,7 +239,7 @@ public class DashboardController {
         layoutOne_Left.setVisible(true);
         layoutOne_Right.setVisible(true);
 
-        layoutName = layouts.getFirst().getLayoutName();
+        layoutName = layouts.get(0).getLayoutName();
         layoutNameLabel1.setText(layoutName);
 
         layoutNameLabel1.setVisible(true);
@@ -295,15 +299,16 @@ public class DashboardController {
     public int buttonDifferentiation (ActionEvent e) {
         Button clickedButton = (Button) e.getSource();
         int buttonNumber = 0;
-        if (clickedButton.getText().contains("1")) {
+
+        if (clickedButton.getId().contains("1")) {
             buttonNumber = 1;
-        } else if (clickedButton.getText().contains("2")) {
+        } else if (clickedButton.getId().contains("2")) {
             buttonNumber = 2;
-        } else if (clickedButton.getText().contains("3")) {
+        } else if (clickedButton.getId().contains("3")) {
             buttonNumber = 3;
-        } else if (clickedButton.getText().contains("4")) {
+        } else if (clickedButton.getId().contains("4")) {
             buttonNumber = 4;
-        } else if (clickedButton.getText().contains("5")){
+        } else if (clickedButton.getId().contains("5")){
             buttonNumber = 5;
         }
         return buttonNumber;

@@ -171,7 +171,8 @@ public class SQLConfiguration {
 
     // gets the user's saved layouts
     public List<Layout> getUserLayoutData (String userEmail) {
-        String getLayoutSQL = "SELECT * FROM layouts WHERE email_address = ?";
+        String getLayoutSQL = "SELECT * FROM layouts l JOIN useraccounts u " +
+                "ON l.email_address = ?";
         List<Layout> userLayouts = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
@@ -183,7 +184,8 @@ public class SQLConfiguration {
                 int layoutID = rs.getInt("layout_id");
                 String layoutName = rs.getString("layout_name");
                 String layoutBox = rs.getString("layout_data");
-                String[] layoutData = layoutBox.split(", ");
+                String cleanLayoutBox = layoutBox.replaceAll("[{}]", "");
+                String[] layoutData = cleanLayoutBox.split(" ");
                 String direction = rs.getString("direction");
                 String email = rs.getString("email_address");
 

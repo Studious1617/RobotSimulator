@@ -78,7 +78,7 @@ public class FactoryLayoutViewController {//} implements Initializable {
 //        String[] choiceBoxes = layouts.get(index).getLayoutData();
 //        for (String cell : choiceBoxes){
 //            if (cell.equals("Start")) {
-//                cell.setStyle("-fx-background-color: dark green;");
+//                p.setStyle("-fx-background-color: dark green;");
 //            } else if (cell.getValue().equals("Open")) {
 //                cell.setStyle("-fx-background-color: blue");
 //            } else if (cell.getValue().equals("Wall")) {

@@ -51,6 +51,9 @@ public class FactoryLayoutEditController implements Initializable {
     public String getEmailAddress() {
         return emailAddress;
     }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
     public String getFactoryLayoutName() {
         return factoryLayoutName.getText();
@@ -103,7 +106,17 @@ public class FactoryLayoutEditController implements Initializable {
                 CB_02, CB_12, CB_22, CB_32, CB_42,
                 CB_03, CB_13, CB_23, CB_33, CB_43,
                 CB_04, CB_14, CB_24, CB_34, CB_44};
-
+        // for the edit function
+        if (getLayouts() != null) {
+            String[] savedChoiceBoxes = getLayouts().get(index).getLayoutData();
+            String direction = getLayouts().get(index).getDirectionValue();
+            int index = 0;
+            for (ChoiceBox<String> box : choiceBoxes) {
+                box.setValue(savedChoiceBoxes[index]);
+                index++;
+            }
+            robotDirectionCB.setValue(direction);
+        }
         // sets the options for all the choiceboxes
         ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
@@ -113,15 +126,6 @@ public class FactoryLayoutEditController implements Initializable {
             box.getItems().addAll(choiceBoxOptions);
         }
         robotDirectionCB.getItems().addAll(robotDirection);
-
-        String[] savedChoiceBoxes = getLayouts().get(index).getLayoutData();
-        String direction = layouts.get(index).getDirectionValue();
-        int index = 0;
-        for (ChoiceBox<String> box : choiceBoxes) {
-            box.setValue(savedChoiceBoxes[index]);
-            index++;
-        }
-        robotDirectionCB.setValue(direction);
     }
 
     @FXML
@@ -131,7 +135,7 @@ public class FactoryLayoutEditController implements Initializable {
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
         // set layout info to dashboard
-        layouts = getLayouts();
+        layouts = sqlConfiguration.getUserLayoutData(getEmailAddress());
         dashboardController.setLayouts(layouts);
 
         // makes user's layouts appear

@@ -125,7 +125,7 @@ public class FactoryLayoutController implements Initializable {
         // set layout info to dashboard
         layouts = sqlConfiguration.getUserLayoutData(getEmailAddress());
         dashboardController.setLayouts(layouts);
-
+        setLayouts(layouts);
         // makes user's layouts appear
         dashboardController.makeUserLayoutVisible();
 
