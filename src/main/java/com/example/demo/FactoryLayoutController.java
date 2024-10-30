@@ -40,27 +40,68 @@ public class FactoryLayoutController implements Initializable {
             CB_03, CB_13, CB_23, CB_33, CB_43,
             CB_04, CB_14, CB_24, CB_34, CB_44};
 
-    private String emailAddress;
     @FXML
     private TextField factoryLayoutName;
-    @FXML
-    private ChoiceBox<String> robotDirectionCB;
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
     public String getFactoryLayoutName() {
         return factoryLayoutName.getText();
     }
-
     @FXML
+    private ChoiceBox<String> robotDirectionCB;
+    public String getRobotDirectionCB() {
+        return robotDirectionCB.getValue();
+    }
+
+    private int layoutId;
+    private String layoutName;
+    private String[] layoutData;
+    private String layoutDirection;
+    private String layoutEmail;
+
+    public int getLayoutId() {
+        return layoutId;
+    }
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+    public String getLayoutName() {
+        return layoutName;
+    }
+    public void setLayoutName(String layoutName) {
+        this.layoutName = layoutName;
+    }
+    public String[] getLayoutData() {
+        return layoutData;
+    }
+    public void setLayoutData(String[] layoutData) {
+        this.layoutData = layoutData;
+    }
+    public String getLayoutDirection() {
+        return layoutDirection;
+    }
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
+    }
+    public String getLayoutEmail() {
+        return layoutEmail;
+    }
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
+    }
+
+
+/////
+    private List<Layout> listOfLayouts;
+    public List<Layout> getListOfLayouts() {
+        return listOfLayouts;
+    }
+    public void setListOfLayouts(List<Layout> listOfLayouts) {
+        this.listOfLayouts = listOfLayouts;
+    }
+/////
+    public String[] choiceBoxList;
     public String[] getChoiceBox() {
         // makes a new list of strings
-        String[] choiceBoxList = new String[choiceBoxes.length];
+        choiceBoxList = new String[choiceBoxes.length];
         // integer variable to be the list's index
         int cbIndex = 0;
         for (ChoiceBox<String> choiceBox: choiceBoxes) {
@@ -74,21 +115,16 @@ public class FactoryLayoutController implements Initializable {
         }
         return choiceBoxList;
     }
-    public String getRobotDirectionCB() {
-        return robotDirectionCB.getValue();
-    }
-
-    private List<Layout> layouts;
-
-    public List<Layout> getLayouts() {
-        return layouts;
-    }
-    public void setLayouts(List<Layout> layouts) {
-        this.layouts = layouts;
+    public void setChoiceBox(String[] choiceBoxList) {
+        if (choiceBoxList.length == choiceBoxes.length) {
+            int cbIndex = 0;
+            for (ChoiceBox<String> choiceBox : choiceBoxes) {
+                choiceBox.setValue(choiceBoxList[cbIndex++]);
+            }
+        }
     }
 
     public int index;
-
     public int getIndex() {
         return index;
     }
@@ -122,12 +158,30 @@ public class FactoryLayoutController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
+        dashboardController.setLayoutId(getLayoutId());
+
+        System.out.println("factoryLayoutName.getText()" + factoryLayoutName.getText());
+        dashboardController.setLayoutName(factoryLayoutName.getText());
+
+        System.out.println("getFactoryLayoutName(): " + getFactoryLayoutName());
+        dashboardController.setLayoutName(getFactoryLayoutName());
         // set layout info to dashboard
-        layouts = sqlConfiguration.getUserLayoutData(getEmailAddress());
-        dashboardController.setLayouts(layouts);
-        setLayouts(layouts);
+        System.out.println("get()ChoiceBox: " + Arrays.toString(getChoiceBox()));
+        //dashboardController.setChoiceBoxList(getChoiceBox());
+
+        System.out.println("getLayoutData(): " + Arrays.toString(getLayoutData()));
+        dashboardController.setLayoutData(getLayoutData());
+
+        System.out.println("getRobotDirectionCB: " + getRobotDirectionCB());
+        dashboardController.setLayoutDirection(getRobotDirectionCB());
+
+        System.out.println("getLayoutDirection():" + getLayoutDirection());
+        dashboardController.setLayoutDirection(getLayoutDirection());
+        dashboardController.setLayoutEmail(getLayoutEmail());
         // makes user's layouts appear
-        dashboardController.makeUserLayoutVisible();
+        if (getIndex() > 0) {
+            dashboardController.makeUserLayoutVisible();
+        }
 
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene sceneThree = new Scene(dashboardPopUp);
@@ -151,19 +205,22 @@ public class FactoryLayoutController implements Initializable {
     @FXML
     public void onSaveLayoutButton(ActionEvent e) throws Exception {
         // gets the info to save the layout to the database/table
-        String userEmail = getEmailAddress();
-        String layoutName = getFactoryLayoutName();
-        String[] layoutData = getChoiceBox();
-        String directionValue = getRobotDirectionCB();
+        System.out.println(getLayoutId());
+        System.out.println("getFactoryLayoutName(): " + getFactoryLayoutName());
+        System.out.println("getLayoutName(): " + getLayoutName());
+        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBox()));
+        System.out.println("getLayoutData(): " + Arrays.toString(getLayoutData()));
+        System.out.println("getRobotDirectionCB(): " + getRobotDirectionCB());
+        System.out.println("getLayoutDirection(): " + getLayoutDirection());
+        System.out.println(getLayoutEmail());
 
         // enter the data into the layouts table
-        if (startEndBoxExist(layoutData) && !layoutName.isEmpty()) {
-            sqlConfiguration.insertLayout(layoutName, layoutData, directionValue, userEmail);
-
+        if (startEndBoxExist(getChoiceBox()) && !getFactoryLayoutName().isEmpty()) {
+            sqlConfiguration.insertLayout(getFactoryLayoutName(), getChoiceBox(), getRobotDirectionCB(), getLayoutEmail());
             messageLabel.setVisible(true);
-        } else if (layoutName.isEmpty()) {
+        } else if (getFactoryLayoutName().isEmpty()) {
             System.out.println("Enter a name for the layout.");
-        } else if (robotDirectionCB.getValue().isEmpty()) {
+        } else if (getRobotDirectionCB().isEmpty()) {
             System.out.println("Enter a direction for the robot.");
         } else {
             System.out.println("You need one Start box and one Exit box selected to save the layout.");

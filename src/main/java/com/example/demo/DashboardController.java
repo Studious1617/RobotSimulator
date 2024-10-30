@@ -7,9 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +20,7 @@ import java.util.List;
 
 public class DashboardController {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
+    FactoryLayoutController factoryLayoutController = new FactoryLayoutController();
 
     @FXML
     public Button reportsButton;
@@ -79,7 +83,6 @@ public class DashboardController {
         buttonList.add(deleteLayoutButton5);
     }
 
-
     public Label
             layoutNameLabel1,
             layoutNameLabel2,
@@ -88,19 +91,11 @@ public class DashboardController {
             layoutNameLabel5;
 
     private String emailAddress;
+    private int layoutId;
     private String layoutName;
     private String[] layoutData;
-    private String directionValue;
-    private int layoutID;
-
-    public int index;
-
-    public int getIndex() {
-        return index;
-    }
-    public void setIndex(int index) {
-        this.index = index;
-    }
+    private String layoutDirection;
+    private String layoutEmail;
 
     public String getEmailAddress() {
         return emailAddress;
@@ -108,21 +103,86 @@ public class DashboardController {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+    public int getLayoutId() {
+        return layoutId;
+    }
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+    public String getLayoutName() {
+        return layoutName;
+    }
+    public void setLayoutName(String layoutName) {
+        this.layoutName = layoutName;
+    }
+    public String[] getLayoutData() {
+        return layoutData;
+    }
+    public void setLayoutData(String[] layoutData) {
+        this.layoutData = layoutData;
+    }
+    public String getLayoutDirection() {
+        return layoutDirection;
+    }
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
+    }
+    public String getLayoutEmail() {
+        return layoutEmail;
+    }
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
+    }
 
-    public List<Layout> layouts;
+    public int index;
+    public int getIndex() {
+        return index;
+    }
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
-    public void setLayouts(List<Layout> layouts) {
-        this.layouts = layouts;
+    public String[] choiceBoxList;
+    public String[] getChoiceBoxList() {
+        // makes a new list of strings
+        choiceBoxList = new String[factoryLayoutController.choiceBoxes.length];
+        // integer variable to be the list's index
+        int cbIndex = 0;
+        for (ChoiceBox<String> choiceBox: factoryLayoutController.choiceBoxes) {
+            // adds the "Open" value to the list if the user left the space blank
+            if (choiceBox.getValue() == null) {
+                choiceBoxList[cbIndex++] = "Open";
+            } else {
+                // adds the value the user entered into the space to the list
+                choiceBoxList[cbIndex++] = choiceBox.getValue();
+            }
+        }
+        return choiceBoxList;
+    }
+    public void setChoiceBoxList(String[] choiceBoxList) {
+        if (choiceBoxList.length == factoryLayoutController.choiceBoxes.length) {
+            int cbIndex = 0;
+            for (ChoiceBox<String> choiceBox : factoryLayoutController.choiceBoxes) {
+                choiceBox.setValue(choiceBoxList[cbIndex++]);
+            }
+        }
+    }
+
+    public List<Layout> listOfLayouts;
+    public List<Layout> getListOfLayouts() {
+        return listOfLayouts;
+    }
+    public void setListOfLayouts(List<Layout> listOfLayouts) {
+        this.listOfLayouts = listOfLayouts;
     }
 
     @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
-        String email = getEmailAddress();
         // sets user's email into Factory Layout
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
         Parent popUp = loader.load();
         FactoryLayoutController factoryLayoutController = loader.getController();
-        factoryLayoutController.setEmailAddress(email);
+        factoryLayoutController.setLayoutEmail(getLayoutEmail());
 
         // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -141,31 +201,25 @@ public class DashboardController {
     @FXML
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
         index = buttonDifferentiation(e);
-        emailAddress = layouts.get(index).getEmailAddress();
-        layoutID = layouts.get(index).getLayoutID();
+        layoutId = listOfLayouts.get(index).getLayoutID();
+        layoutName = listOfLayouts.get(index).getLayoutName();
+        layoutData = listOfLayouts.get(index).getLayoutData();
+        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
+        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
 
-        sqlConfiguration.deleteLayout(emailAddress, layoutID);
+        sqlConfiguration.deleteLayout(getEmailAddress());
+        refreshDashboard(e);
     }
     @FXML
     public void onEditLayoutClick (ActionEvent e) throws Exception {
-        index = buttonDifferentiation(e);
-        emailAddress = layouts.get(index).getEmailAddress();
-        layoutName = layouts.get(index).getLayoutName();
-        layoutData = layouts.get(index).getLayoutData();
-        directionValue = layouts.get(index).getDirectionValue();
-        layoutID = layouts.get(index).getLayoutID();
-
-
-        sqlConfiguration.editLayout(emailAddress, layoutName, layoutData, directionValue, layoutID);
         // goes to edit page
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutEdit.fxml"));
         Parent editPopUp = loader.load();
         FactoryLayoutEditController layoutEditController = loader.getController();
-        layouts = sqlConfiguration.getUserLayoutData(emailAddress);
-        layoutEditController.setLayouts(layouts);
+        index = buttonDifferentiation(e);
         layoutEditController.setIndex(index);
-        layoutEditController.setEmailAddress(emailAddress);
 
+        layoutEditController.setListOfLayouts(listOfLayouts);
         // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(editPopUp);
@@ -175,36 +229,57 @@ public class DashboardController {
 
     //Work in progress
     public void onViewLayoutClick(ActionEvent e) throws Exception {
-        index = buttonDifferentiation(e);
-        emailAddress = getEmailAddress();
-        System.out.println("This is the email address: " + emailAddress);  //For debugging purposes
-
-        layoutName = layouts.get(index).getLayoutName();
-        System.out.println("This is the layout name: " + layoutName);  //For debugging purposes
-
-        layoutData = layouts.get(index).getLayoutData();
-        System.out.println("This is the choicebox stream: " + Arrays.toString(layoutData));  //For debugging purposes
-
-        directionValue = layouts.get(index).getDirectionValue();
-        System.out.println("This is the direction: " + directionValue);  //For debugging purposes
-
-        layoutID = layouts.get(index).getLayoutID();
-        System.out.println("ID: " + layoutID);
-
-        sqlConfiguration.viewLayout(emailAddress, layoutID);
-
         // goes to view page
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutView.fxml"));
         Parent viewPopUp = loader.load();
         FactoryLayoutViewController layoutViewController = loader.getController();
-        layoutViewController.setLayouts(layouts);
+
         layoutViewController.setIndex(index);
+        layoutViewController.setLayouts(listOfLayouts);
 
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(viewPopUp);
         stageFive.setScene(sceneFive);
         stageFive.show();
+    }
+
+    public void refreshDashboard(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        Parent dashboardPopUp = loader.load();
+        DashboardController layoutRefreshController = loader.getController();
+
+        layoutId = listOfLayouts.get(index).getLayoutID();
+        layoutName = listOfLayouts.get(index).getLayoutName();
+        layoutData = listOfLayouts.get(index).getLayoutData();
+        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
+        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
+
+        System.out.println(layoutId);
+        layoutRefreshController.setLayoutId(layoutId);
+
+        System.out.println(layoutName);
+        layoutRefreshController.setLayoutName(layoutName);
+
+        System.out.println("getLayoutData():" + Arrays.toString(layoutData));
+        layoutRefreshController.setLayoutData(layoutData);
+
+        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBoxList()));
+        layoutRefreshController.setChoiceBoxList(getChoiceBoxList());
+
+        layoutRefreshController.setLayoutEmail(layoutEmail);
+
+        System.out.println("index: " + index);
+        layoutRefreshController.setIndex(index);
+
+        System.out.println("getIndex(): " + getIndex());
+        layoutRefreshController.setIndex(getIndex());
+        makeUserLayoutVisible();
+
+        Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneFour = new Scene(dashboardPopUp);
+        stageFour.setScene(sceneFour);
+        stageFour.show();
     }
 
     public void makeUserLayoutVisible() {
@@ -232,14 +307,13 @@ public class DashboardController {
         } else {
             System.out.println();
         }
-
     }
 
     private void layoutOneVisibility() {
         layoutOne_Left.setVisible(true);
         layoutOne_Right.setVisible(true);
 
-        layoutName = layouts.get(0).getLayoutName();
+        layoutName = listOfLayouts.get(0).getLayoutName();
         layoutNameLabel1.setText(layoutName);
 
         layoutNameLabel1.setVisible(true);
@@ -251,7 +325,7 @@ public class DashboardController {
         layoutTwo_Left.setVisible(true);
         layoutTwo_Right.setVisible(true);
 
-        layoutName = layouts.get(1).getLayoutName();
+        layoutName = listOfLayouts.get(1).getLayoutName();
         layoutNameLabel2.setText(layoutName);
 
         layoutNameLabel2.setVisible(true);
@@ -263,7 +337,7 @@ public class DashboardController {
         layoutThree_Left.setVisible(true);
         layoutThree_Right.setVisible(true);
 
-        layoutName = layouts.get(2).getLayoutName();
+        layoutName = listOfLayouts.get(2).getLayoutName();
         layoutNameLabel3.setText(layoutName);
 
         layoutNameLabel3.setVisible(true);
@@ -275,7 +349,7 @@ public class DashboardController {
         layoutFour_Left.setVisible(true);
         layoutFour_Right.setVisible(true);
 
-        layoutName = layouts.get(3).getLayoutName();
+        layoutName = listOfLayouts.get(3).getLayoutName();
         layoutNameLabel4.setText(layoutName);
 
         layoutNameLabel4.setVisible(true);
@@ -287,7 +361,7 @@ public class DashboardController {
         layoutFive_Left.setVisible(true);
         layoutFive_Right.setVisible(true);
 
-        layoutName = layouts.get(4).getLayoutName();
+        layoutName = listOfLayouts.get(4).getLayoutName();
         layoutNameLabel5.setText(layoutName);
 
         layoutNameLabel5.setVisible(true);
@@ -301,15 +375,15 @@ public class DashboardController {
         int buttonNumber = 0;
 
         if (clickedButton.getId().contains("1")) {
-            buttonNumber = 1;
+            buttonNumber = 0;
         } else if (clickedButton.getId().contains("2")) {
-            buttonNumber = 2;
+            buttonNumber = 1;
         } else if (clickedButton.getId().contains("3")) {
-            buttonNumber = 3;
+            buttonNumber = 2;
         } else if (clickedButton.getId().contains("4")) {
-            buttonNumber = 4;
+            buttonNumber = 3;
         } else if (clickedButton.getId().contains("5")){
-            buttonNumber = 5;
+            buttonNumber = 4;
         }
         return buttonNumber;
     }

@@ -44,7 +44,7 @@ public class CreateUserAccountController {
             // gets the controller fx:id from the fxml
             DashboardController dashboardController = loader.getController();
             // makes a dashboard object with the user's email
-            dashboardController.setEmailAddress(userEmail);
+            dashboardController.setLayoutEmail(userEmail);
 
             // adds the user to the database
             if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {

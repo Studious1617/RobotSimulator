@@ -11,22 +11,43 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class RulesetsController {
-    String email;
-    List<Layout> layouts;
+    private int layoutId;
+    private String layoutName;
+    private String[] layoutData;
+    private String layoutDirection;
+    private String layoutEmail;
 
-    public String getEmail() {
-        return email;
+    public int getLayoutId() {
+        return layoutId;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+    public String getLayoutName() {
+        return layoutName;
+    }
+    public void setLayoutName(String layoutName) {
+        this.layoutName = layoutName;
+    }
+    public String[] getLayoutData() {
+        return layoutData;
+    }
+    public void setLayoutData(String[] layoutData) {
+        this.layoutData = layoutData;
+    }
+    public String getLayoutDirection() {
+        return layoutDirection;
+    }
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
+    }
+    public String getLayoutEmail() {
+        return layoutEmail;
+    }
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
     }
 
-    public List<Layout> getLayouts() {
-        return layouts;
-    }
-    public void setLayouts(List<Layout> layouts) {
-        this.layouts = layouts;
-    }
 
     @FXML
     public void onCreateNewRulesetClick(ActionEvent e) throws Exception {
@@ -38,9 +59,10 @@ public class RulesetsController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
+        dashboardController.setLayoutId(layoutId);
+        dashboardController.setLayoutName(layoutName);
 
-        dashboardController.setEmailAddress(email);
-        dashboardController.setLayouts(layouts);
+        dashboardController.setLayoutEmail(layoutEmail);
         // reveals the user's layouts
         dashboardController.makeUserLayoutVisible();
 

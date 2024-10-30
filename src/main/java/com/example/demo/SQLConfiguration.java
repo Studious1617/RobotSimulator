@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SQLConfiguration {
@@ -9,16 +10,35 @@ public class SQLConfiguration {
     static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
     static String upass = "Hard2Guess";
+
+    public List<String> listLayoutNames = new ArrayList<>();
+    public List<String> listLayoutData = new ArrayList<>();
+    public List<String> listLayoutDirections = new ArrayList<>();
+    public List<Layout> listOfLayoutLists = new ArrayList<>();
+
     // makes table
     public SQLConfiguration () {
-        String accountsTable = "CREATE TABLE IF NOT EXISTS userAccounts (" +
-                "user_id SERIAL PRIMARY KEY, " +
-                "full_name VARCHAR(50) NOT NULL," +
-                "email_Address VARCHAR(50) NOT NULL UNIQUE," +
-                "password VARCHAR(30) NOT NULL)";
+        String accountsTable = """
+                CREATE TABLE IF NOT EXISTS userAccounts (
+                user_id SERIAL PRIMARY KEY,
+                full_name VARCHAR(50) NOT NULL,
+                email_Address VARCHAR(50) NOT NULL UNIQUE,
+                password VARCHAR(30) NOT NULL)""";
+        String layoutsTable = """
+                CREATE TABLE IF NOT EXISTS layouts (
+                layout_id INT PRIMARY KEY DEFAULT nextval('layout_is_seq'),
+                layout_name VARCHAR(50) NOT NULL UNIQUE,
+                layout_data VARCHAR[],
+                direction VARCHAR(10) NOT NULL,
+                email_address VARCHAR(50),
+                CONSTRAINT fk_email
+                    FOREIGN KEY (email_address)
+                        REFERENCES useraccounts (email_address)
+                );""";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              Statement statement = connection.createStatement()) {
             statement.execute(accountsTable);
+            statement.execute(layoutsTable);
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e);
         }
@@ -93,27 +113,39 @@ public class SQLConfiguration {
     }
 
     public void insertLayout (String layoutName, String[] layoutData, String direction, String userEmail) {
-        String enterLayoutSQL = "INSERT INTO layouts (layout_name, layout_data, direction, email_address)" +
-                " VALUES (?, ?, ?, ?)";
-        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(enterLayoutSQL)) {
-            preparedStatement.setString(1, layoutName);
-            preparedStatement.setArray(2, connection.createArrayOf("VARCHAR", layoutData));
-            preparedStatement.setString(3, direction);
-            preparedStatement.setString(4, userEmail);
-            preparedStatement.executeUpdate();
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass)) {
+            String layoutGetter = "SELECT l.layout_id FROM layouts l JOIN useraccounts u " +
+                    "ON l.email_address = u.email_address WHERE u.email_address = ?";
+            String enterLayout = "INSERT INTO layouts (layout_name, layout_data, direction, email_address)" +
+                    " VALUES (?, ?, ?, ?)";
+            String newEnterSQL = "INSERT INTO layouts (layout_name, layout_data, direction, email_address) " +
+                    "VALUES (?, ?, ?, ?) " +
+                    "WHERE (SELECT COUNT(*) FROM layouts WHERE email_address = ?) <= 5";
+            PreparedStatement idStmt = connection.prepareStatement(layoutGetter);
+            idStmt.setString(1, userEmail);
+            idStmt.executeQuery();
+
+            PreparedStatement layoutStmt = connection.prepareStatement(enterLayout);
+
+            layoutStmt.setString(1, layoutName);
+            layoutStmt.setArray(2, connection.createArrayOf("VARCHAR", layoutData));
+            layoutStmt.setString(3, direction);
+            layoutStmt.setString(4, userEmail);
+            System.out.println("layoutData(): " + Arrays.toString(layoutData));
+            layoutStmt.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("Error saving layout: " + e);
         }
     }
 
-    public void deleteLayout (String userEmail, int layoutID) {
-        String deleteLayoutSQL = "DELETE FROM layouts WHERE email_address = ? AND layout_id = ?";
+    public void deleteLayout (String userEmail) {
+        String deleteLayoutSQL = "DELETE FROM layouts WHERE email_address = ? " +
+                "AND layout_id = (SELECT layout_id FROM layouts WHERE email_address = ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(deleteLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
-            preparedStatement.setInt(2, layoutID);
+            preparedStatement.setString(2, userEmail);
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -121,16 +153,16 @@ public class SQLConfiguration {
         }
     }
 
-    public void editLayout (String userEmail, String layoutName, String[] layoutData, String direction, int layoutID) {
+    public void editLayout (String userEmail, String layoutName, String[] layoutData, String direction) {
         String editLayoutSQL = "UPDATE layouts SET layout_name = ?, layout_data = ?, direction = ?" +
-                " WHERE email_address = ? AND layout_id = ?";
+                " WHERE email_address = ? AND layout_id IN (SELECT layout_id FROM layouts WHERE email_address = ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(editLayoutSQL)) {
             preparedStatement.setString(1, layoutName);
             preparedStatement.setArray(2, connection.createArrayOf("VARCHAR", layoutData));
             preparedStatement.setString(3, direction);
             preparedStatement.setString(4, userEmail);
-            preparedStatement.setInt(5, layoutID);
+            preparedStatement.setString(5, userEmail);
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -138,14 +170,15 @@ public class SQLConfiguration {
         }
     }
 
-    public void viewLayout (String userEmail, int layoutID) {
-        String viewLayoutSQL = "SELECT * FROM layouts WHERE email_address = ? AND layout_id = ?";
+    public void viewLayout (String userEmail) {
+        String viewLayoutSQL = "SELECT * FROM layouts WHERE email_address = ? " +
+                "AND layout_id IN (SELECT layout_id FROM layouts WHERE email_address = ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(viewLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
-            preparedStatement.setInt(2, layoutID);
+            preparedStatement.setString(2, userEmail);
 
-            preparedStatement.executeUpdate();
+            preparedStatement.executeQuery();
         } catch (SQLException e) {
             System.out.println("Error viewing layout: " + e);
         }
@@ -169,32 +202,27 @@ public class SQLConfiguration {
         return numberOfLayouts;
     }
 
-    // gets the user's saved layouts
-    public List<Layout> getUserLayoutData (String userEmail) {
+    public List<Layout> getUserLayoutList (String userEmail) {
         String getLayoutSQL = "SELECT * FROM layouts l JOIN useraccounts u " +
-                "ON l.email_address = ?";
-        List<Layout> userLayouts = new ArrayList<>();
+                "ON l.email_address = u.email_address WHERE u.email_address = ? " +
+                "ORDER BY l.layout_id";
 
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(getLayoutSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(getLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
-
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int layoutID = rs.getInt("layout_id");
+                int layoutId = rs.getInt("layout_id");
                 String layoutName = rs.getString("layout_name");
-                String layoutBox = rs.getString("layout_data");
-                String cleanLayoutBox = layoutBox.replaceAll("[{}]", "");
-                String[] layoutData = cleanLayoutBox.split(" ");
-                String direction = rs.getString("direction");
-                String email = rs.getString("email_address");
-
-                userLayouts.add(new Layout(layoutID, layoutName, layoutData, direction, email));
+                Array layoutDataArray = rs.getArray("layout_data");
+                String[] layoutData = (String[]) layoutDataArray.getArray();
+                String layoutDirection = rs.getString("direction");
+                String layoutEmail = rs.getString("email_address");
+                listOfLayoutLists.add(new Layout(layoutId, layoutName, layoutData, layoutDirection, layoutEmail));
             }
         } catch (SQLException e) {
             System.out.println("Error getting user's layout(s): " + e);
         }
-        return userLayouts;
+        return listOfLayoutLists;
     }
-
 }

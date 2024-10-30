@@ -1,25 +1,25 @@
 package com.example.demo;
 
 public class Layout {
-    private String emailAddress;
+    private String layoutEmail;
     private String layoutName;
     private String[] layoutData;
-    private String directionValue;
+    private String layoutDirection;
     private int layoutID;
 
     public Layout(int layoutID, String layoutName, String[] layoutData, String direction, String email) {
         this.layoutID = layoutID;
         this.layoutName = layoutName;
         this.layoutData = layoutData;
-        this.directionValue = direction;
-        this.emailAddress = email;
+        this.layoutDirection = direction;
+        this.layoutEmail = email;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public int getLayoutID() {
+        return layoutID;
     }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setLayoutID(int layoutID) {
+        this.layoutID = layoutID;
     }
 
     public String getLayoutName() {
@@ -36,17 +36,17 @@ public class Layout {
         this.layoutData = layoutData;
     }
 
-    public String getDirectionValue() {
-        return directionValue;
+    public String getLayoutDirection() {
+        return layoutDirection;
     }
-    public void setDirectionValue(String directionValue) {
-        this.directionValue = directionValue;
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
     }
 
-    public int getLayoutID() {
-        return layoutID;
+    public String getLayoutEmail() {
+        return layoutEmail;
     }
-    public void setLayoutID(int layoutID) {
-        this.layoutID = layoutID;
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
     }
 }

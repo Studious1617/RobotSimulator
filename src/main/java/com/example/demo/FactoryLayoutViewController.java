@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -18,7 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class FactoryLayoutViewController {//} implements Initializable {
+public class FactoryLayoutViewController implements Initializable {
+    SQLConfiguration sqlConfiguration = new SQLConfiguration();
     @FXML
     Pane
             P_00, P_10, P_20, P_30, P_40,
@@ -37,18 +37,45 @@ public class FactoryLayoutViewController {//} implements Initializable {
     private Label layoutNameLabel;
     @FXML
     private Label robotDirectionCB;
-    private String emailAddress;
-    //private Legend.LegendItem layoutTextArea;  //Might be the cause of issues in the future? Make sure to check
 
-    public String getEmailAddress() {
-        return emailAddress;
+    private int layoutId;
+    private String layoutName;
+    private String[] layoutData;
+    private String layoutDirection;
+    private String layoutEmail;
+
+    public int getLayoutId() {
+        return layoutId;
     }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+    public String getLayoutName() {
+        return layoutName;
+    }
+    public void setLayoutName(String layoutName) {
+        this.layoutName = layoutName;
+    }
+    public String[] getLayoutData() {
+        return layoutData;
+    }
+    public void setLayoutData(String[] layoutData) {
+        this.layoutData = layoutData;
+    }
+    public String getLayoutDirection() {
+        return layoutDirection;
+    }
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
+    }
+    public String getLayoutEmail() {
+        return layoutEmail;
+    }
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
     }
 
     public List<Layout> layouts;
-
     public List<Layout> getLayouts() {
         return layouts;
     }
@@ -57,7 +84,6 @@ public class FactoryLayoutViewController {//} implements Initializable {
     }
 
     public int index;
-
     public int getIndex() {
         return index;
     }
@@ -68,46 +94,31 @@ public class FactoryLayoutViewController {//} implements Initializable {
     @FXML
     public Button FLV_BackButton;
 
-//    @Override
-//    public void initialize (URL url, ResourceBundle resourceBundle) {
-//        String layoutName = layouts.get(index).getLayoutName();
-//        String direction = layouts.get(index).getDirectionValue();
-//        layoutNameLabel.setText(layoutName);
-//        robotDirectionCB.setText(direction);
-//        // adds the options
-//        String[] choiceBoxes = layouts.get(index).getLayoutData();
-//        for (String cell : choiceBoxes){
-//            if (cell.equals("Start")) {
-//                p.setStyle("-fx-background-color: dark green;");
-//            } else if (cell.getValue().equals("Open")) {
-//                cell.setStyle("-fx-background-color: blue");
-//            } else if (cell.getValue().equals("Wall")) {
-//                cell.setStyle("-fx-background-color: grey");
-//            } else {
-//                cell.setStyle("-fx-background-color: red");
-//            }
-//        }
-//    }
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle) {
+        layoutName = getLayoutName();
+        layoutDirection = getLayoutDirection();
 
-    // Method to view the current selections
-//    public void viewLayout() {
-//        ChoiceBox<String>[] choiceBoxes = new ChoiceBox[]{
-//                CB_00, CB_10, CB_20, CB_30, CB_40,
-//                CB_01, CB_11, CB_21, CB_31, CB_41,
-//                CB_02, CB_12, CB_22, CB_32, CB_42,
-//                CB_03, CB_13, CB_23, CB_33, CB_43,
-//                CB_04, CB_14, CB_24, CB_34, CB_44};
-//
-//        StringBuilder layoutInfo = new StringBuilder("Current Layout:\n");
-//        for (int i = 0; i < choiceBoxes.length; i++) {
-//            ChoiceBox<String> cell = choiceBoxes[i];
-//            String selection = cell.getValue();
-//            layoutInfo.append("Cell ").append(i + 1).append(": ").append(selection != null ? selection : "Not set").append("\n");
-//        }
-//        layoutInfo.append("\nRobot Direction: ").append(robotDirectionCB.getValue() != null ? robotDirectionCB.getValue() : "Not set");
-//
-//        layoutTextArea.setText(layoutInfo.toString());
-//    }
+        layoutNameLabel.setText(layoutName);
+        robotDirectionCB.setText(layoutDirection);
+        // adds the layout data to the panes
+        String[] choiceBoxes = getLayouts().get(index).getLayoutData();
+        for (int i = 0; i < choiceBoxes.length; i++){
+            // gets the index of both lists
+            String typeOfBox = choiceBoxes[i];
+            Pane pane = paneList.get(i);
+            // sets the color of the pane based on its value
+            if (typeOfBox.equals("Start")) {
+                pane.setStyle("-fx-background-color: dark green;");
+            } else if (typeOfBox.equals("Exit")) {
+                pane.setStyle("-fx-background-color: red");
+            } else if (typeOfBox.equals("Wall")) {
+                pane.setStyle("-fx-background-color: grey");
+            } else {
+                pane.setStyle("-fx-background-color: blue");
+            }
+        }
+    }
 
     @FXML
     public void onBackButton(ActionEvent event) throws Exception {
@@ -115,10 +126,33 @@ public class FactoryLayoutViewController {//} implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
-        String email = getEmailAddress();
+        layoutEmail = getLayoutEmail();
 
-        dashboardController.setEmailAddress(email);
-        dashboardController.setLayouts(layouts);
+        dashboardController.setLayoutName(layoutName);
+        dashboardController.setLayoutData(layoutData);
+        dashboardController.setLayoutDirection(layoutDirection);
+        index = dashboardController.buttonDifferentiation(event);
+
+        layoutId = dashboardController.listOfLayouts.get(index).getLayoutID();
+        System.out.println("ID: " + layoutId);
+
+        layoutName = dashboardController.listOfLayouts.get(index).getLayoutName();
+        System.out.println("layout name: " + layoutName);
+
+        String[] layoutDataCB = dashboardController.getChoiceBoxList();
+        System.out.println("getChoiceBoxList(): " + Arrays.toString(layoutDataCB));
+
+        layoutData = dashboardController.listOfLayouts.get(index).getLayoutData();
+        System.out.println("layoutObject.getLayoutData(): " + Arrays.toString(layoutData));
+
+        layoutDirection = dashboardController.listOfLayouts.get(index).getLayoutDirection();
+        System.out.println("direction: " + layoutDirection);
+
+        layoutEmail = dashboardController.listOfLayouts.get(index).getLayoutEmail();
+        System.out.println("email address: " + layoutEmail);
+
+        sqlConfiguration.viewLayout(layoutEmail);
+
         // reveals the user's layouts
         dashboardController.makeUserLayoutVisible();
 

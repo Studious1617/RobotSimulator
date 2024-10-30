@@ -22,27 +22,26 @@ public class LogInController {
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
+    // get text from the textfields
+    List<Layout> listOfLayouts;
+
     public void onLogInButtonClick(ActionEvent e) throws IOException {
-        // get text from the textfields
-        String email = enterEmailTF.getText();
+        String emailAddress = enterEmailTF.getText();
         String password = enterPasswordTF.getText();
-
         // check if the user entered valid data
-        if (sqlConfiguration.checkUserLogIn(email, password)) {
+        if (sqlConfiguration.checkUserLogIn(emailAddress, password)) {
             // cross-reference it in the database
-            if (sqlConfiguration.userLogIn(email, password)) {
-                // saves the layouts
-                List<Layout> layouts = sqlConfiguration.getUserLayoutData(email);
-
+            if (sqlConfiguration.userLogIn(emailAddress, password)) {
                 // sets user email instance into Dashboard
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                 Parent dashboardPopUp = loader.load();
                 DashboardController dashboardController = loader.getController();
 
-                dashboardController.setEmailAddress(email);
-                dashboardController.setLayouts(layouts);
+                dashboardController.setEmailAddress(emailAddress);
+                listOfLayouts = sqlConfiguration.getUserLayoutList(emailAddress);
+                dashboardController.setListOfLayouts(listOfLayouts);
                 // reveals the user's layouts
-                if (dashboardController.index > 0) {
+                if (!listOfLayouts.isEmpty()) {
                     dashboardController.makeUserLayoutVisible();
                 }
                 // switches to Dashboard
