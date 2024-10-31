@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsController">
+<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsDashboard">
     <children>
       <HBox alignment="CENTER" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;">
          <children>
@@ -43,7 +43,7 @@
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font></Button>
-                              <Button fx:id="RulePage_RulesetsPageButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: White;" text="Rulesets">
+                              <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: White;" text="Rulesets">
                                   <HBox.margin>
                                       <Insets />
                                   </HBox.margin>

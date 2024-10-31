@@ -9,10 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -176,6 +174,19 @@ public class DashboardController {
         this.listOfLayouts = listOfLayouts;
     }
 
+    public void onRulesetsPageClick(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
+        Parent popUp = loader.load();
+        RulesetsDashboard rulesetsDashboard = loader.getController();
+        rulesetsDashboard.setUserEmail(getEmailAddress());
+        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
+
+        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneFive = new Scene(popUp);
+        stageFive.setScene(sceneFive);
+        stageFive.show();
+    }
+
     @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
         // sets user's email into Factory Layout
@@ -183,6 +194,7 @@ public class DashboardController {
         Parent popUp = loader.load();
         FactoryLayoutController factoryLayoutController = loader.getController();
         factoryLayoutController.setLayoutEmail(getLayoutEmail());
+        factoryLayoutController.setListOfLayouts(getListOfLayouts());
 
         // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -191,13 +203,6 @@ public class DashboardController {
         stageFive.show();
     }
 
-    public void onRulesetsPageClick(ActionEvent e) throws Exception {
-        Parent popUp = FXMLLoader.load(getClass().getResource("Rulesets.fxml"));
-        Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSix = new Scene(popUp);
-        stageSix.setScene(sceneSix);
-        stageSix.show();
-    }
     @FXML
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
         index = buttonDifferentiation(e);
@@ -249,31 +254,33 @@ public class DashboardController {
         Parent dashboardPopUp = loader.load();
         DashboardController layoutRefreshController = loader.getController();
 
-        layoutId = listOfLayouts.get(index).getLayoutID();
-        layoutName = listOfLayouts.get(index).getLayoutName();
-        layoutData = listOfLayouts.get(index).getLayoutData();
-        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
-        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
+//        layoutId = listOfLayouts.get(index).getLayoutID();
+//        layoutName = listOfLayouts.get(index).getLayoutName();
+//        layoutData = listOfLayouts.get(index).getLayoutData();
+//        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
+//        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
+//
+//        System.out.println(layoutId);
+//        layoutRefreshController.setLayoutId(layoutId);
+//
+//        System.out.println(layoutName);
+//        layoutRefreshController.setLayoutName(layoutName);
+//
+//        System.out.println("getLayoutData():" + Arrays.toString(layoutData));
+//        layoutRefreshController.setLayoutData(layoutData);
+//
+//        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBoxList()));
+//        layoutRefreshController.setChoiceBoxList(getChoiceBoxList());
+//
+//        layoutRefreshController.setLayoutEmail(layoutEmail);
+//
+//        System.out.println("index: " + index);
+//        layoutRefreshController.setIndex(index);
+//
+//        System.out.println("getIndex(): " + getIndex());
+//        layoutRefreshController.setIndex(getIndex());
 
-        System.out.println(layoutId);
-        layoutRefreshController.setLayoutId(layoutId);
-
-        System.out.println(layoutName);
-        layoutRefreshController.setLayoutName(layoutName);
-
-        System.out.println("getLayoutData():" + Arrays.toString(layoutData));
-        layoutRefreshController.setLayoutData(layoutData);
-
-        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBoxList()));
-        layoutRefreshController.setChoiceBoxList(getChoiceBoxList());
-
-        layoutRefreshController.setLayoutEmail(layoutEmail);
-
-        System.out.println("index: " + index);
-        layoutRefreshController.setIndex(index);
-
-        System.out.println("getIndex(): " + getIndex());
-        layoutRefreshController.setIndex(getIndex());
+        layoutRefreshController.setListOfLayouts(getListOfLayouts());
         makeUserLayoutVisible();
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
