@@ -40,6 +40,7 @@ public class RulesetsDashboard {
         Parent rulesetsCreatePopUp = loader.load();
         RulesetsCreate rulesetsCreate = loader.getController();
         rulesetsCreate.setUserEmail(getUserEmail());
+        rulesetsCreate.setListOfLayouts(getListOfLayouts());
 
         Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneSix = new Scene(rulesetsCreatePopUp);

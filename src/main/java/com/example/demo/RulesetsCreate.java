@@ -9,11 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class RulesetsCreate {
     @FXML
     public Button backButton;
 
-    String userEmail;
+    public String userEmail;
     public String getUserEmail() {
         return userEmail;
     }
@@ -21,11 +23,20 @@ public class RulesetsCreate {
         this.userEmail = userEmail;
     }
 
+    public List<Layout> listOfLayouts;
+    public List<Layout> getListOfLayouts() {
+        return listOfLayouts;
+    }
+    public void setListOfLayouts(List<Layout> listOfLayouts) {
+        this.listOfLayouts = listOfLayouts;
+    }
+
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
         RulesetsDashboard rulesetsDashboard = loader.getController();
         rulesetsDashboard.setUserEmail(getUserEmail());
+        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 
         Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneSix = new Scene(rulesetsDashboardPopUp);

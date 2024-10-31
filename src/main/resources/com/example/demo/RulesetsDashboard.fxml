@@ -10,7 +10,7 @@
     <children>
       <HBox alignment="CENTER" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;">
          <children>
-            <Pane prefHeight="600.0" prefWidth="178.0" style="-fx-background-color: LightYellow;" />
+            <Pane prefHeight="600.0" prefWidth="175.0" style="-fx-background-color: LightYellow;" />
               <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: lightgray;">
                   <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -381,7 +381,7 @@
                       </HBox>
                   </children>
               </GridPane>
-            <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: LightYellow;" />
+            <Pane prefHeight="600.0" prefWidth="175.0" style="-fx-background-color: LightYellow;" />
          </children>
       </HBox>
     </children>
