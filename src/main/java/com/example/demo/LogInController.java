@@ -23,7 +23,7 @@ public class LogInController {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     // get text from the textfields
-    List<Layout> listOfLayouts;
+    public List<Layout> listOfLayouts;
 
     public void onLogInButtonClick(ActionEvent e) throws IOException {
         String emailAddress = enterEmailTF.getText();

@@ -99,7 +99,7 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton1" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -206,7 +206,7 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton2" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -238,7 +238,7 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton3" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -270,7 +270,7 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton4" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -302,7 +302,7 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton5" mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>

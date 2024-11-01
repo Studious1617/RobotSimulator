@@ -39,6 +39,7 @@ public class RulesetsDashboard {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsCreate.fxml"));
         Parent rulesetsCreatePopUp = loader.load();
         RulesetsCreate rulesetsCreate = loader.getController();
+        // so the user's layout info doesn't get lost
         rulesetsCreate.setUserEmail(getUserEmail());
         rulesetsCreate.setListOfLayouts(getListOfLayouts());
 
@@ -47,6 +48,22 @@ public class RulesetsDashboard {
         stageSix.setScene(sceneSix);
         stageSix.show();
     }
+
+    @FXML
+    public void onEditRulesetClick(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsEdit.fxml"));
+        Parent rulesetsEditPopUp = loader.load();
+        RulesetsEdit rulesetsEdit = loader.getController();
+        // so the user's layout information doesn't get lost
+        rulesetsEdit.setUserEmail(getUserEmail());
+        rulesetsEdit.setListOfLayouts(getListOfLayouts());
+
+        Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSix = new Scene(rulesetsEditPopUp);
+        stageSix.setScene(sceneSix);
+        stageSix.show();
+    }
+
     @FXML
     public void onLayoutPageClick(ActionEvent e) throws Exception {
         // sets user email instance into Dashboard
@@ -55,7 +72,9 @@ public class RulesetsDashboard {
         DashboardController dashboardController = loader.getController();
         dashboardController.setListOfLayouts(getListOfLayouts());
         // reveals the user's layouts
-        dashboardController.makeUserLayoutVisible();
+        if (!listOfLayouts.isEmpty()) {
+            dashboardController.makeUserLayoutVisible();
+        }
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFour = new Scene(dashboardPopUp);
