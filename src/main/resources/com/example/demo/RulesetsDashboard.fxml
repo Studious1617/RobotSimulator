@@ -321,24 +321,24 @@
                       <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="300.0" style="-fx-background-color: gray;">
                           <children>
                               <Label text="Dashboard Rulesets">
-                                  <padding>
-                                      <Insets left="10.0" />
-                                  </padding>
                            <font>
                               <Font name="Bodoni MT Black" size="36.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
                               </Label>
                           </children>
                       </HBox>
                       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: Lightgray;" GridPane.rowIndex="1">
                           <children>
-                              <Label text="Simulation Runner App">
-                                  <padding>
-                                      <Insets left="10.0" />
-                                  </padding>
+                              <Label text="Robot Simulation Runner">
                            <font>
                               <Font name="Book Antiqua" size="24.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
                               </Label>
                           </children>
                       </HBox>
