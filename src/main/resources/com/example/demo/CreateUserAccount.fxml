@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="650.0" minWidth="1350.0" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="650.0" minWidth="1400.0" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
-      <HBox layoutX="-53.0" prefHeight="700.0" prefWidth="1454.0">
+      <HBox alignment="CENTER" layoutX="-72.0" minHeight="900.0" minWidth="1600.0" prefHeight="700.0" prefWidth="1450.0">
          <children>
-            <VBox prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: Sienna;" />
-            <VBox alignment="TOP_CENTER" minHeight="485.0" minWidth="600.0" prefHeight="485.0" prefWidth="864.0">
+            <VBox minHeight="150.0" minWidth="400.0" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: Sienna;" />
+            <VBox alignment="TOP_CENTER" minHeight="500.0" minWidth="850.0" prefHeight="500.0" prefWidth="850.0">
                <children>
                   <Label style="-fx-font-family: serif;" text="Welcome to the Robot Simulator App">
                      <font>
@@ -119,15 +119,13 @@
                <padding>
                   <Insets bottom="50.0" left="20.0" right="20.0" top="30.0" />
                </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
-            <VBox prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: Sienna;" />
+            <VBox minHeight="150.0" minWidth="400.0" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: Sienna;" />
          </children>
       </HBox>
-      <BorderPane layoutX="-218.0" layoutY="235.0" prefHeight="200.0" prefWidth="200.0">
-         <center>
-            <VBox prefHeight="241.0" prefWidth="558.0" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
    </children>
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
