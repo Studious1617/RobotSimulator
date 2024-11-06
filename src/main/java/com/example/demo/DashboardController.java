@@ -100,30 +100,7 @@ public class DashboardController {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    public int getLayoutId() {
-        return layoutId;
-    }
-    public void setLayoutId(int layoutId) {
-        this.layoutId = layoutId;
-    }
-    public String getLayoutName() {
-        return layoutName;
-    }
-    public void setLayoutName(String layoutName) {
-        this.layoutName = layoutName;
-    }
-    public String[] getLayoutData() {
-        return layoutData;
-    }
-    public void setLayoutData(String[] layoutData) {
-        this.layoutData = layoutData;
-    }
-    public String getLayoutDirection() {
-        return layoutDirection;
-    }
-    public void setLayoutDirection(String layoutDirection) {
-        this.layoutDirection = layoutDirection;
-    }
+
     public String getLayoutEmail() {
         return layoutEmail;
     }
@@ -186,7 +163,6 @@ public class DashboardController {
         stageFive.show();
     }
 
-    @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
         // sets user's email into Factory Layout
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
@@ -238,7 +214,7 @@ public class DashboardController {
         FactoryLayoutViewController layoutViewController = loader.getController();
 
         layoutViewController.setIndex(getIndex());
-        layoutViewController.setLayouts(getListOfLayouts());
+        layoutViewController.setListOfLayouts(getListOfLayouts());
 
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
