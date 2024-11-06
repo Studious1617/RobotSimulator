@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DashboardController {
@@ -158,7 +157,7 @@ public class DashboardController {
         return choiceBoxList;
     }
     public void setChoiceBoxList(String[] choiceBoxList) {
-        if (choiceBoxList.length == factoryLayoutController.choiceBoxes.length) {
+        if (choiceBoxList.length == getChoiceBoxList().length) {
             int cbIndex = 0;
             for (ChoiceBox<String> choiceBox : factoryLayoutController.choiceBoxes) {
                 choiceBox.setValue(choiceBoxList[cbIndex++]);
@@ -203,7 +202,6 @@ public class DashboardController {
         stageFive.show();
     }
 
-    @FXML
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
         index = buttonDifferentiation(e);
         layoutId = listOfLayouts.get(index).getLayoutID();
@@ -215,7 +213,7 @@ public class DashboardController {
         sqlConfiguration.deleteLayout(getEmailAddress());
         refreshDashboard(e);
     }
-    @FXML
+
     public void onEditLayoutClick (ActionEvent e) throws Exception {
         // goes to edit page
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutEdit.fxml"));
@@ -224,7 +222,7 @@ public class DashboardController {
         index = buttonDifferentiation(e);
         layoutEditController.setIndex(index);
 
-        layoutEditController.setListOfLayouts(listOfLayouts);
+        layoutEditController.setListOfLayouts(getListOfLayouts());
         // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(editPopUp);
@@ -239,8 +237,8 @@ public class DashboardController {
         Parent viewPopUp = loader.load();
         FactoryLayoutViewController layoutViewController = loader.getController();
 
-        layoutViewController.setIndex(index);
-        layoutViewController.setLayouts(listOfLayouts);
+        layoutViewController.setIndex(getIndex());
+        layoutViewController.setLayouts(getListOfLayouts());
 
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -376,7 +374,7 @@ public class DashboardController {
         viewLayoutButton5.setVisible(true);
         deleteLayoutButton5.setVisible(true);
     }
-    @FXML
+
     public int buttonDifferentiation (ActionEvent e) {
         Button clickedButton = (Button) e.getSource();
         int buttonNumber = 0;
