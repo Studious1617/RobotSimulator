@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SQLConfiguration {
     // url to access the database
@@ -11,9 +13,6 @@ public class SQLConfiguration {
     static String user = "postgres";
     static String upass = "Hard2Guess";
 
-    public List<String> listLayoutNames = new ArrayList<>();
-    public List<String> listLayoutData = new ArrayList<>();
-    public List<String> listLayoutDirections = new ArrayList<>();
     public List<Layout> listOfLayoutLists = new ArrayList<>();
 
     // makes table
@@ -53,7 +52,16 @@ public class SQLConfiguration {
         return checkEmail != null && !checkEmail.trim().isEmpty() &&
                 checkPassword != null && !checkPassword.trim().isEmpty();
     }
-
+    public boolean checkEmailFormat (String email) {
+        // email regex pattern
+        Pattern emailFormat = Pattern.compile(
+                ".+" + // start of email before the @ symbol
+                        "@.+" + // the @ and the address like @gmail
+                        "[.].+"); // the .com or whatever the ending is
+        // matches what the user entered with the pattern
+        Matcher matcher = emailFormat.matcher(email);
+        return matcher.matches();
+    }
     public boolean addNewUser (String name, String email, String password) {
         String redoneAddUserSQL = "SELECT * FROM useraccounts WHERE email_address LIKE ?";
 
