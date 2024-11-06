@@ -167,13 +167,11 @@ public class FactoryLayoutEditController implements Initializable {
 //        dashboardController.setLayoutData(layoutData);
 //        dashboardController.setLayoutDirection(layoutDirection);
 //        dashboardController.setLayoutEmail(layoutEmail);
-        listOfLayouts = dashboardController.sqlConfiguration.getUserLayoutList(emailAddress);
-        dashboardController.setListOfLayouts(listOfLayouts);
-        //dashboardController.refreshDashboard(e);
-
+        dashboardController.setListOfLayouts(getListOfLayouts());
         // makes user's layouts appear
-        //dashboardController.makeUserLayoutVisible();
-
+        if (!getListOfLayouts().isEmpty()) {
+            dashboardController.makeUserLayoutVisible();
+        }
         Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneThree = new Scene(dashboardPopUp);
         stageThree.setScene(sceneThree);
