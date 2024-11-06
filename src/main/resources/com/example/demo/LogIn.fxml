@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="650.0" minWidth="1350.0" prefHeight="703.0" prefWidth="1352.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
+<AnchorPane minHeight="650.0" minWidth="1350.0" prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
    <children>
-      <HBox layoutX="-10.0" layoutY="-8.0" prefHeight="714.0" prefWidth="1366.0" style="-fx-background-color: LightBrown;">
+      <HBox layoutX="-33.0" layoutY="-30.0" prefHeight="800.0" prefWidth="1439.0" style="-fx-background-color: LightBrown;" AnchorPane.bottomAnchor="-170.79999999999995" AnchorPane.leftAnchor="-83.60000000000014" AnchorPane.rightAnchor="-56.200000000000045" AnchorPane.topAnchor="-55.0">
          <children>
-            <Pane prefHeight="700.0" prefWidth="212.0" style="-fx-background-color: Sienna;" />
-            <VBox alignment="TOP_CENTER" minHeight="107.0" minWidth="939.0" prefHeight="814.0" prefWidth="939.0">
+            <Pane prefHeight="800.0" prefWidth="350.0" style="-fx-background-color: Sienna;" />
+            <VBox alignment="TOP_CENTER" minHeight="430.0" minWidth="939.0" prefHeight="750.0" prefWidth="939.0">
                <children>
                   <Label text="Log In with Existing Account">
                      <font>
@@ -89,7 +95,7 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <Pane prefHeight="700.0" prefWidth="212.0" style="-fx-background-color: Sienna;" />
+            <Pane prefHeight="840.0" prefWidth="320.0" style="-fx-background-color: Sienna;" />
          </children>
       </HBox>
    </children>

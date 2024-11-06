@@ -7,9 +7,9 @@ import java.util.List;
 
 public class SQLConfiguration {
     // url to access the database
-    static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
+    static String databaseURL = "jdbc:postgresql://localhost:5433/postgres";
     static String user = "postgres";
-    static String upass = "Hard2Guess";
+    static String upass = "Mvan2301Mv0103";
 
     public List<String> listLayoutNames = new ArrayList<>();
     public List<String> listLayoutData = new ArrayList<>();

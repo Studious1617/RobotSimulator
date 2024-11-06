@@ -25,9 +25,11 @@ public class LogInController {
     // get text from the textfields
     public List<Layout> listOfLayouts;
 
+
     public void onLogInButtonClick(ActionEvent e) throws IOException {
         String emailAddress = enterEmailTF.getText();
         String password = enterPasswordTF.getText();
+
         // check if the user entered valid data
         if (sqlConfiguration.checkUserLogIn(emailAddress, password)) {
             // cross-reference it in the database
@@ -46,7 +48,7 @@ public class LogInController {
                 }
                 // switches to Dashboard
                 Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                Scene sceneThree = new Scene(dashboardPopUp);
+                Scene sceneThree = new Scene(dashboardPopUp, 1920, 1080);
                 stageThree.setScene(sceneThree);
                 stageThree.show();
             }
@@ -58,9 +60,12 @@ public class LogInController {
     public void onCreateAnAccountButtonClick(ActionEvent event) throws IOException {
         Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
         Stage stageTwo = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneTwo = new Scene(popUp);
+        Scene sceneTwo = new Scene(popUp, 1920, 1080);
         stageTwo.setScene(sceneTwo);
         stageTwo.show();
+
+
+
     }
 
 }
