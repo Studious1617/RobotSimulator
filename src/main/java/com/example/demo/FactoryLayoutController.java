@@ -90,7 +90,7 @@ public class FactoryLayoutController implements Initializable {
 
 
 /////
-    private List<Layout> listOfLayouts;
+    public List<Layout> listOfLayouts;
     public List<Layout> getListOfLayouts() {
         return listOfLayouts;
     }
@@ -152,34 +152,16 @@ public class FactoryLayoutController implements Initializable {
         robotDirectionCB.getItems().addAll(robotDirection);
     }
 
-    @FXML
     public void onBackButton(ActionEvent event) throws Exception {
         // sets user email instance into Dashboard
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
-        dashboardController.setLayoutId(getLayoutId());
-
-        System.out.println("factoryLayoutName.getText()" + factoryLayoutName.getText());
-        dashboardController.setLayoutName(factoryLayoutName.getText());
-
-        System.out.println("getFactoryLayoutName(): " + getFactoryLayoutName());
-        dashboardController.setLayoutName(getFactoryLayoutName());
-        // set layout info to dashboard
-        System.out.println("get()ChoiceBox: " + Arrays.toString(getChoiceBox()));
-        //dashboardController.setChoiceBoxList(getChoiceBox());
-
-        System.out.println("getLayoutData(): " + Arrays.toString(getLayoutData()));
-        dashboardController.setLayoutData(getLayoutData());
-
-        System.out.println("getRobotDirectionCB: " + getRobotDirectionCB());
-        dashboardController.setLayoutDirection(getRobotDirectionCB());
-
-        System.out.println("getLayoutDirection():" + getLayoutDirection());
-        dashboardController.setLayoutDirection(getLayoutDirection());
+        dashboardController.setListOfLayouts(getListOfLayouts());
         dashboardController.setLayoutEmail(getLayoutEmail());
+
         // makes user's layouts appear
-        if (getIndex() > 0) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
@@ -202,13 +184,13 @@ public class FactoryLayoutController implements Initializable {
         return startBox == 1 && endBox == 1;
     }
 
-    @FXML
     public void onSaveLayoutButton(ActionEvent e) throws Exception {
         // gets the info to save the layout to the database/table
         System.out.println(getLayoutId());
         System.out.println("getFactoryLayoutName(): " + getFactoryLayoutName());
         System.out.println("getLayoutName(): " + getLayoutName());
         System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBox()));
+        System.out.println("getListOfLayouts(): " + getListOfLayouts());
         System.out.println("getLayoutData(): " + Arrays.toString(getLayoutData()));
         System.out.println("getRobotDirectionCB(): " + getRobotDirectionCB());
         System.out.println("getLayoutDirection(): " + getLayoutDirection());
