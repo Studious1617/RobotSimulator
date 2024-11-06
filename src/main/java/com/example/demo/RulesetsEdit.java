@@ -34,10 +34,10 @@ public class RulesetsEdit {
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
-        RulesetsDashboard rulesetsDashboard = loader.getController();
+        RulesetsDashboard rulesetsDashboardE = loader.getController();
         // so the user's info doesn't get lost
-        rulesetsDashboard.setUserEmail(getUserEmail());
-        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
+        rulesetsDashboardE.setUserEmail(getUserEmail());
+        rulesetsDashboardE.setListOfLayouts(getListOfLayouts());
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(rulesetsDashboardPopUp);

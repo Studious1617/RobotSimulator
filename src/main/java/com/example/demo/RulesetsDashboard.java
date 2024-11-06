@@ -43,10 +43,10 @@ public class RulesetsDashboard {
         rulesetsCreate.setUserEmail(getUserEmail());
         rulesetsCreate.setListOfLayouts(getListOfLayouts());
 
-        Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSix = new Scene(rulesetsCreatePopUp);
-        stageSix.setScene(sceneSix);
-        stageSix.show();
+        Stage stageSixC = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSixC = new Scene(rulesetsCreatePopUp);
+        stageSixC.setScene(sceneSixC);
+        stageSixC.show();
     }
 
     @FXML
@@ -54,14 +54,29 @@ public class RulesetsDashboard {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsEdit.fxml"));
         Parent rulesetsEditPopUp = loader.load();
         RulesetsEdit rulesetsEdit = loader.getController();
-        // so the user's layout information doesn't get lost
+        // so the user's layout info doesn't get lost
         rulesetsEdit.setUserEmail(getUserEmail());
         rulesetsEdit.setListOfLayouts(getListOfLayouts());
 
-        Stage stageSix = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSix = new Scene(rulesetsEditPopUp);
-        stageSix.setScene(sceneSix);
-        stageSix.show();
+        Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSixE = new Scene(rulesetsEditPopUp);
+        stageSixE.setScene(sceneSixE);
+        stageSixE.show();
+    }
+
+    @FXML
+    public void onViewRulesetClick(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsView.fxml"));
+        Parent rulesetsViewPopUp = loader.load();
+        RulesetsView rulesetsView = loader.getController();
+        // so the user's layout info doesn't get lost
+        rulesetsView.setUserEmail(getUserEmail());
+        rulesetsView.setListOfLayouts(getListOfLayouts());
+
+        Stage stageSixV = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSixV = new Scene(rulesetsViewPopUp);
+        stageSixV.setScene(sceneSixV);
+        stageSixV.show();
     }
 
     @FXML
@@ -72,7 +87,7 @@ public class RulesetsDashboard {
         DashboardController dashboardController = loader.getController();
         dashboardController.setListOfLayouts(getListOfLayouts());
         // reveals the user's layouts
-        if (!listOfLayouts.isEmpty()) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
