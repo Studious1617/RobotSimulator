@@ -3,9 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
    <children>
-      <Button fx:id="backButton" layoutX="136.0" layoutY="88.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
+      <Button fx:id="backButton" layoutX="56.0" layoutY="244.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
+      <HBox minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
+         <children>
+            <Label text="Label" />
+         </children></HBox>
+      <HBox layoutY="50.0" minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
+         <children>
+            <Label text="Label" />
+         </children></HBox>
    </children>
 </AnchorPane>
