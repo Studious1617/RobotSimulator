@@ -22,7 +22,7 @@ public class LogInController {
 
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
-    // get text from the textfields
+    // user's layouts
     public List<Layout> listOfLayouts;
 
 
