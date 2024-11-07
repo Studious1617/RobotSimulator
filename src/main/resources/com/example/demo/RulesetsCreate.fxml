@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
       <HBox prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Gray;">
          <children>
@@ -21,7 +21,7 @@
       </HBox>
       <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Silver;">
          <children>
-            <Label text="Robot Simulation Runner">
+            <Label text="Ruleset Creator">
                <font>
                   <Font name="Book Antiqua" size="24.0" />
                </font>
@@ -88,7 +88,7 @@
       <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1408.0" style="-fx-background-color: lightYellow;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="327.0" layoutX="16.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" width="1381.0" />
-            <GridPane alignment="CENTER" layoutX="16.0" layoutY="27.0" prefHeight="327.0" prefWidth="1381.0">
+            <GridPane alignment="CENTER" layoutX="16.0" layoutY="27.0" prefHeight="327.0" prefWidth="1381.0" style="-fx-background-color: White;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -106,7 +106,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox alignment="CENTER">
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
                      <children>
                         <Label text="When">
                            <font>
@@ -164,7 +164,7 @@
                            </VBox.margin></ComboBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 16;">
                            <VBox.margin>
