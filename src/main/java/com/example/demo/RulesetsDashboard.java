@@ -87,7 +87,7 @@ public class RulesetsDashboard {
         DashboardController dashboardController = loader.getController();
         dashboardController.setListOfLayouts(getListOfLayouts());
         // reveals the user's layouts
-        if (!getListOfLayouts().isEmpty() && getListOfLayouts() != null) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 

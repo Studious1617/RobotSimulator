@@ -68,5 +68,4 @@ public class LogInController {
         stageTwo.setScene(sceneTwo);
         stageTwo.show();
     }
-
 }

@@ -75,19 +75,11 @@ public class FactoryLayoutViewController implements Initializable {
         this.layoutEmail = layoutEmail;
     }
 
-    public String emailAddress;
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
     public List<Layout> layouts;
-    public List<Layout> getListOfLayouts() {
+    public List<Layout> getLayouts() {
         return layouts;
     }
-    public void setListOfLayouts(List<Layout> layouts) {
+    public void setLayouts(List<Layout> layouts) {
         this.layouts = layouts;
     }
 
@@ -110,7 +102,7 @@ public class FactoryLayoutViewController implements Initializable {
         layoutNameLabel.setText(layoutName);
         robotDirectionCB.setText(layoutDirection);
         // adds the layout data to the panes
-        String[] choiceBoxes = getListOfLayouts().get(getIndex()).getLayoutData();
+        String[] choiceBoxes = getLayouts().get(index).getLayoutData();
         for (int i = 0; i < choiceBoxes.length; i++){
             // gets the index of both lists
             String typeOfBox = choiceBoxes[i];
@@ -134,11 +126,32 @@ public class FactoryLayoutViewController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
+        layoutEmail = getLayoutEmail();
 
-        dashboardController.setEmailAddress(getEmailAddress());
-        dashboardController.setListOfLayouts(getListOfLayouts());
+        dashboardController.setLayoutName(layoutName);
+        dashboardController.setLayoutData(layoutData);
+        dashboardController.setLayoutDirection(layoutDirection);
+        index = dashboardController.buttonDifferentiation(event);
 
-        sqlConfiguration.viewLayout(getLayoutEmail());
+        layoutId = dashboardController.listOfLayouts.get(index).getLayoutID();
+        System.out.println("ID: " + layoutId);
+
+        layoutName = dashboardController.listOfLayouts.get(index).getLayoutName();
+        System.out.println("layout name: " + layoutName);
+
+        String[] layoutDataCB = dashboardController.getChoiceBoxList();
+        System.out.println("getChoiceBoxList(): " + Arrays.toString(layoutDataCB));
+
+        layoutData = dashboardController.listOfLayouts.get(index).getLayoutData();
+        System.out.println("layoutObject.getLayoutData(): " + Arrays.toString(layoutData));
+
+        layoutDirection = dashboardController.listOfLayouts.get(index).getLayoutDirection();
+        System.out.println("direction: " + layoutDirection);
+
+        layoutEmail = dashboardController.listOfLayouts.get(index).getLayoutEmail();
+        System.out.println("email address: " + layoutEmail);
+
+        sqlConfiguration.viewLayout(layoutEmail);
 
         // reveals the user's layouts
         dashboardController.makeUserLayoutVisible();
@@ -148,4 +161,5 @@ public class FactoryLayoutViewController implements Initializable {
         stageThree.setScene(sceneThree);
         stageThree.show();
     }
+
 }

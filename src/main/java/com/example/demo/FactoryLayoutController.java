@@ -161,7 +161,7 @@ public class FactoryLayoutController implements Initializable {
         dashboardController.setLayoutEmail(getLayoutEmail());
 
         // makes user's layouts appear
-        if (!getListOfLayouts().isEmpty() && getListOfLayouts() != null) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
