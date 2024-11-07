@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
    <children>
       <Button fx:id="backButton" layoutX="56.0" layoutY="244.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
       <HBox minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
-            <Label text="Label" />
+            <Label text="Rules Engine">
+               <font>
+                  <Font name="Bodoni MT Black" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
       <HBox layoutY="50.0" minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
          <children>
-            <Label text="Label" />
+            <Label text="Ruleset Viewer">
+               <font>
+                  <Font name="Book Antiqua" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
          </children></HBox>
    </children>
 </AnchorPane>
