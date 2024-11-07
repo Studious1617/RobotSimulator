@@ -86,7 +86,7 @@ public class FactoryLayoutView1Controller implements Initializable {
     public void onBackButton(ActionEvent event) throws Exception {
         Parent popUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneThree = new Scene(popUp);
+        Scene sceneThree = new Scene(popUp,1920,1080);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }

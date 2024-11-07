@@ -181,7 +181,7 @@ public class DashboardController {
         rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(popUp);
+        Scene sceneFive = new Scene(popUp,1920,1080);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -197,7 +197,7 @@ public class DashboardController {
 
         // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(popUp);
+        Scene sceneFive = new Scene(popUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -225,7 +225,7 @@ public class DashboardController {
         layoutEditController.setListOfLayouts(getListOfLayouts());
         // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(editPopUp);
+        Scene sceneFive = new Scene(editPopUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -242,7 +242,7 @@ public class DashboardController {
 
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(viewPopUp);
+        Scene sceneFive = new Scene(viewPopUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -282,7 +282,7 @@ public class DashboardController {
         makeUserLayoutVisible();
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFour = new Scene(dashboardPopUp);
+        Scene sceneFour = new Scene(dashboardPopUp,1920,1080);
         stageFour.setScene(sceneFour);
         stageFour.show();
     }

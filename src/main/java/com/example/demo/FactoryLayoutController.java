@@ -166,7 +166,7 @@ public class FactoryLayoutController implements Initializable {
         }
 
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneThree = new Scene(dashboardPopUp);
+        Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }

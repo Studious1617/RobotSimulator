@@ -173,7 +173,7 @@ public class FactoryLayoutEditController implements Initializable {
             dashboardController.makeUserLayoutVisible();
         }
         Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThree = new Scene(dashboardPopUp);
+        Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }
