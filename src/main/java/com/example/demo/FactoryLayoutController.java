@@ -161,12 +161,12 @@ public class FactoryLayoutController implements Initializable {
         dashboardController.setLayoutEmail(getLayoutEmail());
 
         // makes user's layouts appear
-        if (!getListOfLayouts().isEmpty() && getListOfLayouts() != null) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneThree = new Scene(dashboardPopUp);
+        Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }

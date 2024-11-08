@@ -100,7 +100,30 @@ public class DashboardController {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-
+    public int getLayoutId() {
+        return layoutId;
+    }
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+    public String getLayoutName() {
+        return layoutName;
+    }
+    public void setLayoutName(String layoutName) {
+        this.layoutName = layoutName;
+    }
+    public String[] getLayoutData() {
+        return layoutData;
+    }
+    public void setLayoutData(String[] layoutData) {
+        this.layoutData = layoutData;
+    }
+    public String getLayoutDirection() {
+        return layoutDirection;
+    }
+    public void setLayoutDirection(String layoutDirection) {
+        this.layoutDirection = layoutDirection;
+    }
     public String getLayoutEmail() {
         return layoutEmail;
     }
@@ -158,11 +181,12 @@ public class DashboardController {
         rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(popUp);
+        Scene sceneFive = new Scene(popUp,1920,1080);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
 
+    @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
         // sets user's email into Factory Layout
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
@@ -173,7 +197,7 @@ public class DashboardController {
 
         // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(popUp);
+        Scene sceneFive = new Scene(popUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -201,7 +225,7 @@ public class DashboardController {
         layoutEditController.setListOfLayouts(getListOfLayouts());
         // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(editPopUp);
+        Scene sceneFive = new Scene(editPopUp,1920,1080);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -214,11 +238,11 @@ public class DashboardController {
         FactoryLayoutViewController layoutViewController = loader.getController();
 
         layoutViewController.setIndex(getIndex());
-        layoutViewController.setListOfLayouts(getListOfLayouts());
+        layoutViewController.setLayouts(getListOfLayouts());
 
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(viewPopUp);
+        Scene sceneFive = new Scene(viewPopUp,1920,1080);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
@@ -258,7 +282,7 @@ public class DashboardController {
         makeUserLayoutVisible();
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFour = new Scene(dashboardPopUp);
+        Scene sceneFour = new Scene(dashboardPopUp,1920,1080);
         stageFour.setScene(sceneFour);
         stageFour.show();
     }

@@ -44,7 +44,7 @@ public class RulesetsDashboard {
         rulesetsCreate.setListOfLayouts(getListOfLayouts());
 
         Stage stageSixC = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixC = new Scene(rulesetsCreatePopUp);
+        Scene sceneSixC = new Scene(rulesetsCreatePopUp,1920,1080);
         stageSixC.setScene(sceneSixC);
         stageSixC.show();
     }
@@ -59,7 +59,7 @@ public class RulesetsDashboard {
         rulesetsEdit.setListOfLayouts(getListOfLayouts());
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(rulesetsEditPopUp);
+        Scene sceneSixE = new Scene(rulesetsEditPopUp,1920,1080);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -74,7 +74,7 @@ public class RulesetsDashboard {
         rulesetsView.setListOfLayouts(getListOfLayouts());
 
         Stage stageSixV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixV = new Scene(rulesetsViewPopUp);
+        Scene sceneSixV = new Scene(rulesetsViewPopUp,1920,1080);
         stageSixV.setScene(sceneSixV);
         stageSixV.show();
     }
@@ -87,12 +87,12 @@ public class RulesetsDashboard {
         DashboardController dashboardController = loader.getController();
         dashboardController.setListOfLayouts(getListOfLayouts());
         // reveals the user's layouts
-        if (!getListOfLayouts().isEmpty() && getListOfLayouts() != null) {
+        if (!getListOfLayouts().isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFour = new Scene(dashboardPopUp);
+        Scene sceneFour = new Scene(dashboardPopUp,1920,1080);
         stageFour.setScene(sceneFour);
         stageFour.show();
     }

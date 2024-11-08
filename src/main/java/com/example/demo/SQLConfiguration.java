@@ -151,7 +151,7 @@ public class SQLConfiguration {
         String deleteLayoutSQL = "DELETE FROM layouts WHERE email_address = ? " +
                 "AND layout_id = (SELECT layout_id FROM layouts WHERE email_address = ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(deleteLayoutSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(deleteLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
             preparedStatement.setString(2, userEmail);
 
@@ -165,7 +165,7 @@ public class SQLConfiguration {
         String editLayoutSQL = "UPDATE layouts SET layout_name = ?, layout_data = ?, direction = ?" +
                 " WHERE email_address = ? AND layout_id IN (SELECT layout_id FROM layouts WHERE email_address = ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(editLayoutSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(editLayoutSQL)) {
             preparedStatement.setString(1, layoutName);
             preparedStatement.setArray(2, connection.createArrayOf("VARCHAR", layoutData));
             preparedStatement.setString(3, direction);
@@ -198,7 +198,7 @@ public class SQLConfiguration {
                 "ON u.email_address = l.email_address";
         int numberOfLayouts = 0;
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(getLayoutAmountSQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(getLayoutAmountSQL)) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {

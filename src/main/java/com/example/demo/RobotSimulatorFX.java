@@ -26,6 +26,7 @@ public class RobotSimulatorFX extends Application {
         Scene createAccountScene = new Scene(popUp);
         createAccountStage.setScene(createAccountScene);
         createAccountStage.show();
+        createAccountStage.setMaximized(true);
     }
 }
 

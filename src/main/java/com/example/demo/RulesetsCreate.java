@@ -40,7 +40,7 @@ public class RulesetsCreate {
         rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(rulesetsDashboardPopUp);
+        Scene sceneFive = new Scene(rulesetsDashboardPopUp,1920,1080);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }

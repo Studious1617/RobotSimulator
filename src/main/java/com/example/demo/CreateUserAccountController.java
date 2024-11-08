@@ -51,7 +51,7 @@ public class CreateUserAccountController {
                 if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {
                     // switch to Dashboard
                     Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    Scene sceneThree = new Scene(dashboardPopUp);
+                    Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
                     stageThree.setScene(sceneThree);
                     stageThree.show();
                 }
@@ -69,7 +69,7 @@ public class CreateUserAccountController {
         // go to log in page
         Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
         stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        sceneOne = new Scene(logInPopUp);
+        sceneOne = new Scene(logInPopUp,1920,1080);
         stageOne.setScene(sceneOne);
         stageOne.show();
     }
