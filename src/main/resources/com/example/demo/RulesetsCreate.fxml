@@ -285,15 +285,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.rowIndex="1">
@@ -482,15 +474,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="1">
@@ -679,15 +663,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane alignment="CENTER" layoutX="465.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -876,15 +852,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane alignment="CENTER" layoutX="465.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="2">
@@ -1073,15 +1041,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                   <GridPane alignment="CENTER" layoutX="919.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -1270,15 +1230,7 @@
                               <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
