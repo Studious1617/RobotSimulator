@@ -51,7 +51,7 @@ public class CreateUserAccountController {
                 if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {
                     // switch to Dashboard
                     Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
+                    Scene sceneThree = new Scene(dashboardPopUp,1540,800);
                     stageThree.setScene(sceneThree);
                     stageThree.show();
                 }

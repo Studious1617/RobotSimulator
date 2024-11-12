@@ -133,7 +133,7 @@ public class RulesetsDashboard {
         }
 
         Stage stageFour = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFour = new Scene(dashboardPopUp,1920,1080);
+        Scene sceneFour = new Scene(dashboardPopUp,1540,800);
         stageFour.setScene(sceneFour);
         stageFour.show();
     }

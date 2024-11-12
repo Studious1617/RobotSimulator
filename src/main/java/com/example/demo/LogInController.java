@@ -47,7 +47,7 @@ public class LogInController {
                     }
                     // switches to Dashboard
                     Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    Scene sceneThree = new Scene(dashboardPopUp);
+                    Scene sceneThree = new Scene(dashboardPopUp,1540,800);
                     stageThree.setScene(sceneThree);
                     stageThree.show();
                 } else {
@@ -64,7 +64,7 @@ public class LogInController {
     public void onCreateAnAccountButtonClick(ActionEvent event) throws IOException {
         Parent popUp = FXMLLoader.load(getClass().getResource("CreateUserAccount.fxml"));
         Stage stageTwo = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneTwo = new Scene(popUp);
+        Scene sceneTwo = new Scene(popUp,1540,800);
         stageTwo.setScene(sceneTwo);
         stageTwo.show();
     }
