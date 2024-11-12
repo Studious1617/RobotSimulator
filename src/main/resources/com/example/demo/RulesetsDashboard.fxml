@@ -69,7 +69,7 @@
                         <InnerShadow />
                           </effect>
                       </HBox>
-                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="3">
+                      <HBox fx:id="ruleset1_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="3">
                           <children>
                               <Label text="Ruleset Name">
                            <font>
@@ -83,9 +83,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                      <HBox fx:id="ruleset1_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                           <children>
-                              <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton1" mnemonicParsing="false" onAction="#onDeleteRulesetClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -115,7 +115,7 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="4">
+                      <HBox fx:id="ruleset2_left" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="4">
                           <children>
                         <Label text="Ruleset Name">
                            <font>
@@ -136,7 +136,7 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="5">
+                      <HBox fx:id="ruleset3_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="5">
                           <children>
                         <Label text="Ruleset Name">
                            <font>
@@ -154,7 +154,7 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="6">
+                      <HBox fx:id="ruleset4_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="6">
                           <children>
                         <Label text="Ruleset Name">
                            <font>
@@ -172,7 +172,7 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="7">
+                      <HBox fx:id="ruleset5_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="7">
                           <children>
                         <Label text="Ruleset Name">
                            <font>
@@ -190,9 +190,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                      <HBox fx:id="ruleset2_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                           <children>
-                              <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton2" mnemonicParsing="false" onAction="#onDeleteRulesetClick2" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -222,9 +222,9 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                      <HBox fx:id="ruleset3_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                           <children>
-                              <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton3" mnemonicParsing="false" onAction="#onDeleteRulesetClick3" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -254,9 +254,9 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                      <HBox fx:id="ruleset4_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                           <children>
-                              <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton4" mnemonicParsing="false" onAction="#onDeleteRulesetClick4" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -286,9 +286,9 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                      <HBox fx:id="ruleset5_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
                           <children>
-                              <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton5" mnemonicParsing="false" onAction="#onDeleteRulesetClick5" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -342,7 +342,13 @@
                               </Label>
                           </children>
                       </HBox>
-                      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
+                      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="rulesetDeleteLabel" text="Label" visible="false">
+                           <font>
+                              <Font size="23.0" />
+                           </font></Label>
+                     </children></HBox>
                       <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                           <children>
                               <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="79.0" prefWidth="119.0" style="-fx-background-color: GoldenRod;" text="Reports">

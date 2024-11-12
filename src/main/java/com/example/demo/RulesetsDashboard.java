@@ -7,15 +7,38 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RulesetsDashboard {
+    public int buttonNumber;
     @FXML
     public Button
             RulePage_LayoutsPageButton,
             createLayoutButton;
+    
+    public HBox ruleset1_left;
+    public HBox ruleset1_right;
+    public HBox ruleset2_left;
+    public HBox ruleset2_right;
+    public HBox ruleset3_left;
+    public HBox ruleset3_right;
+    public HBox ruleset4_left;
+    public HBox ruleset4_right;
+    public HBox ruleset5_left;
+    public HBox ruleset5_right;
+    public Button deleteRulesetButton1;
+    public Button deleteRulesetButton2;
+    public Button deleteRulesetButton3;
+    public Button deleteRulesetButton4;
+    public Button deleteRulesetButton5;
+
+    public List<Button> rulesetButtonList;
+    public Label rulesetDeleteLabel;
 
 
     private String userEmail;
@@ -32,6 +55,24 @@ public class RulesetsDashboard {
     }
     public void setListOfLayouts(List<Layout> listOfLayouts) {
         this.listOfLayouts = listOfLayouts;
+    }
+
+    @FXML
+    public void initialize () {
+        rulesetButtonList = new ArrayList<>();
+        rulesetButtonList.add(deleteRulesetButton1);
+        rulesetButtonList.add(deleteRulesetButton2);
+        rulesetButtonList.add(deleteRulesetButton3);
+        rulesetButtonList.add(deleteRulesetButton4);
+        rulesetButtonList.add(deleteRulesetButton5);
+    }
+
+    public int index;
+    public int getIndex() {
+        return index;
+    }
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     @FXML
@@ -96,4 +137,53 @@ public class RulesetsDashboard {
         stageFour.setScene(sceneFour);
         stageFour.show();
     }
-}
+
+    public void onDeleteRulesetClick(ActionEvent e) throws Exception {
+
+        deleteRulesetButton1.onMouseClickedProperty();
+        if (deleteRulesetButton1.isVisible()) {
+                ruleset1_right.setVisible(false);
+                ruleset1_left.setVisible(false);
+                rulesetDeleteLabel.setText("Ruleset Deleted");
+            rulesetDeleteLabel.setVisible(true);
+            }
+
+    }
+
+    public void onDeleteRulesetClick2(ActionEvent e) throws Exception {
+        if (deleteRulesetButton2.isVisible()) {
+            ruleset2_right.setVisible(false);
+            ruleset2_left.setVisible(false);
+            rulesetDeleteLabel.setText("Ruleset Deleted");
+            rulesetDeleteLabel.setVisible(true);
+        }
+    }
+
+    public void onDeleteRulesetClick3(ActionEvent e) throws Exception {
+        if (deleteRulesetButton3.isVisible()) {
+            ruleset3_right.setVisible(false);
+            ruleset3_left.setVisible(false);
+            rulesetDeleteLabel.setText("Ruleset Deleted");
+            rulesetDeleteLabel.setVisible(true);
+        }
+    }
+
+    public void onDeleteRulesetClick4(ActionEvent e) throws Exception {
+        if (deleteRulesetButton4.isVisible()) {
+            ruleset4_right.setVisible(false);
+            ruleset4_left.setVisible(false);
+            rulesetDeleteLabel.setText("Ruleset Deleted");
+            rulesetDeleteLabel.setVisible(true);
+        }
+    }
+
+    public void onDeleteRulesetClick5(ActionEvent e) throws Exception {
+        if (deleteRulesetButton5.isVisible()) {
+            ruleset5_right.setVisible(false);
+            ruleset5_left.setVisible(false);
+            rulesetDeleteLabel.setText("Ruleset Deleted");
+            rulesetDeleteLabel.setVisible(true);
+        }
+    }
+    }
+
