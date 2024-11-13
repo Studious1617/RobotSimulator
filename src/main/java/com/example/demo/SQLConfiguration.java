@@ -25,19 +25,39 @@ public class SQLConfiguration {
                 password VARCHAR(30) NOT NULL)""";
         String layoutsTable = """
                 CREATE TABLE IF NOT EXISTS layouts (
-                layout_id INT PRIMARY KEY DEFAULT nextval('layout_is_seq'),
+                layout_id INT PRIMARY KEY,
                 layout_name VARCHAR(50) NOT NULL UNIQUE,
                 layout_data VARCHAR[],
                 direction VARCHAR(10) NOT NULL,
-                email_address VARCHAR(50),
+                email_address VARCHAR(50) NOT NULL,
                 CONSTRAINT fk_email
                     FOREIGN KEY (email_address)
                         REFERENCES useraccounts (email_address)
-                );""";
+                )""";
+        String rulesetsTable = """
+                CREATE TABLE IF NOT EXISTS rulesets (
+                ruleset_id SERIAL PRIMARY KEY,
+                ruleset_name VARCHAR(50) NOT NULL,
+                rule_count INT,
+                rules VARCHAR[],
+                email_address VARCHAR(50) NOT NULL)""";
+        String rulesTable = """
+                CREATE TABLE IF NOT EXISTS rules (
+                rule_id SERIAL PRIMARY KEY,
+                when_condition VARCHAR(50) NOT NULL,
+                and_condition VARCHAR(50),
+                then_action VARCHAR(50) NOT NULL,
+                ruleset_id INT NOT NULL,
+                CONSTRAINT fk_ruleset
+                    FOREIGN KEY (ruleset_id)
+                        REFERENCES rulesets (ruleset_id)
+                )""";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              Statement statement = connection.createStatement()) {
             statement.execute(accountsTable);
             statement.execute(layoutsTable);
+            statement.execute(rulesetsTable);
+            statement.execute(rulesTable);
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e);
         }
