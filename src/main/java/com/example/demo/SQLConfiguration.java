@@ -9,9 +9,9 @@ import java.util.regex.Pattern;
 
 public class SQLConfiguration {
     // url to access the database
-    static String databaseURL = "jdbc:postgresql://localhost:5433/postgres";
+    static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
-    static String upass = "Mvan2301Mv0103";
+    static String upass = "Hard2Guess";
 
     public List<Layout> listOfLayoutLists = new ArrayList<>();
 
@@ -147,13 +147,13 @@ public class SQLConfiguration {
         }
     }
 
-    public void deleteLayout (String userEmail) {
+    public void deleteLayout (String userEmail, int index) {
         String deleteLayoutSQL = "DELETE FROM layouts WHERE email_address = ? " +
-                "AND layout_id = (SELECT layout_id FROM layouts WHERE email_address = ?";
+                "AND layout_id = ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(deleteLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
-            preparedStatement.setString(2, userEmail);
+            preparedStatement.setInt(2, index);
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -233,4 +233,6 @@ public class SQLConfiguration {
         }
         return listOfLayoutLists;
     }
+
+
 }

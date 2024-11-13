@@ -100,30 +100,7 @@ public class DashboardController {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    public int getLayoutId() {
-        return layoutId;
-    }
-    public void setLayoutId(int layoutId) {
-        this.layoutId = layoutId;
-    }
-    public String getLayoutName() {
-        return layoutName;
-    }
-    public void setLayoutName(String layoutName) {
-        this.layoutName = layoutName;
-    }
-    public String[] getLayoutData() {
-        return layoutData;
-    }
-    public void setLayoutData(String[] layoutData) {
-        this.layoutData = layoutData;
-    }
-    public String getLayoutDirection() {
-        return layoutDirection;
-    }
-    public void setLayoutDirection(String layoutDirection) {
-        this.layoutDirection = layoutDirection;
-    }
+
     public String getLayoutEmail() {
         return layoutEmail;
     }
@@ -203,14 +180,7 @@ public class DashboardController {
     }
 
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
-        index = buttonDifferentiation(e);
-        layoutId = listOfLayouts.get(index).getLayoutID();
-        layoutName = listOfLayouts.get(index).getLayoutName();
-        layoutData = listOfLayouts.get(index).getLayoutData();
-        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
-        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
-
-        sqlConfiguration.deleteLayout(getEmailAddress());
+        sqlConfiguration.deleteLayout(getEmailAddress(), buttonDifferentiation(e));
         refreshDashboard(e);
     }
 
@@ -222,6 +192,7 @@ public class DashboardController {
         index = buttonDifferentiation(e);
         layoutEditController.setIndex(index);
 
+        // listOfLayouts = sqlConfiguration.getUserLayoutList(getEmailAddress());
         layoutEditController.setListOfLayouts(getListOfLayouts());
         // switches to Edit Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -237,9 +208,11 @@ public class DashboardController {
         Parent viewPopUp = loader.load();
         FactoryLayoutViewController layoutViewController = loader.getController();
 
-        layoutViewController.setIndex(getIndex());
-        layoutViewController.setLayouts(getListOfLayouts());
+        index = buttonDifferentiation(e);
+        layoutViewController.setIndex(index);
 
+        listOfLayouts = sqlConfiguration.getUserLayoutList(getEmailAddress());
+        layoutViewController.setListOfLayouts(getListOfLayouts());
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(viewPopUp,1920,1080);
@@ -251,32 +224,6 @@ public class DashboardController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController layoutRefreshController = loader.getController();
-
-//        layoutId = listOfLayouts.get(index).getLayoutID();
-//        layoutName = listOfLayouts.get(index).getLayoutName();
-//        layoutData = listOfLayouts.get(index).getLayoutData();
-//        layoutDirection = listOfLayouts.get(index).getLayoutDirection();
-//        layoutEmail = listOfLayouts.get(index).getLayoutEmail();
-//
-//        System.out.println(layoutId);
-//        layoutRefreshController.setLayoutId(layoutId);
-//
-//        System.out.println(layoutName);
-//        layoutRefreshController.setLayoutName(layoutName);
-//
-//        System.out.println("getLayoutData():" + Arrays.toString(layoutData));
-//        layoutRefreshController.setLayoutData(layoutData);
-//
-//        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBoxList()));
-//        layoutRefreshController.setChoiceBoxList(getChoiceBoxList());
-//
-//        layoutRefreshController.setLayoutEmail(layoutEmail);
-//
-//        System.out.println("index: " + index);
-//        layoutRefreshController.setIndex(index);
-//
-//        System.out.println("getIndex(): " + getIndex());
-//        layoutRefreshController.setIndex(getIndex());
 
         layoutRefreshController.setListOfLayouts(getListOfLayouts());
         makeUserLayoutVisible();
