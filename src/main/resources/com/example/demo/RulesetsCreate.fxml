@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
-      <HBox prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Gray;">
+      <HBox prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
             <Label text="Rules Engine">
                <font>
@@ -21,7 +32,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Silver;">
+      <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
          <children>
             <Label text="Ruleset Creator">
                <font>
@@ -53,7 +64,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField promptText="Enter Ruleset Name">
+                  <TextField fx:id="rulesetName_TF" promptText="Enter Ruleset Name">
                      <font>
                         <Font name="Book Antiqua" size="18.0" />
                      </font>
@@ -73,20 +84,12 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="590.0">
-                     <children>
-                        <ScrollBar orientation="VERTICAL" />
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="590.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <HBox prefHeight="76.0" prefWidth="635.0">
-                     <children>
-                        <ScrollBar orientation="VERTICAL" />
-                     </children>
-                  </HBox>
+                  <HBox prefHeight="76.0" prefWidth="635.0" />
                   <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: DarkSeaGreen;" text="Save">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
@@ -99,1168 +102,303 @@
             </HBox>
          </children>
       </GridPane>
-      <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1408.0" style="-fx-background-color: lightYellow;">
+      <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1400.0" style="-fx-background-color: lightYellow;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1381.0" />
-            <GridPane gridLinesVisible="true" layoutX="21.0" layoutY="12.0" minHeight="300.0" minWidth="1359.0" prefHeight="313.0" prefWidth="1371.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <GridPane alignment="CENTER" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1375.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
+               <font>
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <TabPane layoutX="25.0" layoutY="14.0" prefHeight="300.0" prefWidth="1355.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="210.0">
+              <tabs>
+                <Tab text="Rule #1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: #200020;">
                            <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <Label layoutX="53.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
+                              <Label layoutX="318.0" layoutY="27.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
-                           <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
+                              <ChoiceBox layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
+                              <Label layoutX="53.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <Label layoutX="318.0" layoutY="170.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
+                              <ChoiceBox layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="390.0" layoutY="173.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="53.0" layoutY="70.0" prefHeight="90.0" prefWidth="486.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="470.0" />
+                                </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Rule #2">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #400040;">
                            <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="129.0" layoutY="34.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="527.0" layoutY="171.0" prefWidth="150.0" />
+                              <Label layoutX="434.0" layoutY="168.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="527.0" layoutY="37.0" prefWidth="150.0" />
+                              <Label layoutX="130.0" layoutY="168.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="434.0" layoutY="34.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
+                              <ChoiceBox layoutX="232.0" layoutY="171.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="232.0" layoutY="37.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="129.0" layoutY="80.0" prefHeight="83.0" prefWidth="549.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="534.0" />
+                                </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Rule #3">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #500050;">
                            <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="98.0" layoutY="23.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.rowIndex="1">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
-                           <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <ChoiceBox layoutX="627.0" layoutY="216.0" prefWidth="150.0" />
+                              <Label layoutX="490.0" layoutY="214.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="627.0" layoutY="25.0" prefWidth="150.0" />
+                              <Label layoutX="99.0" layoutY="214.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
-                           <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
+                              <Label layoutX="490.0" layoutY="23.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
+                              <ChoiceBox layoutX="224.0" layoutY="216.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="224.0" layoutY="25.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="98.0" layoutY="64.0" prefHeight="136.0" prefWidth="682.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="665.0" />
+                                </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Rule #4">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #600060;">
                            <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <Label layoutX="219.0" layoutY="23.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="285.0" layoutY="210.0" prefWidth="150.0" />
+                              <Label layoutX="461.0" layoutY="207.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="285.0" layoutY="25.0" prefWidth="150.0" />
+                              <Label layoutX="220.0" layoutY="207.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="461.0" layoutY="23.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
+                              <ChoiceBox layoutX="527.0" layoutY="210.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="527.0" layoutY="26.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="219.0" layoutY="61.0" prefHeight="139.0" prefWidth="458.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="442.0" />
+                                </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Rule #5">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #60009F;">
                            <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="109.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="602.0" layoutY="215.0" prefWidth="150.0" />
+                              <Label layoutX="469.0" layoutY="212.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="1">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
-                           <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <ChoiceBox layoutX="602.0" layoutY="30.0" prefWidth="150.0" />
+                              <Label layoutX="111.0" layoutY="212.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                    <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="469.0" layoutY="27.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
+                              <ChoiceBox layoutX="230.0" layoutY="215.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="230.0" layoutY="30.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="109.0" layoutY="75.0" prefHeight="126.0" prefWidth="646.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="630.0" />
+                                </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Rule #6">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: blueViolet;">
                            <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
+                              <Label layoutX="122.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
+                              <ChoiceBox layoutX="474.0" layoutY="196.0" prefWidth="150.0" />
+                              <Label layoutX="396.0" layoutY="194.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <ChoiceBox layoutX="474.0" layoutY="29.0" prefWidth="150.0" />
+                              <Label layoutX="123.0" layoutY="194.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                              <Label layoutX="396.0" layoutY="27.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
+                                 <opaqueInsets>
+                                    <Insets left="5.0" right="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="15.0" right="15.0" />
+                                 </padding>
                               </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane alignment="CENTER" layoutX="465.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
-                           <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
-                           <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                    </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane alignment="CENTER" layoutX="465.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="2">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
-                           <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
-                           <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-                  <GridPane alignment="CENTER" layoutX="919.0" layoutY="10.0" prefHeight="158.0" prefWidth="413.0" style="-fx-background-color: LightYellow;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="314.0" style="-fx-background-color: None;">
-                           <children>
-                              <Label text="When">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.rowIndex="6">
-                           <children>
-                              <Label text="Then">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-border-color: None; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                            <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <ComboBox prefHeight="45.0" prefWidth="150.0" promptText="Choose Action" style="-fx-background-color: Chocolate; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets bottom="10.0" />
-                           </GridPane.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <children>
-                                  <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="2.0" />
-                                 </VBox.margin>
-                              </ComboBox>
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: GoldenRod; -fx-font-family: Serif; -fx-font-size: 9;" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
-                           <children>
-                              <Label alignment="CENTER" text="And">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <children>
-                              <Label text="Is">
-                                 <font>
-                                    <Font name="Book Antiqua" size="14.0" />
-                                  </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
-                           </children>
-                        </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                     </children>
-                  </GridPane>
-               </children>
-            </GridPane>
-            <HBox alignment="TOP_RIGHT" layoutX="1.0" layoutY="331.0" prefHeight="44.0" prefWidth="1408.0">
-               <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSalmon;" text="Add Rule">
-                     <font>
-                        <Font name="Book Antiqua" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="10.0" top="2.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
+                              <ChoiceBox layoutX="197.0" layoutY="197.0" prefWidth="150.0" />
+                              <ChoiceBox layoutX="197.0" layoutY="30.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="122.0" layoutY="76.0" prefHeight="100.0" prefWidth="502.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="486.0" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TabPane>
          </children>
       </Pane>
    </children>
