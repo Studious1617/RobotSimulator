@@ -6,6 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
+
 <AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
       <HBox prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Gray;">
@@ -15,8 +16,9 @@
                   <Font name="Bodoni MT Black" size="36.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin></Label>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1408.0" style="-fx-background-color: Silver;">
@@ -26,8 +28,9 @@
                   <Font name="Book Antiqua" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin></Label>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <GridPane alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="100.0" prefHeight="150.0" prefWidth="1400.0">
@@ -42,24 +45,35 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Ruleset Name">
-                     <font>
-                        <Font name="Book Antiqua" size="18.0" />
-                     </font></Label>
-                  <Label minWidth="600.0" text="New Ruleset">
+                  <Label minWidth="600.0" text="Create a New Ruleset">
                      <font>
                         <Font name="Book Antiqua" size="14.0" />
-                     </font></Label>
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField promptText="Enter Ruleset Name">
+                     <font>
+                        <Font name="Book Antiqua" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="backButton" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="44.0" prefWidth="73.0" style="-fx-background-color: Burlywood; -fx-border-color: None;" text="Back">
+                  <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="44.0" prefWidth="73.0" style="-fx-background-color: Burlywood; -fx-border-color: None;" text="Back">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </Button>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="637.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="590.0">
                      <children>
                         <ScrollBar orientation="VERTICAL" />
                      </children>
@@ -78,7 +92,7 @@
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="15.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -510,7 +524,7 @@
                         <HBox alignment="CENTER" GridPane.rowIndex="2">
                            <children>
                               <Label text="And">
-                                 <font>
+                                    <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
                               </Label>
@@ -807,7 +821,7 @@
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
-                              </Label>
+                                    </Label>
                            </children>
                         </HBox>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
@@ -1130,7 +1144,7 @@
                               </ComboBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <VBox alignment="CENTER" style="-fx-background-color: Ivory;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <ComboBox prefHeight="46.0" prefWidth="150.0" promptText="Choose Object" style="-fx-background-color: #c17600; -fx-font-family: Serif; -fx-font-size: 9;">
                                  <VBox.margin>
@@ -1158,7 +1172,7 @@
                         </VBox>
                         <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
+                                  <ComboBox prefWidth="150.0" promptText="Choose Direction" style="-fx-background-color: burlywood; -fx-font-family: Serif; -fx-font-size: 8;" />
                            </children>
                         </VBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
@@ -1216,7 +1230,7 @@
                               <Label text="Is">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
-                                 </font>
+                                  </font>
                               </Label>
                            </children>
                         </HBox>
@@ -1247,6 +1261,7 @@
                   </Button>
                </children>
             </HBox>
-         </children></Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

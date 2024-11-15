@@ -45,7 +45,7 @@
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" />
                      </HBox.margin></Button>
                </children></HBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
@@ -55,14 +55,14 @@
                         <Font name="Book Antiqua" size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="15.0" />
                      </VBox.margin></Label>
                   <Label text="View Ruleset">
                      <font>
                         <Font name="Book Antiqua" size="14.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="15.0" />
                      </VBox.margin></Label>
                </children></VBox>
          </children>

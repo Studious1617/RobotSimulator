@@ -56,11 +56,11 @@
                         <Font name="Book Antiqua" size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" />
                      </VBox.margin></Label>
                   <Label text="Edit Ruleset">
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="10.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Book Antiqua" size="14.0" />
