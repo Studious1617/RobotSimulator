@@ -21,25 +21,27 @@ public class RulesetsDashboard {
             RulePage_LayoutsPageButton,
             createLayoutButton;
     
-    public HBox ruleset1_left;
-    public HBox ruleset1_right;
-    public HBox ruleset2_left;
-    public HBox ruleset2_right;
-    public HBox ruleset3_left;
-    public HBox ruleset3_right;
-    public HBox ruleset4_left;
-    public HBox ruleset4_right;
-    public HBox ruleset5_left;
-    public HBox ruleset5_right;
-    public Button deleteRulesetButton1;
-    public Button deleteRulesetButton2;
-    public Button deleteRulesetButton3;
-    public Button deleteRulesetButton4;
-    public Button deleteRulesetButton5;
+    public HBox
+            ruleset1_left,
+            ruleset1_right,
+            ruleset2_left,
+            ruleset2_right,
+            ruleset3_left,
+            ruleset3_right,
+            ruleset4_left,
+            ruleset4_right,
+            ruleset5_left,
+            ruleset5_right;
+
+    public Button
+            deleteRulesetButton1,
+            deleteRulesetButton2,
+            deleteRulesetButton3,
+            deleteRulesetButton4,
+            deleteRulesetButton5;
 
     public List<Button> rulesetButtonList;
     public Label rulesetDeleteLabel;
-
 
     private String userEmail;
     public String getUserEmail() {

@@ -1,19 +1,36 @@
 package com.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class RulesetsCreate {
+public class RulesetsCreate implements Initializable {
     @FXML
-    public Button backButton;
+    public TextField rulesetName_TF;
+    public Button backButton, rulesetSaveButton;
+
+    public ChoiceBox
+            ruleOne_WhenCB_Left, ruleOne_WhenCB_Right,
+            ruleOne_ThenCB_Left,
+            ruleOne_AndCB_Left, ruleOne_AndCB_Right;
+
+    public String rulesetName;
 
     public String userEmail;
     public String getUserEmail() {
@@ -29,6 +46,24 @@ public class RulesetsCreate {
     }
     public void setListOfLayouts(List<Layout> listOfLayouts) {
         this.listOfLayouts = listOfLayouts;
+    }
+
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> rulesDirectionOptions = FXCollections.observableArrayList(
+                "In-front", "To the left", "To the right");
+        ObservableList<String> rulesSpaceOptions = FXCollections.observableArrayList(
+                "A wall", "Empty", "The Start", "The Exit");
+        ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
+                "Move forward", "Turn right", "Turn left");
+        // rule 1
+        ruleOne_WhenCB_Left.getItems().addAll(rulesDirectionOptions);
+        ruleOne_AndCB_Left.getItems().addAll(rulesDirectionOptions);
+
+        ruleOne_WhenCB_Right.getItems().addAll(rulesSpaceOptions);
+        ruleOne_AndCB_Right.getItems().addAll(rulesSpaceOptions);
+
+        ruleOne_ThenCB_Left.getItems().addAll(rulesActionOptions);
     }
 
     public void onBackButtonClick(ActionEvent e) throws Exception {

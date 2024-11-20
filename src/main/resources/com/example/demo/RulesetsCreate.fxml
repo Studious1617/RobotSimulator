@@ -90,7 +90,7 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
                   <HBox prefHeight="76.0" prefWidth="635.0" />
-                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: DarkSeaGreen;" text="Save">
+                  <Button fx:id="rulesetSaveButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: DarkSeaGreen;" text="Save">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
@@ -130,13 +130,13 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="ruleOne_WhenCB_Left" layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="ruleOne_WhenCB_Right" layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
                               <Label layoutX="318.0" layoutY="27.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
                                  <padding>
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
                               <Label layoutX="53.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -145,19 +145,24 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <Label layoutX="318.0" layoutY="170.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="390.0" layoutY="173.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="53.0" layoutY="70.0" prefHeight="90.0" prefWidth="486.0">
+                              <ChoiceBox fx:id="ruleOne_ThenCB_Left" layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
+                              <ScrollPane layoutX="53.0" layoutY="70.0" prefHeight="90.0" prefWidth="505.0" style="-fx-background-color: #200020;">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="470.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="490.0" style="-fx-background-color: #200020;">
+                                       <children>
+                                          <Label layoutY="14.0" prefHeight="26.0" prefWidth="35.0" style="-fx-background-color: white;" text="And">
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="265.0" layoutY="11.0" prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: #FFFFFF;" text="is" textAlignment="CENTER">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="ruleOne_AndCB_Left" layoutX="77.0" layoutY="15.0" prefWidth="150.0" />
+                                          <ChoiceBox fx:id="ruleOne_AndCB_Right" layoutX="336.0" layoutY="14.0" prefWidth="150.0" />
+                                       </children></AnchorPane>
                                 </content>
                               </ScrollPane>
                            </children>
@@ -174,12 +179,6 @@
                                  </opaqueInsets>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="171.0" prefWidth="150.0" />
-                              <Label layoutX="434.0" layoutY="168.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
                               <ChoiceBox layoutX="527.0" layoutY="37.0" prefWidth="150.0" />
@@ -220,12 +219,6 @@
                                  </opaqueInsets>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="627.0" layoutY="216.0" prefWidth="150.0" />
-                              <Label layoutX="490.0" layoutY="214.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
                               <ChoiceBox layoutX="627.0" layoutY="25.0" prefWidth="150.0" />
@@ -269,11 +262,6 @@
                                  </padding>
                               </Label>
                               <ChoiceBox layoutX="285.0" layoutY="210.0" prefWidth="150.0" />
-                              <Label layoutX="461.0" layoutY="207.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
                               <ChoiceBox layoutX="285.0" layoutY="25.0" prefWidth="150.0" />
                               <Label layoutX="220.0" layoutY="207.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
@@ -291,7 +279,6 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="210.0" prefWidth="150.0" />
                               <ChoiceBox layoutX="527.0" layoutY="26.0" prefWidth="150.0" />
                               <ScrollPane layoutX="219.0" layoutY="61.0" prefHeight="139.0" prefWidth="458.0">
                                 <content>
@@ -312,12 +299,6 @@
                                  </opaqueInsets>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="602.0" layoutY="215.0" prefWidth="150.0" />
-                              <Label layoutX="469.0" layoutY="212.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
                               <ChoiceBox layoutX="602.0" layoutY="30.0" prefWidth="150.0" />
@@ -358,12 +339,6 @@
                                  </opaqueInsets>
                                  <padding>
                                     <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="474.0" layoutY="196.0" prefWidth="150.0" />
-                              <Label layoutX="396.0" layoutY="194.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
                               <ChoiceBox layoutX="474.0" layoutY="29.0" prefWidth="150.0" />
