@@ -39,15 +39,21 @@ public class SQLConfiguration {
                 ruleset_id SERIAL PRIMARY KEY,
                 ruleset_name VARCHAR(50) NOT NULL,
                 rule_count INT,
-                rules VARCHAR[],
+                --rules VARCHAR[],
                 email_address VARCHAR(50) NOT NULL)""";
         String rulesTable = """
                 CREATE TABLE IF NOT EXISTS rules (
                 rule_id SERIAL PRIMARY KEY,
-                when_condition VARCHAR(50) NOT NULL,
-                and_condition VARCHAR(50),
-                then_action VARCHAR(50) NOT NULL,
                 ruleset_id INT NOT NULL,
+                when_condition VARCHAR(50) NOT NULL,
+                is1_condition VARCHAR(50) NOT NULL,
+                then_action VARCHAR(50) NOT NULL,
+                and1_condition VARCHAR(50),
+                is2_condition VARCHAR(50),
+                and2_condition VARCHAR(50),
+                is3_condition VARCHAR(50),
+                and3_condition VARCHAR(50),
+                is4_condition VARCHAR(50),
                 CONSTRAINT fk_ruleset
                     FOREIGN KEY (ruleset_id)
                         REFERENCES rulesets (ruleset_id)
@@ -198,13 +204,13 @@ public class SQLConfiguration {
         }
     }
 
-    public void viewLayout (String userEmail) {
+    public void viewLayout (String userEmail, int layoutID) {
         String viewLayoutSQL = "SELECT * FROM layouts WHERE email_address = ? " +
-                "AND layout_id IN (SELECT layout_id FROM layouts WHERE email_address = ?)";
+                "AND layout_id IN ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(viewLayoutSQL)) {
             preparedStatement.setString(1, userEmail);
-            preparedStatement.setString(2, userEmail);
+            preparedStatement.setInt(2, layoutID);
 
             preparedStatement.executeQuery();
         } catch (SQLException e) {
@@ -254,5 +260,31 @@ public class SQLConfiguration {
         return listOfLayoutLists;
     }
 
+    public void insertRules (int rulesetID, String when, String is1, String then,
+                             String and1, String is2, String and2, String is3, String and3, String is4) {
+        String insertRule = "INSERT INTO rules (rulesetID, when_condition, is1_condition, then_action, " +
+                "and1_condition, is2_condition, and2_condition, is3_condition, and3_condition, is4_condition)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(insertRule)) {
+            preparedStatement.setInt(1, rulesetID);
+            preparedStatement.setString(2, when);
+            preparedStatement.setString(3, is1);
+            preparedStatement.setString(4, then);
+            // And conditions
+            preparedStatement.setString(5, and1);
+            preparedStatement.setString(6, is2);
+            preparedStatement.setString(7, null); // and2
+            preparedStatement.setString(8, null);  // is3
+            preparedStatement.setString(9, null); // and3
+            preparedStatement.setString(10, null); // is4
+        } catch (SQLException e) {
+            System.out.println("Error saving rule: " + e);
+        }
 
+    }
+
+    public void insertRuleset (String rulesetName) {
+
+    }
 }
