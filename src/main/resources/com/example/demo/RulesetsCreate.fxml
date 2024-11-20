@@ -181,7 +181,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="37.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule2_Is_CB1" layoutX="527.0" layoutY="37.0" prefWidth="150.0" />
                               <Label layoutX="130.0" layoutY="168.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -198,8 +198,8 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="232.0" layoutY="171.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="232.0" layoutY="37.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule2_Then_CB" layoutX="232.0" layoutY="171.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule2_When_CB" layoutX="232.0" layoutY="37.0" prefWidth="150.0" />
                               <ScrollPane layoutX="129.0" layoutY="80.0" prefHeight="83.0" prefWidth="549.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="534.0" />
@@ -221,7 +221,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="627.0" layoutY="25.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule3_Is_CB1" layoutX="627.0" layoutY="25.0" prefWidth="150.0" />
                               <Label layoutX="99.0" layoutY="214.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -238,8 +238,8 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="224.0" layoutY="216.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="224.0" layoutY="25.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule3_Then_CB" layoutX="224.0" layoutY="216.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule3_When_CB" layoutX="224.0" layoutY="25.0" prefWidth="150.0" />
                               <ScrollPane layoutX="98.0" layoutY="64.0" prefHeight="136.0" prefWidth="682.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="665.0" />
@@ -261,8 +261,8 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="285.0" layoutY="210.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="285.0" layoutY="25.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule4_Then_CB" layoutX="285.0" layoutY="210.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule4_When_CB" layoutX="285.0" layoutY="25.0" prefWidth="150.0" />
                               <Label layoutX="220.0" layoutY="207.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -279,7 +279,7 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="26.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule4_Is_CB1" layoutX="527.0" layoutY="26.0" prefWidth="150.0" />
                               <ScrollPane layoutX="219.0" layoutY="61.0" prefHeight="139.0" prefWidth="458.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="442.0" />
@@ -301,7 +301,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="602.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule5_Is_CB1" layoutX="602.0" layoutY="30.0" prefWidth="150.0" />
                               <Label layoutX="111.0" layoutY="212.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -318,8 +318,8 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="230.0" layoutY="215.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="230.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule5_Then_CB" layoutX="230.0" layoutY="215.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule5_When_CB" layoutX="230.0" layoutY="30.0" prefWidth="150.0" />
                               <ScrollPane layoutX="109.0" layoutY="75.0" prefHeight="126.0" prefWidth="646.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="630.0" />
@@ -341,7 +341,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="474.0" layoutY="29.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule6_Is_CB1" layoutX="474.0" layoutY="29.0" prefWidth="150.0" />
                               <Label layoutX="123.0" layoutY="194.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
                                  <opaqueInsets>
                                     <Insets />
@@ -358,8 +358,8 @@
                                     <Insets left="15.0" right="15.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox layoutX="197.0" layoutY="197.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="197.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule6_Then_CB" layoutX="197.0" layoutY="197.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule6_When_CB" layoutX="197.0" layoutY="30.0" prefWidth="150.0" />
                               <ScrollPane layoutX="122.0" layoutY="76.0" prefHeight="100.0" prefWidth="502.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="486.0" />
