@@ -11,10 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
 
 import java.net.URL;
 import java.util.List;
@@ -26,9 +24,9 @@ public class RulesetsCreate implements Initializable {
     public Button backButton, rulesetSaveButton;
 
     public ChoiceBox
-            ruleOne_WhenCB_Left, ruleOne_WhenCB_Right,
-            ruleOne_ThenCB_Left,
-            ruleOne_AndCB_Left, ruleOne_AndCB_Right;
+            rule1_When_CB, rule1_Is_CB1,
+            rule1_Then_CB,
+            rule1_And_CB1, rule1_Is_CB2;
 
     public String rulesetName;
 
@@ -57,13 +55,13 @@ public class RulesetsCreate implements Initializable {
         ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
                 "Move forward", "Turn right", "Turn left");
         // rule 1
-        ruleOne_WhenCB_Left.getItems().addAll(rulesDirectionOptions);
-        ruleOne_AndCB_Left.getItems().addAll(rulesDirectionOptions);
+        rule1_When_CB.getItems().addAll(rulesDirectionOptions);
+        rule1_And_CB1.getItems().addAll(rulesDirectionOptions);
 
-        ruleOne_WhenCB_Right.getItems().addAll(rulesSpaceOptions);
-        ruleOne_AndCB_Right.getItems().addAll(rulesSpaceOptions);
+        rule1_Is_CB1.getItems().addAll(rulesSpaceOptions);
+        rule1_Is_CB2.getItems().addAll(rulesSpaceOptions);
 
-        ruleOne_ThenCB_Left.getItems().addAll(rulesActionOptions);
+        rule1_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
     public void onBackButtonClick(ActionEvent e) throws Exception {

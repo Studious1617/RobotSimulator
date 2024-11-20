@@ -130,8 +130,8 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox fx:id="ruleOne_WhenCB_Left" layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
-                              <ChoiceBox fx:id="ruleOne_WhenCB_Right" layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule1_When_CB" layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule1_Is_CB1" layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
                               <Label layoutX="318.0" layoutY="27.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
                                  <padding>
                                     <Insets left="15.0" right="15.0" />
@@ -145,7 +145,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </padding>
                               </Label>
-                              <ChoiceBox fx:id="ruleOne_ThenCB_Left" layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="rule1_Then_CB" layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
                               <ScrollPane layoutX="53.0" layoutY="70.0" prefHeight="90.0" prefWidth="505.0" style="-fx-background-color: #200020;">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="490.0" style="-fx-background-color: #200020;">
@@ -160,8 +160,8 @@
                                                 <Insets left="15.0" right="15.0" />
                                              </padding>
                                           </Label>
-                                          <ChoiceBox fx:id="ruleOne_AndCB_Left" layoutX="77.0" layoutY="15.0" prefWidth="150.0" />
-                                          <ChoiceBox fx:id="ruleOne_AndCB_Right" layoutX="336.0" layoutY="14.0" prefWidth="150.0" />
+                                          <ChoiceBox fx:id="rule1_And_CB1" layoutX="77.0" layoutY="15.0" prefWidth="150.0" />
+                                          <ChoiceBox fx:id="rule1_Is_CB2" layoutX="336.0" layoutY="14.0" prefWidth="150.0" />
                                        </children></AnchorPane>
                                 </content>
                               </ScrollPane>
@@ -169,7 +169,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Rule #2">
+                <Tab disable="true" text="Rule #2">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #400040;">
                            <children>
@@ -209,7 +209,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Rule #3">
+                  <Tab disable="true" text="Rule #3">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #500050;">
                            <children>
@@ -249,7 +249,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Rule #4">
+                  <Tab disable="true" text="Rule #4">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #600060;">
                            <children>
@@ -289,7 +289,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Rule #5">
+                  <Tab disable="true" text="Rule #5">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #60009F;">
                            <children>
@@ -329,7 +329,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Rule #6">
+                  <Tab disable="true" text="Rule #6">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: blueViolet;">
                            <children>
