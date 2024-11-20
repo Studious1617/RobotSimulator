@@ -64,8 +64,19 @@ public class RulesetsCreate implements Initializable {
         rule1_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
+    public boolean doesTextFieldHaveText(String textFieldValue){
+        if (textFieldValue == null || textFieldValue.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
     public void onSaveButtonClick(ActionEvent e) {
         rulesetName = rulesetName_TF.getText();
+        if (!doesTextFieldHaveText(rulesetName)){
+            //Make this a popup later
+            System.out.println("Make sure that you give the ruleset a title!");
+        }
     }
 
     public void onBackButtonClick(ActionEvent e) throws Exception {
