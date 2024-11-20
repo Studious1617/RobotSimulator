@@ -102,7 +102,7 @@ public class RulesetsCreate implements Initializable {
 
         rule1_Then_CB.getItems().addAll(rulesActionOptions);
 
-        /* To be put into code once choiceboxes are renamed
+
         // Rule 2
         rule2_When_CB.getItems().addAll(rulesDirectionOptions);
         rule2_And_CB1.getItems().addAll(rulesDirectionOptions);
@@ -147,7 +147,6 @@ public class RulesetsCreate implements Initializable {
         rule6_Is_CB2.getItems().addAll(rulesSpaceOptions);
 
         rule6_Then_CB.getItems().addAll(rulesActionOptions);
-        */
 
     }
 
@@ -171,7 +170,6 @@ public class RulesetsCreate implements Initializable {
             rule1_Is_CB1.getValue();
             rule1_Then_CB.getValue();
 
-            /*To be put into code once initialized
             if (!rule2Tab.isDisable()){
                 rule2_When_CB.getValue();
                 rule2_Is_CB1.getValue();
@@ -204,7 +202,6 @@ public class RulesetsCreate implements Initializable {
                 }
 
             }
-            */
         }
 
         //Make a method that checks that all avaliable choiceboxes have been filled

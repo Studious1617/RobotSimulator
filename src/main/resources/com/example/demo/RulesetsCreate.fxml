@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
       <HBox prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -105,7 +105,7 @@
       <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1400.0" style="-fx-background-color: lightYellow;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1375.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
+            <Button fx:id="addRuleButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
@@ -120,254 +120,993 @@
               <tabs>
                 <Tab fx:id="rule1Tab" text="Rule #1">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: #200020;">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="53.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox fx:id="rule1_When_CB" layoutX="131.0" layoutY="30.0" prefWidth="150.0" />
-                              <ChoiceBox fx:id="rule1_Is_CB1" layoutX="390.0" layoutY="29.0" prefWidth="150.0" />
-                              <Label layoutX="318.0" layoutY="27.0" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;" text="is">
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="53.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox fx:id="rule1_Then_CB" layoutX="131.0" layoutY="173.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="53.0" layoutY="70.0" prefHeight="90.0" prefWidth="505.0" style="-fx-background-color: #200020;">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="490.0" style="-fx-background-color: #200020;">
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
                                        <children>
-                                          <Label layoutY="14.0" prefHeight="26.0" prefWidth="35.0" style="-fx-background-color: white;" text="And">
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
                                              <padding>
                                                 <Insets left="5.0" right="5.0" />
                                              </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
                                           </Label>
-                                          <Label layoutX="265.0" layoutY="11.0" prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: #FFFFFF;" text="is" textAlignment="CENTER">
+                                          <ChoiceBox fx:id="rule1_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
                                              </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_And_CB1" layoutX="77.0" layoutY="15.0" prefWidth="150.0" />
-                                          <ChoiceBox fx:id="rule1_Is_CB2" layoutX="336.0" layoutY="14.0" prefWidth="150.0" />
-                                       </children></AnchorPane>
-                                </content>
-                              </ScrollPane>
+                                          <ChoiceBox fx:id="rule1_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="674.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule1_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule1_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule1_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule1_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
                 <Tab fx:id="rule2Tab" disable="true" text="Rule #2">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #400040;">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="129.0" layoutY="34.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="37.0" prefWidth="150.0" />
-                              <Label layoutX="130.0" layoutY="168.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="434.0" layoutY="34.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="232.0" layoutY="171.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="232.0" layoutY="37.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="129.0" layoutY="80.0" prefHeight="83.0" prefWidth="549.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="534.0" />
-                                </content>
-                              </ScrollPane>
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule2_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule2_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="691.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule2_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule2_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule2_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="55.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule2_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
-                  </content>
+                     </content>
                 </Tab>
                   <Tab fx:id="rule3Tab" disable="true" text="Rule #3">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #500050;">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="98.0" layoutY="23.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="627.0" layoutY="25.0" prefWidth="150.0" />
-                              <Label layoutX="99.0" layoutY="214.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="490.0" layoutY="23.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox fx:id="rule3_Then_CB" layoutX="224.0" layoutY="216.0" prefWidth="150.0" />
-                              <ChoiceBox fx:id="rule3_When_CB" layoutX="224.0" layoutY="25.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="98.0" layoutY="64.0" prefHeight="136.0" prefWidth="682.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="665.0" />
-                                </content>
-                              </ScrollPane>
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule3_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule3_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="680.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="666.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule3_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule3_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule3_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="51.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule3_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                   </Tab>
                   <Tab fx:id="rule4Tab" disable="true" text="Rule #4">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #600060;">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="219.0" layoutY="23.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="285.0" layoutY="210.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="285.0" layoutY="25.0" prefWidth="150.0" />
-                              <Label layoutX="220.0" layoutY="207.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="461.0" layoutY="23.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="527.0" layoutY="26.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="219.0" layoutY="61.0" prefHeight="139.0" prefWidth="458.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="442.0" />
-                                </content>
-                              </ScrollPane>
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule4_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule4_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="676.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule4_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule4_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule4_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="53.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule4_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                   </Tab>
                   <Tab fx:id="rule5Tab" disable="true" text="Rule #5">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #60009F;">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="109.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="602.0" layoutY="30.0" prefWidth="150.0" />
-                              <Label layoutX="111.0" layoutY="212.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="469.0" layoutY="27.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="230.0" layoutY="215.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="230.0" layoutY="30.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="109.0" layoutY="75.0" prefHeight="126.0" prefWidth="646.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="630.0" />
-                                </content>
-                              </ScrollPane>
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule5_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule5_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="693.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="684.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule5_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule5_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule5_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="53.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule5_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                   </Tab>
                   <Tab fx:id="rule6Tab" disable="true" text="Rule #6">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: blueViolet;">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <Label layoutX="122.0" layoutY="27.0" prefHeight="30.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;" text="When" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="474.0" layoutY="29.0" prefWidth="150.0" />
-                              <Label layoutX="123.0" layoutY="194.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: white;" text="Then">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="5.0" right="5.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="396.0" layoutY="27.0" prefHeight="30.0" style="-fx-background-color: white;" text="is">
-                                 <opaqueInsets>
-                                    <Insets left="5.0" right="5.0" />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets left="15.0" right="15.0" />
-                                 </padding>
-                              </Label>
-                              <ChoiceBox layoutX="197.0" layoutY="197.0" prefWidth="150.0" />
-                              <ChoiceBox layoutX="197.0" layoutY="30.0" prefWidth="150.0" />
-                              <ScrollPane layoutX="122.0" layoutY="76.0" prefHeight="100.0" prefWidth="502.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="486.0" />
-                                </content>
-                              </ScrollPane>
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
+                                             <opaqueInsets>
+                                                <Insets left="5.0" right="5.0" />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule6_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule6_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                       <children>
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="688.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="679.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                   <children>
+                                                      <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
+                                                         <children>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule6_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule6_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="14.0" />
+                                                                     </font>
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                  </Button>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                               <children>
+                                                                  <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
+                                                                     <padding>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
+                                                                     <padding>
+                                                                        <Insets left="15.0" right="15.0" />
+                                                                     </padding>
+                                                                     <font>
+                                                                        <Font name="Book Antiqua" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ChoiceBox fx:id="rule6_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Book Antiqua Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: none;" text="Then">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Book Antiqua" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rule6_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                   </Tab>
               </tabs>
                <opaqueInsets>
