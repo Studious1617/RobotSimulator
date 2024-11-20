@@ -64,6 +64,10 @@ public class RulesetsCreate implements Initializable {
         rule1_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
+    public void onSaveButtonClick(ActionEvent e) {
+        rulesetName = rulesetName_TF.getText();
+    }
+
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
