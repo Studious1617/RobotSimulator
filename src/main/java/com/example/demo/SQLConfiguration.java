@@ -260,13 +260,18 @@ public class SQLConfiguration {
         return listOfLayoutLists;
     }
 
+    public void insertRuleset (String rulesetName) {
+
+    }
+
     public void insertRules (int rulesetID, String when, String is1, String then,
                              String and1, String is2, String and2, String is3, String and3, String is4) {
-        String insertRule = "INSERT INTO rules (rulesetID, when_condition, is1_condition, then_action, " +
+        String insertRule = "INSERT INTO rules (ruleset_id, when_condition, is1_condition, then_action, " +
                 "and1_condition, is2_condition, and2_condition, is3_condition, and3_condition, is4_condition)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(insertRule)) {
+            //preparedStatement.setInt(1, ruleID);
             preparedStatement.setInt(1, rulesetID);
             preparedStatement.setString(2, when);
             preparedStatement.setString(3, is1);
@@ -274,17 +279,13 @@ public class SQLConfiguration {
             // And conditions
             preparedStatement.setString(5, and1);
             preparedStatement.setString(6, is2);
-            preparedStatement.setString(7, null); // and2
-            preparedStatement.setString(8, null);  // is3
-            preparedStatement.setString(9, null); // and3
-            preparedStatement.setString(10, null); // is4
+            preparedStatement.setString(7, and2);
+            preparedStatement.setString(8, is3);
+            preparedStatement.setString(9, and3);
+            preparedStatement.setString(10, is4);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error saving rule: " + e);
         }
-
-    }
-
-    public void insertRuleset (String rulesetName) {
-
     }
 }
