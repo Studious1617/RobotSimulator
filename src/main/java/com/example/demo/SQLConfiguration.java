@@ -261,7 +261,7 @@ public class SQLConfiguration {
     }
 
     public void insertRuleset (String rulesetName) {
-
+        // when create button is clicked, ruleset is created in table
     }
 
     public void insertRules (int rulesetID, String when, String is1, String then,

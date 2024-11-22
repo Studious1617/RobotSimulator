@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -25,7 +26,13 @@ public class RulesetsCreate implements Initializable {
 
     @FXML
     public TextField rulesetName_TF;
-    public Button backButton, rulesetSaveButton;
+    public Button backButton, rulesetSaveButton, addRuleButton,
+            rule1_addButton1, rule1_addButton2,
+            rule2_addButton1, rule2_addButton2,
+            rule3_addButton1, rule3_addButton2,
+            rule4_addButton1, rule4_addButton2,
+            rule5_addButton1, rule5_addButton2,
+            rule6_addButton1, rule6_addButton2;
     public Tab
             rule1Tab, rule2Tab, rule3Tab,
             rule4Tab, rule5Tab, rule6Tab;
@@ -124,39 +131,54 @@ public class RulesetsCreate implements Initializable {
         // Rule 3
         rule3_When_CB.getItems().addAll(rulesDirectionOptions);
         rule3_And_CB1.getItems().addAll(rulesDirectionOptions);
+        rule3_And_CB2.getItems().addAll(rulesDirectionOptions);
+        rule3_And_CB3.getItems().addAll(rulesDirectionOptions);
 
         rule3_Is_CB1.getItems().addAll(rulesSpaceOptions);
         rule3_Is_CB2.getItems().addAll(rulesSpaceOptions);
+        rule3_Is_CB3.getItems().addAll(rulesSpaceOptions);
+        rule3_Is_CB4.getItems().addAll(rulesSpaceOptions);
 
         rule3_Then_CB.getItems().addAll(rulesActionOptions);
 
         // Rule 4
         rule4_When_CB.getItems().addAll(rulesDirectionOptions);
         rule4_And_CB1.getItems().addAll(rulesDirectionOptions);
+        rule4_And_CB2.getItems().addAll(rulesDirectionOptions);
+        rule4_And_CB3.getItems().addAll(rulesDirectionOptions);
 
         rule4_Is_CB1.getItems().addAll(rulesSpaceOptions);
         rule4_Is_CB2.getItems().addAll(rulesSpaceOptions);
+        rule4_Is_CB3.getItems().addAll(rulesSpaceOptions);
+        rule4_Is_CB4.getItems().addAll(rulesSpaceOptions);
 
         rule4_Then_CB.getItems().addAll(rulesActionOptions);
 
         // Rule 5
         rule5_When_CB.getItems().addAll(rulesDirectionOptions);
         rule5_And_CB1.getItems().addAll(rulesDirectionOptions);
+        rule5_And_CB2.getItems().addAll(rulesDirectionOptions);
+        rule5_And_CB3.getItems().addAll(rulesDirectionOptions);
 
         rule5_Is_CB1.getItems().addAll(rulesSpaceOptions);
         rule5_Is_CB2.getItems().addAll(rulesSpaceOptions);
+        rule5_Is_CB3.getItems().addAll(rulesSpaceOptions);
+        rule5_Is_CB4.getItems().addAll(rulesSpaceOptions);
 
         rule5_Then_CB.getItems().addAll(rulesActionOptions);
 
         // Rule 6
         rule6_When_CB.getItems().addAll(rulesDirectionOptions);
         rule6_And_CB1.getItems().addAll(rulesDirectionOptions);
+        rule6_And_CB2.getItems().addAll(rulesDirectionOptions);
+        rule6_And_CB3.getItems().addAll(rulesDirectionOptions);
 
         rule6_Is_CB1.getItems().addAll(rulesSpaceOptions);
         rule6_Is_CB2.getItems().addAll(rulesSpaceOptions);
+        rule6_Is_CB3.getItems().addAll(rulesSpaceOptions);
+        rule6_Is_CB4.getItems().addAll(rulesSpaceOptions);
 
         rule6_Then_CB.getItems().addAll(rulesActionOptions);
-
     }
 
     public boolean doesTextFieldHaveText(String textFieldValue){
@@ -179,33 +201,41 @@ public class RulesetsCreate implements Initializable {
 
         rulesetName = rulesetName_TF.getText();
 
-        ArrayList<String> rule1CheckList = new ArrayList<>();
-        rule1CheckList.add(when);
-        rule1CheckList.add(is1);
-        rule1CheckList.add(then);
-        rule1CheckList.add(and1);
-        rule1CheckList.add(is2);
-        rule1CheckList.add(and2);
-        rule1CheckList.add(is3);
-        rule1CheckList.add(and3);
-        rule1CheckList.add(is4);
+        ArrayList<String> rule1CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
 
+        // Make sure to create ruleset in rulesets table
+        // foreign key (rulesetID) needs to reference the rulesets table
         if (doesTextFieldHaveText(rulesetName)){
+            // no validation for checkboxes yet
             sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
             System.out.println(rulesetName);
             for (String s : rule1CheckList) {
                 System.out.println(s);
             }
-            System.out.println("Rule saved.");
+            System.out.println("Rule saved.\n");
         } else {
             //Make this a popup later
             System.out.println("Make sure that you give the ruleset a title!");
         }
 
         if (!rule2Tab.isDisabled()) {
-            System.out.println(rule2_When_CB.getValue());
-            System.out.println(rule2_Is_CB1.getValue());
-            System.out.println(rule2_Then_CB.getValue());
+            // no validation for checkboxes yet
+            when = rule2_When_CB.getValue();
+            is1 = rule2_Is_CB1.getValue();
+            and1 = rule2_And_CB1.getValue();
+            is2 = rule2_Is_CB2.getValue();
+            and2 = rule2_And_CB2.getValue();
+            is3 = rule2_Is_CB3.getValue();
+            and3 = rule2_And_CB3.getValue();
+            is4 = rule2_Is_CB4.getValue();
+            then = rule2_Then_CB.getValue();
+
+            ArrayList<String> rule2CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+            for (String s2: rule2CheckList) {
+                System.out.println(s2);
+            }
+
+            sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
 /*
             if (!rule3Tab.isDisable()) {
                 rule3_When_CB.getValue();

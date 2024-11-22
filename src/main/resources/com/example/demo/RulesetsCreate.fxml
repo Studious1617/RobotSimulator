@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
       <HBox prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -151,9 +151,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="697.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                             <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="674.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="681.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -177,7 +177,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule1_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule1_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -213,7 +213,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule1_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule1_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -283,7 +283,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab fx:id="rule2Tab" disable="true" text="Rule #2">
+                <Tab fx:id="rule2Tab" text="Rule #2">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -316,9 +316,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="704.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="691.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="687.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -342,7 +342,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule2_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule2_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule2_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -378,7 +378,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule2_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule2_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule2_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -448,7 +448,7 @@
                         </AnchorPane>
                      </content>
                 </Tab>
-                  <Tab fx:id="rule3Tab" disable="true" text="Rule #3">
+                  <Tab fx:id="rule3Tab" text="Rule #3">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -481,9 +481,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="680.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="698.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="666.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="681.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -507,7 +507,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule3_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule3_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule3_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -543,7 +543,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule3_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule3_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule3_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -646,9 +646,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="690.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="703.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="676.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="686.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -672,7 +672,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule4_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule4_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule4_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -708,7 +708,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule4_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule4_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule4_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -811,9 +811,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="693.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="702.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="684.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="686.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -837,7 +837,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule5_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule5_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule5_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -873,7 +873,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule5_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule5_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule5_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -976,9 +976,9 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
                                        <children>
-                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="688.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                          <ScrollPane pannable="true" prefHeight="147.0" prefWidth="703.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="679.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="687.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
@@ -1002,7 +1002,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule6_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule6_addButtton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule6_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -1038,7 +1038,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule6_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule6_addButtton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule6_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
