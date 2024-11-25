@@ -260,8 +260,19 @@ public class SQLConfiguration {
         return listOfLayoutLists;
     }
 
-    public void insertRuleset (String rulesetName) {
+    public void insertRuleset (String rulesetName, int ruleCount, String userEmail) {
         // when create button is clicked, ruleset is created in table
+        String insertRuleset = "INSERT INTO rulesets (ruleset_name, rule_count, email_address) " +
+                "VALUES (?, ?, ?)";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(insertRuleset)) {
+            preparedStatement.setString(1, rulesetName);
+            preparedStatement.setInt(2, ruleCount);
+            preparedStatement.setString(3, userEmail);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error creating ruleset: " + e);
+        }
     }
 
     public void insertRules (int rulesetID, String when, String is1, String then,

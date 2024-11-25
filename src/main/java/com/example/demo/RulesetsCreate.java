@@ -206,13 +206,17 @@ public class RulesetsCreate implements Initializable {
         // Make sure to create ruleset in rulesets table
         // foreign key (rulesetID) needs to reference the rulesets table
         if (doesTextFieldHaveText(rulesetName)){
-            // no validation for checkboxes yet
-            sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
+            // makes a new ruleset
+            sqlConfiguration.insertRuleset(rulesetName, 0, getUserEmail());
             System.out.println(rulesetName);
-            for (String s : rule1CheckList) {
-                System.out.println(s);
+            // checks the required checkboxes
+            if (when != null && is1 != null && then != null) { // necessary conditions
+                    sqlConfiguration.insertRules(2, when, is1, then, and1, is2, and2, is3, and3, is4);
+
+                    for (String s : rule1CheckList) {
+                        System.out.println(s);
+                    }
             }
-            System.out.println("Rule saved.\n");
         } else {
             //Make this a popup later
             System.out.println("Make sure that you give the ruleset a title!");
@@ -235,17 +239,45 @@ public class RulesetsCreate implements Initializable {
                 System.out.println(s2);
             }
 
-            sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
+            sqlConfiguration.insertRules(2, when, is1, then, and1, is2, and2, is3, and3, is4);
 /*
             if (!rule3Tab.isDisable()) {
-                rule3_When_CB.getValue();
-                rule3_Is_CB1.getValue();
-                rule3_Then_CB.getValue();
+                // no validation for checkboxes yet
+                when = rule3_When_CB.getValue();
+                is1 = rule3_Is_CB1.getValue();
+                and1 = rule3_And_CB1.getValue();
+                is2 = rule3_Is_CB2.getValue();
+                and2 = rule3_And_CB2.getValue();
+                is3 = rule3_Is_CB3.getValue();
+                and3 = rule3_And_CB3.getValue();
+                is4 = rule3_Is_CB4.getValue();
+                then = rule3_Then_CB.getValue();
+
+                ArrayList<String> rule3CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+                for (String s3: rule2CheckList) {
+                    System.out.println(s3);
+                }
+
+                sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
 
                 if (!rule4Tab.isDisable()) {
-                    rule4_When_CB.getValue();
-                    rule4_Is_CB1.getValue();
-                    rule4_Then_CB.getValue();
+                    // no validation for checkboxes yet
+                    when = rule4_When_CB.getValue();
+                    is1 = rule4_Is_CB1.getValue();
+                    and1 = rule4_And_CB1.getValue();
+                    is2 = rule4_Is_CB2.getValue();
+                    and2 = rule4_And_CB2.getValue();
+                    is3 = rule4_Is_CB3.getValue();
+                    and3 = rule4_And_CB3.getValue();
+                    is4 = rule4_Is_CB4.getValue();
+                    then = rule4_Then_CB.getValue();
+
+                    ArrayList<String> rule4CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+                    for (String s4: rule2CheckList) {
+                        System.out.println(s4);
+                    }
+
+                    sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
 
                     if (!rule5Tab.isDisable()) {
                         rule5_When_CB.getValue();
@@ -267,15 +299,7 @@ public class RulesetsCreate implements Initializable {
 
         //Make a method that checks that all avaliable choiceboxes have been filled
         //Make sure it checks for visibility and value
-
-        //Make an arraylist of the String values of the choiceboxes
-        // ArrayList rule1_And_ArrayList = new ArrayList<>();
-        // ArrayList rule2_And_ArrayList = new ArrayList<>();
-        // ArrayList rule3_And_ArrayList = new ArrayList<>();
-        // ArrayList rule4_And_ArrayList = new ArrayList<>();
-        // ArrayList rule5_And_ArrayList = new ArrayList<>();
-        // ArrayList rule6_And_ArrayList = new ArrayList<>();
-
+        System.out.println("Rule saved.\n");
     }
 
     public void onBackButtonClick(ActionEvent e) throws Exception {
