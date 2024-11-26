@@ -185,44 +185,76 @@ public class RulesetsCreate implements Initializable {
         return textFieldValue != null && !textFieldValue.isEmpty();
     }
 
+    public boolean areAllRulesSaved(){
+        return true;
+    }
+
     public void onSaveButtonClick(ActionEvent e) {
         //Getting values of the sentences
         String when, is1, then, and1, is2, and2, is3, and3, is4;
-        //Rule 1
-        when = rule1_When_CB.getValue();
-        is1 = rule1_Is_CB1.getValue();
-        then = rule1_Then_CB.getValue();
-        and1 = rule1_And_CB1.getValue();
-        is2 = rule1_Is_CB2.getValue();
-        and2 = rule1_And_CB2.getValue();
-        is3 = rule1_Is_CB3.getValue();
-        and3 = rule1_And_CB3.getValue();
-        is4 = rule1_Is_CB4.getValue();
 
-        rulesetName = rulesetName_TF.getText();
+        if (rule1Tab.isDisabled()) {
+            System.out.println("The rule #1 tab is disabled.");
+        }
+        else {
+            //Rule 1
+            when = rule1_When_CB.getValue();
+            is1 = rule1_Is_CB1.getValue();
+            then = rule1_Then_CB.getValue();
+            and1 = rule1_And_CB1.getValue();
+            is2 = rule1_Is_CB2.getValue();
+            and2 = rule1_And_CB2.getValue();
+            is3 = rule1_Is_CB3.getValue();
+            and3 = rule1_And_CB3.getValue();
+            is4 = rule1_Is_CB4.getValue();
 
-        ArrayList<String> rule1CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+            String email = getUserEmail();
+            System.out.println("This is the user email: " + email);
 
-        // Make sure to create ruleset in rulesets table
-        // foreign key (rulesetID) needs to reference the rulesets table
-        if (doesTextFieldHaveText(rulesetName)){
-            // makes a new ruleset
-            sqlConfiguration.insertRuleset(rulesetName, 0, getUserEmail());
-            System.out.println(rulesetName);
-            // checks the required checkboxes
-            if (when != null && is1 != null && then != null) { // necessary conditions
-                    sqlConfiguration.insertRules(2, when, is1, then, and1, is2, and2, is3, and3, is4);
+            rulesetName = rulesetName_TF.getText();
 
+            ArrayList<String> rule1CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+            System.out.println("Before inserting the rules...");
+
+            // Make sure to create ruleset in rulesets table
+            // foreign key (rulesetID) needs to reference the rulesets table
+            System.out.println("Checking if the text field has text...");
+            if (doesTextFieldHaveText(rulesetName)) {
+                System.out.println("Check complete. The text field has text.\n");
+                System.out.println("Making a new ruleset...");
+                System.out.println("Inserting ruleset name and rule count into database...");
+                // makes a new ruleset
+                sqlConfiguration.insertRuleset(rulesetName, 0, userEmail);
+                System.out.println("Insertion complete. Your ruleset is named: " + rulesetName);
+                System.out.println("Checking that row 1 and 2 as well as the last are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) { // necessary conditions
+                    System.out.println("Check complete.\n");
+                    System.out.println("Inserting rules into database...");
+                    //RulesetID orginally had a 2 here but I changed it
+
+                    sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
+                    System.out.println("Rules inserted.\n");
+
+                    //TODO Write a method that gets the rules info from the database instead of this so that
+                    // we can really see where and when things are breaking down
+//                    sqlConfiguration.getUserRulesetList();
+                    System.out.println("rule1CheckList: ");
                     for (String s : rule1CheckList) {
                         System.out.println(s);
                     }
+
+                }
+            } else {
+                //Make this a popup later
+                System.out.println("Couldn't save ruleset. Make sure that you give the ruleset a title!");
             }
-        } else {
-            //Make this a popup later
-            System.out.println("Make sure that you give the ruleset a title!");
         }
 
-        if (!rule2Tab.isDisabled()) {
+        if (rule2Tab.isDisabled()) {
+            System.out.println("The rule #2 tab is disabled.");
+        }
+        else {
             // no validation for checkboxes yet
             when = rule2_When_CB.getValue();
             is1 = rule2_Is_CB1.getValue();
@@ -235,11 +267,20 @@ public class RulesetsCreate implements Initializable {
             then = rule2_Then_CB.getValue();
 
             ArrayList<String> rule2CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
-            for (String s2: rule2CheckList) {
+            for (String s2 : rule2CheckList) {
+                System.out.println("rule2CheckList1: ");
                 System.out.println(s2);
             }
 
-            sqlConfiguration.insertRules(2, when, is1, then, and1, is2, and2, is3, and3, is4);
+            if (when != null && is1 != null && then != null) { // necessary conditions
+                sqlConfiguration.insertRules(3, when, is1, then, and1, is2, and2, is3, and3, is4);
+
+                for (String s2 : rule2CheckList) {
+                    System.out.println("rule2CheckList2: ");
+                    System.out.println(s2);
+                }
+            }
+        }
 /*
             if (!rule3Tab.isDisable()) {
                 // no validation for checkboxes yet
@@ -293,14 +334,13 @@ public class RulesetsCreate implements Initializable {
                     }
 
                 }
-            }
-*/
-        }
+            } */
 
         //Make a method that checks that all avaliable choiceboxes have been filled
         //Make sure it checks for visibility and value
         System.out.println("Rule saved.\n");
     }
+
 
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));

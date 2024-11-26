@@ -53,20 +53,20 @@ public class FactoryLayoutViewController implements Initializable {
     public String getLayoutName() {
         return layoutName;
     }
-    public void setLayoutName(String layoutName) {
-        this.layoutName = layoutName;
+    public static void setLayoutName(String layoutName) {
+        //this.layoutName = layoutName;
     }
     public String[] getLayoutData() {
         return layoutData;
     }
-    public void setLayoutData(String[] layoutData) {
-        this.layoutData = layoutData;
+    public static void setLayoutData(String[] layoutData) {
+        //this.layoutData = layoutData;
     }
     public String getLayoutDirection() {
         return layoutDirection;
     }
-    public void setLayoutDirection(String layoutDirection) {
-        this.layoutDirection = layoutDirection;
+    public static void setLayoutDirection(String layoutDirection) {
+        //this.layoutDirection = layoutDirection;
     }
     public String getLayoutEmail() {
         return layoutEmail;
@@ -128,9 +128,9 @@ public class FactoryLayoutViewController implements Initializable {
         DashboardController dashboardController = loader.getController();
         layoutEmail = getLayoutEmail();
 
-        dashboardController.setLayoutName(layoutName);
-        dashboardController.setLayoutData(layoutData);
-        dashboardController.setLayoutDirection(layoutDirection);
+        FactoryLayoutViewController.setLayoutName(layoutName);
+        FactoryLayoutViewController.setLayoutData(layoutData);
+        FactoryLayoutViewController.setLayoutDirection(layoutDirection);
         index = dashboardController.buttonDifferentiation(event);
 
         layoutId = dashboardController.listOfLayouts.get(index).getLayoutID();
@@ -151,7 +151,7 @@ public class FactoryLayoutViewController implements Initializable {
         layoutEmail = dashboardController.listOfLayouts.get(index).getLayoutEmail();
         System.out.println("email address: " + layoutEmail);
 
-        sqlConfiguration.viewLayout(layoutEmail);
+        sqlConfiguration.viewLayout(layoutEmail, layoutId);
 
         // reveals the user's layouts
         dashboardController.makeUserLayoutVisible();

@@ -44,4 +44,12 @@ public class RulesetsEdit {
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
+
+    public void onSaveButtonClick(ActionEvent e) throws Exception {
+        /* rule1_When_CB.getItems()
+           rule1_IS_CB1.getItems()
+           rule1_And_CB1.getItems()
+           rule1_Then_CB.getItems()
+         */
+    }
 }

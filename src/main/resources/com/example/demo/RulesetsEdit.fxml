@@ -109,9 +109,9 @@
                   </Button>
                </children>
             </HBox>
-            <TabPane layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="1369.0" style="-fx-background-color: LightYellow;" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="1369.0" style="-fx-background-color: LightYellow;" tabClosingPolicy="UNAVAILABLE" tabMinWidth="210.0">
               <tabs>
-                <Tab text="Rule #1">
+                <Tab fx:id="rule1Tab" text="Rule #1">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -276,7 +276,7 @@
                         </AnchorPane>
                      </content>
                 </Tab>
-                <Tab disable="true" text="Rule #2">
+                <Tab fx:id="rule2Tab" disable="true" text="Rule #2">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -441,7 +441,7 @@
                         </AnchorPane>
                      </content>
                 </Tab>
-                  <Tab disable="true" text="Rule #3">
+                  <Tab fx:id="rule3Tab" disable="true" text="Rule #3">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -606,7 +606,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab disable="true" text="Rule #4">
+                  <Tab fx:id="rule4Tab" disable="true" text="Rule #4">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -771,7 +771,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab disable="true" text="Rule #5">
+                  <Tab fx:id="rule5Tab" disable="true" text="Rule #5">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -936,7 +936,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab disable="true" text="Rule #6">
+                  <Tab fx:id="rule6Tab" disable="true" text="Rule #6">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>

@@ -161,6 +161,7 @@ public class DashboardController {
         Scene sceneFive = new Scene(popUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
+
     }
 
     @FXML
@@ -212,7 +213,7 @@ public class DashboardController {
         layoutViewController.setIndex(index);
 
         listOfLayouts = sqlConfiguration.getUserLayoutList(getEmailAddress());
-        layoutViewController.setListOfLayouts(getListOfLayouts());
+        layoutViewController.setLayouts(getListOfLayouts());
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(viewPopUp,1920,1080);

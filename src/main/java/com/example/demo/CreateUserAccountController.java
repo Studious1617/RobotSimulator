@@ -44,8 +44,19 @@ public class CreateUserAccountController {
                 Parent dashboardPopUp = loader.load();
                 // gets the controller fx:id from the fxml
                 DashboardController dashboardController = loader.getController();
-                // makes a dashboard object with the user's email
+                // makes a layout dashboard object with the user's email
                 dashboardController.setLayoutEmail(userEmail);
+
+
+                // sets up loader for the fxml
+                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
+                // loads the fxml
+                Parent dashboardPopUp2 = loader.load();
+                // gets the controller fx:id from the fxml
+                RulesetsDashboard rulesetsDashboard = loader.getController();
+                // makes a ruleset dashboard object with the user's email
+                rulesetsDashboard.setUserEmail(userEmail);
+
 
                 // adds the user to the database
                 if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {
@@ -73,4 +84,8 @@ public class CreateUserAccountController {
         stageOne.setScene(sceneOne);
         stageOne.show();
     }
+
+//    getEmailForLaterUse(String ){
+//
+//    }
 }

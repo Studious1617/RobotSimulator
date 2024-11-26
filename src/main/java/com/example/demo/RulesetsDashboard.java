@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RulesetsDashboard {
+
+    RulesetsCreate rulesetsCreate = new RulesetsCreate();
     public int buttonNumber;
     @FXML
     public Button
@@ -51,6 +53,12 @@ public class RulesetsDashboard {
         this.userEmail = userEmail;
     }
 
+//    private String rulesetEmail;
+//    public void setRulesetEmail(String rulesetEmail) {this.rulesetEmail = rulesetEmail;}
+//    public String getRulesetEmail(){
+//        return rulesetEmail;
+//    }
+
     private List<Layout> listOfLayouts;
     public List<Layout> getListOfLayouts() {
         return listOfLayouts;
@@ -82,8 +90,10 @@ public class RulesetsDashboard {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsCreate.fxml"));
         Parent rulesetsCreatePopUp = loader.load();
         RulesetsCreate rulesetsCreate = loader.getController();
+        System.out.println("Stabilizing user layout data as ");
         // so the user's layout info doesn't get lost
         rulesetsCreate.setUserEmail(getUserEmail());
+
         rulesetsCreate.setListOfLayouts(getListOfLayouts());
 
         Stage stageSixC = (Stage) ((Node) e.getSource()).getScene().getWindow();
