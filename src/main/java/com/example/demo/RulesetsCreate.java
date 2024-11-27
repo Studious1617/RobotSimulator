@@ -548,6 +548,7 @@ public class RulesetsCreate implements Initializable {
         Parent rulesetsDashboardPopUp = loader.load();
         RulesetsDashboard rulesetsDashboard = loader.getController();
         // so the user's info doesn't get lost
+        rulesetsDashboard.setRulesetName(rulesetName);
         rulesetsDashboard.setUserEmail(getUserEmail());
         rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 

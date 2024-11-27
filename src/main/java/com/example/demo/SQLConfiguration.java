@@ -1,9 +1,7 @@
 package com.example.demo;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -300,15 +298,41 @@ public class SQLConfiguration {
         }
     }
 
-    public ArrayList<String> getRules (int rulesetId) {
+    public void deleteRuleset (int rulesetId) {
+        String deleteRulesFirstSQL = "DELETE FROM rules WHERE ruleset_id = ?";
+        String deleteRulesetSQL = "DELETE FROM rulesets WHERE ruleset_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass)) {
+            // deletes rules with ruleset id because they're dependent on it
+            PreparedStatement deleteRulesFirstStatement = connection.prepareStatement(deleteRulesFirstSQL);
+            deleteRulesFirstStatement.setInt(1, rulesetId);
+            deleteRulesFirstStatement.executeUpdate();
+
+            // now deletes ruleset from rulesets table
+            PreparedStatement deleteRulesetsStatement = connection.prepareStatement(deleteRulesetSQL);
+            deleteRulesetsStatement.setInt(1, rulesetId);
+            deleteRulesetsStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error deleting ruleset: " + e);
+        }
+    }
+
+    public Map<Integer, ArrayList<String>> getRules (int rulesetId) {
+        int ruleId = 0;
         String when, is1, then, and1, is2, and2, is3, and3, is4;
+
+        // map for rule_id and conditions
+        Map<Integer, ArrayList<String>> idAndConditions = new HashMap<>();
+        // list for conditions
         ArrayList<String> conditions = new ArrayList<>();
-        String getRulesSQL = "SELECT * FROM rules WHERE ruleset_id = ?";
+
+        String getRulesSQL = "SELECT * FROM rules WHERE ruleset_id = ? ORDER BY rule_id";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(getRulesSQL)){
             preparedStatement.setInt(1, rulesetId);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+                // adds the id to the variable
+                ruleId = rs.getInt("rule_id");
                 // adds the row to the list
                 conditions.add(rs.getString("when_condition"));
                 conditions.add(rs.getString("is1_condition"));
@@ -319,11 +343,33 @@ public class SQLConfiguration {
                 conditions.add(rs.getString("is3_condition"));
                 conditions.add(rs.getString("and3_condition"));
                 conditions.add(rs.getString("is4_condition"));
+                // adds the id and the list to the map
+                idAndConditions.put(ruleId, conditions);
             }
         } catch (SQLException e) {
-            System.out.println("Error : " + e);
+            System.out.println("Error getting rules: " + e);
         }
-        return conditions;
+        return idAndConditions;
+    }
+
+    public ArrayList<Integer> getRuleId (int rulesetId) {
+        // list to hold rule_ids
+        ArrayList<Integer> ruleIdList = new ArrayList<>();
+
+        String getRulesSQL = "SELECT rule_id FROM rules WHERE ruleset_id = ? ORDER BY rule_id";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(getRulesSQL)){
+            preparedStatement.setInt(1, rulesetId);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                // adds the rule_id to the list
+                ruleIdList.add(rs.getInt("rule_id"));
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting rule_ids: " + e);
+        }
+        return ruleIdList;
     }
 
     public int getRulesetId (String rName, String email) {

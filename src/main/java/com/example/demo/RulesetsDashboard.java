@@ -13,9 +13,10 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class RulesetsDashboard {
-
+    SQLConfiguration sqlConfiguration = new SQLConfiguration();
     RulesetsCreate rulesetsCreate = new RulesetsCreate();
     public int buttonNumber;
     @FXML
@@ -44,6 +45,14 @@ public class RulesetsDashboard {
 
     public List<Button> rulesetButtonList;
     public Label rulesetDeleteLabel;
+
+    public String rulesetName;
+    public String getRulesetName() {
+        return rulesetName;
+    }
+    public void setRulesetName(String rulesetName) {
+        this.rulesetName = rulesetName;
+    }
 
     private String userEmail;
     public String getUserEmail() {
@@ -154,14 +163,17 @@ public class RulesetsDashboard {
 
         deleteRulesetButton1.onMouseClickedProperty();
         if (deleteRulesetButton1.isVisible()) {
-                ruleset1_right.setVisible(false);
-                ruleset1_left.setVisible(false);
-                rulesetDeleteLabel.setText("Ruleset Deleted");
+            ruleset1_right.setVisible(false);
+            ruleset1_left.setVisible(false);
+            rulesetDeleteLabel.setText("Ruleset Deleted");
             rulesetDeleteLabel.setVisible(true);
-            }
-
+        }
+        rulesetName = getRulesetName();
+        // gets rulesetId for getRules method
+        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        // deletes from table
+        sqlConfiguration.deleteRuleset(1);
     }
-
     public void onDeleteRulesetClick2(ActionEvent e) throws Exception {
         if (deleteRulesetButton2.isVisible()) {
             ruleset2_right.setVisible(false);
@@ -169,8 +181,12 @@ public class RulesetsDashboard {
             rulesetDeleteLabel.setText("Ruleset Deleted");
             rulesetDeleteLabel.setVisible(true);
         }
+        rulesetName = getRulesetName();
+        // gets rulesetId for getRules method
+        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        // deletes from table
+        sqlConfiguration.deleteRuleset(rulesetId);
     }
-
     public void onDeleteRulesetClick3(ActionEvent e) throws Exception {
         if (deleteRulesetButton3.isVisible()) {
             ruleset3_right.setVisible(false);
@@ -178,8 +194,12 @@ public class RulesetsDashboard {
             rulesetDeleteLabel.setText("Ruleset Deleted");
             rulesetDeleteLabel.setVisible(true);
         }
+        rulesetName = getRulesetName();
+        // gets rulesetId for getRules method
+        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        // deletes from table
+        sqlConfiguration.deleteRuleset(3);
     }
-
     public void onDeleteRulesetClick4(ActionEvent e) throws Exception {
         if (deleteRulesetButton4.isVisible()) {
             ruleset4_right.setVisible(false);
@@ -187,8 +207,12 @@ public class RulesetsDashboard {
             rulesetDeleteLabel.setText("Ruleset Deleted");
             rulesetDeleteLabel.setVisible(true);
         }
+        rulesetName = getRulesetName();
+        // gets rulesetId for getRules method
+        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        // deletes from table
+        sqlConfiguration.deleteRuleset(rulesetId);
     }
-
     public void onDeleteRulesetClick5(ActionEvent e) throws Exception {
         if (deleteRulesetButton5.isVisible()) {
             ruleset5_right.setVisible(false);
@@ -196,6 +220,12 @@ public class RulesetsDashboard {
             rulesetDeleteLabel.setText("Ruleset Deleted");
             rulesetDeleteLabel.setVisible(true);
         }
+        rulesetName = getRulesetName();
+        // gets rulesetId for getRules method
+        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        // deletes from table
+        sqlConfiguration.deleteRuleset(rulesetId);
     }
-    }
+
+}
 

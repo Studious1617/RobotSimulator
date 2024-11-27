@@ -3,15 +3,18 @@ package com.example.demo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class RulesetsView {
+public class RulesetsView implements Initializable {
     @FXML
     public Button backButton;
 
@@ -31,6 +34,11 @@ public class RulesetsView {
         this.listOfLayouts = listOfLayouts;
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
     @FXML
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
@@ -45,4 +53,5 @@ public class RulesetsView {
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
+
 }
