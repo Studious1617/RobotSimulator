@@ -550,4 +550,20 @@ public class RulesetsCreate implements Initializable {
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
+
+    public void onAddRuleButtonClick(ActionEvent e) throws Exception {
+        if (rule1Tab.isDisabled()){
+            rule1Tab.setDisable(false);
+        } else if (rule2Tab.isDisabled()) {
+            rule2Tab.setDisable(false);
+        } else if (rule3Tab.isDisabled()) {
+            rule3Tab.setDisable(false);
+        } else if (rule4Tab.isDisabled()) {
+            rule4Tab.setDisable(false);
+        } else if (rule5Tab.isDisabled()) {
+            rule5Tab.setDisable(false);
+        } else if (rule6Tab.isDisabled()) {
+            rule6Tab.setDisable(false);
+        }
+    }
 }

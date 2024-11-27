@@ -93,7 +93,7 @@
       <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1400.0" style="-fx-background-color: lightYellow;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1375.0" />
-            <Button fx:id="addRuleButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
+            <Button fx:id="addRuleButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" onAction="#onAddRuleButtonClick" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
