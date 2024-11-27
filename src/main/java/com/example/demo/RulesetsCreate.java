@@ -97,11 +97,11 @@ public class RulesetsCreate implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
         ObservableList<String> rulesDirectionOptions = FXCollections.observableArrayList(
-                "In-front", "To the left", "To the right");
+                "In-front", "To the left", "To the right", "Backwards");
         ObservableList<String> rulesSpaceOptions = FXCollections.observableArrayList(
                 "A wall", "Empty", "The Start", "The Exit");
         ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
-                "Move forward", "Turn right", "Turn left");
+                "Move forward", "Turn right", "Turn left", "Turn back");
 
         // Rule 1
         rule1_When_CB.getItems().addAll(rulesDirectionOptions);
@@ -481,6 +481,8 @@ public class RulesetsCreate implements Initializable {
                         System.out.println(s5);
                     }
                 }
+            } else {
+                System.out.println("Rule #5 was not created.");
             }
             if (!rule6Tab.isDisable()) {
                 when = rule6_When_CB.getValue();
@@ -530,11 +532,15 @@ public class RulesetsCreate implements Initializable {
                         System.out.println(s6);
                     }
                 }
+            } else {
+                System.out.println("Rule #6 was not created.");
             }
         } else {
             //Make this a popup later
             System.out.println("Couldn't save ruleset. Make sure that you give the ruleset a title!");
         }
+        // updates rule_count column
+        sqlConfiguration.updateRuleCount(rulesetName, email);
     }
 
     public void onBackButtonClick(ActionEvent e) throws Exception {

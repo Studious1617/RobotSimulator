@@ -149,21 +149,22 @@ public class SQLConfiguration {
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass)) {
             String layoutGetter = "SELECT l.layout_id FROM layouts l JOIN useraccounts u " +
                     "ON l.email_address = u.email_address WHERE u.email_address = ?";
-            String enterLayout = "INSERT INTO layouts (layout_name, layout_data, direction, email_address)" +
-                    " VALUES (?, ?, ?, ?)";
-            String newEnterSQL = "INSERT INTO layouts (layout_name, layout_data, direction, email_address) " +
-                    "VALUES (?, ?, ?, ?) " +
-                    "WHERE (SELECT COUNT(*) FROM layouts WHERE email_address = ?) <= 5";
+            String enterLayout = "INSERT INTO layouts (layout_id, layout_name, layout_data, direction, email_address)" +
+                    " VALUES (?, ?, ?, ?, ?)";
             PreparedStatement idStmt = connection.prepareStatement(layoutGetter);
             idStmt.setString(1, userEmail);
-            idStmt.executeQuery();
+            ResultSet rs = idStmt.executeQuery();
+            int layId = 1;
+            while (rs.next()) {
+                layId = rs.getInt("layout_id");
+            }
 
             PreparedStatement layoutStmt = connection.prepareStatement(enterLayout);
-
-            layoutStmt.setString(1, layoutName);
-            layoutStmt.setArray(2, connection.createArrayOf("VARCHAR", layoutData));
-            layoutStmt.setString(3, direction);
-            layoutStmt.setString(4, userEmail);
+            layoutStmt.setInt(1, layId);
+            layoutStmt.setString(2, layoutName);
+            layoutStmt.setArray(3, connection.createArrayOf("VARCHAR", layoutData));
+            layoutStmt.setString(4, direction);
+            layoutStmt.setString(5, userEmail);
             System.out.println("layoutData(): " + Arrays.toString(layoutData));
             layoutStmt.executeUpdate();
 
@@ -299,6 +300,32 @@ public class SQLConfiguration {
         }
     }
 
+    public ArrayList<String> getRules (int rulesetId) {
+        String when, is1, then, and1, is2, and2, is3, and3, is4;
+        ArrayList<String> conditions = new ArrayList<>();
+        String getRulesSQL = "SELECT * FROM rules WHERE ruleset_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(getRulesSQL)){
+            preparedStatement.setInt(1, rulesetId);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                // adds the row to the list
+                conditions.add(rs.getString("when_condition"));
+                conditions.add(rs.getString("is1_condition"));
+                conditions.add(rs.getString("then_action"));
+                conditions.add(rs.getString("and1_condition"));
+                conditions.add(rs.getString("is2_condition"));
+                conditions.add(rs.getString("and2_condition"));
+                conditions.add(rs.getString("is3_condition"));
+                conditions.add(rs.getString("and3_condition"));
+                conditions.add(rs.getString("is4_condition"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error : " + e);
+        }
+        return conditions;
+    }
+
     public int getRulesetId (String rName, String email) {
         String getRulesetIdSQL = "SELECT ruleset_id FROM rulesets WHERE " +
                 "ruleset_name = ? AND email_address = ?";
@@ -322,5 +349,36 @@ public class SQLConfiguration {
         }
         // returns 0 if connection to database fails
         return rulesetId;
+    }
+
+    public void updateRuleCount (String rName, String email) {
+        int rId = getRulesetId(rName, email);
+        ArrayList<Integer> rulesForCountList = new ArrayList<>();
+        int howManyRules = 0;
+        String getRuleCountSQL = "SELECT rule_id FROM rules WHERE ruleset_id = ?";
+        String updateRuleCountSQL = "UPDATE rulesets SET rule_count = ? WHERE ruleset_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass)) {
+            // counts the rules in the ruleset
+            PreparedStatement ruleCountStatement = connection.prepareStatement(getRuleCountSQL);
+            ruleCountStatement.setInt(1, rId);
+            ResultSet rs = ruleCountStatement.executeQuery();
+            // loops through the Rules table
+            while (rs.next()) {
+                //
+                int rule = rs.getInt("rule_id");
+                // adds the rule_id to the list (just for counting below)
+                rulesForCountList.add(rule);
+            }
+            // increases the howManyRules variable by 1 for every rule in the list
+            for (int rule: rulesForCountList) {
+                howManyRules++;
+            }
+            // changes the rule_count column value to the counted number above
+            PreparedStatement updateStatement = connection.prepareStatement(updateRuleCountSQL);
+            updateStatement.setInt(1, howManyRules);
+            updateStatement.setInt(2, rId);
+        } catch (SQLException e) {
+            System.out.println("Error counting rules: " + e);
+        }
     }
 }
