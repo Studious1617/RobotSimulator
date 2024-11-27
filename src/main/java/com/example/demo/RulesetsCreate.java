@@ -75,6 +75,8 @@ public class RulesetsCreate implements Initializable {
             rule6_Then_CB;
 
     public String rulesetName;
+    // variable to hold the ruleset ids
+    int rulesetId;
 
     public String userEmail;
     public String getUserEmail() {
@@ -193,10 +195,26 @@ public class RulesetsCreate implements Initializable {
         //Getting values of the sentences
         String when, is1, then, and1, is2, and2, is3, and3, is4;
 
-        if (rule1Tab.isDisabled()) {
-            System.out.println("The rule #1 tab is disabled.");
-        }
-        else {
+        rulesetName = rulesetName_TF.getText();
+        String email = getUserEmail();
+        System.out.println("This is the user email: " + email);
+        int rId = sqlConfiguration.getRulesetId(rulesetName, email);
+        System.out.println("Ruleset ID: " + rId);
+
+        System.out.println("Before inserting the rules...");
+        // Make sure to create ruleset in rulesets table
+        // foreign key (rulesetID) needs to reference the rulesets table
+        System.out.println("Checking if the text field has text...");
+        if (doesTextFieldHaveText(rulesetName)) {
+            System.out.println("Check complete. The text field has text.\n");
+            System.out.println("Making a new ruleset...");
+            System.out.println("Inserting ruleset name into database...");
+
+            // makes a new ruleset
+            sqlConfiguration.insertRuleset(rulesetName, 0, userEmail);
+
+            System.out.println("Insertion complete. Your ruleset is named: " + rulesetName);
+
             //Rule 1
             when = rule1_When_CB.getValue();
             is1 = rule1_Is_CB1.getValue();
@@ -208,80 +226,107 @@ public class RulesetsCreate implements Initializable {
             and3 = rule1_And_CB3.getValue();
             is4 = rule1_Is_CB4.getValue();
 
-            String email = getUserEmail();
-            System.out.println("This is the user email: " + email);
-
-            rulesetName = rulesetName_TF.getText();
 
             ArrayList<String> rule1CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
-            System.out.println("Before inserting the rules...");
 
-            // Make sure to create ruleset in rulesets table
-            // foreign key (rulesetID) needs to reference the rulesets table
-            System.out.println("Checking if the text field has text...");
-            if (doesTextFieldHaveText(rulesetName)) {
-                System.out.println("Check complete. The text field has text.\n");
-                System.out.println("Making a new ruleset...");
-                System.out.println("Inserting ruleset name and rule count into database...");
-                // makes a new ruleset
-                sqlConfiguration.insertRuleset(rulesetName, 0, userEmail);
-                System.out.println("Insertion complete. Your ruleset is named: " + rulesetName);
-                System.out.println("Checking that row 1 and 2 as well as the last are not null...");
-                // checks the required checkboxes
-                if (when != null && is1 != null && then != null) { // necessary conditions
-                    System.out.println("Check complete.\n");
-                    System.out.println("Inserting rules into database...");
-                    //RulesetID orginally had a 2 here but I changed it
+            System.out.println("Checking that row 1 and 2 as well as the last for Rule #1 are not null...");
+            // checks the required checkboxes
+            if (when != null && is1 != null && then != null) {
+                System.out.println("Check complete.\n");
+                // sets the variable to the new ruleset's ruleset id
+                rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                // checks the ANDs are filled
+                if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                    System.out.println("Inserting all conditions into database...");
 
-                    sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
-                    System.out.println("Rules inserted.\n");
+                    sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                    System.out.println("Rule 1 inserted with all ANDs.\n");
+                    // checks if 2 AND conditions are filled
+                } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                    System.out.println("Inserting all but 1 AND condition into database...");
 
-                    //TODO Write a method that gets the rules info from the database instead of this so that
-                    // we can really see where and when things are breaking down
+                    sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                    System.out.println("Rule 1 inserted with 2 ANDs.\n");
+                    // checks if only one AND condition is filled
+                } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                    System.out.println("Inserting all but 2 AND conditions into database...");
+
+                    sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                    System.out.println("Rule 1 inserted with 1 AND.\n");
+                    // checks if all ANDs are empty
+                } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                    System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                    sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                    System.out.println("Rule 1 inserted with no ANDs.\n");
+                }
+
+                //TODO Write a method that gets the rules info from the database instead of this so that
+                // we can really see where and when things are breaking down
 //                    sqlConfiguration.getUserRulesetList();
-                    System.out.println("rule1CheckList: ");
-                    for (String s : rule1CheckList) {
-                        System.out.println(s);
+                System.out.println("rule1CheckList: ");
+                for (String s : rule1CheckList) {
+                    System.out.println(s);
+                }
+
+            }
+
+            if (rule2Tab.isDisabled()) {
+                System.out.println("Rule #2 was not added.");
+            } else {
+                // no validation for checkboxes yet
+                when = rule2_When_CB.getValue();
+                is1 = rule2_Is_CB1.getValue();
+                and1 = rule2_And_CB1.getValue();
+                is2 = rule2_Is_CB2.getValue();
+                and2 = rule2_And_CB2.getValue();
+                is3 = rule2_Is_CB3.getValue();
+                and3 = rule2_And_CB3.getValue();
+                is4 = rule2_Is_CB4.getValue();
+                then = rule2_Then_CB.getValue();
+
+                // list to check the values of the choiceboxes
+                ArrayList<String> rule2CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+
+                System.out.println("Checking that row 1 and 2 as well as the last for Rule #2 are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) {
+                    System.out.println("Check complete.\n");
+                    // sets the variable to the new ruleset's ruleset id
+                    rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                    // checks the ANDs are filled
+                    if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                        System.out.println("Inserting all conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                        System.out.println("Rule 2 inserted with all ANDs.\n");
+                        // checks if 2 AND conditions are filled
+                    } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 1 AND condition into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                        System.out.println("Rule 2 inserted with 2 ANDs.\n");
+                        // checks if only one AND condition is filled
+                    } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 2 AND conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                        System.out.println("Rule 2 inserted with 1 AND.\n");
+                        // checks if all ANDs are empty
+                    } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                        System.out.println("Rule 2 inserted with no ANDs.\n");
                     }
 
-                }
-            } else {
-                //Make this a popup later
-                System.out.println("Couldn't save ruleset. Make sure that you give the ruleset a title!");
-            }
-        }
-
-        if (rule2Tab.isDisabled()) {
-            System.out.println("The rule #2 tab is disabled.");
-        }
-        else {
-            // no validation for checkboxes yet
-            when = rule2_When_CB.getValue();
-            is1 = rule2_Is_CB1.getValue();
-            and1 = rule2_And_CB1.getValue();
-            is2 = rule2_Is_CB2.getValue();
-            and2 = rule2_And_CB2.getValue();
-            is3 = rule2_Is_CB3.getValue();
-            and3 = rule2_And_CB3.getValue();
-            is4 = rule2_Is_CB4.getValue();
-            then = rule2_Then_CB.getValue();
-
-            ArrayList<String> rule2CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
-            for (String s2 : rule2CheckList) {
-                System.out.println("rule2CheckList1: ");
-                System.out.println(s2);
-            }
-
-            if (when != null && is1 != null && then != null) { // necessary conditions
-                sqlConfiguration.insertRules(3, when, is1, then, and1, is2, and2, is3, and3, is4);
-
-                for (String s2 : rule2CheckList) {
-                    System.out.println("rule2CheckList2: ");
-                    System.out.println(s2);
+                    for (String s2 : rule2CheckList) {
+                        System.out.println("rule2CheckList: ");
+                        System.out.println(s2);
+                    }
                 }
             }
-        }
-/*
+
             if (!rule3Tab.isDisable()) {
                 // no validation for checkboxes yet
                 when = rule3_When_CB.getValue();
@@ -295,52 +340,202 @@ public class RulesetsCreate implements Initializable {
                 then = rule3_Then_CB.getValue();
 
                 ArrayList<String> rule3CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
-                for (String s3: rule2CheckList) {
-                    System.out.println(s3);
+
+                System.out.println("Checking that row 1 and 2 as well as the last for Rule #3 are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) {
+                    // sets the variable to the new ruleset's ruleset id
+                    rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                    // checks the ANDs are filled
+                    if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                        System.out.println("Inserting all conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                        System.out.println("Rule 3 inserted with all ANDs.\n");
+                        // checks if 2 AND conditions are filled
+                    } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 1 AND condition into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                        System.out.println("Rule 3 inserted with 2 ANDs.\n");
+                        // checks if only one AND condition is filled
+                    } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 2 AND conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                        System.out.println("Rule 3 inserted with 1 AND.\n");
+                        // checks if all ANDs are empty
+                    } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                        System.out.println("Rule 3 inserted with no ANDs.\n");
+                    }
+                    for (String s3 : rule3CheckList) {
+                        System.out.println("rule3CheckList: ");
+                        System.out.println(s3);
+                    }
                 }
+            } else {
+                System.out.println("Rule #3 was not added.");
+            }
 
-                sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
+            if (!rule4Tab.isDisable()) {
+                // no validation for checkboxes yet
+                when = rule4_When_CB.getValue();
+                is1 = rule4_Is_CB1.getValue();
+                and1 = rule4_And_CB1.getValue();
+                is2 = rule4_Is_CB2.getValue();
+                and2 = rule4_And_CB2.getValue();
+                is3 = rule4_Is_CB3.getValue();
+                and3 = rule4_And_CB3.getValue();
+                is4 = rule4_Is_CB4.getValue();
+                then = rule4_Then_CB.getValue();
 
-                if (!rule4Tab.isDisable()) {
-                    // no validation for checkboxes yet
-                    when = rule4_When_CB.getValue();
-                    is1 = rule4_Is_CB1.getValue();
-                    and1 = rule4_And_CB1.getValue();
-                    is2 = rule4_Is_CB2.getValue();
-                    and2 = rule4_And_CB2.getValue();
-                    is3 = rule4_Is_CB3.getValue();
-                    and3 = rule4_And_CB3.getValue();
-                    is4 = rule4_Is_CB4.getValue();
-                    then = rule4_Then_CB.getValue();
+                ArrayList<String> rule4CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
 
-                    ArrayList<String> rule4CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
-                    for (String s4: rule2CheckList) {
+                System.out.println("Checking that row 1 and 2 as well as the last for Rule #4 are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) {
+                    // sets the variable to the new ruleset's ruleset id
+                    rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                    // checks the ANDs are filled
+                    if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                        System.out.println("Inserting all conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                        System.out.println("Rule 4 inserted with all ANDs.\n");
+                        // checks if 2 AND conditions are filled
+                    } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 1 AND condition into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                        System.out.println("Rule 4 inserted with 2 ANDs.\n");
+                        // checks if only one AND condition is filled
+                    } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 2 AND conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                        System.out.println("Rule 4 inserted with 1 AND.\n");
+                        // checks if all ANDs are empty
+                    } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                        System.out.println("Rule 4 inserted with no ANDs.\n");
+                    }
+                    for (String s4 : rule4CheckList) {
+                        System.out.println("rule4CheckList: ");
                         System.out.println(s4);
                     }
-
-                    sqlConfiguration.insertRules(1, when, is1, then, and1, is2, and2, is3, and3, is4);
-
-                    if (!rule5Tab.isDisable()) {
-                        rule5_When_CB.getValue();
-                        rule5_Is_CB1.getValue();
-                        rule5_Then_CB.getValue();
-
-                        if (!rule6Tab.isDisable()) {
-                            rule6_When_CB.getValue();
-                            rule6_Is_CB1.getValue();
-                            rule6_Then_CB.getValue();
-
-                        }
-                    }
-
                 }
-            } */
+            } else {
+                System.out.println("Rule #4 was not added.");
+            }
 
-        //Make a method that checks that all avaliable choiceboxes have been filled
-        //Make sure it checks for visibility and value
-        System.out.println("Rule saved.\n");
+            if (!rule5Tab.isDisable()) {
+                when = rule5_When_CB.getValue();
+                is1 = rule5_Is_CB1.getValue();
+                and1 = rule5_And_CB1.getValue();
+                is2 = rule5_Is_CB2.getValue();
+                and2 = rule5_And_CB2.getValue();
+                is3 = rule5_Is_CB3.getValue();
+                and3 = rule6_And_CB3.getValue();
+                is4 = rule5_Is_CB4.getValue();
+                then = rule5_Then_CB.getValue();
+
+                ArrayList<String> rule5CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+
+                System.out.println("Checking that row 1 and 2 as well as the last for Rule #5 are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) {
+                    // sets the variable to the new ruleset's ruleset id
+                    rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                    // checks the ANDs are filled
+                    if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                        System.out.println("Inserting all conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                        System.out.println("Rule 5 inserted with all ANDs.\n");
+                        // checks if 2 AND conditions are filled
+                    } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 1 AND condition into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                        System.out.println("Rule 5 inserted with 2 ANDs.\n");
+                        // checks if only one AND condition is filled
+                    } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 2 AND conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                        System.out.println("Rule 5 inserted with 1 AND.\n");
+                        // checks if all ANDs are empty
+                    } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                        System.out.println("Rule 5 inserted with no ANDs.\n");
+                    }
+                    for (String s5 : rule5CheckList) {
+                        System.out.println("rule5CheckList: ");
+                        System.out.println(s5);
+                    }
+                }
+            }
+            if (!rule6Tab.isDisable()) {
+                when = rule6_When_CB.getValue();
+                is1 = rule6_Is_CB1.getValue();
+                and1 = rule6_And_CB1.getValue();
+                is2 = rule6_Is_CB2.getValue();
+                and2 = rule6_And_CB2.getValue();
+                is3 = rule6_Is_CB3.getValue();
+                and3 = rule6_And_CB3.getValue();
+                is4 = rule6_Is_CB4.getValue();
+                then = rule6_Then_CB.getValue();
+
+                ArrayList<String> rule6CheckList = new ArrayList<>(Arrays.asList(when, is1, then, and1, is2, and2, is3, and3, is4));
+
+                System.out.println("Checking that row 1 and 2 as well as the last for Rule #6 are not null...");
+                // checks the required checkboxes
+                if (when != null && is1 != null && then != null) {
+                    // sets the variable to the new ruleset's ruleset id
+                    rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+                    // checks the ANDs are filled
+                    if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
+                        System.out.println("Inserting all conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, and3, is4);
+                        System.out.println("Rule 6 inserted with all ANDs.\n");
+                        // checks if 2 AND conditions are filled
+                    } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 1 AND condition into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
+                        System.out.println("Rule 6 inserted with 2 ANDs.\n");
+                        // checks if only one AND condition is filled
+                    } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting all but 2 AND conditions into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
+                        System.out.println("Rule 6 inserted with 1 AND.\n");
+                        // checks if all ANDs are empty
+                    } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
+                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+
+                        sqlConfiguration.insertRules(rulesetId, when, is1, then, null, null, null, null, null, null);
+                        System.out.println("Rule 6 inserted with no ANDs.\n");
+                    }
+                    for (String s6 : rule6CheckList) {
+                        System.out.println("rule6CheckList: ");
+                        System.out.println(s6);
+                    }
+                }
+            }
+        } else {
+            //Make this a popup later
+            System.out.println("Couldn't save ruleset. Make sure that you give the ruleset a title!");
+        }
     }
-
 
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));

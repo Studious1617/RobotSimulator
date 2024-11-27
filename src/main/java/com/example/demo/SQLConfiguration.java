@@ -9,9 +9,9 @@ import java.util.regex.Pattern;
 
 public class SQLConfiguration {
     // url to access the database
-    static String databaseURL = "jdbc:postgresql://localhost:5433/postgres";
+    static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
-    static String upass = "AccessPoint9876";
+    static String upass = "Hard2Guess";
 
     public List<Layout> listOfLayoutLists = new ArrayList<>();
 
@@ -37,9 +37,8 @@ public class SQLConfiguration {
         String rulesetsTable = """
                 CREATE TABLE IF NOT EXISTS rulesets (
                 ruleset_id SERIAL PRIMARY KEY,
-                ruleset_name VARCHAR(50) NOT NULL,
+                ruleset_name VARCHAR(50) UNIQUE NOT NULL,
                 rule_count INT,
-                --rules VARCHAR[],
                 email_address VARCHAR(50) NOT NULL)""";
         String rulesTable = """
                 CREATE TABLE IF NOT EXISTS rules (
@@ -298,5 +297,30 @@ public class SQLConfiguration {
         } catch (SQLException e) {
             System.out.println("Error saving rule: " + e);
         }
+    }
+
+    public int getRulesetId (String rName, String email) {
+        String getRulesetIdSQL = "SELECT ruleset_id FROM rulesets WHERE " +
+                "ruleset_name = ? AND email_address = ?";
+        // variable to hold the ruleset id
+        int rulesetId = 0;
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(getRulesetIdSQL)) {
+            preparedStatement.setString(1, rName);
+            preparedStatement.setString(2, email);
+            // gets results from running the SQL string
+            ResultSet rs = preparedStatement.executeQuery();
+            // loops through the rows
+            while (rs.next()) {
+                // sets the variable to the result
+                rulesetId = rs.getInt("ruleset_id");
+            }
+            // returns the result, or zero if there wasn't a match
+            return rulesetId;
+        } catch (SQLException e) {
+            System.out.println("Error getting ruleset id: " + e);
+        }
+        // returns 0 if connection to database fails
+        return rulesetId;
     }
 }
