@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
    <children>
       <HBox minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -28,7 +35,7 @@
                   <Insets left="10.0" />
                </HBox.margin></Label>
          </children></HBox>
-      <GridPane layoutY="100.0" prefHeight="90.0" prefWidth="1400.0">
+      <GridPane alignment="CENTER_RIGHT" layoutY="100.0" prefHeight="90.0" prefWidth="1400.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -50,7 +57,7 @@
                </children></HBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Ruleset Name">
+                  <Label fx:id="rulesetNameLabel" text="Ruleset Name">
                      <font>
                         <Font name="Book Antiqua" size="18.0" />
                      </font>
@@ -65,6 +72,15 @@
                         <Insets left="15.0" />
                      </VBox.margin></Label>
                </children></VBox>
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="viewButton" mnemonicParsing="false" onAction="#onViewButtonClick" text="View">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </GridPane>
       <Pane layoutY="190.0" prefHeight="411.0" prefWidth="1400.0" style="-fx-background-color: LightYellow;">
@@ -144,9 +160,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="83.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule1" prefHeight="18.0" prefWidth="77.0" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -155,7 +171,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -164,7 +180,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -173,7 +189,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -182,7 +198,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -227,7 +243,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -236,7 +252,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -245,7 +261,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -254,7 +270,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule1" text="XXXXXXXX" textAlignment="CENTER">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -330,7 +346,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -339,7 +355,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -348,7 +364,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -357,7 +373,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -366,7 +382,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -411,7 +427,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -420,7 +436,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -429,7 +445,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -438,7 +454,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule4" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -514,7 +530,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -523,7 +539,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -532,7 +548,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -541,7 +557,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -550,7 +566,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -595,7 +611,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -604,7 +620,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -613,7 +629,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -622,7 +638,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule2" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -698,7 +714,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -707,7 +723,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -716,7 +732,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -725,7 +741,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -734,7 +750,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -779,7 +795,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -788,7 +804,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -797,7 +813,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -806,7 +822,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule5" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -882,7 +898,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -891,7 +907,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -900,7 +916,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -909,7 +925,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -918,7 +934,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -963,7 +979,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -972,7 +988,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -981,7 +997,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -990,7 +1006,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule3" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1066,7 +1082,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1075,7 +1091,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1084,7 +1100,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1093,7 +1109,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1102,7 +1118,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1147,7 +1163,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is2Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1156,7 +1172,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is3Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1165,7 +1181,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is4Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -1174,7 +1190,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
-                              <Label text="XXXXXXXX">
+                              <Label fx:id="is1Label_Rule6" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>

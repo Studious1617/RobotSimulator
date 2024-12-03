@@ -75,6 +75,10 @@ public class RulesetsCreate implements Initializable {
             rule6_Then_CB;
 
     public String rulesetName;
+    public String getRulesetName() {
+        return rulesetName;
+    }
+
     // variable to hold the ruleset ids
     int rulesetId;
 
@@ -183,12 +187,8 @@ public class RulesetsCreate implements Initializable {
         rule6_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
-    public boolean doesTextFieldHaveText(String textFieldValue){
+    public boolean doesTextFieldHaveText (String textFieldValue) {
         return textFieldValue != null && !textFieldValue.isEmpty();
-    }
-
-    public boolean areAllRulesSaved(){
-        return true;
     }
 
     public void onSaveButtonClick(ActionEvent e) {
@@ -198,8 +198,6 @@ public class RulesetsCreate implements Initializable {
         rulesetName = rulesetName_TF.getText();
         String email = getUserEmail();
         System.out.println("This is the user email: " + email);
-        int rId = sqlConfiguration.getRulesetId(rulesetName, email);
-        System.out.println("Ruleset ID: " + rId);
 
         System.out.println("Before inserting the rules...");
         // Make sure to create ruleset in rulesets table
@@ -211,9 +209,12 @@ public class RulesetsCreate implements Initializable {
             System.out.println("Inserting ruleset name into database...");
 
             // makes a new ruleset
-            sqlConfiguration.insertRuleset(rulesetName, 0, userEmail);
+            sqlConfiguration.insertRuleset(rulesetName, userEmail);
 
             System.out.println("Insertion complete. Your ruleset is named: " + rulesetName);
+
+            int rId = sqlConfiguration.getRulesetId(rulesetName, email);
+            System.out.println("Ruleset ID: " + rId);
 
             //Rule 1
             when = rule1_When_CB.getValue();
@@ -263,17 +264,14 @@ public class RulesetsCreate implements Initializable {
 
                 //TODO Write a method that gets the rules info from the database instead of this so that
                 // we can really see where and when things are breaking down
-//                    sqlConfiguration.getUserRulesetList();
+
                 System.out.println("rule1CheckList: ");
                 for (String s : rule1CheckList) {
                     System.out.println(s);
                 }
-
             }
 
-            if (rule2Tab.isDisabled()) {
-                System.out.println("Rule #2 was not added.");
-            } else {
+            if (!rule2Tab.isDisabled()) {
                 // no validation for checkboxes yet
                 when = rule2_When_CB.getValue();
                 is1 = rule2_Is_CB1.getValue();
@@ -302,13 +300,13 @@ public class RulesetsCreate implements Initializable {
                         System.out.println("Rule 2 inserted with all ANDs.\n");
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        System.out.println("Inserting Rule with 2 AND condition into database...");
 
                         sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, and2, is3, null, null);
                         System.out.println("Rule 2 inserted with 2 ANDs.\n");
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        System.out.println("Inserting Rule with 1 AND condition1 into database...");
 
                         sqlConfiguration.insertRules(rulesetId, when, is1, then, and1, is2, null, null, null, null);
                         System.out.println("Rule 2 inserted with 1 AND.\n");
@@ -325,6 +323,8 @@ public class RulesetsCreate implements Initializable {
                         System.out.println(s2);
                     }
                 }
+            } else {
+                System.out.println("Rule #2 was not created.");
             }
 
             if (!rule3Tab.isDisable()) {
@@ -377,7 +377,7 @@ public class RulesetsCreate implements Initializable {
                     }
                 }
             } else {
-                System.out.println("Rule #3 was not added.");
+                System.out.println("Rule #3 was not created.");
             }
 
             if (!rule4Tab.isDisable()) {
@@ -430,7 +430,7 @@ public class RulesetsCreate implements Initializable {
                     }
                 }
             } else {
-                System.out.println("Rule #4 was not added.");
+                System.out.println("Rule #4 was not created.");
             }
 
             if (!rule5Tab.isDisable()) {
@@ -543,21 +543,6 @@ public class RulesetsCreate implements Initializable {
         sqlConfiguration.updateRuleCount(rulesetName, email);
     }
 
-    public void onBackButtonClick(ActionEvent e) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
-        Parent rulesetsDashboardPopUp = loader.load();
-        RulesetsDashboard rulesetsDashboard = loader.getController();
-        // so the user's info doesn't get lost
-        rulesetsDashboard.setRulesetName(rulesetName);
-        rulesetsDashboard.setUserEmail(getUserEmail());
-        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
-
-        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(rulesetsDashboardPopUp,1920,1080);
-        stageFive.setScene(sceneFive);
-        stageFive.show();
-    }
-
     public void onAddRuleButtonClick(ActionEvent e) throws Exception {
         if (rule1Tab.isDisabled()){
             rule1Tab.setDisable(false);
@@ -572,5 +557,21 @@ public class RulesetsCreate implements Initializable {
         } else if (rule6Tab.isDisabled()) {
             rule6Tab.setDisable(false);
         }
+    }
+
+    public void onBackButtonClick(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
+        Parent rulesetsDashboardPopUp = loader.load();
+        RulesetsDashboard rulesetsDashboard = loader.getController();
+        // so the user's info doesn't get lost
+        rulesetsDashboard.setRulesetName(getRulesetName());
+        rulesetsDashboard.setUserEmail(getUserEmail());
+        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
+        rulesetsDashboard.makeUserRulesetsVisible();
+
+        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneFive = new Scene(rulesetsDashboardPopUp,1920,1080);
+        stageFive.setScene(sceneFive);
+        stageFive.show();
     }
 }

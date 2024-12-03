@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsEdit">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsEdit">
    <children>
       <HBox minWidth="1400.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -62,7 +62,7 @@
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Ruleset Name">
+                  <Label fx:id="rulesetNameLabel" text="Ruleset Name">
                      <font>
                         <Font name="Book Antiqua" size="18.0" />
                      </font>
@@ -80,7 +80,7 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSeaGreen;" text="Save">
+                  <Button fx:id="editSaveButton" mnemonicParsing="false" onAction="#onSaveButtonClick" style="-fx-background-color: DarkSeaGreen;" text="Save">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
@@ -96,7 +96,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="358.0" layoutX="8.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="1384.0" />
             <HBox alignment="TOP_RIGHT" layoutX="-3.0" layoutY="368.0" prefHeight="42.0" prefWidth="1407.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: DarkSalmon;" text="Add Rule">
+                  <Button fx:id="addRuleButton" mnemonicParsing="false" onAction="#onAddRuleButtonClick" style="-fx-background-color: DarkSalmon;" text="Add Rule">
                      <HBox.margin>
                         <Insets right="11.0" top="2.0" />
                      </HBox.margin>
@@ -295,7 +295,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule2_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -304,7 +304,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB11" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule2_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -325,7 +325,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB11" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -334,8 +334,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB21" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton11" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule2_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule2_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -361,7 +361,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB21" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -370,8 +370,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB31" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton21" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule2_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule2_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -394,7 +394,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB31" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -403,7 +403,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB41" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule2_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -432,7 +432,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule2_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -460,7 +460,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule3_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -469,7 +469,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB12" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule3_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -490,7 +490,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB12" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -499,8 +499,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB22" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton12" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule3_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule3_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -526,7 +526,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB22" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -535,8 +535,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB32" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton22" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule3_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule3_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -559,7 +559,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB32" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -568,7 +568,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB42" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule3_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -597,7 +597,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule3_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -625,7 +625,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule4_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -634,7 +634,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB13" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule4_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -655,7 +655,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB13" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -664,8 +664,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB23" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton13" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule4_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule4_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -691,7 +691,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB23" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -700,8 +700,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB33" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton23" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule4_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule4_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -724,7 +724,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB33" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -733,7 +733,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB43" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule4_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -762,7 +762,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule4_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -790,7 +790,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule5_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -799,7 +799,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB14" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule5_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -820,7 +820,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB14" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -829,8 +829,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB24" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton14" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule5_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule5_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -856,7 +856,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB24" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -865,8 +865,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB34" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton24" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule5_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule5_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -889,7 +889,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB34" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -898,7 +898,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB44" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule5_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -927,7 +927,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule5_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -955,7 +955,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB5" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule6_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -964,7 +964,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB15" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule6_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -985,7 +985,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB15" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -994,8 +994,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB25" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton15" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule6_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule6_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -1021,7 +1021,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB25" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -1030,8 +1030,8 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB35" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton25" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <ChoiceBox fx:id="rule6_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <Button fx:id="rule6_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -1054,7 +1054,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB35" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -1063,7 +1063,7 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB45" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule6_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -1092,7 +1092,7 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB5" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule6_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
                                        </children>
                                     </HBox>
                                  </children>

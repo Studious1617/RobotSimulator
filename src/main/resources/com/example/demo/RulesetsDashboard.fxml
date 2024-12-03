@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsDashboard">
+<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsDashboard">
     <children>
       <HBox alignment="CENTER" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -69,9 +78,9 @@
                         <InnerShadow />
                           </effect>
                       </HBox>
-                      <HBox fx:id="ruleset1_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="3">
+                      <HBox fx:id="ruleset1_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" visible="false" GridPane.rowIndex="3">
                           <children>
-                              <Label text="Ruleset Name">
+                              <Label fx:id="rulesetNameLabel1" text="Ruleset Name">
                            <font>
                               <Font name="Book Antiqua Italic" size="18.0" />
                            </font></Label>
@@ -83,23 +92,23 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset1_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                      <HBox fx:id="ruleset1_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                           <children>
-                              <Button fx:id="deleteRulesetButton1" mnemonicParsing="false" onAction="#onDeleteRulesetClick" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton1" mnemonicParsing="false" onAction="#onDeleteRulesetClick1" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton1" mnemonicParsing="false" onAction="#onViewRulesetClick1" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton1" mnemonicParsing="false" onAction="#onEditRulesetClick1" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -115,9 +124,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset2_left" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="4">
+                      <HBox fx:id="ruleset2_left" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="318.0" style="-fx-background-color: #c17600;" visible="false" GridPane.rowIndex="4">
                           <children>
-                        <Label text="Ruleset Name">
+                        <Label fx:id="rulesetNameLabel2" text="Ruleset Name">
                            <font>
                               <Font name="Book Antiqua Italic" size="18.0" />
                            </font>
@@ -136,9 +145,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset3_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="5">
+                      <HBox fx:id="ruleset3_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" visible="false" GridPane.rowIndex="5">
                           <children>
-                        <Label text="Ruleset Name">
+                        <Label fx:id="rulesetNameLabel3" text="Ruleset Name">
                            <font>
                               <Font name="Book Antiqua Italic" size="18.0" />
                            </font>
@@ -154,9 +163,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset4_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="6">
+                      <HBox fx:id="ruleset4_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" visible="false" GridPane.rowIndex="6">
                           <children>
-                        <Label text="Ruleset Name">
+                        <Label fx:id="rulesetNameLabel4" text="Ruleset Name">
                            <font>
                               <Font name="Book Antiqua Italic" size="18.0" />
                            </font>
@@ -172,9 +181,9 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset5_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" GridPane.rowIndex="7">
+                      <HBox fx:id="ruleset5_left" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #c17600;" visible="false" GridPane.rowIndex="7">
                           <children>
-                        <Label text="Ruleset Name">
+                        <Label fx:id="rulesetNameLabel5" text="Ruleset Name">
                            <font>
                               <Font name="Book Antiqua Italic" size="18.0" />
                            </font>
@@ -190,7 +199,7 @@
                         <InnerShadow />
                      </effect>
                       </HBox>
-                      <HBox fx:id="ruleset2_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                      <HBox fx:id="ruleset2_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
                           <children>
                               <Button fx:id="deleteRulesetButton2" mnemonicParsing="false" onAction="#onDeleteRulesetClick2" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -199,14 +208,14 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="viewLayoutButton2" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton2" mnemonicParsing="false" onAction="#onViewRulesetClick2" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton2" mnemonicParsing="false" onAction="#onEditRulesetClick2" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -222,7 +231,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox fx:id="ruleset3_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                      <HBox fx:id="ruleset3_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                           <children>
                               <Button fx:id="deleteRulesetButton3" mnemonicParsing="false" onAction="#onDeleteRulesetClick3" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -231,14 +240,14 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="viewLayoutButton3" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton3" mnemonicParsing="false" onAction="#onViewRulesetClick3" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton3" mnemonicParsing="false" onAction="#onEditRulesetClick3" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -254,7 +263,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox fx:id="ruleset4_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                      <HBox fx:id="ruleset4_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                           <children>
                               <Button fx:id="deleteRulesetButton4" mnemonicParsing="false" onAction="#onDeleteRulesetClick4" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -263,14 +272,14 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="viewLayoutButton4" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton4" mnemonicParsing="false" onAction="#onViewRulesetClick4" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton4" mnemonicParsing="false" onAction="#onEditRulesetClick4" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -286,7 +295,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                      <HBox fx:id="ruleset5_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                      <HBox fx:id="ruleset5_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                           <children>
                               <Button fx:id="deleteRulesetButton5" mnemonicParsing="false" onAction="#onDeleteRulesetClick5" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -295,14 +304,14 @@
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="viewLayoutButton5" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton5" mnemonicParsing="false" onAction="#onViewRulesetClick5" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
                            <effect>
                               <InnerShadow />
                            </effect></Button>
-                              <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton5" mnemonicParsing="false" onAction="#onEditRulesetClick5" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>

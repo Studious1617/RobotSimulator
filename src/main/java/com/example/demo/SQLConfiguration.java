@@ -258,15 +258,14 @@ public class SQLConfiguration {
         return listOfLayoutLists;
     }
 
-    public void insertRuleset (String rulesetName, int ruleCount, String userEmail) {
+    public void insertRuleset (String rulesetName, String userEmail) {
         // when create button is clicked, ruleset is created in table
-        String insertRuleset = "INSERT INTO rulesets (ruleset_name, rule_count, email_address) " +
-                "VALUES (?, ?, ?)";
+        String insertRuleset = "INSERT INTO rulesets (ruleset_name, email_address) " +
+                "VALUES (?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(insertRuleset)) {
             preparedStatement.setString(1, rulesetName);
-            preparedStatement.setInt(2, ruleCount);
-            preparedStatement.setString(3, userEmail);
+            preparedStatement.setString(2, userEmail);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error creating ruleset: " + e);
@@ -298,6 +297,32 @@ public class SQLConfiguration {
         }
     }
 
+    public void editRuleset (int ruleset_id, int rule_id, String when, String is1, String then,
+                             String and1, String is2, String and2, String is3, String and3, String is4) {
+        String editRulesSQL = "UPDATE rules SET when_condition = ?, is1_condition = ?, then_action = ?, and1_condition = ?," +
+                " is2_condition = ?, and2_condition = ?, is3_condition = ?, and3_condition = ?, is4_condition = ?" +
+                " WHERE ruleset_id = ? AND rule_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(editRulesSQL)) {
+            preparedStatement.setString(1, when);
+            preparedStatement.setString(2, is1);
+            preparedStatement.setString(3, then);
+            // And conditions
+            preparedStatement.setString(4, and1);
+            preparedStatement.setString(5, is2);
+            preparedStatement.setString(6, and2);
+            preparedStatement.setString(7, is3);
+            preparedStatement.setString(8, and3);
+            preparedStatement.setString(9, is4);
+            // ids
+            preparedStatement.setInt(10, ruleset_id);
+            preparedStatement.setInt(11, rule_id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error saving rule: " + e);
+        }
+    }
+
     public void deleteRuleset (int rulesetId) {
         String deleteRulesFirstSQL = "DELETE FROM rules WHERE ruleset_id = ?";
         String deleteRulesetSQL = "DELETE FROM rulesets WHERE ruleset_id = ?";
@@ -316,14 +341,55 @@ public class SQLConfiguration {
         }
     }
 
-    public Map<Integer, ArrayList<String>> getRules (int rulesetId) {
-        int ruleId = 0;
-        String when, is1, then, and1, is2, and2, is3, and3, is4;
+    public ArrayList<String> getRulesetNamesFromTable (String email) {
+        // list to hold the names
+        ArrayList<String> rulesetNames = new ArrayList<>();
 
+        // SQL to get the ruleset names in order
+        String getRulesetNamesSQL = "SELECT ruleset_name FROM rulesets " +
+                "WHERE email_address = ? ORDER BY ruleset_id";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(getRulesetNamesSQL)) {
+            preparedStatement.setString(1, email);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                rulesetNames.add(rs.getString("ruleset_name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting ruleset names: " + e);
+        }
+        // returns the ruleset names in the table
+        return rulesetNames;
+    }
+
+    public int getRulesetId (String rName, String email) {
+        String getRulesetIdSQL = "SELECT ruleset_id FROM rulesets WHERE " +
+                "ruleset_name = ? AND email_address = ?";
+        // variable to hold the ruleset id
+        int rulesetId = 0;
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(getRulesetIdSQL)) {
+            preparedStatement.setString(1, rName);
+            preparedStatement.setString(2, email);
+            // gets results from running the SQL string
+            ResultSet rs = preparedStatement.executeQuery();
+            // loops through the rows
+            while (rs.next()) {
+                // sets the variable to the result
+                rulesetId = rs.getInt("ruleset_id");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting ruleset id: " + e);
+        }
+        // returns the result, or zero if there wasn't a match
+        return rulesetId;
+    }
+
+    public Map<Integer, ArrayList<String>> getRules (int rulesetId) {
+        int ruleId;
         // map for rule_id and conditions
         Map<Integer, ArrayList<String>> idAndConditions = new HashMap<>();
-        // list for conditions
-        ArrayList<String> conditions = new ArrayList<>();
 
         String getRulesSQL = "SELECT * FROM rules WHERE ruleset_id = ? ORDER BY rule_id";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
@@ -333,6 +399,8 @@ public class SQLConfiguration {
             while (rs.next()) {
                 // adds the id to the variable
                 ruleId = rs.getInt("rule_id");
+                // list for conditions
+                ArrayList<String> conditions = new ArrayList<>();
                 // adds the row to the list
                 conditions.add(rs.getString("when_condition"));
                 conditions.add(rs.getString("is1_condition"));
@@ -345,6 +413,7 @@ public class SQLConfiguration {
                 conditions.add(rs.getString("is4_condition"));
                 // adds the id and the list to the map
                 idAndConditions.put(ruleId, conditions);
+                System.out.println(idAndConditions);
             }
         } catch (SQLException e) {
             System.out.println("Error getting rules: " + e);
@@ -372,35 +441,13 @@ public class SQLConfiguration {
         return ruleIdList;
     }
 
-    public int getRulesetId (String rName, String email) {
-        String getRulesetIdSQL = "SELECT ruleset_id FROM rulesets WHERE " +
-                "ruleset_name = ? AND email_address = ?";
-        // variable to hold the ruleset id
-        int rulesetId = 0;
-        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-        PreparedStatement preparedStatement = connection.prepareStatement(getRulesetIdSQL)) {
-            preparedStatement.setString(1, rName);
-            preparedStatement.setString(2, email);
-            // gets results from running the SQL string
-            ResultSet rs = preparedStatement.executeQuery();
-            // loops through the rows
-            while (rs.next()) {
-                // sets the variable to the result
-                rulesetId = rs.getInt("ruleset_id");
-            }
-            // returns the result, or zero if there wasn't a match
-            return rulesetId;
-        } catch (SQLException e) {
-            System.out.println("Error getting ruleset id: " + e);
-        }
-        // returns 0 if connection to database fails
-        return rulesetId;
-    }
-
     public void updateRuleCount (String rName, String email) {
         int rId = getRulesetId(rName, email);
+
         ArrayList<Integer> rulesForCountList = new ArrayList<>();
+
         int howManyRules = 0;
+
         String getRuleCountSQL = "SELECT rule_id FROM rules WHERE ruleset_id = ?";
         String updateRuleCountSQL = "UPDATE rulesets SET rule_count = ? WHERE ruleset_id = ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass)) {
@@ -410,21 +457,42 @@ public class SQLConfiguration {
             ResultSet rs = ruleCountStatement.executeQuery();
             // loops through the Rules table
             while (rs.next()) {
-                //
+                // gets the rule id from the row
                 int rule = rs.getInt("rule_id");
                 // adds the rule_id to the list (just for counting below)
                 rulesForCountList.add(rule);
             }
             // increases the howManyRules variable by 1 for every rule in the list
-            for (int rule: rulesForCountList) {
+            int checkLength = 0;
+            while (checkLength < rulesForCountList.size()) {
                 howManyRules++;
+                checkLength++;
             }
             // changes the rule_count column value to the counted number above
             PreparedStatement updateStatement = connection.prepareStatement(updateRuleCountSQL);
             updateStatement.setInt(1, howManyRules);
             updateStatement.setInt(2, rId);
+            updateStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error counting rules: " + e);
         }
+    }
+
+    public int getUserRulesetAmount () {
+        // gets ruleset info by matching the emails
+        String getRulesetAmountSQL = "SELECT * FROM useraccounts u RIGHT JOIN rulesets r " +
+                "ON u.email_address = r.email_address";
+        int numberOfRulesets = 0;
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(getRulesetAmountSQL)) {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                numberOfRulesets++;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error counting rulesets: " + e);
+        }
+        return numberOfRulesets;
     }
 }
