@@ -154,157 +154,28 @@ public class RulesetsView {
             System.out.println("Rule ID 6: " + ruleId6);
 
         // gets rules from table
-        ArrayList<String> allRules = sqlConfiguration.getRules(rulesetId).get(ruleId1);
-
             // first rule
-            ArrayList<String> rule1 = new ArrayList<>();
-            // adds conditions to rule1 list
-            if (allRules.size() == 9) {
-                // when
-                rule1.add(allRules.getFirst());
-                // is1
-                rule1.add(allRules.get(1));
-                // then
-                rule1.add(allRules.get(2));
-                // and1
-                rule1.add(allRules.get(3));
-                // is2
-                rule1.add(allRules.get(4));
-                // and2
-                rule1.add(allRules.get(5));
-                // is3
-                rule1.add(allRules.get(6));
-                // and3
-                rule1.add(allRules.get(7));
-                // is4
-                rule1.add(allRules.get(8));
-            }
+            ArrayList<String> rule1 = sqlConfiguration.getRules(rulesetId).get(ruleId1);
             System.out.println("Rule #1: " + rule1);
-        System.out.println("All rules: " + allRules);
 
             // second rule
-            ArrayList<String> rule2 = new ArrayList<>();
-            // adds conditions to rule2 list
-            if (allRules.size() == 18) {
-                // when
-                rule2.add(allRules.get(9));
-                // is1
-                rule2.add(allRules.get(10));
-                // then
-                rule2.add(allRules.get(11));
-                // and1
-                rule2.add(allRules.get(12));
-                // is2
-                rule2.add(allRules.get(13));
-                // and2
-                rule2.add(allRules.get(14));
-                // is3
-                rule2.add(allRules.get(15));
-                // and3
-                rule2.add(allRules.get(16));
-                // is4
-                rule2.add(allRules.get(17));
-            }
+            ArrayList<String> rule2 = sqlConfiguration.getRules(rulesetId).get(ruleId2);
             System.out.println("Rule #2: " + rule2);
 
             // third rule
-            ArrayList<String> rule3 = new ArrayList<>();
-            // adds conditions to rule3 list
-            if (allRules.size() == 27) {
-                // when
-                rule3.add(allRules.get(18));
-                // is1
-                rule3.add(allRules.get(10));
-                // then
-                rule3.add(allRules.get(20));
-                // and1
-                rule3.add(allRules.get(21));
-                // is2
-                rule3.add(allRules.get(22));
-                // and2
-                rule3.add(allRules.get(23));
-                // is3
-                rule3.add(allRules.get(24));
-                // and3
-                rule3.add(allRules.get(25));
-                // is4
-                rule3.add(allRules.get(26));
-            }
+            ArrayList<String> rule3 = sqlConfiguration.getRules(rulesetId).get(ruleId3);
             System.out.println("Rule #3: " + rule3);
 
             // fourth rule
-            ArrayList<String> rule4 =  new ArrayList<>();
-            // adds conditions to rule4 list
-            if (allRules.size() == 36) {
-                // when
-                rule4.add(allRules.get(27));
-                // is1
-                rule4.add(allRules.get(28));
-                // then
-                rule4.add(allRules.get(29));
-                // and1
-                rule4.add(allRules.get(30));
-                // is2
-                rule4.add(allRules.get(31));
-                // and2
-                rule4.add(allRules.get(32));
-                // is3
-                rule4.add(allRules.get(33));
-                // and3
-                rule4.add(allRules.get(34));
-                // is4
-                rule4.add(allRules.get(35));
-            }
+            ArrayList<String> rule4 = sqlConfiguration.getRules(rulesetId).get(ruleId4);
             System.out.println("Rule #4: " + rule4);
 
             // fifth rule
-            ArrayList<String> rule5 = new ArrayList<>();
-            // adds rule 5 conditions to rule5 list
-            if (allRules.size() == 45) {
-                // when
-                rule5.add(allRules.get(36));
-                // is1
-                rule5.add(allRules.get(37));
-                // then
-                rule5.add(allRules.get(38));
-                // and1
-                rule5.add(allRules.get(39));
-                // is2
-                rule5.add(allRules.get(40));
-                // and2
-                rule5.add(allRules.get(41));
-                // is3
-                rule5.add(allRules.get(42));
-                // and3
-                rule5.add(allRules.get(43));
-                // is4
-                rule5.add(allRules.get(44));
-            }
+            ArrayList<String> rule5 = sqlConfiguration.getRules(rulesetId).get(ruleId5);
             System.out.println("Rule #5: " + rule5);
 
             // sixth rule
-            ArrayList<String> rule6 = new ArrayList<>();
-            // adds rule 6 conditions to rule6 list
-            if (allRules.size() == 54) {
-                // when
-                rule6.add(allRules.get(45));
-                // is1
-                rule6.add(allRules.get(46));
-                // then
-                rule6.add(allRules.get(47));
-                // and1
-                rule6.add(allRules.get(48));
-                // is2
-                rule6.add(allRules.get(49));
-                // and2
-                rule6.add(allRules.get(50));
-                // is3
-                rule6.add(allRules.get(51));
-                // and3
-                rule6.add(allRules.get(52));
-                // is4
-                rule6.add(allRules.get(53));
-            }
+            ArrayList<String> rule6 = sqlConfiguration.getRules(rulesetId).get(ruleId6);
             System.out.println("Rule #6: " + rule6);
 
         // puts rule info into labels

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="650.0" minWidth="1350.0" prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
+<AnchorPane minHeight="650.0" minWidth="1350.0" prefHeight="600.0" prefWidth="1350.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogInController">
    <children>
       <HBox layoutX="-33.0" layoutY="-30.0" prefHeight="800.0" prefWidth="1439.0" style="-fx-background-color: LightBrown;" AnchorPane.bottomAnchor="-170.79999999999995" AnchorPane.leftAnchor="-70.0" AnchorPane.rightAnchor="-70.0" AnchorPane.topAnchor="-55.0">
          <children>
@@ -47,7 +47,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="enterPasswordTF" prefHeight="25.0" prefWidth="292.0">
+                  <PasswordField fx:id="enterPasswordTF" onAction="#onLogInButtonClick" prefHeight="25.0" prefWidth="292.0">
                      <VBox.margin>
                         <Insets bottom="10.0" left="200.0" right="200.0" />
                      </VBox.margin>
