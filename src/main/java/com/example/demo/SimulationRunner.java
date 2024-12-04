@@ -35,8 +35,7 @@ public class SimulationRunner {
             hbox_10, hbox_11, hbox_12, hbox_13, hbox_14,
             hbox_20, hbox_21, hbox_22, hbox_23, hbox_24,
             hbox_30, hbox_31, hbox_32, hbox_33, hbox_34,
-            hbox_40, hbox_41, hbox_42, hbox_43, hbox_44,
-            hbox_50, hbox_51, hbox_52, hbox_53, hbox_54;
+            hbox_40, hbox_41, hbox_42, hbox_43, hbox_44;
 
     public void selectLayout() {}
 

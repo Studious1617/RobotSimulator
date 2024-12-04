@@ -103,7 +103,6 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <HBox fx:id="hbox_00" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" />
@@ -131,11 +130,6 @@
                         <HBox fx:id="hbox_42" layoutX="148.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                         <HBox fx:id="hbox_43" layoutX="286.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                         <HBox fx:id="hbox_44" layoutX="424.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <HBox fx:id="hbox_50" layoutX="562.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="5" />
-                        <HBox fx:id="hbox_51" layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <HBox fx:id="hbox_52" layoutX="148.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <HBox fx:id="hbox_53" layoutX="286.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <HBox fx:id="hbox_54" layoutX="424.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <GridPane prefWidth="618.0" GridPane.columnIndex="1">
