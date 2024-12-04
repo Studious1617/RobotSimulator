@@ -9,7 +9,7 @@ public class SQLConfiguration {
     // url to access the database
     static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
-    static String upass = "ClassiG@l";
+    static String upass = "Hard2Guess";
 
     public List<Layout> listOfLayoutLists = new ArrayList<>();
 
@@ -272,7 +272,7 @@ public class SQLConfiguration {
         }
     }
 
-    public void insertRules (int rulesetID, String when, String is1, String then,
+    public void insertRule (int rulesetID, String when, String is1, String then,
                              String and1, String is2, String and2, String is3, String and3, String is4) {
         String insertRule = "INSERT INTO rules (ruleset_id, when_condition, is1_condition, then_action, " +
                 "and1_condition, is2_condition, and2_condition, is3_condition, and3_condition, is4_condition)" +
@@ -320,6 +320,18 @@ public class SQLConfiguration {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error saving rule: " + e);
+        }
+    }
+
+    public void deleteOldRule (int ruleId) {
+        String deleteOldRuleSQL = "DELETE FROM rules WHERE rule_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteOldRuleSQL)) {
+            // sets the SQL string's question mark to the passed ruleId parameter
+            preparedStatement.setInt(1, ruleId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error deleting old rule: " + e);
         }
     }
 
@@ -399,7 +411,7 @@ public class SQLConfiguration {
             while (rs.next()) {
                 // adds the id to the variable
                 ruleId = rs.getInt("rule_id");
-                // list for conditions
+                // new list for every rule's conditions
                 ArrayList<String> conditions = new ArrayList<>();
                 // adds the row to the list
                 conditions.add(rs.getString("when_condition"));
@@ -413,7 +425,6 @@ public class SQLConfiguration {
                 conditions.add(rs.getString("is4_condition"));
                 // adds the id and the list to the map
                 idAndConditions.put(ruleId, conditions);
-                System.out.println(idAndConditions);
             }
         } catch (SQLException e) {
             System.out.println("Error getting rules: " + e);
