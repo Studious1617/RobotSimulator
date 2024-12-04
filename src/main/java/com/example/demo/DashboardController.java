@@ -90,6 +90,9 @@ public class DashboardController {
     private String emailAddress;
     private int layoutId;
     private String layoutName;
+
+
+
     private String[] layoutData;
     private String layoutDirection;
     private String layoutEmail;
@@ -97,6 +100,8 @@ public class DashboardController {
     public String getEmailAddress() {
         return emailAddress;
     }
+
+
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
@@ -107,6 +112,7 @@ public class DashboardController {
     public void setLayoutEmail(String layoutEmail) {
         this.layoutEmail = layoutEmail;
     }
+
 
     public int index;
     public int getIndex() {
@@ -170,8 +176,8 @@ public class DashboardController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
         Parent popUp = loader.load();
         FactoryLayoutController factoryLayoutController = loader.getController();
-        factoryLayoutController.setLayoutEmail(getLayoutEmail());
-        factoryLayoutController.setListOfLayouts(getListOfLayouts());
+        factoryLayoutController.setLayoutEmail(this.emailAddress);
+        factoryLayoutController.setListOfLayouts(this.listOfLayouts);
 
         // switches to Factory Layout
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();

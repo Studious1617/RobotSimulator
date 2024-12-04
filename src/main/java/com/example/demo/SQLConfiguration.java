@@ -9,7 +9,7 @@ public class SQLConfiguration {
     // url to access the database
     static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
-    static String upass = "Hard2Guess";
+    static String upass = "ClassiG@l";
 
     public List<Layout> listOfLayoutLists = new ArrayList<>();
 
