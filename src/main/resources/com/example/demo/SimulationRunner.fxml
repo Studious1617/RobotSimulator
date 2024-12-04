@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SimulationRunner">
    <children>
       <HBox minWidth="1400.0" prefHeight="49.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -106,36 +106,36 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" />
-                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" />
-                        <HBox layoutX="148.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" />
-                        <HBox layoutX="286.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" />
-                        <HBox layoutX="424.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" />
-                        <HBox layoutX="562.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="1" />
-                        <HBox layoutX="10.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <HBox layoutX="148.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <HBox layoutX="286.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <HBox layoutX="424.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <HBox layoutX="562.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="2" />
-                        <HBox layoutX="10.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <HBox layoutX="148.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <HBox layoutX="286.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <HBox layoutX="424.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <HBox layoutX="562.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="3" />
-                        <HBox layoutX="10.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <HBox layoutX="148.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <HBox layoutX="286.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <HBox layoutX="424.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <HBox layoutX="562.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="4" />
-                        <HBox layoutX="10.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <HBox layoutX="148.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <HBox layoutX="286.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                        <HBox layoutX="424.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-                        <HBox layoutX="562.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="5" />
-                        <HBox layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <HBox layoutX="148.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <HBox layoutX="286.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <HBox layoutX="424.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                        <HBox fx:id="hbox_00" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" />
+                        <HBox fx:id="hbox_01" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" />
+                        <HBox fx:id="hbox_02" layoutX="148.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" />
+                        <HBox fx:id="hbox_03" layoutX="286.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" />
+                        <HBox fx:id="hbox_04" layoutX="424.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" />
+                        <HBox fx:id="hbox_10" layoutX="562.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="1" />
+                        <HBox fx:id="hbox_11" layoutX="10.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <HBox fx:id="hbox_12" layoutX="148.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <HBox fx:id="hbox_13" layoutX="286.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <HBox fx:id="hbox_14" layoutX="424.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <HBox fx:id="hbox_20" layoutX="562.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="2" />
+                        <HBox fx:id="hbox_21" layoutX="10.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <HBox fx:id="hbox_22" layoutX="148.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <HBox fx:id="hbox_23" layoutX="286.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <HBox fx:id="hbox_24" layoutX="424.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <HBox fx:id="hbox_30" layoutX="562.0" layoutY="131.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="3" />
+                        <HBox fx:id="hbox_31" layoutX="10.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <HBox fx:id="hbox_32" layoutX="148.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <HBox fx:id="hbox_33" layoutX="286.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <HBox fx:id="hbox_34" layoutX="424.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <HBox fx:id="hbox_40" layoutX="562.0" layoutY="191.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="4" />
+                        <HBox fx:id="hbox_41" layoutX="10.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <HBox fx:id="hbox_42" layoutX="148.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <HBox fx:id="hbox_43" layoutX="286.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <HBox fx:id="hbox_44" layoutX="424.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <HBox fx:id="hbox_50" layoutX="562.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.rowIndex="5" />
+                        <HBox fx:id="hbox_51" layoutX="10.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <HBox fx:id="hbox_52" layoutX="148.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <HBox fx:id="hbox_53" layoutX="286.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <HBox fx:id="hbox_54" layoutX="424.0" layoutY="312.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <GridPane prefWidth="618.0" GridPane.columnIndex="1">
@@ -151,7 +151,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="326.0" style="-fx-background-color: blue;">
                                  <children>
-                                    <ListView layoutX="-2.0" layoutY="-1.0" prefHeight="427.0" prefWidth="330.0" style="-fx-background-color: Burlywood;" />
+                                    <ListView fx:id="listView" layoutX="-2.0" layoutY="-1.0" prefHeight="427.0" prefWidth="330.0" style="-fx-background-color: Burlywood;" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -162,9 +162,9 @@
             </GridPane>
             <HBox alignment="CENTER" layoutX="6.0" layoutY="15.0" prefHeight="45.0" prefWidth="1387.0" spacing="200.0">
                <children>
-                  <ComboBox prefHeight="35.0" prefWidth="300.0" promptText="Layout Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
-                  <ComboBox layoutX="547.0" layoutY="20.0" prefHeight="35.0" prefWidth="300.0" promptText="Ruleset Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
-                  <ComboBox layoutX="697.0" layoutY="20.0" prefHeight="35.0" prefWidth="300.0" promptText="Max Attempts" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
+                  <ComboBox fx:id="layoutName_CB" prefHeight="35.0" prefWidth="300.0" promptText="Layout Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
+                  <ComboBox fx:id="rulesetName_CB" layoutX="547.0" layoutY="20.0" prefHeight="35.0" prefWidth="300.0" promptText="Ruleset Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
+                  <ComboBox fx:id="maxAttempts_CB" layoutX="697.0" layoutY="20.0" prefHeight="35.0" prefWidth="300.0" promptText="Max Attempts" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
                </children>
             </HBox>
          </children></Pane>
