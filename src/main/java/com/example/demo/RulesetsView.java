@@ -1,10 +1,8 @@
 package com.example.demo;
 
-import javafx.css.Rule;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -83,9 +81,6 @@ public class RulesetsView {
 
     @FXML
     public void onViewButtonClick () {
-        // variables to hold chosen rule checkboxes
-        String when, is1, then, and1, is2, and2, is3, and3, is4;
-
         // gets ruleset name
         rulesetName = rulesetNameLabel.getText();
         System.out.println("Ruleset name: " + rulesetName);
@@ -178,361 +173,90 @@ public class RulesetsView {
             ArrayList<String> rule6 = sqlConfiguration.getRules(rulesetId).get(ruleId6);
             System.out.println("Rule #6: " + rule6);
 
-        // puts rule info into labels
+        // puts rule info into labels using checkRules method
             // first rule
-            if (!rule1.isEmpty()) {
-                when = rule1.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
-
-                is1 = rule1.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule1.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule1.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule1.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule1.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule1.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule1.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule1.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule1.setText(when);
-                is1Label_Rule1.setText(is1);
-                thenLabel_Rule1.setText(then);
-
-                and1Label_Rule1.setText(and1);
-                is2Label_Rule1.setText(is2);
-                and2Label_Rule1.setText(and2);
-                is3Label_Rule1.setText(is3);
-                and3Label_Rule1.setText(and3);
-                is4Label_Rule1.setText(is4);
-            }
+            checkAndPutRulesIntoLabels(rule1, whenLabel_Rule1, is1Label_Rule1, thenLabel_Rule1, and1Label_Rule1,
+                    is2Label_Rule1, and2Label_Rule1, is3Label_Rule1, and3Label_Rule1, is4Label_Rule1);
             // second rule
-            if (!rule2.isEmpty()) {
-                when = rule2.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
-
-                is1 = rule2.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule2.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule2.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule2.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule2.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule2.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule2.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule2.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule2.setText(when);
-                is1Label_Rule2.setText(is1);
-                thenLabel_Rule2.setText(then);
-
-                and1Label_Rule2.setText(and1);
-                is2Label_Rule2.setText(is2);
-                and2Label_Rule2.setText(and2);
-                is3Label_Rule2.setText(is3);
-                and3Label_Rule2.setText(and3);
-                is4Label_Rule2.setText(is4);
-            }
+            checkAndPutRulesIntoLabels(rule2, whenLabel_Rule2, is1Label_Rule2, thenLabel_Rule2, and1Label_Rule2,
+                    is2Label_Rule2, and2Label_Rule2, is3Label_Rule2, and3Label_Rule2, is4Label_Rule2);
             // third rule
-            if (!rule3.isEmpty()) {
-                when = rule3.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
-
-                is1 = rule3.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule3.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule3.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule3.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule3.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule3.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule3.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule3.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule3.setText(when);
-                is1Label_Rule3.setText(is1);
-                thenLabel_Rule3.setText(then);
-
-                and1Label_Rule3.setText(and1);
-                is2Label_Rule3.setText(is2);
-                and2Label_Rule3.setText(and2);
-                is3Label_Rule3.setText(is3);
-                and3Label_Rule3.setText(and3);
-                is4Label_Rule3.setText(is4);
-            }
+            checkAndPutRulesIntoLabels(rule3, whenLabel_Rule3, is1Label_Rule3, thenLabel_Rule3, and1Label_Rule3,
+                    is2Label_Rule3, and2Label_Rule3, is3Label_Rule3, and3Label_Rule3, is4Label_Rule3);
             // fourth rule
-            if (!rule4.isEmpty()) {
-                when = rule4.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
-
-                is1 = rule4.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule4.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule4.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule4.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule4.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule4.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule4.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule4.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule4.setText(when);
-                is1Label_Rule4.setText(is1);
-                thenLabel_Rule4.setText(then);
-
-                and1Label_Rule4.setText(and1);
-                is2Label_Rule4.setText(is2);
-                and2Label_Rule4.setText(and2);
-                is3Label_Rule4.setText(is3);
-                and3Label_Rule4.setText(and3);
-                is4Label_Rule4.setText(is4);
-            }
+            checkAndPutRulesIntoLabels(rule4, whenLabel_Rule4, is1Label_Rule4, thenLabel_Rule4, and1Label_Rule4,
+                    is2Label_Rule4, and2Label_Rule4, is3Label_Rule4, and3Label_Rule4, is4Label_Rule4);
             // fifth rule
-            if (!rule5.isEmpty()) {
-                when = rule5.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
-
-                is1 = rule5.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule5.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule5.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule5.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule5.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule5.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule5.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule5.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule5.setText(when);
-                is1Label_Rule5.setText(is1);
-                thenLabel_Rule5.setText(then);
-
-                and1Label_Rule5.setText(and1);
-                is2Label_Rule5.setText(is2);
-                and2Label_Rule5.setText(and2);
-                is3Label_Rule5.setText(is3);
-                and3Label_Rule5.setText(and3);
-                is4Label_Rule5.setText(is4);
-            }
+            checkAndPutRulesIntoLabels(rule5, whenLabel_Rule5, is1Label_Rule5, thenLabel_Rule5, and1Label_Rule5,
+                    is2Label_Rule5, and2Label_Rule5, is3Label_Rule5, and3Label_Rule5, is4Label_Rule5);
             // sixth rule
-            if (!rule6.isEmpty()) {
-                when = rule6.getFirst();
-                if (when == null) {
-                    when = "XXXXXXXX";
-                }
+            checkAndPutRulesIntoLabels(rule6, whenLabel_Rule6, is1Label_Rule6, thenLabel_Rule6, and1Label_Rule6,
+                    is2Label_Rule6, and2Label_Rule6, is3Label_Rule6, and3Label_Rule6, is4Label_Rule6);
+    }
 
-                is1 = rule6.get(1);
-                if (is1 == null) {
-                    is1 = "XXXXXXXX";
-                }
-
-                then = rule6.get(2);
-                if (then == null) {
-                    then = "XXXXXXXX";
-                }
-
-                and1 = rule6.get(3);
-                if (and1 == null) {
-                    and1 = "XXXXXXXX";
-                }
-
-                is2 = rule6.get(4);
-                if (is2 == null) {
-                    is2 = "XXXXXXXX";
-                }
-
-                and2 = rule6.get(5);
-                if (and2 == null) {
-                    and2 = "XXXXXXXX";
-                }
-
-                is3 = rule6.get(6);
-                if (is3 == null) {
-                    is3 = "XXXXXXXX";
-                }
-
-                and3 = rule6.get(7);
-                if (and3 == null) {
-                    and3 = "XXXXXXXX";
-                }
-
-                is4 = rule6.get(8);
-                if (is4 == null) {
-                    is4 = "XXXXXXXX";
-                }
-
-                // puts the values into the labels
-                whenLabel_Rule6.setText(when);
-                is1Label_Rule6.setText(is1);
-                thenLabel_Rule6.setText(then);
-
-                and1Label_Rule6.setText(and1);
-                is2Label_Rule6.setText(is2);
-                and2Label_Rule6.setText(and2);
-                is3Label_Rule6.setText(is3);
-                and3Label_Rule6.setText(and3);
-                is4Label_Rule6.setText(is4);
+    public void checkAndPutRulesIntoLabels(ArrayList<String> rule, Label whenLabel, Label is1Label, Label thenLabel,
+           Label and1Label, Label is2Label, Label and2Label, Label is3Label, Label and3Label, Label is4Label) {
+        // variables to hold the conditions
+        String when, is1, then, and1, is2, and2, is3, and3, is4;
+        // checks if the rule exists and not blank
+        if (rule != null && !rule.isEmpty()) {
+            when = rule.getFirst();
+            if (when ==null) {
+                when = "XXXXXXXX";
             }
+
+            is1 = rule.get(1);
+            if (is1 == null) {
+                is1 = "XXXXXXXX";
+            }
+
+            then = rule.get(2);
+            if (then == null) {
+                then = "XXXXXXXX";
+            }
+
+            and1 = rule.get(3);
+            if (and1 == null) {
+                and1 = "XXXXXXXX";
+            }
+
+            is2 = rule.get(4);
+            if (is2 == null) {
+                is2 = "XXXXXXXX";
+            }
+
+            and2 = rule.get(5);
+            if (and2 == null) {
+                and2 = "XXXXXXXX";
+            }
+
+            is3 = rule.get(6);
+            if (is3 == null) {
+                is3 = "XXXXXXXX";
+            }
+
+            and3 = rule.get(7);
+            if (and3 == null) {
+                and3 = "XXXXXXXX";
+            }
+
+            is4 = rule.get(8);
+            if (is4 == null) {
+                is4 = "XXXXXXXX";
+            }
+
+            // puts the values into the labels
+            whenLabel.setText(when);
+            is1Label.setText(is1);
+            thenLabel.setText(then);
+
+            and1Label.setText(and1);
+            is2Label.setText(is2);
+            and2Label.setText(and2);
+            is3Label.setText(is3);
+            and3Label.setText(and3);
+            is4Label.setText(is4);
+        }
     }
 
     @FXML
