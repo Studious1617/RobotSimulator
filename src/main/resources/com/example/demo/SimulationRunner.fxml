@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SimulationRunner">
+<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SimulationRunner">
    <children>
       <HBox minWidth="1400.0" prefHeight="49.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -151,7 +151,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="326.0" style="-fx-background-color: blue;">
                                  <children>
-                                    <ListView fx:id="listView" layoutX="-2.0" layoutY="-1.0" prefHeight="427.0" prefWidth="330.0" style="-fx-background-color: Burlywood;" />
+                                    <ListView fx:id="listView" layoutX="-2.0" layoutY="-1.0" prefHeight="427.0" prefWidth="330.0" style="-fx-background-color: Wheat;" />
                                  </children>
                               </AnchorPane>
                           </content>

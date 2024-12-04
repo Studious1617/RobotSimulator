@@ -22,6 +22,14 @@ public class SimulationRunner {
 
     public ListView<Object> listView;
 
+    public String userEmail;
+    public String getUserEmail() {
+        return userEmail;
+    }
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     public HBox
             hbox_00, hbox_01, hbox_02, hbox_03, hbox_04,
             hbox_10, hbox_11, hbox_12, hbox_13, hbox_14,
@@ -32,7 +40,9 @@ public class SimulationRunner {
 
     public void selectLayout() {}
 
-    public void selectRuleset() {}
+    public void selectRuleset() {
+
+    }
 
     public void maxAttempts() {}
 
@@ -57,4 +67,5 @@ public class SimulationRunner {
         stageFive.setScene(sceneFive);
         stageFive.show();
     }
+
 }

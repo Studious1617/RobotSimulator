@@ -54,7 +54,13 @@ public class DashboardController {
             deleteLayoutButton2,
             deleteLayoutButton3,
             deleteLayoutButton4,
-            deleteLayoutButton5;
+            deleteLayoutButton5,
+
+            runSimulationButton1,
+            runSimulationButton2,
+            runSimulationButton3,
+            runSimulationButton4,
+            runSimulationButton5;
 
     public Label
             layoutNameLabel1,
@@ -202,10 +208,33 @@ public class DashboardController {
         FactoryLayoutViewController layoutViewController = loader.getController();
 
         layoutViewController.setLayoutId(getLayoutId());
-        layoutViewController.setListOfLayouts(getListOfLayouts());
+        layoutViewController.setLayouts(getListOfLayouts());
         layoutViewController.setIndex(getIndex());
 
         // switches to Factory View
+        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneFive = new Scene(viewPopUp,1920,1080);
+        stageFive.setScene(sceneFive);
+        stageFive.show();
+    }
+
+    public void onSimulationRunnerClick(ActionEvent e) throws Exception {
+        // goes to view page
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulationRunner.fxml"));
+        Parent viewPopUp = loader.load();
+        FactoryLayoutViewController SimulationRunner = loader.getController();
+
+        SimulationRunner.setLayoutId(getLayoutId());
+        SimulationRunner.setLayouts(getListOfLayouts());
+        SimulationRunner.setIndex(getIndex());
+
+        //To make the layout and ruleset data readily avaliable
+        /*SimulationRunner.setRulesetId(getRulesetId());
+        SimulationRunner.setRulesets(getListOfRulesets());
+        SimulationRunner.setRulesetIndex(getRulesetIndex());*/
+
+
+        // switches to Factory View -- Need to make it switch to simulation runner view
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(viewPopUp,1920,1080);
         stageFive.setScene(sceneFive);
