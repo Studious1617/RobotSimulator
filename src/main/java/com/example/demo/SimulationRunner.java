@@ -12,6 +12,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class SimulationRunner {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
@@ -28,6 +30,40 @@ public class SimulationRunner {
     }
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    private int layoutId;
+    public int getLayoutId() {
+        return layoutId;
+    }
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
+    }
+
+    private String layoutEmail;
+    public String getLayoutEmail() {
+        return layoutEmail;
+    }
+    public void setLayoutEmail(String layoutEmail) {
+        this.layoutEmail = layoutEmail;
+    }
+
+
+    public int index;
+    public int getIndex() {
+        return index;
+    }
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+
+    public List<Layout> listOfLayouts;
+    public List<Layout> getListOfLayouts() {
+        return listOfLayouts;
+    }
+    public void setListOfLayouts(List<Layout> listOfLayouts) {
+        this.listOfLayouts = listOfLayouts;
     }
 
     public HBox

@@ -222,11 +222,11 @@ public class DashboardController {
         // goes to view page
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SimulationRunner.fxml"));
         Parent viewPopUp = loader.load();
-        FactoryLayoutViewController SimulationRunner = loader.getController();
+        SimulationRunner simulationRunner = loader.getController();
 
-        SimulationRunner.setLayoutId(getLayoutId());
-        SimulationRunner.setLayouts(getListOfLayouts());
-        SimulationRunner.setIndex(getIndex());
+        simulationRunner.setLayoutId(getLayoutId());
+        simulationRunner.setListOfLayouts(getListOfLayouts());
+        simulationRunner.setIndex(getIndex());
 
         //To make the layout and ruleset data readily avaliable
         /*SimulationRunner.setRulesetId(getRulesetId());
@@ -235,10 +235,10 @@ public class DashboardController {
 
 
         // switches to Factory View -- Need to make it switch to simulation runner view
-        Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(viewPopUp,1920,1080);
-        stageFive.setScene(sceneFive);
-        stageFive.show();
+        Stage stageSeven = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene sceneSeven = new Scene(viewPopUp,1920,1080);
+        stageSeven.setScene(sceneSeven);
+        stageSeven.show();
     }
 
     public void refreshDashboard(ActionEvent e) throws Exception {
