@@ -56,30 +56,6 @@ public class DashboardController {
             deleteLayoutButton4,
             deleteLayoutButton5;
 
-    public List<Button> buttonList;
-    // added buttons to list
-    @FXML
-    public void initialize () {
-        buttonList = new ArrayList<>();
-        buttonList.add(editLayoutButton1);
-        buttonList.add(editLayoutButton2);
-        buttonList.add(editLayoutButton3);
-        buttonList.add(editLayoutButton4);
-        buttonList.add(editLayoutButton5);
-
-        buttonList.add(viewLayoutButton1);
-        buttonList.add(viewLayoutButton2);
-        buttonList.add(viewLayoutButton3);
-        buttonList.add(viewLayoutButton4);
-        buttonList.add(viewLayoutButton5);
-
-        buttonList.add(deleteLayoutButton1);
-        buttonList.add(deleteLayoutButton2);
-        buttonList.add(deleteLayoutButton3);
-        buttonList.add(deleteLayoutButton4);
-        buttonList.add(deleteLayoutButton5);
-    }
-
     public Label
             layoutNameLabel1,
             layoutNameLabel2,
@@ -104,6 +80,13 @@ public class DashboardController {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public int getLayoutId() {
+        return layoutId;
+    }
+    public void setLayoutId(int layoutId) {
+        this.layoutId = layoutId;
     }
 
     public String getLayoutEmail() {
@@ -163,11 +146,12 @@ public class DashboardController {
         rulesetsDashboard.setUserEmail(getEmailAddress());
         rulesetsDashboard.setListOfLayouts(getListOfLayouts());
 
+        rulesetsDashboard.makeUserRulesetsVisible();
+
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(popUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
-
     }
 
     @FXML
@@ -187,7 +171,9 @@ public class DashboardController {
     }
 
     public void onDeleteLayoutClick (ActionEvent e) throws Exception {
-        sqlConfiguration.deleteLayout(getEmailAddress(), buttonDifferentiation(e));
+        if (buttonDifferentiation(e) != -1){
+            sqlConfiguration.deleteLayout(getEmailAddress(), buttonDifferentiation(e));
+        }
         refreshDashboard(e);
     }
 
@@ -215,11 +201,10 @@ public class DashboardController {
         Parent viewPopUp = loader.load();
         FactoryLayoutViewController layoutViewController = loader.getController();
 
-        index = buttonDifferentiation(e);
-        layoutViewController.setIndex(index);
+        layoutViewController.setLayoutId(getLayoutId());
+        layoutViewController.setListOfLayouts(getListOfLayouts());
+        layoutViewController.setIndex(getIndex());
 
-        listOfLayouts = sqlConfiguration.getUserLayoutList(getEmailAddress());
-        layoutViewController.setLayouts(getListOfLayouts());
         // switches to Factory View
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(viewPopUp,1920,1080);
@@ -232,6 +217,7 @@ public class DashboardController {
         Parent dashboardPopUp = loader.load();
         DashboardController layoutRefreshController = loader.getController();
 
+        makeUserLayoutVisible();
         layoutRefreshController.setListOfLayouts(getListOfLayouts());
         makeUserLayoutVisible();
 
@@ -272,7 +258,7 @@ public class DashboardController {
         layoutOne_Left.setVisible(true);
         layoutOne_Right.setVisible(true);
 
-        layoutName = listOfLayouts.get(0).getLayoutName();
+        layoutName = listOfLayouts.getFirst().getLayoutName();
         layoutNameLabel1.setText(layoutName);
 
         layoutNameLabel1.setVisible(true);
@@ -331,7 +317,7 @@ public class DashboardController {
 
     public int buttonDifferentiation (ActionEvent e) {
         Button clickedButton = (Button) e.getSource();
-        int buttonNumber = 0;
+        int buttonNumber = -1;
 
         if (clickedButton.getId().contains("1")) {
             buttonNumber = 0;
