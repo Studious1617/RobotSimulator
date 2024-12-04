@@ -30,15 +30,17 @@ public class SimulationRunner {
             hbox_40, hbox_41, hbox_42, hbox_43, hbox_44,
             hbox_50, hbox_51, hbox_52, hbox_53, hbox_54;
 
-    public void selectLayout () {}
+    public void selectLayout() {}
 
-    public void selectRuleset () {}
+    public void selectRuleset() {}
 
-    public void maxAttempts () {}
+    public void maxAttempts() {}
 
-    public void simRunnerExecution () {}
+    public void simRunnerExecution() {}
 
-    public void stepLog () {}
+    public void stepLog() {}
+
+    public void onRunClick() {}
 
     @FXML
     public void onBackButtonClick(ActionEvent e) throws Exception {

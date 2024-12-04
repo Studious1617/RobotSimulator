@@ -61,7 +61,7 @@
                </children></HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: LightBlue;" text="Run">
+                  <Button fx:id="runButton" mnemonicParsing="false" onAction="#onRunClick" style="-fx-background-color: LightBlue;" text="Run">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
