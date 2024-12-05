@@ -166,6 +166,7 @@ public class DashboardController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayout.fxml"));
         Parent popUp = loader.load();
         FactoryLayoutController factoryLayoutController = loader.getController();
+        // changed this from a getter in a setter it should update information now
         factoryLayoutController.setLayoutEmail(this.emailAddress);
         factoryLayoutController.setListOfLayouts(this.listOfLayouts);
 
