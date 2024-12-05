@@ -92,7 +92,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutOne_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox fx:id="layoutOne_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -216,7 +216,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutTwo_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <HBox fx:id="layoutTwo_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
                         <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -268,7 +268,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutThree_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <HBox fx:id="layoutThree_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
                         <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -317,7 +317,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFour_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <HBox fx:id="layoutFour_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
                         <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
@@ -366,7 +366,7 @@
                         <InnerShadow />
                      </effect>
                   </HBox>
-                  <HBox fx:id="layoutFive_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <HBox fx:id="layoutFive_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
                         <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
