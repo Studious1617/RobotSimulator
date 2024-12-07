@@ -7,6 +7,9 @@ ex. RulesetsController -- Rulesets.fxml
 
 Recommended resolution is 1920 X 1080
 ________________________________
+Delete layouts table and the sequence below
+---------------------------------
+
 --Create table queries
 CREATE TABLE layouts (
 layout_id INT PRIMARY KEY DEFAULT nextval('layout_is_seq'),
@@ -26,6 +29,8 @@ email_address VARCHAR(50) NOT NULL UNIQUE,
 password VARCHAR(50) NOT NULL
 );
 _________________________________
+Delete this sequence
+
 CREATE SEQUENCE layout_id_seq
 START 1
 INCREMENT BY 1
@@ -46,12 +51,6 @@ ALTER TABLE layouts ALTER COLUMN layout_id SET DEFAULT nextval('layout_id_seq');
 -- Re-add the primary key constraint
 ALTER TABLE layouts ADD PRIMARY KEY (layout_id);
 ____________________________________
-for each user in useraccounts:
-user_id = get user_id from useraccounts where email_address = 'user email'
-for i from 1 to 5:
-insert into layouts (layout_name, layout_data, direction, user_id)
-values ('Layout ' + i, 'data' + i, 'direction', user_id)
-____________________________________
 CREATE OR REPLACE FUNCTION adjust_layout_ids(user_email VARCHAR)
 RETURNS VOID AS $$
 BEGIN
@@ -65,5 +64,6 @@ AND layout_id < 5
 AND layout_id < (SELECT min_id FROM min_layout);
 END;
 $$ LANGUAGE plpgsql;
-
-Search how to 
+_________________________________
+Can follow instruction after this
+---------------------------------
