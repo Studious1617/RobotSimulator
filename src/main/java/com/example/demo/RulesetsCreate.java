@@ -18,8 +18,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.example.demo.CreateUserAccountController.userEmail;
+import static com.example.demo.RulesetsDashboard.rulesetId;
+import static com.example.demo.RulesetsDashboard.rulesetName;
 
 public class RulesetsCreate implements Initializable {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
@@ -73,30 +76,6 @@ public class RulesetsCreate implements Initializable {
             rule6_And_CB2, rule6_Is_CB3,
             rule6_And_CB3, rule6_Is_CB4,
             rule6_Then_CB;
-
-    public String rulesetName;
-    public String getRulesetName() {
-        return rulesetName;
-    }
-
-    // variable to hold the ruleset ids
-    int rulesetId;
-
-    public String userEmail;
-    public String getUserEmail() {
-        return userEmail;
-    }
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public List<Layout> listOfLayouts;
-    public List<Layout> getListOfLayouts() {
-        return listOfLayouts;
-    }
-    public void setListOfLayouts(List<Layout> listOfLayouts) {
-        this.listOfLayouts = listOfLayouts;
-    }
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
@@ -187,11 +166,11 @@ public class RulesetsCreate implements Initializable {
         rule6_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
-    public boolean doesTextFieldHaveText (String textFieldValue) {
+    public boolean doesTextFieldHaveText(String textFieldValue) {
         return textFieldValue != null && !textFieldValue.isEmpty();
     }
 
-    public void onSaveButtonClick(ActionEvent e) {
+    public void onSaveButtonClick() {
         //Getting values of the sentences
         String when, is1, then, and1, is2, and2, is3, and3, is4;
 
@@ -213,8 +192,8 @@ public class RulesetsCreate implements Initializable {
 
             System.out.println("Insertion complete. Your ruleset is named: " + rulesetName);
 
-            int rId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
-            System.out.println("Ruleset ID: " + rId);
+            rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
+            System.out.println("Ruleset ID: " + rulesetId);
 
             //Rule 1
             when = rule1_When_CB.getValue();
@@ -595,7 +574,7 @@ public class RulesetsCreate implements Initializable {
         sqlConfiguration.updateRuleCount(rulesetName, userEmail);
     }
 
-    public void onAddRuleButtonClick(ActionEvent e) throws Exception {
+    public void onAddRuleButtonClick() {
         if (rule1Tab.isDisabled()){
             rule1Tab.setDisable(false);
         } else if (rule2Tab.isDisabled()) {
@@ -615,10 +594,7 @@ public class RulesetsCreate implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
         RulesetsDashboard rulesetsDashboard = loader.getController();
-        // so the user's info doesn't get lost
-        rulesetsDashboard.setRulesetName(getRulesetName());
-        rulesetsDashboard.setUserEmail(getUserEmail());
-        rulesetsDashboard.setListOfLayouts(getListOfLayouts());
+        // reveals the user's rulesets
         rulesetsDashboard.makeUserRulesetsVisible();
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();

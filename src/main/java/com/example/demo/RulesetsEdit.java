@@ -15,8 +15,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.example.demo.CreateUserAccountController.userEmail;
+import static com.example.demo.RulesetsDashboard.*;
 
 public class RulesetsEdit implements Initializable {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
@@ -72,37 +74,11 @@ public class RulesetsEdit implements Initializable {
             rule6_And_CB3, rule6_Is_CB4,
             rule6_Then_CB;
 
-    // to hold the ruleset ids
-    public int rulesetId;
-
-    public String rulesetName;
-    public void setRulesetName(String rulesetName) {
-        this.rulesetName = rulesetName;
-    }
-
-    public String userEmail;
-    public String getUserEmail() {
-        return userEmail;
-    }
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public List<Layout> listOfLayouts;
-    public List<Layout> getListOfLayouts() {
-        return listOfLayouts;
-    }
-    public void setListOfLayouts(List<Layout> listOfLayouts) {
-        this.listOfLayouts = listOfLayouts;
-    }
-
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
         RulesetsDashboard rulesetsDashboardE = loader.getController();
-        // so the user's info doesn't get lost
-        rulesetsDashboardE.setUserEmail(getUserEmail());
-        rulesetsDashboardE.setListOfLayouts(getListOfLayouts());
+
         rulesetsDashboardE.makeUserRulesetsVisible();
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -113,7 +89,6 @@ public class RulesetsEdit implements Initializable {
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
-
         ObservableList<String> rulesDirectionOptions = FXCollections.observableArrayList(
                 "In-front", "To the left", "To the right", "Backwards");
         ObservableList<String> rulesSpaceOptions = FXCollections.observableArrayList(
@@ -200,11 +175,9 @@ public class RulesetsEdit implements Initializable {
         rule6_Then_CB.getItems().addAll(rulesActionOptions);
     }
 
-    public void onSaveButtonClick(ActionEvent e) {
+    public void onSaveButtonClick() {
         // for getting values of the sentences
         String when, is1, then, and1, is2, and2, is3, and3, is4;
-        // to hold the rule id
-        int ruleId;
 
         System.out.println("This is the user email: " + userEmail);
         // gets first index/name of the list of ruleset names
@@ -815,7 +788,7 @@ public class RulesetsEdit implements Initializable {
         sqlConfiguration.updateRuleCount(rulesetName, userEmail);
     }
 
-    public void onAddRuleButtonClick(ActionEvent e) throws Exception {
+    public void onAddRuleButtonClick() {
         if (rule1Tab.isDisabled()){
             rule1Tab.setDisable(false);
         } else if (rule2Tab.isDisabled()) {

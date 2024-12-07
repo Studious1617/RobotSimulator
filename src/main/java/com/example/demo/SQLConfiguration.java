@@ -148,13 +148,17 @@ public class SQLConfiguration {
         String insertLayout = "INSERT INTO layouts (layout_name, layout_data, direction, email_address)" +
                 " VALUES (?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-             PreparedStatement layoutStmt = connection.prepareStatement(insertLayout);) {
+             PreparedStatement layoutStmt = connection.prepareStatement(insertLayout)) {
 
+            // Convert ArrayList to SQL Array
+            Array sqlArray = connection.createArrayOf("VARCHAR", layoutData.toArray());
+
+            // inserts the values into the question marks
             layoutStmt.setString(1, layoutName);
-            layoutStmt.setArray(2, (Array) layoutData);
+            layoutStmt.setArray(2, sqlArray);
             layoutStmt.setString(3, direction);
             layoutStmt.setString(4, userEmail);
-            System.out.println("layoutData() from SQL: " + layoutData);
+            System.out.println("layoutData() from SQL: " + sqlArray);
             layoutStmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -257,12 +261,13 @@ public class SQLConfiguration {
         return startingDirection;
     }
 
-    public Map<Integer, Array> getUserLayouts (String email) {
+    public Map<Integer, List<String>> getUserLayouts (String email) {
         int layoutId;
-        Array layoutData;
+        Array sqlArray;
+        List<String> layoutData;
 
         // map for layout_id and layout
-        Map<Integer, Array> idAndData = new HashMap<>();
+        Map<Integer, List<String>> idAndData = new HashMap<>();
 
         String getLayoutsSQL = "SELECT * FROM layouts WHERE email_address = ? ORDER BY layout_id";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
@@ -273,7 +278,11 @@ public class SQLConfiguration {
                 // adds the id to the variable
                 layoutId = rs.getInt("layout_id");
                 // adds the layout_data to the map
-                layoutData = rs.getArray("layout_data");
+                sqlArray = rs.getArray("layout_data");
+                // Converts SQL array to Java array
+                String[] javaArray = (String[]) sqlArray.getArray();
+                // Converts Java array to ArrayList
+                layoutData = new ArrayList<>(List.of(javaArray));
                 // adds the id and the array to the map
                 idAndData.put(layoutId, layoutData);
             }

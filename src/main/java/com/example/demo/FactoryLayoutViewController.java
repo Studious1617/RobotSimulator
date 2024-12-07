@@ -3,7 +3,6 @@ package com.example.demo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,104 +11,53 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
 
-public class FactoryLayoutViewController implements Initializable {
+import static com.example.demo.CreateUserAccountController.userEmail;
+import static com.example.demo.DashboardController.*;
+
+public class FactoryLayoutViewController {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
+
     @FXML
-    Pane
+    public Label layoutNameLabel, robotDirectionLabel;
+    public Button FLV_BackButton, viewButton;
+
+    @FXML
+    public Pane
             P_00, P_10, P_20, P_30, P_40,
             P_01, P_11, P_21, P_31, P_41,
             P_02, P_12, P_22, P_32, P_42,
             P_03, P_13, P_23, P_33, P_43,
             P_04, P_14, P_24, P_34, P_44;
 
-    List<Pane> paneList = Arrays.asList(
-            P_00, P_10, P_20, P_30, P_40,
-            P_01, P_11, P_21, P_31, P_41,
-            P_02, P_12, P_22, P_32, P_42,
-            P_03, P_13, P_23, P_33, P_43,
-            P_04, P_14, P_24, P_34, P_44);
-    @FXML
-    private Label layoutNameLabel;
-    @FXML
-    private Label robotDirectionCB;
+    // arraylist to chang Pane[] array to arraylist<Pane>
+    public ArrayList<Pane> arrayListForPanes = new ArrayList<>();
 
-    private int layoutId;
-    private String layoutName;
-    private String[] layoutData;
-    private String layoutDirection;
-    private String layoutEmail;
+    public void onViewButtonClick () {
+        layoutName = layoutNameLabel.getText();
+        layoutId = sqlConfiguration.getLayoutId(layoutName, userEmail);
+        // gets layout grid data
+        layoutData = (ArrayList<String>) sqlConfiguration.getUserLayouts(userEmail).get(layoutId);
 
-    public int getLayoutId() {
-        return layoutId;
-    }
-    public void setLayoutId(int layoutId) {
-        this.layoutId = layoutId;
-    }
-    public String getLayoutName() {
-        return layoutName;
-    }
-    public static void setLayoutName(String layoutName) {
-        //this.layoutName = layoutName;
-    }
-    public String[] getLayoutData() {
-        return layoutData;
-    }
-    public static void setLayoutData(String[] layoutData) {
-        //this.layoutData = layoutData;
-    }
-    public String getLayoutDirection() {
-        return layoutDirection;
-    }
-    public static void setLayoutDirection(String layoutDirection) {
-        //this.layoutDirection = layoutDirection;
-    }
-    public String getLayoutEmail() {
-        return layoutEmail;
-    }
-    public void setLayoutEmail(String layoutEmail) {
-        this.layoutEmail = layoutEmail;
-    }
+        // adds the panes to an arraylist
+        arrayListForPanes.addAll(Arrays.asList(
+                P_00, P_10, P_20, P_30, P_40,
+                P_01, P_11, P_21, P_31, P_41,
+                P_02, P_12, P_22, P_32, P_42,
+                P_03, P_13, P_23, P_33, P_43,
+                P_04, P_14, P_24, P_34, P_44));
 
-    public List<Layout> layouts;
-    public List<Layout> getLayouts() {
-        return layouts;
-    }
-    public void setLayouts(List<Layout> layouts) {
-        this.layouts = layouts;
-    }
-
-    public int index;
-    public int getIndex() {
-        return index;
-    }
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    @FXML
-    public Button FLV_BackButton;
-
-    @Override
-    public void initialize (URL url, ResourceBundle resourceBundle) {
-        layoutName = getLayoutName();
-        layoutDirection = getLayoutDirection();
-
-        layoutNameLabel.setText(layoutName);
-        robotDirectionCB.setText(layoutDirection);
-        // adds the layout data to the panes
-        String[] choiceBoxes = getLayouts().get(index).getLayoutData();
-        for (int i = 0; i < choiceBoxes.length; i++){
+        // loops through the arraylist
+        for (int i = 0; i < arrayListForPanes.size(); i++){
             // gets the index of both lists
-            String typeOfBox = choiceBoxes[i];
-            Pane pane = paneList.get(i);
-            // sets the color of the pane based on its value
+            String typeOfBox = layoutData.get(i);
+            Pane pane = arrayListForPanes.get(i);
+
+            // sets the color of the pane based on the value of the choiceBox
             if (typeOfBox.equals("Start")) {
-                pane.setStyle("-fx-background-color: dark green;");
+                pane.setStyle("-fx-background-color: darkgreen;");
             } else if (typeOfBox.equals("Exit")) {
                 pane.setStyle("-fx-background-color: red");
             } else if (typeOfBox.equals("Wall")) {
@@ -126,32 +74,6 @@ public class FactoryLayoutViewController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
-        layoutEmail = getLayoutEmail();
-
-        FactoryLayoutViewController.setLayoutName(layoutName);
-        FactoryLayoutViewController.setLayoutData(layoutData);
-        FactoryLayoutViewController.setLayoutDirection(layoutDirection);
-        index = dashboardController.buttonDifferentiation(event);
-
-        layoutId = dashboardController.listOfLayouts.get(index).getLayoutID();
-        System.out.println("ID: " + layoutId);
-
-        layoutName = dashboardController.listOfLayouts.get(index).getLayoutName();
-        System.out.println("layout name: " + layoutName);
-
-        String[] layoutDataCB = dashboardController.getChoiceBoxList();
-        System.out.println("getChoiceBoxList(): " + Arrays.toString(layoutDataCB));
-
-        layoutData = dashboardController.listOfLayouts.get(index).getLayoutData();
-        System.out.println("layoutObject.getLayoutData(): " + Arrays.toString(layoutData));
-
-        layoutDirection = dashboardController.listOfLayouts.get(index).getLayoutDirection();
-        System.out.println("direction: " + layoutDirection);
-
-        layoutEmail = dashboardController.listOfLayouts.get(index).getLayoutEmail();
-        System.out.println("email address: " + layoutEmail);
-
-        sqlConfiguration.viewLayout(layoutEmail, layoutId);
 
         // reveals the user's layouts
         dashboardController.makeUserLayoutVisible();
@@ -161,5 +83,4 @@ public class FactoryLayoutViewController implements Initializable {
         stageThree.setScene(sceneThree);
         stageThree.show();
     }
-
 }

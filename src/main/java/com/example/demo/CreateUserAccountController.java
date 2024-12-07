@@ -14,55 +14,39 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateUserAccountController {
-    public Stage stageOne;
-    public Scene sceneOne;
+    SQLConfiguration sqlConfiguration = new SQLConfiguration();
+
     @FXML
-    public TextField CreateAccount_EnterNameTF;
-    public TextField CreateAccount_EnterEmailTF;
-    public TextField CreateAccount_EnterPasswordTF;
+    public TextField
+            CreateAccount_EnterNameTF,
+            CreateAccount_EnterEmailTF,
+            CreateAccount_EnterPasswordTF;
     public PasswordField CreateAccount_ConfirmPasswordTF;
 
-    public Button CreateAccountButton;
-    public Button CreateAccount_LogInButton;
+    public Button CreateAccountButton, CreateAccount_LogInButton;
 
-    SQLConfiguration sqlConfiguration = new SQLConfiguration();
+    // global/static variables to use during log in
+    static String userEmail;
+    static String password;
 
     // event for create account button
     public void onCreateAccountButtonClick(ActionEvent e) throws IOException {
         // get text from textfields
         String fullName = CreateAccount_EnterNameTF.getText();
-        String userEmail = CreateAccount_EnterEmailTF.getText();
-        String password = CreateAccount_EnterPasswordTF.getText();
+        userEmail = CreateAccount_EnterEmailTF.getText();
+        password = CreateAccount_EnterPasswordTF.getText();
         String confirmPassword = CreateAccount_ConfirmPasswordTF.getText();
 
         if (sqlConfiguration.checkUserInfo(fullName, userEmail, password)
                 && password.equals(confirmPassword)) {
+
             if (sqlConfiguration.checkEmailFormat(userEmail)) {
-                // sets up loader for the fxml
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-                // loads the fxml
-                Parent dashboardPopUp = loader.load();
-                // gets the controller fx:id from the fxml
-                DashboardController dashboardController = loader.getController();
-                // makes a layout dashboard object with the user's email
-                dashboardController.setLayoutEmail(userEmail);
-
-
-                // sets up loader for the fxml
-                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
-                // loads the fxml
-                Parent dashboardPopUp2 = loader.load();
-                // gets the controller fx:id from the fxml
-                RulesetsDashboard rulesetsDashboard = loader.getController();
-                // makes a ruleset dashboard object with the user's email
-                rulesetsDashboard.setUserEmail(userEmail);
-
-
                 // adds the user to the database
                 if (sqlConfiguration.addNewUser(fullName, userEmail, password)) {
+                    Parent dashPopUp = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
                     // switch to Dashboard
                     Stage stageThree = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    Scene sceneThree = new Scene(dashboardPopUp,1540,800);
+                    Scene sceneThree = new Scene(dashPopUp,1540,800);
                     stageThree.setScene(sceneThree);
                     stageThree.show();
                 }
@@ -79,13 +63,9 @@ public class CreateUserAccountController {
     public void onCreateAccount_LogInButtonClick(ActionEvent event) throws IOException {
         // go to log in page
         Parent logInPopUp = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
-        stageOne = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        sceneOne = new Scene(logInPopUp,1920,1080);
-        stageOne.setScene(sceneOne);
-        stageOne.show();
+        Stage stageTwo = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene sceneTwo = new Scene(logInPopUp,1920,1080);
+        stageTwo.setScene(sceneTwo);
+        stageTwo.show();
     }
-
-//    getEmailForLaterUse(String ){
-//
-//    }
 }

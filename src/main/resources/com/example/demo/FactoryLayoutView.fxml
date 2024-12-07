@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutViewController">
    <children>
       <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0">
          <children>
@@ -59,7 +65,7 @@
             <Pane fx:id="P_44" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Label fx:id="robotDirectionCB" layoutX="1188.5999755859375" layoutY="379.3999938964844" prefHeight="57.0" prefWidth="130.0" style="-fx-border-color: grey;" textAlignment="CENTER">
+      <Label fx:id="robotDirectionLabel" layoutX="1188.5999755859375" layoutY="379.3999938964844" prefHeight="57.0" prefWidth="130.0" style="-fx-border-color: grey;" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
@@ -81,5 +87,6 @@
                </font>
             </Label>
          </children></VBox>
+      <Button fx:id="viewButton" layoutX="1268.0" layoutY="117.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="30.0" prefWidth="60.0" text="View" />
    </children>
 </AnchorPane>

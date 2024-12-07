@@ -11,7 +11,10 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import static com.example.demo.CreateUserAccountController.userEmail;
+import static com.example.demo.RulesetsDashboard.rulesetId;
+import static com.example.demo.RulesetsDashboard.rulesetName;
 
 public class RulesetsView {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
@@ -55,30 +58,6 @@ public class RulesetsView {
             and3Label_Rule6, is4Label_Rule6,
             thenLabel_Rule6;
 
-    public String rulesetName;
-    public String getRulesetName() {
-        return rulesetName;
-    }
-    public void setRulesetName(String rulesetName) {
-        this.rulesetName = rulesetName;
-    }
-
-    public String userEmail;
-    public String getUserEmail() {
-        return userEmail;
-    }
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public List<Layout> listOfLayouts;
-    public List<Layout> getListOfLayouts() {
-        return listOfLayouts;
-    }
-    public void setListOfLayouts(List<Layout> listOfLayouts) {
-        this.listOfLayouts = listOfLayouts;
-    }
-
     @FXML
     public void onViewButtonClick () {
         // gets ruleset name
@@ -86,7 +65,7 @@ public class RulesetsView {
         System.out.println("Ruleset name: " + rulesetName);
 
         // gets ruleset id
-        int rulesetId = sqlConfiguration.getRulesetId(rulesetName, getUserEmail());
+        rulesetId = sqlConfiguration.getRulesetId(rulesetName, userEmail);
         System.out.println("Ruleset ID: " + rulesetId);
 
         // gets rule ids
@@ -264,9 +243,7 @@ public class RulesetsView {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
         RulesetsDashboard rulesetsDashboardV = loader.getController();
-        // so the user's layout info doesn't get lost
-        rulesetsDashboardV.setUserEmail(getUserEmail());
-        rulesetsDashboardV.setListOfLayouts(getListOfLayouts());
+
         rulesetsDashboardV.makeUserRulesetsVisible();
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();

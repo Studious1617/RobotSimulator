@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="589.0" prefWidth="1077.0" style="-fx-background-color: lightyellow;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
+<AnchorPane prefHeight="589.0" prefWidth="1077.0" style="-fx-background-color: lightyellow;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DashboardController">
    <children>
       <HBox layoutX="-19.0" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -94,7 +94,7 @@
                   </HBox>
                   <HBox fx:id="layoutOne_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
+                        <Button fx:id="deleteLayoutButton1" mnemonicParsing="false" onAction="#onDeleteLayoutClick1" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -104,7 +104,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewLayoutClick1" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -114,7 +114,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditLayoutClick1" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin>
@@ -218,7 +218,7 @@
                   </HBox>
                   <HBox fx:id="layoutTwo_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
-                        <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
+                        <Button fx:id="deleteLayoutButton2" mnemonicParsing="false" onAction="#onDeleteLayoutClick2" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -231,7 +231,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton2" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton2" mnemonicParsing="false" onAction="#onViewLayoutClick2" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -241,7 +241,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditLayoutClick2" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin>
@@ -270,7 +270,7 @@
                   </HBox>
                   <HBox fx:id="layoutThree_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: BurlyWood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
+                        <Button fx:id="deleteLayoutButton3" mnemonicParsing="false" onAction="#onDeleteLayoutClick3" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -280,7 +280,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton3" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton3" mnemonicParsing="false" onAction="#onViewLayoutClick3" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -290,7 +290,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditLayoutClick3" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin>
@@ -319,7 +319,7 @@
                   </HBox>
                   <HBox fx:id="layoutFour_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
-                        <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
+                        <Button fx:id="deleteLayoutButton4" mnemonicParsing="false" onAction="#onDeleteLayoutClick4" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -329,7 +329,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton4" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton4" mnemonicParsing="false" onAction="#onViewLayoutClick4" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -339,7 +339,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditLayoutClick4" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin>
@@ -368,7 +368,7 @@
                   </HBox>
                   <HBox fx:id="layoutFive_Right" alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: Burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" onAction="#onDeleteLayoutClick" style="-fx-background-color: IndianRed;" text="Delete">
+                        <Button fx:id="deleteLayoutButton5" mnemonicParsing="false" onAction="#onDeleteLayoutClick5" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -378,7 +378,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="viewLayoutButton5" mnemonicParsing="false" onAction="#onViewLayoutClick" style="-fx-background-color: lightblue;" text="View">
+                        <Button fx:id="viewLayoutButton5" mnemonicParsing="false" onAction="#onViewLayoutClick5" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -388,7 +388,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin></Button>
-                        <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditLayoutClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                        <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditLayoutClick5" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                            <HBox.margin>
                               <Insets bottom="10.0" />
                            </HBox.margin>
@@ -439,7 +439,10 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="layoutDeleteLabel" prefHeight="22.0" prefWidth="45.0" />
+                     </children></HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
                         <Button fx:id="reportsButton" mnemonicParsing="false" prefHeight="80.0" prefWidth="120.0" style="-fx-background-color: GoldenRod;" text="Reports">

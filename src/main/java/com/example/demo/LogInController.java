@@ -11,38 +11,39 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
+import static com.example.demo.CreateUserAccountController.password;
+import static com.example.demo.CreateUserAccountController.userEmail;
 
 public class LogInController {
-    @FXML
-    public Button LogInButton;
-    public Button CreateAnAccountButton;
-    @FXML
-    public TextField enterEmailTF;
-    public TextField enterPasswordTF;
-
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
-    // user's layouts
-    public List<Layout> listOfLayouts;
+    @FXML
+    public Button LogInButton, CreateAnAccountButton;
+    @FXML
+    public TextField enterEmailTF, enterPasswordTF;
+
+    // static/global variable for the layouts to use throughout the project
+    static Map<Integer, List<String>> layouts;
 
     public void onLogInButtonClick(ActionEvent e) throws IOException {
-        String emailAddress = enterEmailTF.getText();
-        String password = enterPasswordTF.getText();
+        userEmail = enterEmailTF.getText();
+        password = enterPasswordTF.getText();
         // check if the user entered valid data
-        if (sqlConfiguration.checkUserLogIn(emailAddress, password)) {
-            if (sqlConfiguration.checkEmailFormat(emailAddress)) {
+        if (sqlConfiguration.checkUserLogIn(userEmail, password)) {
+            if (sqlConfiguration.checkEmailFormat(userEmail)) {
                 // cross-reference it in the database
-                if (sqlConfiguration.userLogIn(emailAddress, password)) {
+                if (sqlConfiguration.userLogIn(userEmail, password)) {
                     // sets user email instance into Dashboard
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                     Parent dashboardPopUp = loader.load();
                     DashboardController dashboardController = loader.getController();
 
-                    dashboardController.setEmailAddress(emailAddress);
-                    listOfLayouts = sqlConfiguration.getUserLayoutList(emailAddress);
-                    dashboardController.setListOfLayouts(listOfLayouts);
+                    // sets layouts map to current info from database
+                    layouts = sqlConfiguration.getUserLayouts(userEmail);
                     // reveals the user's layouts
-                    if (!listOfLayouts.isEmpty()) {
+                    if (!layouts.isEmpty()) {
                         dashboardController.makeUserLayoutVisible();
                     }
                     // switches to Dashboard

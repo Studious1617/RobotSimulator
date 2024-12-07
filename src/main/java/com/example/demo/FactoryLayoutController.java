@@ -17,139 +17,164 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.*;
 
-public class FactoryLayoutController implements Initializable {
-    @FXML
-    public Button saveButton;
-    public Button FL_BackButton;
-    public Label messageLabel;
+import static com.example.demo.CreateUserAccountController.userEmail;
+import static com.example.demo.DashboardController.*;
+import static com.example.demo.LogInController.layouts;
 
+public class FactoryLayoutController implements Initializable {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     @FXML
-    private ChoiceBox<String>
+    public Button saveButton, FL_BackButton;
+    public Label messageLabel;
+
+    @FXML
+    public ChoiceBox<String>
             CB_00, CB_10, CB_20, CB_30, CB_40,
             CB_01, CB_11, CB_21, CB_31, CB_41,
             CB_02, CB_12, CB_22, CB_32, CB_42,
             CB_03, CB_13, CB_23, CB_33, CB_43,
             CB_04, CB_14, CB_24, CB_34, CB_44;
 
-    public ChoiceBox<String>[] choiceBoxes = new ChoiceBox[]{
-            CB_00, CB_10, CB_20, CB_30, CB_40,
-            CB_01, CB_11, CB_21, CB_31, CB_41,
-            CB_02, CB_12, CB_22, CB_32, CB_42,
-            CB_03, CB_13, CB_23, CB_33, CB_43,
-            CB_04, CB_14, CB_24, CB_34, CB_44};
-
     @FXML
-    private TextField factoryLayoutName;
-    public String getFactoryLayoutName() {
-        return factoryLayoutName.getText();
-    }
-    @FXML
-    private ChoiceBox<String> robotDirectionCB;
-    public String getRobotDirectionCB() {
-        return robotDirectionCB.getValue();
-    }
+    public TextField factoryLayoutName;
+    public ChoiceBox<String> robotDirectionCB;
 
-    private int layoutId;
-    private String layoutName;
-    private String[] layoutData;
-    private String layoutDirection;
-    private String layoutEmail;
+    // changed to arraylist
+    public ArrayList<ChoiceBox<String>> arrayListForChoiceBoxes = new ArrayList<>();
 
-    public int getLayoutId() {
-        return layoutId;
-    }
-    public void setLayoutId(int layoutId) {
-        this.layoutId = layoutId;
-    }
-    public String getLayoutName() {
-        return layoutName;
-    }
-    public void setLayoutName(String layoutName) {
-        this.layoutName = layoutName;
-    }
-    public String[] getLayoutData() {
-        return layoutData;
-    }
-    public void setLayoutData(String[] layoutData) {
-        this.layoutData = layoutData;
-    }
-    public String getLayoutDirection() {
-        return layoutDirection;
-    }
-    public void setLayoutDirection(String layoutDirection) {
-        this.layoutDirection = layoutDirection;
-    }
-    public String getLayoutEmail() {
-        return layoutEmail;
-    }
-    public void setLayoutEmail(String layoutEmail) {
-        this.layoutEmail = layoutEmail;
-    }
-
-
-/////
-    public List<Layout> listOfLayouts;
-    public List<Layout> getListOfLayouts() {
-        return listOfLayouts;
-    }
-    public void setListOfLayouts(List<Layout> listOfLayouts) {
-        this.listOfLayouts = listOfLayouts;
-    }
-/////
-    public String[] choiceBoxList;
-    public String[] getChoiceBox() {
-        // makes a new list of strings
-        choiceBoxList = new String[choiceBoxes.length];
-        // integer variable to be the list's index
-        int cbIndex = 0;
-        for (ChoiceBox<String> choiceBox: choiceBoxes) {
-            // adds the "Open" value to the list if the user left the space blank
-            if (choiceBox.getValue() == null) {
-                choiceBoxList[cbIndex++] = "Open";
-            } else {
-            // adds the value the user entered into the space to the list
-                choiceBoxList[cbIndex++] = choiceBox.getValue();
-            }
-        }
-        return choiceBoxList;
-    }
-    public void setChoiceBox(String[] choiceBoxList) {
-        if (choiceBoxList.length == choiceBoxes.length) {
-            int cbIndex = 0;
-            for (ChoiceBox<String> choiceBox : choiceBoxes) {
-                choiceBox.setValue(choiceBoxList[cbIndex++]);
-            }
-        }
-    }
-
-    public int index;
-    public int getIndex() {
-        return index;
-    }
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    @Override
-    public void initialize (URL url, ResourceBundle resourceBundle) {
-        choiceBoxes = new ChoiceBox[]{
+    // converts array to arraylist
+    public ArrayList<ChoiceBox<String>> convertCBArrayToCBArrayList() {
+        // transfers the choiceboxes from the array to this arraylist
+        arrayListForChoiceBoxes.addAll(Arrays.asList(
                 CB_00, CB_10, CB_20, CB_30, CB_40,
                 CB_01, CB_11, CB_21, CB_31, CB_41,
                 CB_02, CB_12, CB_22, CB_32, CB_42,
                 CB_03, CB_13, CB_23, CB_33, CB_43,
-                CB_04, CB_14, CB_24, CB_34, CB_44};
+                CB_04, CB_14, CB_24, CB_34, CB_44));
 
+        // returns the arraylist of choiceboxes
+        return arrayListForChoiceBoxes;
+    }
+
+    // arrayList for the chosen choiceBox options
+    public ArrayList<String> choiceBoxChosenValueArrayList = new ArrayList<>();
+
+    // returns the value from the choiceboxes
+    public ArrayList<String> chosenChoiceBoxValueArrayList() {
+        // integer variable to be the arraylist's index
+        int cbIndex = 0;
+
+        // adds the choiceBox value to the empty ArrayList<String>
+        for (ChoiceBox<String> choiceBox: convertCBArrayToCBArrayList()) {
+            choiceBoxChosenValueArrayList.add(choiceBox.getValue());
+        }
+
+        // loops through the arraylist of choiceboxes
+        for (String value: choiceBoxChosenValueArrayList) {
+            // adds the "Open" value to the list if the user left the space blank
+            if (value == null) {
+                choiceBoxChosenValueArrayList.set(cbIndex, "Open");
+
+            } else {
+                // adds the value the user entered into the space to the list
+                choiceBoxChosenValueArrayList.set(cbIndex, value);
+            }
+            // increases the index by 1
+            cbIndex++;
+        }
+        // returns the arraylist of values
+        return choiceBoxChosenValueArrayList;
+    }
+
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle) {
         // sets the options for all the choiceboxes
         ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
 
-        // adds the options
-        for (ChoiceBox<String> box : choiceBoxes){
-            box.getItems().addAll(choiceBoxOptions);
-        }
+        // first column
+        CB_00.getItems().addAll(choiceBoxOptions);
+        CB_01.getItems().addAll(choiceBoxOptions);
+        CB_02.getItems().addAll(choiceBoxOptions);
+        CB_03.getItems().addAll(choiceBoxOptions);
+        CB_04.getItems().addAll(choiceBoxOptions);
+
+        // second column
+        CB_10.getItems().addAll(choiceBoxOptions);
+        CB_11.getItems().addAll(choiceBoxOptions);
+        CB_12.getItems().addAll(choiceBoxOptions);
+        CB_13.getItems().addAll(choiceBoxOptions);
+        CB_14.getItems().addAll(choiceBoxOptions);
+
+        // third column
+        CB_20.getItems().addAll(choiceBoxOptions);
+        CB_21.getItems().addAll(choiceBoxOptions);
+        CB_22.getItems().addAll(choiceBoxOptions);
+        CB_23.getItems().addAll(choiceBoxOptions);
+        CB_24.getItems().addAll(choiceBoxOptions);
+
+        // fourth column
+        CB_30.getItems().addAll(choiceBoxOptions);
+        CB_31.getItems().addAll(choiceBoxOptions);
+        CB_32.getItems().addAll(choiceBoxOptions);
+        CB_33.getItems().addAll(choiceBoxOptions);
+        CB_34.getItems().addAll(choiceBoxOptions);
+
+        // fifth column
+        CB_40.getItems().addAll(choiceBoxOptions);
+        CB_41.getItems().addAll(choiceBoxOptions);
+        CB_42.getItems().addAll(choiceBoxOptions);
+        CB_43.getItems().addAll(choiceBoxOptions);
+        CB_44.getItems().addAll(choiceBoxOptions);
+
+        // adds the options to the direction CB
         robotDirectionCB.getItems().addAll(robotDirection);
+    }
+
+    public boolean startEndBoxExist (ArrayList<String> cbValueArrayList) {
+        int startBox = 0;
+        int endBox = 0;
+
+        for (String value : cbValueArrayList) {
+            if (value != null) {
+                if (value.equals("Start")) startBox++;
+                if (value.equals("Exit")) endBox++;
+            }
+        }
+        return startBox == 1 && endBox == 1;
+    }
+
+    public void onSaveLayoutButton() {
+        // makes sure the static values are updated
+        layoutName = factoryLayoutName.getText();
+        System.out.println("Updated name (create): " + layoutName);
+
+        layoutData = chosenChoiceBoxValueArrayList();
+        System.out.println("\nUpdated grid data (create): " + layoutData);
+
+        robotDirection = robotDirectionCB.getValue();
+        System.out.println("\nUpdated direction (create): " + robotDirection);
+
+        // enter the data into the layouts table
+        if (startEndBoxExist(layoutData) && !layoutName.isEmpty()) {
+            // enters the layout into the table
+            sqlConfiguration.insertLayout(layoutName, layoutData, robotDirection, userEmail);
+            messageLabel.setVisible(true);
+        } else if (layoutName.isEmpty()) {
+            System.out.println("Enter a name for the layout.");
+        } else if (robotDirection.isEmpty()) {
+            System.out.println("Enter a direction for the robot.");
+        } else {
+            System.out.println("You need one Start box and one Exit box selected to save the layout.");
+        }
+
+        // checks the info to of the layout
+        System.out.println("Layout ID (create): " + layoutId);
+        System.out.println("Layout name (create): " + layoutName);
+        System.out.println("Layout data (create): " + layoutData);
+        System.out.println("Layout direction (create): " + robotDirection);
+        System.out.println("Email address (create): " + userEmail);
     }
 
     public void onBackButton(ActionEvent event) throws Exception {
@@ -157,11 +182,11 @@ public class FactoryLayoutController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent dashboardPopUp = loader.load();
         DashboardController dashboardController = loader.getController();
-        dashboardController.setListOfLayouts(getListOfLayouts());
-        dashboardController.setLayoutEmail(getLayoutEmail());
 
-        // makes user's layouts appear
-        if (!getListOfLayouts().isEmpty()) {
+        // sets layouts map to current info from database
+        layouts = sqlConfiguration.getUserLayouts(userEmail);
+        // reveals the user's layouts
+        if (!layouts.isEmpty()) {
             dashboardController.makeUserLayoutVisible();
         }
 
@@ -169,43 +194,5 @@ public class FactoryLayoutController implements Initializable {
         Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
         stageThree.setScene(sceneThree);
         stageThree.show();
-    }
-
-    public boolean startEndBoxExist (String[] choiceBox) {
-        int startBox = 0;
-        int endBox = 0;
-
-        for (String box : choiceBox) {
-            if (box != null) {
-                if (box.equals("Start")) startBox++;
-                if (box.equals("Exit")) endBox++;
-            }
-        }
-        return startBox == 1 && endBox == 1;
-    }
-
-    public void onSaveLayoutButton(ActionEvent e) throws Exception {
-        // gets the info to save the layout to the database/table
-        System.out.println(getLayoutId());
-        System.out.println("getFactoryLayoutName(): " + getFactoryLayoutName());
-        System.out.println("getLayoutName(): " + getLayoutName());
-        System.out.println("getChoiceBox(): " + Arrays.toString(getChoiceBox()));
-        System.out.println("getListOfLayouts(): " + getListOfLayouts());
-        System.out.println("getLayoutData(): " + Arrays.toString(getLayoutData()));
-        System.out.println("getRobotDirectionCB(): " + getRobotDirectionCB());
-        System.out.println("getLayoutDirection(): " + getLayoutDirection());
-        System.out.println(getLayoutEmail());
-
-        // enter the data into the layouts table
-        if (startEndBoxExist(getChoiceBox()) && !getFactoryLayoutName().isEmpty()) {
-            sqlConfiguration.insertLayout(getFactoryLayoutName(), getChoiceBox(), getRobotDirectionCB(), getLayoutEmail());
-            messageLabel.setVisible(true);
-        } else if (getFactoryLayoutName().isEmpty()) {
-            System.out.println("Enter a name for the layout.");
-        } else if (getRobotDirectionCB().isEmpty()) {
-            System.out.println("Enter a direction for the robot.");
-        } else {
-            System.out.println("You need one Start box and one Exit box selected to save the layout.");
-        }
     }
 }
