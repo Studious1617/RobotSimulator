@@ -43,9 +43,9 @@ public class FactoryLayoutController implements Initializable {
     // changed to arraylist
     public ArrayList<ChoiceBox<String>> arrayListForChoiceBoxes = new ArrayList<>();
 
-    // converts array to arraylist
-    public ArrayList<ChoiceBox<String>> convertCBArrayToCBArrayList() {
-        // transfers the choiceboxes from the array to this arraylist
+    // adds choiceboxes to arraylist
+    public ArrayList<ChoiceBox<String>> addCBsToCBArrayList() {
+        // adds the initialized choiceboxes to this arraylist
         arrayListForChoiceBoxes.addAll(Arrays.asList(
                 CB_00, CB_10, CB_20, CB_30, CB_40,
                 CB_01, CB_11, CB_21, CB_31, CB_41,
@@ -66,7 +66,7 @@ public class FactoryLayoutController implements Initializable {
         int cbIndex = 0;
 
         // adds the choiceBox value to the empty ArrayList<String>
-        for (ChoiceBox<String> choiceBox: convertCBArrayToCBArrayList()) {
+        for (ChoiceBox<String> choiceBox: addCBsToCBArrayList()) {
             choiceBoxChosenValueArrayList.add(choiceBox.getValue());
         }
 
@@ -93,42 +93,19 @@ public class FactoryLayoutController implements Initializable {
         ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Start", "Open", "Wall", "Exit");
         ObservableList<String> robotDirection = FXCollections.observableArrayList("Front", "Left", "Right", "Back");
 
-        // first column
-        CB_00.getItems().addAll(choiceBoxOptions);
-        CB_01.getItems().addAll(choiceBoxOptions);
-        CB_02.getItems().addAll(choiceBoxOptions);
-        CB_03.getItems().addAll(choiceBoxOptions);
-        CB_04.getItems().addAll(choiceBoxOptions);
+        // adds the initialized choiceboxes to the arrayList
+        arrayListForChoiceBoxes.addAll(Arrays.asList(
+                CB_00, CB_10, CB_20, CB_30, CB_40,
+                CB_01, CB_11, CB_21, CB_31, CB_41,
+                CB_02, CB_12, CB_22, CB_32, CB_42,
+                CB_03, CB_13, CB_23, CB_33, CB_43,
+                CB_04, CB_14, CB_24, CB_34, CB_44));
 
-        // second column
-        CB_10.getItems().addAll(choiceBoxOptions);
-        CB_11.getItems().addAll(choiceBoxOptions);
-        CB_12.getItems().addAll(choiceBoxOptions);
-        CB_13.getItems().addAll(choiceBoxOptions);
-        CB_14.getItems().addAll(choiceBoxOptions);
-
-        // third column
-        CB_20.getItems().addAll(choiceBoxOptions);
-        CB_21.getItems().addAll(choiceBoxOptions);
-        CB_22.getItems().addAll(choiceBoxOptions);
-        CB_23.getItems().addAll(choiceBoxOptions);
-        CB_24.getItems().addAll(choiceBoxOptions);
-
-        // fourth column
-        CB_30.getItems().addAll(choiceBoxOptions);
-        CB_31.getItems().addAll(choiceBoxOptions);
-        CB_32.getItems().addAll(choiceBoxOptions);
-        CB_33.getItems().addAll(choiceBoxOptions);
-        CB_34.getItems().addAll(choiceBoxOptions);
-
-        // fifth column
-        CB_40.getItems().addAll(choiceBoxOptions);
-        CB_41.getItems().addAll(choiceBoxOptions);
-        CB_42.getItems().addAll(choiceBoxOptions);
-        CB_43.getItems().addAll(choiceBoxOptions);
-        CB_44.getItems().addAll(choiceBoxOptions);
-
-        // adds the options to the direction CB
+        // adds the options to the choiceboxes
+        for (ChoiceBox<String> choiceBox: arrayListForChoiceBoxes) {
+            choiceBox.getItems().addAll(choiceBoxOptions);
+        }
+        // adds the directions to the choiceBox
         robotDirectionCB.getItems().addAll(robotDirection);
     }
 

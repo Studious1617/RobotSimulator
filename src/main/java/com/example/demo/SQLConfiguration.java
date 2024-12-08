@@ -183,8 +183,13 @@ public class SQLConfiguration {
                 " WHERE email_address = ? AND layout_id = ?";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(editLayoutSQL)) {
+
+            // Convert ArrayList to SQL Array
+            Array sqlArray = connection.createArrayOf("VARCHAR", layoutData.toArray());
+
+            // inserts the parameters into the question marks
             preparedStatement.setString(1, layoutName);
-            preparedStatement.setArray(2, (Array) layoutData);
+            preparedStatement.setArray(2, sqlArray);
             preparedStatement.setString(3, direction);
             preparedStatement.setString(4, userEmail);
             preparedStatement.setInt(5, layoutId);

@@ -74,6 +74,10 @@ public class RulesetsEdit implements Initializable {
             rule6_And_CB3, rule6_Is_CB4,
             rule6_Then_CB;
 
+    public ArrayList<ChoiceBox<String>> arrayListForDirectionChoiceBoxes = new ArrayList<>();
+    public ArrayList<ChoiceBox<String>> arrayListForSpaceChoiceBoxes = new ArrayList<>();
+    public ArrayList<ChoiceBox<String>> arrayListForActionChoiceBoxes = new ArrayList<>();
+
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();
@@ -96,83 +100,41 @@ public class RulesetsEdit implements Initializable {
         ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
                 "Move forward", "Turn right", "Turn left", "Turn back");
 
-        // Rule 1
-        rule1_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule1_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule1_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule1_And_CB3.getItems().addAll(rulesDirectionOptions);
+        // adds the choiceboxes to the arrayList
+        arrayListForDirectionChoiceBoxes.addAll(Arrays.asList(
+                rule1_When_CB, rule1_And_CB1, rule1_And_CB2, rule1_And_CB3,
+                rule2_When_CB, rule2_And_CB1, rule2_And_CB2, rule2_And_CB3,
+                rule3_When_CB, rule3_And_CB1, rule3_And_CB2, rule3_And_CB3,
+                rule4_When_CB, rule4_And_CB1, rule4_And_CB2, rule4_And_CB3,
+                rule5_When_CB, rule5_And_CB1, rule5_And_CB2, rule5_And_CB3,
+                rule6_When_CB, rule6_And_CB1, rule6_And_CB2, rule6_And_CB3));
 
-        rule1_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule1_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule1_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule1_Is_CB4.getItems().addAll(rulesSpaceOptions);
+        arrayListForSpaceChoiceBoxes.addAll(Arrays.asList(
+                rule1_Is_CB1, rule1_Is_CB2, rule1_Is_CB3, rule1_Is_CB4,
+                rule2_Is_CB1, rule2_Is_CB2, rule2_Is_CB3, rule2_Is_CB4,
+                rule3_Is_CB1, rule3_Is_CB2, rule3_Is_CB3, rule3_Is_CB4,
+                rule4_Is_CB1, rule4_Is_CB2, rule4_Is_CB3, rule4_Is_CB4,
+                rule5_Is_CB1, rule5_Is_CB2, rule5_Is_CB3, rule5_Is_CB4,
+                rule6_Is_CB1, rule6_Is_CB2, rule6_Is_CB3, rule6_Is_CB4));
 
-        rule1_Then_CB.getItems().addAll(rulesActionOptions);
+        arrayListForActionChoiceBoxes.addAll(Arrays.asList(
+                rule1_Then_CB, rule2_Then_CB, rule3_Then_CB,
+                rule4_Then_CB, rule5_Then_CB, rule6_Then_CB));
 
-        // Rule 2
-        rule2_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule2_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule2_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule2_And_CB3.getItems().addAll(rulesDirectionOptions);
+        // adds the direction options to the WHEN and AND choiceboxes
+        for (ChoiceBox<String> directionCB: arrayListForDirectionChoiceBoxes) {
+            directionCB.getItems().addAll(rulesDirectionOptions);
+        }
 
-        rule2_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule2_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule2_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule2_Is_CB4.getItems().addAll(rulesSpaceOptions);
+        // adds the space options to the IS choiceboxes
+        for (ChoiceBox<String> spaceCB: arrayListForSpaceChoiceBoxes) {
+            spaceCB.getItems().addAll(rulesSpaceOptions);
+        }
 
-        rule2_Then_CB.getItems().addAll(rulesActionOptions);
-
-        // Rule 3
-        rule3_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule3_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule3_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule3_And_CB3.getItems().addAll(rulesDirectionOptions);
-
-        rule3_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule3_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule3_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule3_Is_CB4.getItems().addAll(rulesSpaceOptions);
-
-        rule3_Then_CB.getItems().addAll(rulesActionOptions);
-
-        // Rule 4
-        rule4_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule4_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule4_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule4_And_CB3.getItems().addAll(rulesDirectionOptions);
-
-        rule4_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule4_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule4_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule4_Is_CB4.getItems().addAll(rulesSpaceOptions);
-
-        rule4_Then_CB.getItems().addAll(rulesActionOptions);
-
-        // Rule 5
-        rule5_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule5_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule5_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule5_And_CB3.getItems().addAll(rulesDirectionOptions);
-
-        rule5_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule5_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule5_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule5_Is_CB4.getItems().addAll(rulesSpaceOptions);
-
-        rule5_Then_CB.getItems().addAll(rulesActionOptions);
-
-        // Rule 6
-        rule6_When_CB.getItems().addAll(rulesDirectionOptions);
-        rule6_And_CB1.getItems().addAll(rulesDirectionOptions);
-        rule6_And_CB2.getItems().addAll(rulesDirectionOptions);
-        rule6_And_CB3.getItems().addAll(rulesDirectionOptions);
-
-        rule6_Is_CB1.getItems().addAll(rulesSpaceOptions);
-        rule6_Is_CB2.getItems().addAll(rulesSpaceOptions);
-        rule6_Is_CB3.getItems().addAll(rulesSpaceOptions);
-        rule6_Is_CB4.getItems().addAll(rulesSpaceOptions);
-
-        rule6_Then_CB.getItems().addAll(rulesActionOptions);
+        // adds the action options to the THEN choiceboxes
+        for (ChoiceBox<String> actionCB: arrayListForActionChoiceBoxes) {
+            actionCB.getItems().addAll(rulesActionOptions);
+        }
     }
 
     public void onSaveButtonClick() {
@@ -207,7 +169,7 @@ public class RulesetsEdit implements Initializable {
         if (when != null && is1 != null && then != null) {
             System.out.println("Check complete.\n");
             // sets the variable to the first rule id
-            ruleId = sqlConfiguration.getRuleId(rulesetId).getFirst();
+            ruleId = allCurrentRules.getFirst();
             // checks the ANDs are filled
             if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
                 System.out.println("Inserting all conditions into database...");
