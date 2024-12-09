@@ -58,7 +58,7 @@ public class DashboardController {
             runSimulationButton4,
             runSimulationButton5;
 
-    public Label layoutDeleteLabel,
+    public static Label layoutDeleteLabel,
             layoutNameLabel1,
             layoutNameLabel2,
             layoutNameLabel3,
@@ -171,6 +171,7 @@ public class DashboardController {
         // deletes from table
         sqlConfiguration.deleteLayout(layoutId);
     }
+
 
     public void onEditLayoutClick1(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutEdit.fxml"));

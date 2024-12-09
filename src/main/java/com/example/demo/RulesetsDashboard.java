@@ -37,7 +37,7 @@ public class RulesetsDashboard {
             editRulesetButton4,
             editRulesetButton5;
 
-    public Label
+    public static Label
             rulesetNameLabel1,
             rulesetNameLabel2,
             rulesetNameLabel3,

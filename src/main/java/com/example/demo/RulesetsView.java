@@ -180,7 +180,7 @@ public class RulesetsView {
         // checks if the rule exists and not blank
         if (rule != null && !rule.isEmpty()) {
             when = rule.getFirst();
-            if (when ==null) {
+            if (when == null) {
                 when = "XXXXXXXX";
             }
 
