@@ -44,20 +44,6 @@ public class FactoryLayoutEditController implements Initializable {
     // changed to arraylist
     public ArrayList<ChoiceBox<String>> arrayListForChoiceBoxes = new ArrayList<>();
 
-    // converts array to arraylist
-//    public ArrayList<ChoiceBox<String>> addCBsToCBArrayList() {
-//        // adds the initialized choiceboxes to this arraylist
-//        arrayListForChoiceBoxes.addAll(Arrays.asList(
-//                CB_00, CB_10, CB_20, CB_30, CB_40,
-//                CB_01, CB_11, CB_21, CB_31, CB_41,
-//                CB_02, CB_12, CB_22, CB_32, CB_42,
-//                CB_03, CB_13, CB_23, CB_33, CB_43,
-//                CB_04, CB_14, CB_24, CB_34, CB_44));
-//
-//        // returns the arraylist of choiceboxes
-//        return arrayListForChoiceBoxes;
-//    }
-
     // arrayList for the chosen choiceBox options
     static ArrayList<String> choiceBoxChosenValueArrayList = new ArrayList<>();
 

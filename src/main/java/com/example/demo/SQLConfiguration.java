@@ -510,6 +510,29 @@ public class SQLConfiguration {
         return ruleIdList;
     }
 
+    public ArrayList<String> getRuleActions (int rulesetId) {
+        ArrayList<String> thenActions = new ArrayList<>();
+        // gets the actions from a ruleset
+        String getRuleActionsSQL = "SELECT then_action FROM rules WHERE ruleset_id = ? ORDER BY rule_id";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+        PreparedStatement preparedStatement = connection.prepareStatement(getRuleActionsSQL)) {
+            // sets the question mark as the parameter
+             preparedStatement.setInt(1, rulesetId);
+             ResultSet rs = preparedStatement.executeQuery();
+             // loops through the rows
+             while (rs.next()) {
+                 // gets the action from the table into the String variable
+                 String then = rs.getString("then_action");
+                 // adds the variable to the arrayList
+                 thenActions.add(then);
+             }
+        } catch (SQLException e) {
+            System.out.println("Error getting rule actions: " + e);
+        }
+        // returns the arrayList
+        return thenActions;
+    }
+
     public void updateRuleCount (String rName, String email) {
         int rId = getRulesetId(rName, email);
 
