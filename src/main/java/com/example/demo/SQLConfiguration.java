@@ -6,10 +6,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SQLConfiguration {
-    // url to access the database
-    static String databaseURL = "jdbc:postgresql://localhost:5432/postgres";
-    static String user = "postgres";    // make environment variables
-    static String upass = "Hard2Guess"; // for both of these
+    // environment variables
+    static String databaseURL = System.getenv("DATABASE_URL");
+    static String user = System.getenv("DATAUSER");
+    static String upass = System.getenv("USERPASS");
 
     // makes tables
     public SQLConfiguration () {
