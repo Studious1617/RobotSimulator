@@ -58,7 +58,7 @@ public class DashboardController {
             runSimulationButton4,
             runSimulationButton5;
 
-    public static Label layoutDeleteLabel,
+    public Label layoutDeleteLabel,
             layoutNameLabel1,
             layoutNameLabel2,
             layoutNameLabel3,
@@ -83,7 +83,6 @@ public class DashboardController {
         stageFive.show();
     }
 
-    @FXML
     public void onCreateNewLayoutClick(ActionEvent e) throws Exception {
         // loads the page to create layouts
         Parent createLayoutPopUp = FXMLLoader.load(getClass().getResource("FactoryLayout.fxml"));
@@ -171,7 +170,6 @@ public class DashboardController {
         // deletes from table
         sqlConfiguration.deleteLayout(layoutId);
     }
-
 
     public void onEditLayoutClick1(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FactoryLayoutEdit.fxml"));

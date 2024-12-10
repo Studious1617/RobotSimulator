@@ -222,7 +222,7 @@ public class SQLConfiguration {
         return layoutNames;
     }
 
-    public static int getLayoutId (String lName, String email) {
+    public int getLayoutId (String lName, String email) {
         String getLayoutIdSQL = "SELECT layout_id FROM layouts WHERE " +
                 "layout_name = ? AND email_address = ?";
         // variable to hold the layout id
@@ -266,7 +266,7 @@ public class SQLConfiguration {
         return startingDirection;
     }
 
-    public static Map<Integer, List<String>> getUserLayouts (String email) {
+    public Map<Integer, List<String>> getUserLayouts (String email) {
         int layoutId;
         Array sqlArray;
         List<String> layoutData;
@@ -433,7 +433,7 @@ public class SQLConfiguration {
         return rulesetNames;
     }
 
-    public static int getRulesetId (String rName, String email) {
+    public int getRulesetId (String rName, String email) {
         String getRulesetIdSQL = "SELECT ruleset_id FROM rulesets WHERE " +
                 "ruleset_name = ? AND email_address = ?";
         // variable to hold the ruleset id
@@ -456,7 +456,7 @@ public class SQLConfiguration {
         return rulesetId;
     }
 
-    public static Map<Integer, ArrayList<String>> getRules (int rulesetId) {
+    public Map<Integer, ArrayList<String>> getRules (int rulesetId) {
         int ruleId;
         // map for rule_id and conditions
         Map<Integer, ArrayList<String>> idAndConditions = new HashMap<>();
