@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1349.0" prefHeight="600.0" prefWidth="1349.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1349.0" prefHeight="600.0" prefWidth="1349.0" style="-fx-background-color: BurlyWood;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CreateUserAccountController">
    <children>
       <HBox alignment="CENTER" layoutX="-72.0" minHeight="900.0" minWidth="1600.0" prefHeight="700.0" prefWidth="1450.0" AnchorPane.leftAnchor="-70.0" AnchorPane.rightAnchor="-70.0">
          <children>
@@ -38,7 +38,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" prefHeight="25.0" prefWidth="749.0" promptText="John Pork" style="-fx-alignment: left; -fx-background-position: left;">
+                  <TextField fx:id="CreateAccount_EnterNameTF" accessibleText="A text field" prefHeight="25.0" prefWidth="749.0" promptText="John Pork" style="-fx-alignment: center-left; -fx-background-position: left;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="200.0" right="200.0" />
                      </VBox.margin>
