@@ -79,7 +79,7 @@ public class FactoryLayoutViewController {
         dashboardController.makeUserLayoutVisible();
 
         Stage stageThree = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene sceneThree = new Scene(dashboardPopUp,1920,1080);
+        Scene sceneThree = new Scene(dashboardPopUp,1540,800);
         stageThree.setScene(sceneThree);
         stageThree.show();
     }

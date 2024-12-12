@@ -86,7 +86,7 @@ public class RulesetsEdit implements Initializable {
         rulesetsDashboardE.makeUserRulesetsVisible();
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneFive = new Scene(rulesetsDashboardPopUp, 1920,1080);
+        Scene sceneFive = new Scene(rulesetsDashboardPopUp, 1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
     }

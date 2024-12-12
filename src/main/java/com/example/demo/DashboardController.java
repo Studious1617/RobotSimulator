@@ -180,7 +180,7 @@ public class DashboardController {
         layoutsEdit.factoryLayoutName.setText(layoutName);
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(layoutEditPopUp,1920,1080);
+        Scene sceneSixE = new Scene(layoutEditPopUp,1540,800);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -193,7 +193,7 @@ public class DashboardController {
         layoutsEdit.factoryLayoutName.setText(layoutName);
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(layoutEditPopUp,1920,1080);
+        Scene sceneSixE = new Scene(layoutEditPopUp,1540,800);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -206,7 +206,7 @@ public class DashboardController {
         layoutsEdit.factoryLayoutName.setText(layoutName);
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(layoutEditPopUp,1920,1080);
+        Scene sceneSixE = new Scene(layoutEditPopUp,1540,800);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -219,7 +219,7 @@ public class DashboardController {
         layoutsEdit.factoryLayoutName.setText(layoutName);
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(layoutEditPopUp,1920,1080);
+        Scene sceneSixE = new Scene(layoutEditPopUp,1540,800);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -232,7 +232,7 @@ public class DashboardController {
         layoutsEdit.factoryLayoutName.setText(layoutName);
 
         Stage stageSixE = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneSixE = new Scene(layoutEditPopUp,1920,1080);
+        Scene sceneSixE = new Scene(layoutEditPopUp,1540,800);
         stageSixE.setScene(sceneSixE);
         stageSixE.show();
     }
@@ -246,7 +246,7 @@ public class DashboardController {
         layoutView.layoutNameLabel.setText(layoutName);
 
         Stage stageThreeV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThreeV = new Scene(layoutsViewPopUp,1920,1080);
+        Scene sceneThreeV = new Scene(layoutsViewPopUp,1540,800);
         stageThreeV.setScene(sceneThreeV);
         stageThreeV.show();
     }
@@ -259,7 +259,7 @@ public class DashboardController {
         layoutView.layoutNameLabel.setText(layoutName);
 
         Stage stageThreeV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThreeV = new Scene(layoutsViewPopUp,1920,1080);
+        Scene sceneThreeV = new Scene(layoutsViewPopUp,1540,800);
         stageThreeV.setScene(sceneThreeV);
         stageThreeV.show();
     }
@@ -272,7 +272,7 @@ public class DashboardController {
         layoutView.layoutNameLabel.setText(layoutName);
 
         Stage stageThreeV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThreeV = new Scene(layoutsViewPopUp,1920,1080);
+        Scene sceneThreeV = new Scene(layoutsViewPopUp,1540,800);
         stageThreeV.setScene(sceneThreeV);
         stageThreeV.show();
     }
@@ -285,7 +285,7 @@ public class DashboardController {
         layoutView.layoutNameLabel.setText(layoutName);
 
         Stage stageThreeV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThreeV = new Scene(layoutsViewPopUp,1920,1080);
+        Scene sceneThreeV = new Scene(layoutsViewPopUp,1540,800);
         stageThreeV.setScene(sceneThreeV);
         stageThreeV.show();
     }
@@ -298,7 +298,7 @@ public class DashboardController {
         layoutView.layoutNameLabel.setText(layoutName);
 
         Stage stageThreeV = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene sceneThreeV = new Scene(layoutsViewPopUp,1920,1080);
+        Scene sceneThreeV = new Scene(layoutsViewPopUp,1540,800);
         stageThreeV.setScene(sceneThreeV);
         stageThreeV.show();
     }
