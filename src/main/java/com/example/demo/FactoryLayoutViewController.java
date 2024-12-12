@@ -57,13 +57,13 @@ public class FactoryLayoutViewController {
 
             // sets the color of the pane based on the value of the choiceBox
             if (typeOfBox.equals("Start")) {
-                pane.setStyle("-fx-background-color: darkgreen;");
+                pane.setStyle("-fx-background-color: darkSeaGreen;");
             } else if (typeOfBox.equals("Exit")) {
-                pane.setStyle("-fx-background-color: red");
+                pane.setStyle("-fx-background-color: IndianRed");
             } else if (typeOfBox.equals("Wall")) {
-                pane.setStyle("-fx-background-color: grey");
+                pane.setStyle("-fx-background-color: Gray");
             } else {
-                pane.setStyle("-fx-background-color: blue");
+                pane.setStyle("-fx-background-color: CadetBlue");
             }
         }
     }

@@ -108,13 +108,13 @@ public class SimulationRunner implements Initializable {
 
             // sets the color of the pane based on the value of the choiceBox
             if (typeOfBox.equals("Start")) {
-                hBox.setStyle("-fx-background-color: darkgreen;");
+                hBox.setStyle("-fx-background-color: darkSeaGreen;");
             } else if (typeOfBox.equals("Exit")) {
-                hBox.setStyle("-fx-background-color: red");
+                hBox.setStyle("-fx-background-color: IndianRed");
             } else if (typeOfBox.equals("Wall")) {
-                hBox.setStyle("-fx-background-color: grey");
+                hBox.setStyle("-fx-background-color: Gray");
             } else {
-                hBox.setStyle("-fx-background-color: blue");
+                hBox.setStyle("-fx-background-color: CadetBlue");
             }
         }
 
