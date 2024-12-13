@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1550.0" prefHeight="700.0" prefWidth="1550.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutViewController">
    <children>
-      <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
+      <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1520.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
-            <Label fx:id="layoutNameLabel" prefHeight="88.0" prefWidth="1327.0" style="-fx-border-color: black; -fx-background-color: LightYellow;">
+            <Label fx:id="layoutNameLabel" prefHeight="88.0" prefWidth="1550.0" style="-fx-border-color: black; -fx-background-color: LightYellow;" text="Layout Name" textFill="#6e6e6e">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -24,8 +24,21 @@
                </font>
             </Label>
          </children></VBox>
-      <VBox layoutX="14.0" layoutY="224.0" prefHeight="363.0" prefWidth="1324.0" style="-fx-background-color: #c17600;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="280.0" />
-      <GridPane gridLinesVisible="true" layoutX="18.4" layoutY="284.0" prefHeight="362.0" prefWidth="827.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="284.0">
+      <VBox alignment="CENTER" layoutX="1177.0" layoutY="284.0" prefHeight="396.0" prefWidth="359.0" style="-fx-background-color: Peru;">
+         <children>
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: none;" text="Facing Directions:">
+               <font>
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="robotDirectionLabel" prefHeight="57.0" prefWidth="130.0" style="-fx-border-color: grey; -fx-background-color: LightYellow;" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <GridPane gridLinesVisible="true" layoutX="18.4" layoutY="284.0" prefHeight="396.0" prefWidth="1055.0" style="-fx-background-color: Peru;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="477.0" AnchorPane.topAnchor="284.0">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,7 +54,6 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="P_00" prefWidth="226.0" />
             <Pane fx:id="P_10" GridPane.columnIndex="1" />
             <Pane fx:id="P_20" GridPane.columnIndex="2" />
             <Pane fx:id="P_30" GridPane.columnIndex="3" />
@@ -68,12 +80,6 @@
             <Pane fx:id="P_44" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Label fx:id="robotDirectionLabel" layoutX="1188.5999755859375" layoutY="379.3999938964844" prefHeight="57.0" prefWidth="130.0" style="-fx-border-color: grey;" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="500.0" layoutY="500.0" prefHeight="37.0" prefWidth="118.0" text="Facing Directions:" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="31.0" />
       <VBox layoutX="14.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
          <children>
             <Button fx:id="FLV_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: #c17600;" text="Back">
@@ -82,7 +88,7 @@
                </font>
             </Button>
          </children></VBox>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: GOLDENROD;">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: DarkGoldenRod;">
          <children>
             <Label prefHeight="72.0" prefWidth="150.0" text="     App Name" textFill="WHITE">
                <font>
@@ -90,9 +96,10 @@
                </font>
             </Label>
          </children></VBox>
-      <Button fx:id="viewButton" layoutX="1244.0" layoutY="117.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="40.0" prefWidth="84.0" style="-fx-background-color: CadetBlue;" text="View">
+      <Button fx:id="viewButton" layoutX="1402.0" layoutY="120.0" mnemonicParsing="false" onAction="#onViewButtonClick" prefHeight="40.0" prefWidth="84.0" style="-fx-background-color: CadetBlue;" text="View" AnchorPane.rightAnchor="14.0">
          <font>
             <Font name="Book Antiqua" size="18.0" />
          </font></Button>
+      <Pane fx:id="P_00" layoutX="787.0" layoutY="378.0" prefWidth="226.0" />
    </children>
 </AnchorPane>

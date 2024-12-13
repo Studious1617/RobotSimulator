@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
+<AnchorPane minHeight="800.0" minWidth="1550.0" prefHeight="600.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsCreate">
    <children>
-      <HBox prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
+      <HBox prefHeight="50.0" prefWidth="1550.0" style="-fx-background-color: Gray;">
          <children>
             <Label text="Rules Engine">
                <font>
@@ -20,7 +32,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
+      <HBox layoutY="50.0" prefHeight="50.0" prefWidth="1550.0" style="-fx-background-color: Silver;">
          <children>
             <Label text="Ruleset Creator">
                <font>
@@ -32,7 +44,7 @@
             </Label>
          </children>
       </HBox>
-      <GridPane alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="100.0" prefHeight="150.0" prefWidth="1400.0">
+      <GridPane alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="100.0" prefHeight="150.0" prefWidth="1518.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -78,7 +90,7 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
                   <HBox prefHeight="76.0" prefWidth="635.0" />
-                  <Button fx:id="rulesetSaveButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSaveButtonClick" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: DarkSeaGreen;" text="Save">
+                  <Button fx:id="rulesetSaveButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onSaveButtonClick" prefHeight="44.0" prefWidth="80.0" style="-fx-background-color: DarkSeaGreen;" text="Save">
                      <font>
                         <Font name="Bodoni MT Condensed" size="24.0" />
                      </font>
@@ -90,10 +102,10 @@
             </HBox>
          </children>
       </GridPane>
-      <Pane layoutY="230.0" prefHeight="371.0" prefWidth="1400.0" style="-fx-background-color: lightYellow;">
+      <Pane layoutY="230.0" prefHeight="570.0" prefWidth="1550.0" style="-fx-background-color: lightYellow;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1375.0" />
-            <Button fx:id="addRuleButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1316.0" layoutY="332.0" mnemonicParsing="false" onAction="#onAddRuleButtonClick" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="323.0" layoutX="16.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1504.0" />
+            <Button fx:id="addRuleButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1450.0" layoutY="337.0" mnemonicParsing="false" onAction="#onAddRuleButtonClick" prefHeight="25.0" style="-fx-background-color: DarkSalmon;" text="Add Rule" textAlignment="CENTER">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
@@ -104,9 +116,9 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <TabPane layoutX="25.0" layoutY="14.0" prefHeight="300.0" prefWidth="1355.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="210.0">
+            <TabPane layoutX="25.0" layoutY="14.0" prefHeight="300.0" prefWidth="1477.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="210.0">
               <tabs>
-                <Tab fx:id="rule1Tab" text="Rule #1">
+                <Tab fx:id="rule1Tab" disable="true" text="Rule #1">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
@@ -145,7 +157,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule1_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -165,7 +177,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule1_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule1_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -181,7 +193,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule1_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -201,7 +213,7 @@
                                                                      </font>
                                                                   </Label>
                                                                   <ChoiceBox fx:id="rule1_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
-                                                                  <Button fx:id="rule1_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
+                                                                  <Button fx:id="rule1_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
                                                                      </font>
@@ -214,7 +226,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule1_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -310,7 +322,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule2_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -346,7 +358,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule2_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -379,7 +391,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule2_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -475,7 +487,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule3_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -511,7 +523,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule3_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -544,7 +556,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule3_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -640,7 +652,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule4_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -676,7 +688,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule4_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -709,7 +721,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule4_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -805,7 +817,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule5_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -841,7 +853,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule5_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -874,7 +886,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule5_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -970,7 +982,7 @@
                                                    <children>
                                                       <VBox layoutY="1.0" prefHeight="132.0" prefWidth="801.0">
                                                          <children>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule6_Row2" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -1006,7 +1018,7 @@
                                                                   <Insets />
                                                                </VBox.margin>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule6_Row3" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>
@@ -1039,7 +1051,7 @@
                                                                   </Button>
                                                                </children>
                                                             </HBox>
-                                                            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0">
+                                                            <HBox fx:id="Rule6_Row4" alignment="CENTER" prefHeight="44.0" prefWidth="490.0" spacing="20.0" visible="false">
                                                                <children>
                                                                   <Label prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: none;" text="And">
                                                                      <padding>

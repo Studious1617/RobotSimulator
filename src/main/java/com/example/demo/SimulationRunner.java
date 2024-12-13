@@ -82,10 +82,10 @@ public class SimulationRunner implements Initializable {
             r++;
         }
 
-        //TODO add functional variables that carry the names of previously made layouts
+        //Functional variables that carry the names of previously made layouts
         ObservableList<String> layoutNameOptions = FXCollections.observableArrayList(layoutNames);
 
-        //TODO add functional variables that carry the names of previously made rulesets
+        //Functional variables that carry the names of previously made rulesets
         ObservableList<String> rulesetNameOptions = FXCollections.observableArrayList(rulesetNames);
 
         // list of max moves the robot can take

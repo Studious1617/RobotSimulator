@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -76,6 +77,13 @@ public class RulesetsCreate implements Initializable {
             rule6_And_CB2, rule6_Is_CB3,
             rule6_And_CB3, rule6_Is_CB4,
             rule6_Then_CB;
+
+    public HBox Rule1_Row2, Rule1_Row3, Rule1_Row4,
+            Rule2_Row2, Rule2_Row3, Rule2_Row4,
+            Rule3_Row2, Rule3_Row3, Rule3_Row4,
+            Rule4_Row2, Rule4_Row3, Rule4_Row4,
+            Rule5_Row2, Rule5_Row3, Rule5_Row4,
+            Rule6_Row2, Rule6_Row3, Rule6_Row4;
 
     public ArrayList<ChoiceBox<String>> arrayListForDirectionChoiceBoxes = new ArrayList<>();
     public ArrayList<ChoiceBox<String>> arrayListForSpaceChoiceBoxes = new ArrayList<>();
@@ -559,5 +567,50 @@ public class RulesetsCreate implements Initializable {
         Scene sceneFive = new Scene(rulesetsDashboardPopUp,1540,800);
         stageFive.setScene(sceneFive);
         stageFive.show();
+    }
+
+    public void onAddAndButtonClick(ActionEvent e) throws Exception{
+        if (!Rule1_Row2.isVisible()){
+            Rule1_Row2.setVisible(true);
+        } else if (!Rule1_Row3.isVisible()){
+            Rule1_Row3.setVisible(true);
+        } else if (!Rule1_Row4.isVisible()){
+            Rule1_Row4.setVisible(true);
+        }
+        else if (!Rule2_Row2.isVisible()){
+            Rule2_Row2.setVisible(true);
+        } else if (!Rule2_Row3.isVisible()){
+            Rule2_Row3.setVisible(true);
+        } else if (!Rule2_Row4.isVisible()){
+            Rule2_Row4.setVisible(true);
+        }
+        else if (!Rule3_Row2.isVisible()){
+            Rule3_Row2.setVisible(true);
+        } else if (!Rule3_Row3.isVisible()){
+            Rule3_Row3.setVisible(true);
+        } else if (!Rule3_Row4.isVisible()){
+            Rule3_Row4.setVisible(true);
+        }
+        else if (!Rule4_Row2.isVisible()){
+            Rule4_Row2.setVisible(true);
+        } else if (!Rule4_Row3.isVisible()){
+            Rule4_Row3.setVisible(true);
+        } else if (!Rule4_Row4.isVisible()){
+            Rule4_Row4.setVisible(true);
+        }
+        else if (!Rule5_Row2.isVisible()){
+            Rule5_Row2.setVisible(true);
+        } else if (!Rule5_Row3.isVisible()){
+            Rule5_Row3.setVisible(true);
+        } else if (!Rule5_Row4.isVisible()){
+            Rule5_Row4.setVisible(true);
+        }
+        else if (!Rule6_Row2.isVisible()){
+            Rule6_Row2.setVisible(true);
+        } else if (!Rule6_Row3.isVisible()){
+            Rule6_Row3.setVisible(true);
+        } else if (!Rule6_Row4.isVisible()){
+            Rule6_Row4.setVisible(true);
+        }
     }
 }

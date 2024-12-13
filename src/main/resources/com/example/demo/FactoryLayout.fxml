@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1350.0" style="-fx-background-color: Burlywood;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.FactoryLayoutController">
    <children>
-      <Button fx:id="saveButton" layoutX="1235.0" layoutY="111.0" mnemonicParsing="false" onAction="#onSaveLayoutButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: DODGERBLUE;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="13.0">
+      <Button fx:id="saveButton" layoutX="1200.0" layoutY="111.0" mnemonicParsing="false" onAction="#onSaveLayoutButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: CadetBlue;" text="Save" AnchorPane.rightAnchor="19.59999999999991">
          <font>
-            <Font size="14.0" />
+            <Font name="Book Antiqua" size="18.0" />
          </font>
       </Button>
-      <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
-      <VBox layoutX="14.0" layoutY="224.0" prefHeight="363.0" prefWidth="1324.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="280.0" />
-      <GridPane gridLinesVisible="true" layoutX="29.0" layoutY="234.0" prefHeight="342.0" prefWidth="1158.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="300.0">
+      <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: BurlyWood;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
+      <VBox layoutX="14.0" layoutY="288.8" prefHeight="348.0" prefWidth="1324.0" style="-fx-background-color: none;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="289.0" />
+      <GridPane gridLinesVisible="true" layoutX="29.0" layoutY="234.0" prefHeight="320.0" prefWidth="927.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="394.0" AnchorPane.topAnchor="300.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,18 +63,29 @@
             <ChoiceBox fx:id="CB_44" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="57.0" prefWidth="130.0" AnchorPane.bottomAnchor="213.0" AnchorPane.rightAnchor="31.0" />
-      <Label layoutX="500.0" layoutY="500.0" prefHeight="37.0" prefWidth="118.0" text="Facing Directions:" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="31.0" />
-      <TextField fx:id="factoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
-      <VBox layoutX="14.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="14.0">
+      <VBox alignment="CENTER" layoutX="1200.4000244140625" layoutY="337.20001220703125" prefHeight="348.0" prefWidth="318.0" style="-fx-background-color: none;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="12.0">
          <children>
-            <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" text="Back">
+            <Label prefHeight="37.0" prefWidth="118.0" text="Facing Directions:">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="robotDirectionCB" prefHeight="57.0" prefWidth="130.0" />
+         </children>
+      </VBox>
+      <TextField fx:id="factoryLayoutName" layoutX="100.0" layoutY="180.0" prefHeight="70.0" prefWidth="1311.0" promptText=" Layout Name" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0">
+         <font>
+            <Font name="Book Antiqua Bold" size="24.0" />
+         </font></TextField>
+      <VBox layoutX="20.0" layoutY="117.0" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="20.0">
+         <children>
+            <Button fx:id="FL_BackButton" mnemonicParsing="false" onAction="#onBackButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: #c17600;" text="Back">
+               <font>
+                  <Font name="Book Antiqua" size="18.0" />
                </font>
             </Button>
          </children></VBox>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: GOLDENROD;">
+      <VBox layoutX="20.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: DarkGOLDENROD;">
          <children>
             <Label prefHeight="72.0" prefWidth="150.0" text="     App Name" textFill="WHITE">
                <font>
