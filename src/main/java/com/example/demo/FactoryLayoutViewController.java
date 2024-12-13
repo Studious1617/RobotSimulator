@@ -38,6 +38,7 @@ public class FactoryLayoutViewController {
     public void onViewButtonClick () {
         layoutName = layoutNameLabel.getText();
         layoutId = sqlConfiguration.getLayoutId(layoutName, userEmail);
+        robotDirection = sqlConfiguration.getRobotDirection(layoutId);
         // gets layout grid data
         layoutData = (ArrayList<String>) sqlConfiguration.getUserLayouts(userEmail).get(layoutId);
 
@@ -66,6 +67,8 @@ public class FactoryLayoutViewController {
                 pane.setStyle("-fx-background-color: CadetBlue");
             }
         }
+        // adds robot direction to the label
+        robotDirectionLabel.setText(robotDirection);
     }
 
     @FXML

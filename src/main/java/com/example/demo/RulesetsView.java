@@ -154,29 +154,29 @@ public class RulesetsView {
 
         // puts rule info into labels using checkRules method
             // first rule
-            checkAndPutRulesIntoLabels(rule1, whenLabel_Rule1, is1Label_Rule1, thenLabel_Rule1, and1Label_Rule1,
-                    is2Label_Rule1, and2Label_Rule1, is3Label_Rule1, and3Label_Rule1, is4Label_Rule1);
+            checkAndPutRulesIntoLabels(rule1, whenLabel_Rule1, is1Label_Rule1, and1Label_Rule1,
+                    is2Label_Rule1, and2Label_Rule1, is3Label_Rule1, and3Label_Rule1, is4Label_Rule1, thenLabel_Rule1);
             // second rule
-            checkAndPutRulesIntoLabels(rule2, whenLabel_Rule2, is1Label_Rule2, thenLabel_Rule2, and1Label_Rule2,
-                    is2Label_Rule2, and2Label_Rule2, is3Label_Rule2, and3Label_Rule2, is4Label_Rule2);
+            checkAndPutRulesIntoLabels(rule2, whenLabel_Rule2, is1Label_Rule2, and1Label_Rule2,
+                    is2Label_Rule2, and2Label_Rule2, is3Label_Rule2, and3Label_Rule2, is4Label_Rule2, thenLabel_Rule2);
             // third rule
-            checkAndPutRulesIntoLabels(rule3, whenLabel_Rule3, is1Label_Rule3, thenLabel_Rule3, and1Label_Rule3,
-                    is2Label_Rule3, and2Label_Rule3, is3Label_Rule3, and3Label_Rule3, is4Label_Rule3);
+            checkAndPutRulesIntoLabels(rule3, whenLabel_Rule3, is1Label_Rule3, and1Label_Rule3,
+                    is2Label_Rule3, and2Label_Rule3, is3Label_Rule3, and3Label_Rule3, is4Label_Rule3, thenLabel_Rule3);
             // fourth rule
-            checkAndPutRulesIntoLabels(rule4, whenLabel_Rule4, is1Label_Rule4, thenLabel_Rule4, and1Label_Rule4,
-                    is2Label_Rule4, and2Label_Rule4, is3Label_Rule4, and3Label_Rule4, is4Label_Rule4);
+            checkAndPutRulesIntoLabels(rule4, whenLabel_Rule4, is1Label_Rule4, and1Label_Rule4,
+                    is2Label_Rule4, and2Label_Rule4, is3Label_Rule4, and3Label_Rule4, is4Label_Rule4, thenLabel_Rule4);
             // fifth rule
-            checkAndPutRulesIntoLabels(rule5, whenLabel_Rule5, is1Label_Rule5, thenLabel_Rule5, and1Label_Rule5,
-                    is2Label_Rule5, and2Label_Rule5, is3Label_Rule5, and3Label_Rule5, is4Label_Rule5);
+            checkAndPutRulesIntoLabels(rule5, whenLabel_Rule5, is1Label_Rule5, and1Label_Rule5,
+                    is2Label_Rule5, and2Label_Rule5, is3Label_Rule5, and3Label_Rule5, is4Label_Rule5, thenLabel_Rule5);
             // sixth rule
-            checkAndPutRulesIntoLabels(rule6, whenLabel_Rule6, is1Label_Rule6, thenLabel_Rule6, and1Label_Rule6,
-                    is2Label_Rule6, and2Label_Rule6, is3Label_Rule6, and3Label_Rule6, is4Label_Rule6);
+            checkAndPutRulesIntoLabels(rule6, whenLabel_Rule6, is1Label_Rule6, and1Label_Rule6,
+                    is2Label_Rule6, and2Label_Rule6, is3Label_Rule6, and3Label_Rule6, is4Label_Rule6, thenLabel_Rule6);
     }
 
-    public void checkAndPutRulesIntoLabels(ArrayList<String> rule, Label whenLabel, Label is1Label, Label thenLabel,
-           Label and1Label, Label is2Label, Label and2Label, Label is3Label, Label and3Label, Label is4Label) {
+    public void checkAndPutRulesIntoLabels(ArrayList<String> rule, Label whenLabel, Label is1Label,
+           Label and1Label, Label is2Label, Label and2Label, Label is3Label, Label and3Label, Label is4Label, Label thenLabel) {
         // variables to hold the conditions
-        String when, is1, then, and1, is2, and2, is3, and3, is4;
+        String when, is1, and1, is2, and2, is3, and3, is4, then;
         // checks if the rule exists and not blank
         if (rule != null && !rule.isEmpty()) {
             when = rule.getFirst();
@@ -189,45 +189,44 @@ public class RulesetsView {
                 is1 = "XXXXXXXX";
             }
 
-            then = rule.get(2);
-            if (then == null) {
-                then = "XXXXXXXX";
-            }
-
-            and1 = rule.get(3);
+            and1 = rule.get(2);
             if (and1 == null) {
                 and1 = "XXXXXXXX";
             }
 
-            is2 = rule.get(4);
+            is2 = rule.get(3);
             if (is2 == null) {
                 is2 = "XXXXXXXX";
             }
 
-            and2 = rule.get(5);
+            and2 = rule.get(4);
             if (and2 == null) {
                 and2 = "XXXXXXXX";
             }
 
-            is3 = rule.get(6);
+            is3 = rule.get(5);
             if (is3 == null) {
                 is3 = "XXXXXXXX";
             }
 
-            and3 = rule.get(7);
+            and3 = rule.get(6);
             if (and3 == null) {
                 and3 = "XXXXXXXX";
             }
 
-            is4 = rule.get(8);
+            is4 = rule.get(7);
             if (is4 == null) {
                 is4 = "XXXXXXXX";
+            }
+
+            then = rule.get(8);
+            if (then == null) {
+                then = "XXXXXXXX";
             }
 
             // puts the values into the labels
             whenLabel.setText(when);
             is1Label.setText(is1);
-            thenLabel.setText(then);
 
             and1Label.setText(and1);
             is2Label.setText(is2);
@@ -235,6 +234,8 @@ public class RulesetsView {
             is3Label.setText(is3);
             and3Label.setText(and3);
             is4Label.setText(is4);
+
+            thenLabel.setText(then);
         }
     }
 
