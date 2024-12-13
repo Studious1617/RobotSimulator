@@ -42,13 +42,13 @@ public class SQLConfiguration {
                 ruleset_id INT NOT NULL,
                 when_condition VARCHAR(50) NOT NULL,
                 is1_condition VARCHAR(50) NOT NULL,
-                then_action VARCHAR(50) NOT NULL,
                 and1_condition VARCHAR(50),
                 is2_condition VARCHAR(50),
                 and2_condition VARCHAR(50),
                 is3_condition VARCHAR(50),
                 and3_condition VARCHAR(50),
                 is4_condition VARCHAR(50),
+                then_action VARCHAR(50) NOT NULL,
                 CONSTRAINT fk_ruleset
                     FOREIGN KEY (ruleset_id)
                         REFERENCES rulesets (ruleset_id)
@@ -330,48 +330,51 @@ public class SQLConfiguration {
         }
     }
 
-    public void insertRule (int rulesetID, String when, String is1, String then,
-                             String and1, String is2, String and2, String is3, String and3, String is4) {
-        String insertRule = "INSERT INTO rules (ruleset_id, when_condition, is1_condition, then_action, " +
-                "and1_condition, is2_condition, and2_condition, is3_condition, and3_condition, is4_condition)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public void insertRule (int rulesetID, String when, String is1,
+                String and1, String is2, String and2, String is3, String and3, String is4, String then) {
+        String insertRule = "INSERT INTO rules (ruleset_id, when_condition, is1_condition, " +
+                "and1_condition, is2_condition, and2_condition, is3_condition, and3_condition, is4_condition, " +
+                "then_action) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
         PreparedStatement preparedStatement = connection.prepareStatement(insertRule)) {
-            //preparedStatement.setInt(1, ruleID);
+            // ruleset id and first condition
             preparedStatement.setInt(1, rulesetID);
             preparedStatement.setString(2, when);
             preparedStatement.setString(3, is1);
-            preparedStatement.setString(4, then);
-            // And conditions
-            preparedStatement.setString(5, and1);
-            preparedStatement.setString(6, is2);
-            preparedStatement.setString(7, and2);
-            preparedStatement.setString(8, is3);
-            preparedStatement.setString(9, and3);
-            preparedStatement.setString(10, is4);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Error saving rule: " + e);
-        }
-    }
-
-    public void editRuleset (int ruleset_id, int rule_id, String when, String is1, String then,
-                             String and1, String is2, String and2, String is3, String and3, String is4) {
-        String editRulesSQL = "UPDATE rules SET when_condition = ?, is1_condition = ?, then_action = ?, and1_condition = ?," +
-                " is2_condition = ?, and2_condition = ?, is3_condition = ?, and3_condition = ?, is4_condition = ?" +
-                " WHERE ruleset_id = ? AND rule_id = ?";
-        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
-             PreparedStatement preparedStatement = connection.prepareStatement(editRulesSQL)) {
-            preparedStatement.setString(1, when);
-            preparedStatement.setString(2, is1);
-            preparedStatement.setString(3, then);
-            // And conditions
+            // AND conditions
             preparedStatement.setString(4, and1);
             preparedStatement.setString(5, is2);
             preparedStatement.setString(6, and2);
             preparedStatement.setString(7, is3);
             preparedStatement.setString(8, and3);
             preparedStatement.setString(9, is4);
+            // THEN
+            preparedStatement.setString(10, then);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error saving rule: " + e);
+        }
+    }
+
+    public void editRuleset (int ruleset_id, int rule_id, String when, String is1,
+                 String and1, String is2, String and2, String is3, String and3, String is4, String then) {
+        String editRulesSQL = "UPDATE rules SET when_condition = ?, is1_condition = ?, and1_condition = ?," +
+                " is2_condition = ?, and2_condition = ?, is3_condition = ?, and3_condition = ?, is4_condition = ?," +
+                " then_action = ? WHERE ruleset_id = ? AND rule_id = ?";
+        try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
+             PreparedStatement preparedStatement = connection.prepareStatement(editRulesSQL)) {
+            // first condition
+            preparedStatement.setString(1, when);
+            preparedStatement.setString(2, is1);
+            // AND conditions
+            preparedStatement.setString(3, and1);
+            preparedStatement.setString(4, is2);
+            preparedStatement.setString(5, and2);
+            preparedStatement.setString(6, is3);
+            preparedStatement.setString(7, and3);
+            preparedStatement.setString(8, is4);
+            // THEN
+            preparedStatement.setString(9, then);
             // ids
             preparedStatement.setInt(10, ruleset_id);
             preparedStatement.setInt(11, rule_id);
@@ -474,13 +477,14 @@ public class SQLConfiguration {
                 // adds the row to the list
                 conditions.add(rs.getString("when_condition"));
                 conditions.add(rs.getString("is1_condition"));
-                conditions.add(rs.getString("then_action"));
                 conditions.add(rs.getString("and1_condition"));
                 conditions.add(rs.getString("is2_condition"));
                 conditions.add(rs.getString("and2_condition"));
                 conditions.add(rs.getString("is3_condition"));
                 conditions.add(rs.getString("and3_condition"));
                 conditions.add(rs.getString("is4_condition"));
+
+                conditions.add(rs.getString("then_action"));
                 // adds the id and the list to the map
                 idAndConditions.put(ruleId, conditions);
             }
