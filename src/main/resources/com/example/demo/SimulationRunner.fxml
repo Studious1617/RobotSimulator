@@ -15,9 +15,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="1400.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SimulationRunner">
+<AnchorPane minHeight="800.0" minWidth="1540.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SimulationRunner">
    <children>
-      <HBox minWidth="1400.0" prefHeight="49.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
+      <HBox minWidth="1540.0" prefHeight="49.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
             <Label text="Rules Engine">
                <font>
@@ -27,7 +27,7 @@
                   <Insets left="10.0" />
                </HBox.margin></Label>
          </children></HBox>
-      <HBox layoutY="47.0" minWidth="1400.0" prefHeight="35.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
+      <HBox layoutY="47.0" minWidth="1540.0" prefHeight="35.0" prefWidth="1400.0" style="-fx-background-color: Silver;">
          <children>
             <Label text="Simulation Runner">
                <font>
@@ -75,12 +75,12 @@
             </HBox>
          </children>
       </GridPane>
-      <Pane layoutY="145.0" prefHeight="460.0" prefWidth="1400.0" style="-fx-background-color: LightYellow;">
+      <Pane layoutY="145.0" prefHeight="656.0" prefWidth="1540.0" style="-fx-background-color: LightYellow;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="373.0" layoutX="6.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="1387.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="60.0" layoutX="6.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1387.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="50.0" layoutX="10.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="1378.0" />
-            <GridPane layoutX="13.0" layoutY="82.0" prefHeight="362.0" prefWidth="1372.0" style="-fx-background-color: LightYellow;">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="536.0" layoutX="14.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="1496.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="60.0" layoutX="14.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="1496.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTYELLOW" height="50.0" layoutX="17.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" width="1488.0" />
+            <GridPane layoutX="20.0" layoutY="82.0" prefHeight="522.0" prefWidth="1481.0" style="-fx-background-color: LightYellow;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -89,7 +89,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane fx:id="gridForRunner" gridLinesVisible="true" prefHeight="256.0" prefWidth="686.0" style="-fx-background-color: Cornsilk;">
+                  <GridPane fx:id="gridForRunner" gridLinesVisible="true" prefHeight="514.0" prefWidth="744.0" style="-fx-background-color: Cornsilk;">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -132,7 +132,7 @@
                         <HBox fx:id="hbox_44" layoutX="424.0" layoutY="252.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: none;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
-                  <GridPane prefWidth="618.0" GridPane.columnIndex="1">
+                  <GridPane prefHeight="362.0" prefWidth="758.0" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -141,11 +141,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ScrollPane prefHeight="362.0" prefWidth="319.0" GridPane.columnIndex="1">
+                        <ScrollPane prefHeight="362.0" prefWidth="420.0" GridPane.columnIndex="1">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="326.0" style="-fx-background-color: blue;">
                                  <children>
-                                    <ListView fx:id="listView" layoutX="-2.0" layoutY="-1.0" prefHeight="427.0" prefWidth="330.0" style="-fx-background-color: Wheat;" />
+                                    <ListView fx:id="listView" layoutX="-2.0" layoutY="-1.0" prefHeight="582.0" prefWidth="330.0" style="-fx-background-color: Wheat;" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -154,7 +154,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <HBox alignment="CENTER" layoutX="6.0" layoutY="15.0" prefHeight="45.0" prefWidth="1387.0" spacing="200.0">
+            <HBox alignment="CENTER" layoutX="50.0" layoutY="15.0" prefHeight="45.0" prefWidth="1451.0" spacing="200.0">
                <children>
                   <ComboBox fx:id="layoutName_CB" prefHeight="35.0" prefWidth="300.0" promptText="Layout Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />
                   <ComboBox fx:id="rulesetName_CB" layoutX="547.0" layoutY="20.0" prefHeight="35.0" prefWidth="300.0" promptText="Ruleset Name" style="-fx-background-color: BurlyWood; -fx-border-color: GoldenRod; -fx-font-size: 18; -fx-font-family: Serif;" />

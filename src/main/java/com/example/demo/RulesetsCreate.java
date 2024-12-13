@@ -569,6 +569,7 @@ public class RulesetsCreate implements Initializable {
         stageFive.show();
     }
 
+    //Adds functionality to add_And buttons
     public void onAddAndButtonClick(ActionEvent e) throws Exception{
         if (!Rule1_Row2.isVisible()){
             Rule1_Row2.setVisible(true);
