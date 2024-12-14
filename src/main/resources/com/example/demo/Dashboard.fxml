@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -38,20 +39,13 @@
                <children>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: burlywood;" text="Layouts">
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: tan;" text="Layouts" textAlignment="CENTER">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
                            </font>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect></Button>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Button fx:id="LayPage_RulesetsPageButton" mnemonicParsing="false" onAction="#onRulesetsPageClick" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: #c17600;" text="Rulesets">
                            <HBox.margin>
                               <Insets />
@@ -69,6 +63,9 @@
                                  </light>
                               </Lighting>
                            </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <GridPane.margin>
@@ -461,7 +458,10 @@
                                     <Light.Distant />
                                  </light>
                               </Lighting>
-                           </effect></Button>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                      <effect>
                         <InnerShadow />
@@ -472,7 +472,10 @@
                         <Button fx:id="createLayoutButton" mnemonicParsing="false" onAction="#onCreateNewLayoutClick" prefHeight="80.0" prefWidth="120.0" style="-fx-background-color: Chocolate;" text="Create">
                            <font>
                               <Font name="Bodoni MT Condensed" size="24.0" />
-                           </font></Button>
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                      <effect>
                         <Lighting>

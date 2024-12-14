@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -57,7 +58,10 @@
                      </font>
                      <HBox.margin>
                         <Insets left="5.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
@@ -86,38 +90,44 @@
                      </font>
                      <HBox.margin>
                         <Insets right="25.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </HBox>
          </children>
       </GridPane>
       <Pane layoutY="191.0" prefHeight="611.0" prefWidth="1550.0" style="-fx-background-color: LightYellow;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="358.0" layoutX="8.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="1518.0" />
-            <HBox alignment="TOP_RIGHT" layoutX="-3.0" layoutY="368.0" prefHeight="42.0" prefWidth="1529.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c17600" height="512.0" layoutX="22.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="1490.0" />
+            <HBox alignment="TOP_RIGHT" layoutX="-12.0" layoutY="522.0" prefHeight="42.0" prefWidth="1517.0">
                <children>
                   <Button fx:id="addRuleButton" mnemonicParsing="false" onAction="#onAddRuleButtonClick" style="-fx-background-color: DarkSalmon;" text="Add Rule">
                      <HBox.margin>
                         <Insets right="11.0" top="2.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Book Antiqua" size="14.0" />
+                        <Font name="Book Antiqua" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>
-            <TabPane layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="1503.0" style="-fx-background-color: LightYellow;" tabClosingPolicy="UNAVAILABLE" tabMinWidth="234.0">
+            <TabPane layoutX="28.0" layoutY="14.0" prefHeight="500.0" prefWidth="1475.0" style="-fx-background-color: LightYellow;" tabClosingPolicy="UNAVAILABLE" tabMinWidth="234.0">
               <tabs>
                 <Tab fx:id="rule1Tab" text="Rule #1">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1355.0" style="-fx-background-color: LightYellow;">
                            <children>
-                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="270.0" prefWidth="1361.0" spacing="10.0">
+                              <VBox alignment="BOTTOM_RIGHT" layoutX="-2.0" prefHeight="471.0" prefWidth="1362.0" spacing="10.0">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                    <HBox alignment="CENTER" prefHeight="113.0" prefWidth="1362.0" spacing="20.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: none;" text="When" textAlignment="CENTER">
                                              <opaqueInsets>
@@ -130,7 +140,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule1_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -139,10 +152,13 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule1_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
+                                    <HBox alignment="CENTER" prefHeight="314.0" prefWidth="1362.0">
                                        <children>
                                           <ScrollPane pannable="true" prefHeight="147.0" prefWidth="697.0" style="-fx-background-color: LightYellow; -fx-border-color: none;">
                                              <content>
@@ -160,7 +176,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule1_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -169,7 +188,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule1_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule1_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -180,6 +202,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                                <VBox.margin>
@@ -196,7 +221,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule1_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -205,7 +233,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule1_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule1_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule1_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -216,6 +247,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -254,7 +288,7 @@
                                           </ScrollPane>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1362.0" spacing="20.0">
+                                    <HBox alignment="CENTER" prefHeight="171.0" prefWidth="1362.0" spacing="20.0">
                                        <children>
                                           <Label prefHeight="30.0" prefWidth="54.0" style="-fx-background-color: none;" text="Then">
                                              <opaqueInsets>
@@ -267,7 +301,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule1_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule1_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -295,7 +332,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule2_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule2_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -304,7 +344,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule2_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule2_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -325,7 +368,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -334,7 +380,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule2_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule2_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -345,6 +394,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                                <VBox.margin>
@@ -361,7 +413,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -370,7 +425,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule2_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule2_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -381,6 +439,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -394,7 +455,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule2_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -403,7 +467,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule2_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule2_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -432,7 +499,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule2_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule2_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -460,7 +530,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule3_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule3_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -469,7 +542,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule3_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule3_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -490,7 +566,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -499,7 +578,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule3_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule3_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -526,7 +608,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -535,7 +620,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule3_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule3_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -546,6 +634,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -559,7 +650,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule3_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -568,7 +662,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule3_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule3_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -597,7 +694,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule3_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule3_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -625,7 +725,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule4_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule4_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -634,7 +737,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule4_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule4_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -655,7 +761,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -664,7 +773,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule4_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule4_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -675,6 +787,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                                <VBox.margin>
@@ -691,7 +806,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -700,7 +818,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule4_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule4_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -711,6 +832,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -724,7 +848,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule4_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -733,7 +860,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule4_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule4_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -762,7 +892,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule4_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule4_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -790,7 +923,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule5_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule5_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -799,7 +935,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule5_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule5_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -820,7 +959,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -829,7 +971,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule5_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule5_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -840,6 +985,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                                <VBox.margin>
@@ -856,7 +1004,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -865,7 +1016,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule5_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule5_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -876,6 +1030,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -889,7 +1046,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule5_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -898,7 +1058,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule5_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule5_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -927,7 +1090,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule5_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule5_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>
@@ -955,7 +1121,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule6_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                          <ChoiceBox fx:id="rule6_When_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                           <Label prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: none;" text="is">
                                              <padding>
                                                 <Insets left="15.0" right="15.0" />
@@ -964,7 +1133,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule6_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                          <ChoiceBox fx:id="rule6_Is_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="166.0" prefWidth="1362.0">
@@ -985,7 +1157,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB1" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -994,7 +1169,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule6_Is_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule6_addButton1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -1005,6 +1183,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                                <VBox.margin>
@@ -1021,7 +1202,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB2" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -1030,7 +1214,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule6_Is_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Button fx:id="rule6_addButton2" alignment="CENTER" contentDisplay="CENTER" minWidth="30.0" mnemonicParsing="false" onAction="#onAddAndButtonClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: GoldenRod;" text="Add" textAlignment="CENTER">
                                                                      <font>
                                                                         <Font name="Book Antiqua" size="14.0" />
@@ -1041,6 +1228,9 @@
                                                                      <opaqueInsets>
                                                                         <Insets />
                                                                      </opaqueInsets>
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor>
                                                                   </Button>
                                                                </children>
                                                             </HBox>
@@ -1054,7 +1244,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;" />
+                                                                  <ChoiceBox fx:id="rule6_And_CB3" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: #c17600;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label prefHeight="31.0" prefWidth="36.0" style="-fx-background-color: none;" text="is" textAlignment="CENTER">
                                                                      <padding>
                                                                         <Insets left="15.0" right="15.0" />
@@ -1063,7 +1256,10 @@
                                                                         <Font name="Book Antiqua" size="18.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <ChoiceBox fx:id="rule6_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;" />
+                                                                  <ChoiceBox fx:id="rule6_Is_CB4" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Burlywood;">
+                                                                     <cursor>
+                                                                        <Cursor fx:constant="HAND" />
+                                                                     </cursor></ChoiceBox>
                                                                   <Label alignment="CENTER" prefHeight="23.0" prefWidth="75.0" text="Done" textFill="RED">
                                                                      <font>
                                                                         <Font name="Book Antiqua Bold" size="18.0" />
@@ -1092,7 +1288,10 @@
                                                 <Font name="Book Antiqua" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="rule6_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;" />
+                                          <ChoiceBox fx:id="rule6_Then_CB" minHeight="30.0" prefWidth="150.0" style="-fx-background-color: Chocolate;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                        </children>
                                     </HBox>
                                  </children>

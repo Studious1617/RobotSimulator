@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -17,6 +18,9 @@
          <font>
             <Font name="Book Antiqua" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <VBox layoutX="100.0" layoutY="170.0" prefHeight="88.0" prefWidth="1324.0" style="-fx-background-color: NONE;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" />
       <VBox layoutX="14.0" layoutY="224.0" prefHeight="363.0" prefWidth="1324.0" style="-fx-background-color: None;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="280.0" />
@@ -62,8 +66,14 @@
             <ChoiceBox fx:id="CB_34" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <ChoiceBox fx:id="CB_44" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </GridPane>
-      <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="57.0" prefWidth="130.0" AnchorPane.bottomAnchor="213.0" AnchorPane.rightAnchor="31.0" />
+      <ChoiceBox fx:id="robotDirectionCB" layoutX="467.0" layoutY="258.0" prefHeight="57.0" prefWidth="130.0" AnchorPane.bottomAnchor="213.0" AnchorPane.rightAnchor="31.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ChoiceBox>
       <Label layoutX="500.0" layoutY="500.0" prefHeight="37.0" prefWidth="118.0" text="Facing Directions:" AnchorPane.bottomAnchor="275.0" AnchorPane.rightAnchor="31.0">
          <font>
             <Font name="Book Antiqua" size="14.0" />
@@ -78,11 +88,14 @@
                <font>
                   <Font name="Book Antiqua" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></VBox>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="88.0" prefWidth="591.0" style="-fx-background-color: DarkGoldenRod;">
          <children>
-            <Label prefHeight="72.0" prefWidth="150.0" text="     App Name" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="88.0" prefWidth="344.0" text="Honeycomb Robot Simulator" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
