@@ -75,7 +75,8 @@ public class RulesetsEdit implements Initializable {
             rule6_And_CB3, rule6_Is_CB4,
             rule6_Then_CB;
 
-    public HBox Rule1_Row2, Rule1_Row3, Rule1_Row4,
+    public HBox
+            Rule1_Row2, Rule1_Row3, Rule1_Row4,
             Rule2_Row2, Rule2_Row3, Rule2_Row4,
             Rule3_Row2, Rule3_Row3, Rule3_Row4,
             Rule4_Row2, Rule4_Row3, Rule4_Row4,
@@ -104,7 +105,7 @@ public class RulesetsEdit implements Initializable {
         ObservableList<String> rulesDirectionOptions = FXCollections.observableArrayList(
                 "In-front", "To the left", "To the right", "Backwards");
         ObservableList<String> rulesSpaceOptions = FXCollections.observableArrayList(
-                "Wall", "Empty", "Start", "Exit");
+                "Wall", "Open", "Start", "Exit");
         ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
                 "Move forward", "Turn right", "Turn left", "Turn back");
 
@@ -774,7 +775,7 @@ public class RulesetsEdit implements Initializable {
 
 
     //Adds functionality to add_And buttons
-    public void onAddAndButtonClick(ActionEvent e) throws Exception{
+    public void onAddAndButtonClick() {
         if (!Rule1_Row2.isVisible()){
             Rule1_Row2.setVisible(true);
         } else if (!Rule1_Row3.isVisible()){

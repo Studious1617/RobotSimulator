@@ -94,7 +94,7 @@ public class RulesetsCreate implements Initializable {
         ObservableList<String> rulesDirectionOptions = FXCollections.observableArrayList(
                 "In-front", "To the left", "To the right", "Backwards");
         ObservableList<String> rulesSpaceOptions = FXCollections.observableArrayList(
-                "Wall", "Empty", "Start", "Exit");
+                "Wall", "Open", "Start", "Exit");
         ObservableList<String> rulesActionOptions =FXCollections.observableArrayList(
                 "Move forward", "Turn right", "Turn left", "Turn back");
 
@@ -570,7 +570,7 @@ public class RulesetsCreate implements Initializable {
     }
 
     //Adds functionality to add_And buttons
-    public void onAddAndButtonClick(ActionEvent e) throws Exception{
+    public void onAddAndButtonClick() {
         if (!Rule1_Row2.isVisible()){
             Rule1_Row2.setVisible(true);
         } else if (!Rule1_Row3.isVisible()){
