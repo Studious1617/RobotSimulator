@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsDashboard">
+<AnchorPane prefHeight="600.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsDashboard">
     <children>
       <HBox alignment="CENTER" prefHeight="800.0" prefWidth="1377.0" style="-fx-background-color: LightYellow;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -45,9 +44,6 @@
                                  <bumpInput>
                                     <Shadow />
                                  </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
                               </Lighting>
                            </effect>
                            <font>
@@ -91,7 +87,7 @@
                       </HBox>
                       <HBox fx:id="ruleset1_right" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="3.0" style="-fx-background-color: burlywood;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
                           <children>
-                              <Button fx:id="deleteRulesetButton1" mnemonicParsing="false" onAction="#onDeleteRulesetClick" style="-fx-background-color: IndianRed;" text="Delete">
+                              <Button fx:id="deleteRulesetButton1" mnemonicParsing="false" onAction="#onDeleteRulesetClick1" style="-fx-background-color: IndianRed;" text="Delete">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -101,7 +97,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="viewLayoutButton1" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton1" mnemonicParsing="false" onAction="#onViewRulesetClick1" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -111,7 +107,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton1" mnemonicParsing="false" onAction="#onEditRulesetClick1" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -217,7 +213,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="viewLayoutButton2" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton2" mnemonicParsing="false" onAction="#onViewRulesetClick2" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -227,7 +223,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton2" mnemonicParsing="false" onAction="#onEditRulesetClick2" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -258,7 +254,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="viewLayoutButton3" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton3" mnemonicParsing="false" onAction="#onViewRulesetClick3" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -268,7 +264,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton3" mnemonicParsing="false" onAction="#onEditRulesetClick3" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -299,7 +295,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="viewLayoutButton4" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton4" mnemonicParsing="false" onAction="#onViewRulesetClick4" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -309,7 +305,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton4" mnemonicParsing="false" onAction="#onEditRulesetClick4" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -340,7 +336,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="viewLayoutButton5" mnemonicParsing="false" onAction="#onViewRulesetClick" style="-fx-background-color: lightblue;" text="View">
+                              <Button fx:id="viewRulesetButton5" mnemonicParsing="false" onAction="#onViewRulesetClick5" style="-fx-background-color: lightblue;" text="View">
                            <font>
                               <Font name="Book Antiqua" size="18.0" />
                            </font>
@@ -350,7 +346,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton5" mnemonicParsing="false" onAction="#onEditRulesetClick5" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -415,9 +411,6 @@
                            <bumpInput>
                               <Shadow />
                            </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
                         </Lighting>
                      </effect>
                       </HBox>
@@ -436,9 +429,6 @@
                            <bumpInput>
                               <Shadow />
                            </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
                         </Lighting>
                      </effect>
                       </HBox>

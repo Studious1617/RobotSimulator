@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -53,7 +55,8 @@ public class SimulationRunner implements Initializable {
     public HBox[][] arrayArrayForHboxes;
 
     // stuff for robot
-    public Rectangle robot;
+    public Image robotIcon = new Image("file:\\C:\\Users\\Access Point\\Downloads\\bee_icon.png");
+    public ImageView imageView;
     public int robotRow = 0;
     public int robotCol = 0;
 
@@ -67,23 +70,11 @@ public class SimulationRunner implements Initializable {
     public ArrayList<String> stepsLog = new ArrayList<>();
 
     public void initialize (URL url, ResourceBundle resourceBundle) {
-        // variable for the layouts' index
-        int l = 0;
         // puts the layout names into an arrayList
         ArrayList<String> layoutNames = sqlConfiguration.getLayoutNamesFromTable(userEmail);
-        for (String lName: layoutNames) {
-            System.out.println("Layout " + (l + 1) + " name: " + lName);
-            l++;
-        }
 
-        // variable for the rulesets' index
-        int r = 0;
         // rulesets are put into this arrayList
         ArrayList<String> rulesetNames = sqlConfiguration.getRulesetNamesFromTable(userEmail);
-        for (String rName: rulesetNames) {
-            System.out.println("Ruleset " + (r + 1)+ " name: " + rName);
-            r++;
-        }
 
         //Functional variables that carry the names of previously made layouts
         ObservableList<String> layoutNameOptions = FXCollections.observableArrayList(layoutNames);
@@ -93,7 +84,7 @@ public class SimulationRunner implements Initializable {
 
         // list of max moves the robot can take
         ObservableList<String> maxAttempts =FXCollections.observableArrayList(
-                "10", "20", "30", "40", "50", "100", "150", "200");
+                "5", "10", "20", "30", "40", "50", "100", "150", "200");
 
         // adds options to comboBoxes
         layoutName_CB.getItems().addAll(layoutNameOptions);
@@ -233,7 +224,6 @@ public class SimulationRunner implements Initializable {
 
     public void simRunnerExecution() {
         useLayout(layoutName_CB.getValue());
-        System.out.println("\n\tSIMULATION RUNNER");
         // variable to hold the index of the arrayList
         int index = 0;
 
@@ -253,129 +243,130 @@ public class SimulationRunner implements Initializable {
                     robotRow = row;
                     robotCol = col;
                     // deletes the robot if was already created
-                    if (robot != null) {
-                        gridForRunner.getChildren().remove(robot);
+                    if (imageView != null) {
+                        gridForRunner.getChildren().remove(imageView);
                     }
-                    // makes the robot
-                    robot = new Rectangle(50, 50, Color.VIOLET);
+                    // something to hold the image
+                    imageView = new ImageView();
+                    // adds the icon to the imageView
+                    imageView.setImage(robotIcon);
+                    imageView.setFitWidth(80);
+                    imageView.setFitHeight(80);
                     // adds the robot to the grid at the starting space
-                    gridForRunner.add(robot, robotCol, robotRow);
-                    System.out.println("Robot coordinates: (" + robotRow + ", " + robotCol + ")");
+                    gridForRunner.add(imageView, robotCol, robotRow);
                 } else if (typeOfBox.equals("Exit")) {
                     hBox.setStyle("-fx-background-color: IndianRed");
                 } else if (typeOfBox.equals("Wall")) {
                     hBox.setStyle("-fx-background-color: Gray");
                 } else {
-                    hBox.setStyle("-fx-background-color: White");
+                    hBox.setStyle("-fx-background-color: yellow");
                 }
-                System.out.print("Normal coordinates: (" + row + ", " + col + ")\t");
-                System.out.println("Index: " + index);
                 // increases the index by 1
                 index++;
             }
         }
     }
 
-    public void moveRobotAutomaticallyPastVersion() {
-        System.out.println("\n\tMOVE ROBOT");
-        // checks if the comboBox has a value
-        if (maxAttempts_CB.getValue() != null) {
-            // sets the variable to the selected max number
-            int maxTries = Integer.parseInt(maxAttempts_CB.getValue());
-            System.out.println("Max tries: " + maxTries);
-            // to add actions to the ListView
-            ObservableList<String> items = FXCollections.observableArrayList();
-
-            // variable to hold the index
-            int stepsIndex = 0;
-            int loopIndex = 0;
-
-            // goes until the robot doesn't complete the layout
-            while (!arrayOfLayoutRows[robotRow][robotCol].equals("Exit") && loopIndex < maxTries) {
-                // loops through the rule Strings
-                for (String rule : separateRuleConditions()) {
-                    // split whole thing by commas, so it splits the rules into separate lists
-                    String[] rules = rule.split(",");
-
-                    // loops through the split rule list
-                    for (String part : rules) {
-                    // if there's only 1 pair  (d:s|a)
-                        // splits the rule into a list with 2 values (d, b|a)
-                        String[] twoParts = part.split(":");
-                        // first one is the direction
-                        String direction = twoParts[0];
-                        System.out.println("Direction: " + direction);
-
-                        // splits the second value as well      (b, a)
-                        String[] secondParts = twoParts[1].split("\\|");
-                        // first value of the split value is the block
-                        String typeOfSpace = secondParts[0];
-                        System.out.println("Type of space: " + typeOfSpace);
-
-                        // the action is the second value of the split value
-                        String actionPart = secondParts[1];
-                        System.out.println("Action: " + actionPart);
-
-                        // TODO more pairs
-
-                        // checks the rule
-                        Map<String, Object> result = checkCondition(direction, typeOfSpace, actionPart);
-                        // checks if the space at the coordinates match the type of block from the rule
-                        if (result != null && result.get("spaceType").equals(typeOfSpace)) {
-                            // moves according to the action
-//                            executeAction(actionPart);
-                            break;
-                        }
-
-                        // checks if the command is valid
-                        if (actionPart == null) {
-                            actionPart = "Invalid";
-                        }
-
-                        // logs the step
-                        stepsLog.add(actionPart);
-                        System.out.println("\nMove: " + actionPart + " | Current Position: (" + robotRow + ", " + robotCol + ")\n");
-                    }
-                }
-                // checks if the robot completed the layout
-                if (arrayOfLayoutRows[robotRow][robotCol].equals("Exit")) {
-                    System.out.println("Reached the exit!");
-                    // prints the steps of the robot
-                    for (String step : stepsLog) {
-                        // formats the steps into a numbered list
-                        items.add((stepsIndex + 1) + ". " + step);
-                        stepsIndex++;
-                    }
-                    // adds the numbered steps/actions to the listView
-                    listView.setItems(items);
-                    // sets pass or fail label text as PASS
-                    passOrFailLabel.setText("PASS");
-                    passOrFailLabel.setStyle("-fx-text-fill: Green");
-                    passOrFailLabel.setVisible(true);
-                    System.out.println("Layout completed in " + loopIndex + " attempts/moves.");
-                    // stop the program
-                    break;
-                }
-
-                loopIndex++;
-                System.out.println("Loop index: " + loopIndex);
-
-                if (loopIndex == maxTries) {
-                    System.out.println("\tBottom of WHILE loop");
-                    System.out.println("Loop index: " + loopIndex + "\tMax tries: " + maxTries);
-                    // sets pass or fail label text as FAIL
-                    passOrFailLabel.setText("FAIL");
-                    passOrFailLabel.setStyle("-fx-text-fill: red");
-                    passOrFailLabel.setVisible(true);
-
-                    listView.setItems(items);
-                    break;
-                }
-            }
-        } else {
-            System.out.println("Make sure to choose a maximum amount of tries.");
-        }
-    }
+//    public void moveRobotAutomaticallyPastVersion() {
+//        System.out.println("\n\tMOVE ROBOT");
+//        // checks if the comboBox has a value
+//        if (maxAttempts_CB.getValue() != null) {
+//            // sets the variable to the selected max number
+//            int maxTries = Integer.parseInt(maxAttempts_CB.getValue());
+//            System.out.println("Max tries: " + maxTries);
+//            // to add actions to the ListView
+//            ObservableList<String> items = FXCollections.observableArrayList();
+//
+//            // variable to hold the index
+//            int stepsIndex = 0;
+//            int loopIndex = 0;
+//
+//            // goes until the robot doesn't complete the layout
+//            while (!arrayOfLayoutRows[robotRow][robotCol].equals("Exit") && loopIndex < maxTries) {
+//                // loops through the rule Strings
+//                for (String rule : separateRuleConditions()) {
+//                    // split whole thing by commas, so it splits the rules into separate lists
+//                    String[] rules = rule.split(",");
+//
+//                    // loops through the split rule list
+//                    for (String part : rules) {
+//                    // if there's only 1 pair  (d:s|a)
+//                        // splits the rule into a list with 2 values (d, b|a)
+//                        String[] twoParts = part.split(":");
+//                        // first one is the direction
+//                        String direction = twoParts[0];
+//                        System.out.println("Direction: " + direction);
+//
+//                        // splits the second value as well      (b, a)
+//                        String[] secondParts = twoParts[1].split("\\|");
+//                        // first value of the split value is the block
+//                        String typeOfSpace = secondParts[0];
+//                        System.out.println("Type of space: " + typeOfSpace);
+//
+//                        // the action is the second value of the split value
+//                        String actionPart = secondParts[1];
+//                        System.out.println("Action: " + actionPart);
+//
+//                        // TODO more pairs
+//
+//                        // checks the rule
+//                        Map<String, Object> result = checkCondition(direction, typeOfSpace, actionPart);
+//                        // checks if the space at the coordinates match the type of block from the rule
+//                        if (result != null && result.get("spaceType").equals(typeOfSpace)) {
+//                            // moves according to the action
+////                            executeAction(actionPart);
+//                            break;
+//                        }
+//
+//                        // checks if the command is valid
+//                        if (actionPart == null) {
+//                            actionPart = "Invalid";
+//                        }
+//
+//                        // logs the step
+//                        stepsLog.add(actionPart);
+//                        System.out.println("\nMove: " + actionPart + " | Current Position: (" + robotRow + ", " + robotCol + ")\n");
+//                    }
+//                }
+//                // checks if the robot completed the layout
+//                if (arrayOfLayoutRows[robotRow][robotCol].equals("Exit")) {
+//                    System.out.println("Reached the exit!");
+//                    // prints the steps of the robot
+//                    for (String step : stepsLog) {
+//                        // formats the steps into a numbered list
+//                        items.add((stepsIndex + 1) + ". " + step);
+//                        stepsIndex++;
+//                    }
+//                    // adds the numbered steps/actions to the listView
+//                    listView.setItems(items);
+//                    // sets pass or fail label text as PASS
+//                    passOrFailLabel.setText("PASS");
+//                    passOrFailLabel.setStyle("-fx-text-fill: Green");
+//                    passOrFailLabel.setVisible(true);
+//                    System.out.println("Layout completed in " + loopIndex + " attempts/moves.");
+//                    // stop the program
+//                    break;
+//                }
+//
+//                loopIndex++;
+//                System.out.println("Loop index: " + loopIndex);
+//
+//                if (loopIndex == maxTries) {
+//                    System.out.println("\tBottom of WHILE loop");
+//                    System.out.println("Loop index: " + loopIndex + "\tMax tries: " + maxTries);
+//                    // sets pass or fail label text as FAIL
+//                    passOrFailLabel.setText("FAIL");
+//                    passOrFailLabel.setStyle("-fx-text-fill: red");
+//                    passOrFailLabel.setVisible(true);
+//
+//                    listView.setItems(items);
+//                    break;
+//                }
+//            }
+//        } else {
+//            System.out.println("Make sure to choose a maximum amount of tries.");
+//        }
+//    }
 
     public boolean applyRule(String ruleToTest) {
         // split whole thing by commas, so it splits the rules into separate lists
@@ -401,16 +392,11 @@ public class SimulationRunner implements Initializable {
             System.out.println("Action: " + actionPart);
 
             // TODO more pairs
-            Map<String, Object> result = checkCondition(direction, typeOfSpace, actionPart);
+            Map<String, Object> result = checkCondition(direction, actionPart);
 
-            if (result != null) {
-                System.out.println("spaceType: " + result.get("spaceType"));
-                if (result.get("spaceType").equals(typeOfSpace)) {
-
-//                executeAction(actionPart);
-                    // returns true if a move was made
-                    return true;
-                }
+            if (result.get("action") != null) {
+                // returns true if an action was taken
+                return true;
             }
         }
         // returns false if no move was made
@@ -440,7 +426,7 @@ public class SimulationRunner implements Initializable {
                     }
                 }
                 if (moved) {
-                    // Log the move
+                    // logs the move
                     stepsLog.add(actionPart);
                     System.out.println("Move: " + actionPart + " | Current Position: (" + robotRow + ", " + robotCol + ")\n");
                 }
@@ -455,6 +441,8 @@ public class SimulationRunner implements Initializable {
                         items.add((stepsIndex + 1) + ". " + step);
                         stepsIndex++;
                     }
+                    // adds the final step: reaching the Exit
+                    items.add(stepsIndex + ". Exit reached.");
                     // adds the numbered steps/actions to the listView
                     listView.setItems(items);
                     // sets pass or fail label text as PASS
@@ -480,19 +468,19 @@ public class SimulationRunner implements Initializable {
             }
         }
     }
-
-    public Map<String, Object> checkCondition(String direction, String block, String whatToDo) {
+// check each command. if all are true, do action
+    public Map<String, Object> checkCondition(String direction, String whatToDo) {
         if (direction.equals("In-front")) {
-            whatToDo = checkCommand(block, whatToDo);
+            whatToDo = checkCommand(whatToDo);
         }
         else if (direction.equals("To the left")) {
-            whatToDo = checkCommand(block, whatToDo);
+            whatToDo = checkCommand(whatToDo);
         }
         else if (direction.equals("To the right")) {
-            whatToDo = checkCommand(block, whatToDo);
+            whatToDo = checkCommand(whatToDo);
         }
         else if (direction.equals("Backwards")) {
-            whatToDo = checkCommand(block, whatToDo);
+            whatToDo = checkCommand(whatToDo);
         }
 
         // checks if the coordinates aren't out of bounds
@@ -511,234 +499,195 @@ public class SimulationRunner implements Initializable {
             return null;
         }
     }
-
-    public String checkCommand(String block, String whatToDo) {
+//
+    public String checkCommand(String whatToDo) {
+        // needs to check the block
         if (robotDirection.equals("Front")) {
             // potential WALL commands
-            if (block.equals("Wall")) {
+            if (arrayOfLayoutRows[robotRow - 1][robotCol].equals("Wall")) {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Left";
+                    moveRobot();
+                }
+                else if (whatToDo.equals("Turn right")) {
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
                     whatToDo = null;
                 }
             }
-            // potential OPEN commands
-            else if (block.equals("Open")) {
+            else {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
-                    // checks if the block in front/up is valid
+                    // checks if the block to the front is within the grid
                     if (isValidCell(robotRow - 1, robotCol)) {
                         moveRobot();
+                    } else {
+                        whatToDo = null;
                     }
                 }
             }
-            // potential START commands
-            else if (block.equals("Start")) {
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
-            }
-            // potential EXIT commands
-             else if (block.equals("Exit")) {
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
-            }
+            // potential OPEN commands
+//            else if (arrayOfLayoutRows[robotRow - 1][robotCol].equals("Open")) {
+//                if (whatToDo.equals("Turn left")) {
+//                    robotDirection = "Left";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Turn right")) {
+//                    robotDirection = "Right";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Turn back")) {
+//                    robotDirection = "Back";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Move forward")) {
+//                    // checks if the block in front/up is valid
+//                    if (isValidCell(robotRow - 1, robotCol)) {
+//                        moveRobot();
+//                    } else {
+//                        whatToDo = null;
+//                    }
+//                }
+//            }
+//            // potential START commands
+//            else if (arrayOfLayoutRows[robotRow - 1][robotCol].equals("Start")) {
+//                if (whatToDo.equals("Turn left")) {
+//                    robotDirection = "Left";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Turn right")) {
+//                    robotDirection = "Right";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Turn back")) {
+//                    robotDirection = "Back";
+//                    moveRobot();
+//                } else if (whatToDo.equals("Move forward")) {
+//                    moveRobot();
+//                }
+//            }
+//            // potential EXIT commands
+//            else if (arrayOfLayoutRows[robotRow - 1][robotCol].equals("Exit")) {
         }
         else if (robotDirection.equals("Back")) {
             // potential WALL commands
-            if (block.equals("Wall")) {
+            if (arrayOfLayoutRows[robotRow + 1][robotCol].equals("Wall")) {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
-                    whatToDo = null;
+                        whatToDo = null;
                 }
             }
-            // potential OPEN commands
-            if (block.equals("Open")){
+            else {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
-                    // checks if the block below/down is in the grid
+                    // checks if the block to the back is within the grid
                     if (isValidCell(robotRow + 1, robotCol)) {
                         moveRobot();
+                    } else {
+                        whatToDo = null;
                     }
-                }
-            }
-            // potential START commands
-            if (block.equals("Start")) {
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
-            }
-            // potential EXIT commands
-            if (block.equals("Exit")){
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
                 }
             }
         }
         else if (robotDirection.equals("Left")) {
             // potential WALL commands
-            if (block.equals("Wall")) {
+            if (arrayOfLayoutRows[robotRow][robotCol - 1].equals("Wall")) {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
                     whatToDo = null;
+
                 }
             }
-            // potential OPEN commands
-            if (block.equals("Open")){
+            else {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
                     // checks if the block to the left is within the grid
                     if (isValidCell(robotRow, robotCol - 1)) {
                         moveRobot();
+                    } else {
+                        whatToDo = null;
                     }
                 }
-            }
-            // potential START commands
-            if (block.equals("Start")) {
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
-            }
-            // potential EXIT commands
-            if (block.equals("Exit")){
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
+
             }
         }
         else if (robotDirection.equals("Right")) {
             // potential WALL commands
-            if (block.equals("Wall")) {
+            if (arrayOfLayoutRows[robotRow][robotCol + 1].equals("Wall")) {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
                     whatToDo = null;
                 }
             }
-            // potential OPEN commands
-            if (block.equals("Open")){
+            else {
                 if (whatToDo.equals("Turn left")) {
-                    turnLeft();
+                    robotDirection = "Left";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
+                    robotDirection = "Right";
+                    moveRobot();
                 } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
+                    robotDirection = "Back";
+                    moveRobot();
                 } else if (whatToDo.equals("Move forward")) {
                     // checks if the block to the right is within the grid
                     if (isValidCell(robotRow, robotCol + 1)) {
                         moveRobot();
+                    } else {
+                        whatToDo = null;
                     }
-                }
-            }
-            // potential START commands
-            if (block.equals("Start")) {
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
-                }
-            }
-            // potential EXIT commands
-            if (block.equals("Exit")){
-                if (whatToDo.equals("Turn left")) {
-                    turnLeft();
-                } else if (whatToDo.equals("Turn right")) {
-                    turnRight();
-                } else if (whatToDo.equals("Turn back")) {
-                    turnBack();
-                } else if (whatToDo.equals("Move forward")) {
-                    moveRobot();
                 }
             }
         }
         return whatToDo;
     }
-
-//    private void executeAction(String action) {
-//        if (action.equals("Move forward")) {
-//            moveRobot();
-//        } else if (action.equals("Turn left")) {
-//            turnLeft();
-//        } else if (action.equals("Turn right")) {
-//            turnRight();
-//        } else if (action.equals("Turn back")) {
-//            turnBack();
-//        }
-//    }
 
 //    public void myMoveRobotAutomatically () {
 //        // checks if the robot is on the Exit space
@@ -813,64 +762,40 @@ public class SimulationRunner implements Initializable {
             robotCol++;
         }
 
-        // pauses to make the robot seem to move
-        try {
-            // Adjust the delay as needed
-            Thread.sleep(500);
+        // moves robot to new coordinates
+        GridPane.setRowIndex(imageView, robotRow);
+        GridPane.setColumnIndex(imageView, robotCol);
 
-            // moves robot to new coordinates
-            GridPane.setRowIndex(robot, robotRow);
-            GridPane.setColumnIndex(robot, robotCol);
-
-            // checks if the space is Open to color it
-            if (arrayOfLayoutRows[robotRow][robotCol].equals("Open")) {
-                // changes the color of the hBox where the robot moved to
-                HBox newRobotSpace = arrayArrayForHboxes[robotRow][robotCol];
-                newRobotSpace.setStyle("-fx-background-color: skyBlue");
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+        // checks if the space is Open to color it
+        if (arrayOfLayoutRows[robotRow][robotCol].equals("Open")) {
+            // changes the color of the hBox where the robot moved to
+            HBox newRobotSpace = arrayArrayForHboxes[robotRow][robotCol];
+            newRobotSpace.setStyle("-fx-background-color: skyBlue");
         }
+//        // pauses to make the robot seem to move
+//        try {
+//            // Adjust the delay as needed
+//            Thread.sleep(500);
+//
+//        } catch (InterruptedException e) {
+//            Thread.currentThread().interrupt();
+//        }
     }
 
     public void turnLeft () {
-        // turns the robot to the left from any direction
-        if (robotDirection.equals("Front")) {
-            robotDirection = "Left";
-        } else if (robotDirection.equals("Back")) {
-            robotDirection = "Right";
-        } else if (robotDirection.equals("Left")) {
-            robotDirection = "Back";
-        } else if (robotDirection.equals("Right")) {
-            robotDirection = "Front";
-        }
+        // turns the robot to the left
+        imageView.setRotate(270);
     }
     public void turnRight () {
-        // turns the robot to the right from any direction
-        if (robotDirection.equals("Front")) {
-            robotDirection = "Right";
-        } else if (robotDirection.equals("Back")) {
-            robotDirection = "Left";
-        } else if (robotDirection.equals("Left")) {
-            robotDirection = "Front";
-        } else if (robotDirection.equals("Right")) {
-            robotDirection = "Back";
-        }
+        // turns the robot to the right
+        imageView.setRotate(90);
     }
     public void turnBack () {
         // turns the robot 180 degrees
-        if (robotDirection.equals("Front")) {
-            robotDirection = "Back";
-        } else if (robotDirection.equals("Back")) {
-            robotDirection = "Front";
-        } else if (robotDirection.equals("Left")) {
-            robotDirection = "Right";
-        } else if (robotDirection.equals("Right")) {
-            robotDirection = "Left";
-        }
+        imageView.setRotate(180);
     }
 
-    private boolean isValidCell ( int row, int col){
+    private boolean isValidCell ( int row, int col) {
         return row >= 0 && row < arrayOfLayoutRows.length &&
                 col >= 0 && col < arrayOfLayoutRows[row].length;
     }
