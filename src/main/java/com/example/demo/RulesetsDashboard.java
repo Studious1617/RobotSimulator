@@ -18,7 +18,7 @@ public class RulesetsDashboard {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     @FXML
     public Button
-            RulePage_LayoutsPageButton, createLayoutButton,
+            RulePage_LayoutsPageButton, createLayoutButton, reportsButton,
             deleteRulesetButton1,
             deleteRulesetButton2,
             deleteRulesetButton3,

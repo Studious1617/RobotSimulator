@@ -17,8 +17,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -266,107 +264,6 @@ public class SimulationRunner implements Initializable {
             }
         }
     }
-
-//    public void moveRobotAutomaticallyPastVersion() {
-//        System.out.println("\n\tMOVE ROBOT");
-//        // checks if the comboBox has a value
-//        if (maxAttempts_CB.getValue() != null) {
-//            // sets the variable to the selected max number
-//            int maxTries = Integer.parseInt(maxAttempts_CB.getValue());
-//            System.out.println("Max tries: " + maxTries);
-//            // to add actions to the ListView
-//            ObservableList<String> items = FXCollections.observableArrayList();
-//
-//            // variable to hold the index
-//            int stepsIndex = 0;
-//            int loopIndex = 0;
-//
-//            // goes until the robot doesn't complete the layout
-//            while (!arrayOfLayoutRows[robotRow][robotCol].equals("Exit") && loopIndex < maxTries) {
-//                // loops through the rule Strings
-//                for (String rule : separateRuleConditions()) {
-//                    // split whole thing by commas, so it splits the rules into separate lists
-//                    String[] rules = rule.split(",");
-//
-//                    // loops through the split rule list
-//                    for (String part : rules) {
-//                    // if there's only 1 pair  (d:s|a)
-//                        // splits the rule into a list with 2 values (d, b|a)
-//                        String[] twoParts = part.split(":");
-//                        // first one is the direction
-//                        String direction = twoParts[0];
-//                        System.out.println("Direction: " + direction);
-//
-//                        // splits the second value as well      (b, a)
-//                        String[] secondParts = twoParts[1].split("\\|");
-//                        // first value of the split value is the block
-//                        String typeOfSpace = secondParts[0];
-//                        System.out.println("Type of space: " + typeOfSpace);
-//
-//                        // the action is the second value of the split value
-//                        String actionPart = secondParts[1];
-//                        System.out.println("Action: " + actionPart);
-//
-//                        // TODO more pairs
-//
-//                        // checks the rule
-//                        Map<String, Object> result = checkCondition(direction, typeOfSpace, actionPart);
-//                        // checks if the space at the coordinates match the type of block from the rule
-//                        if (result != null && result.get("spaceType").equals(typeOfSpace)) {
-//                            // moves according to the action
-////                            executeAction(actionPart);
-//                            break;
-//                        }
-//
-//                        // checks if the command is valid
-//                        if (actionPart == null) {
-//                            actionPart = "Invalid";
-//                        }
-//
-//                        // logs the step
-//                        stepsLog.add(actionPart);
-//                        System.out.println("\nMove: " + actionPart + " | Current Position: (" + robotRow + ", " + robotCol + ")\n");
-//                    }
-//                }
-//                // checks if the robot completed the layout
-//                if (arrayOfLayoutRows[robotRow][robotCol].equals("Exit")) {
-//                    System.out.println("Reached the exit!");
-//                    // prints the steps of the robot
-//                    for (String step : stepsLog) {
-//                        // formats the steps into a numbered list
-//                        items.add((stepsIndex + 1) + ". " + step);
-//                        stepsIndex++;
-//                    }
-//                    // adds the numbered steps/actions to the listView
-//                    listView.setItems(items);
-//                    // sets pass or fail label text as PASS
-//                    passOrFailLabel.setText("PASS");
-//                    passOrFailLabel.setStyle("-fx-text-fill: Green");
-//                    passOrFailLabel.setVisible(true);
-//                    System.out.println("Layout completed in " + loopIndex + " attempts/moves.");
-//                    // stop the program
-//                    break;
-//                }
-//
-//                loopIndex++;
-//                System.out.println("Loop index: " + loopIndex);
-//
-//                if (loopIndex == maxTries) {
-//                    System.out.println("\tBottom of WHILE loop");
-//                    System.out.println("Loop index: " + loopIndex + "\tMax tries: " + maxTries);
-//                    // sets pass or fail label text as FAIL
-//                    passOrFailLabel.setText("FAIL");
-//                    passOrFailLabel.setStyle("-fx-text-fill: red");
-//                    passOrFailLabel.setVisible(true);
-//
-//                    listView.setItems(items);
-//                    break;
-//                }
-//            }
-//        } else {
-//            System.out.println("Make sure to choose a maximum amount of tries.");
-//        }
-//    }
 
     public boolean applyRule(String ruleToTest) {
         // split whole thing by commas, so it splits the rules into separate lists
@@ -689,67 +586,6 @@ public class SimulationRunner implements Initializable {
         return whatToDo;
     }
 
-//    public void myMoveRobotAutomatically () {
-//        // checks if the robot is on the Exit space
-//        if (arrayOfLayoutRows[robotRow][robotCol].equals("Exit")) {
-//            System.out.println("Reached the exit!");
-//
-//        }
-//
-//        // checks the space in front of the robot
-//        if (robotDirection.equals("Front")) {
-//            // if there is a wall to the left
-//            if (isWall(robotRow, robotCol + 1)) {
-//                turnLeft();
-//                // if there is a wall to the right
-//            } else if (isWall(robotRow, robotCol - 1)) {
-//                turnRight();
-//                // if in front is a wall
-//            } else if (isWall(robotRow - 1, robotCol)) {
-//                moveForward();
-//                // if in front is open
-//            } else if (isOpen(robotRow - 1, robotCol)) {
-//                moveForward();
-//                // if in front is the Exit
-//            } else if (isExit(robotRow - 1, robotCol)) {
-//                moveForward();
-//            }
-//            // checks space behind the robot
-//        } else if (robotDirection.equals("Back")) {
-//            // if there's a wall to the right
-//            if (isWall(robotRow + 1, robotCol)) {
-//                turnLeft();
-//                // if there's a wall to the left
-//            } else if (isWall(robotRow - 1, robotCol)) {
-//                turnRight();
-//                // if it's open in front
-//            } else if (isOpen(robotRow - 1, robotCol)) {
-//                moveForward();
-//                // if it's open behind
-//            } else if (isOpen(robotRow + 1, robotCol)) {
-//                turnBack();
-//            }
-//            // checks the space to the left of the robot
-//        } else if (robotDirection.equals("Left")) {
-//            if (isWall(robotRow, robotCol - 1)) {
-//                turnLeft();
-//            } else if (isOpen(robotRow, robotCol - 1)) {
-//                moveForward();
-//            } else if (isExit(robotRow, robotCol - 1)) {
-//                moveForward();
-//            }
-//            // checks space to the right of the robot
-//        } else if (robotDirection.equals("Right")) {
-//            if (isWall(robotRow, robotCol + 1)) {
-//                turnLeft();
-//            } else if (isOpen(robotRow, robotCol + 1)) {
-//                moveForward();
-//            } else if (isExit(robotRow, robotCol + 1)) {
-//                moveForward();
-//            }
-//        }
-//    }
-
     public void moveRobot () {
         // updates the robot's coordinates
         if (robotDirection.equals("Front")) {
@@ -782,6 +618,7 @@ public class SimulationRunner implements Initializable {
 //        }
     }
 
+    // rotates the robot icon, but it does all the steps at once so kind of pointless
     public void turnLeft () {
         // turns the robot to the left
         imageView.setRotate(270);
