@@ -111,7 +111,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton1" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton1" mnemonicParsing="false" onAction="#onEditRulesetClick1" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -227,7 +227,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton2" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton2" mnemonicParsing="false" onAction="#onEditRulesetClick2" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -268,7 +268,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton3" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton3" mnemonicParsing="false" onAction="#onEditRulesetClick3" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -309,7 +309,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton4" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton4" mnemonicParsing="false" onAction="#onEditRulesetClick4" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
@@ -350,7 +350,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                              <Button fx:id="editLayoutButton5" mnemonicParsing="false" onAction="#onEditRulesetClick" style="-fx-background-color: DarkSeaGreen;" text="Edit">
+                              <Button fx:id="editRulesetButton5" mnemonicParsing="false" onAction="#onEditRulesetClick5" style="-fx-background-color: DarkSeaGreen;" text="Edit">
                                   <HBox.margin>
                                       <Insets right="10.0" />
                                   </HBox.margin>
