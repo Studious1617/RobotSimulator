@@ -257,7 +257,7 @@ public class SimulationRunner implements Initializable {
                 } else if (typeOfBox.equals("Wall")) {
                     hBox.setStyle("-fx-background-color: Gray");
                 } else {
-                    hBox.setStyle("-fx-background-color: yellow");
+                    hBox.setStyle("-fx-background-color: White");
                 }
                 // increases the index by 1
                 index++;

@@ -32,7 +32,7 @@ public class FactoryLayoutViewController {
             P_03, P_13, P_23, P_33, P_43,
             P_04, P_14, P_24, P_34, P_44;
 
-    // arraylist to chang Pane[] array to arraylist<Pane>
+    // arraylist to change Pane[] array to arraylist<Pane>
     public ArrayList<Pane> arrayListForPanes = new ArrayList<>();
 
     public void onViewButtonClick () {
@@ -55,7 +55,6 @@ public class FactoryLayoutViewController {
             // gets the index of both lists
             String typeOfBox = layoutData.get(i);
             Pane pane = arrayListForPanes.get(i);
-
             // sets the color of the pane based on the value of the choiceBox
             if (typeOfBox.equals("Start")) {
                 pane.setStyle("-fx-background-color: darkSeaGreen;");
