@@ -298,7 +298,7 @@ public class RulesetsDashboard {
     }
 
     public void makeUserRulesetsVisible() {
-        int rulesAmount = sqlConfiguration.getUserRulesetAmount();
+        int rulesAmount = sqlConfiguration.getUserRulesetAmount(userEmail);
         if (rulesAmount == 1) {
             rulesetOneVisibility();
         } else if (rulesAmount == 2) {
@@ -319,6 +319,8 @@ public class RulesetsDashboard {
             rulesetThreeVisibility();
             rulesetFourVisibility();
             rulesetFiveVisibility();
+        } else {
+            System.out.println("No rulesets made.");
         }
     }
 

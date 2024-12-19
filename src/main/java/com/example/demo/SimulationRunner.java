@@ -53,7 +53,7 @@ public class SimulationRunner implements Initializable {
     public HBox[][] arrayArrayForHboxes;
 
     // stuff for robot
-    public Image robotIcon = new Image("file:\\C:\\Users\\Access Point\\Downloads\\bee_icon.png");
+    public Image robotIcon = new Image(getClass().getResource("/bee_icon.png").toString());//new Image("file:\\C:\\Users\\Access Point\\Downloads\\bee_icon.png");
     public ImageView imageView;
     public int robotRow = 0;
     public int robotCol = 0;

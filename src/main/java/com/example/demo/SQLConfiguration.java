@@ -297,13 +297,13 @@ public class SQLConfiguration {
         return idAndData;
     }
 
-    public int getUserLayoutsAmount () {
+    public int getUserLayoutsAmount (String userEmail) {
         // gets layout info by matching the emails
-        String getLayoutAmountSQL = "SELECT * FROM useraccounts u RIGHT JOIN layouts l " +
-                "ON u.email_address = l.email_address";
+        String getLayoutAmountSQL = "SELECT * FROM layouts WHERE email_address = ?";
         int numberOfLayouts = 0;
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(getLayoutAmountSQL)) {
+            preparedStatement.setString(1, userEmail);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -574,13 +574,13 @@ public class SQLConfiguration {
         }
     }
 
-    public int getUserRulesetAmount () {
+    public int getUserRulesetAmount (String userEmail) {
         // gets ruleset info by matching the emails
-        String getRulesetAmountSQL = "SELECT * FROM useraccounts u RIGHT JOIN rulesets r " +
-                "ON u.email_address = r.email_address";
+        String getRulesetAmountSQL = "SELECT * FROM rulesets WHERE email_address = ?";
         int numberOfRulesets = 0;
         try (Connection connection = DriverManager.getConnection(databaseURL, user, upass);
              PreparedStatement preparedStatement = connection.prepareStatement(getRulesetAmountSQL)) {
+            preparedStatement.setString(1, userEmail);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
