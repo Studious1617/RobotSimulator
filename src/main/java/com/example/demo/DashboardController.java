@@ -338,7 +338,8 @@ public class DashboardController {
             layoutFourVisibility();
             layoutFiveVisibility();
         } else {
-            System.out.println("No layouts made.");
+            layoutDeleteLabel.setText("No layouts made.");
+            layoutDeleteLabel.setVisible(true);
         }
     }
 
