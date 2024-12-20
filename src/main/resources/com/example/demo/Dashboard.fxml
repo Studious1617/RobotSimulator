@@ -429,7 +429,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: gray;" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="layoutDeleteLabel" prefHeight="36.0" prefWidth="142.0" text="ree">
+                        <Label fx:id="layoutDeleteLabel" prefHeight="36.0" prefWidth="142.0">
                            <font>
                               <Font name="Bell MT" size="18.0" />
                            </font></Label>
