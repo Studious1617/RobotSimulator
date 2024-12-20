@@ -22,6 +22,7 @@ import static com.example.demo.CreateUserAccountController.userEmail;
 import static com.example.demo.RulesetsDashboard.*;
 
 public class RulesetsEdit implements Initializable {
+    public Label ruleEditErrorLabel;
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     @FXML
     public Button backButton, editSaveButton, addRuleButton,
@@ -184,25 +185,25 @@ public class RulesetsEdit implements Initializable {
                 System.out.println("Inserting all conditions into database...");
 
                 sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                System.out.println("Rule 1 updated with all ANDs.\n");
+                ruleEditErrorLabel.setText("Rule 1 updated with all ANDs.\n");
                 // checks if 2 AND conditions are filled
             } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
                 System.out.println("Updating all but 1 AND condition into database...");
 
                 sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                System.out.println("Rule 1 updated with 2 ANDs.\n");
+                ruleEditErrorLabel.setText("Rule 1 updated with 2 ANDs.\n");
                 // checks if only one AND condition is filled
             } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                System.out.println("Inserting all but 2 AND conditions into database...");
+                ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                 sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                System.out.println("Rule 1 updated with 1 AND.\n");
+                ruleEditErrorLabel.setText("Rule 1 updated with 1 AND.\n");
                 // checks if all ANDs are empty
             } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
                 System.out.println("Inserting only required conditions (no ANDs) into database...");
 
                 sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                System.out.println("Rule 1 updated with no ANDs.\n");
+                ruleEditErrorLabel.setText("Rule 1 updated with no ANDs.\n");
             }
 
             System.out.println("rule1CheckList: ");
@@ -211,7 +212,7 @@ public class RulesetsEdit implements Initializable {
             }
         } else {
             // message if the user saves a blank rule
-            System.out.println("Check failed.\nMake sure to enter a some data into the rule.\n");
+            ruleEditErrorLabel.setText("Check failed.\nMake sure to enter a some data into the rule.\n");
         }
 
         if (!rule2Tab.isDisabled()) {
@@ -243,28 +244,28 @@ public class RulesetsEdit implements Initializable {
                         System.out.println("Inserting all conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 2 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 2 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 2 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
                         System.out.println("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 2 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule2CheckList: ");
@@ -279,28 +280,28 @@ public class RulesetsEdit implements Initializable {
                         System.out.println("Inserting all conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 2 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 2 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 2 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 2 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 2 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule2CheckList: ");
@@ -309,12 +310,12 @@ public class RulesetsEdit implements Initializable {
                     }
                 }
             } else {
-                System.out.println("Check failed.\nMake sure to not leave the rule blank.");
+                ruleEditErrorLabel.setText("Check failed.\nMake sure to not leave the rule blank.");
             }
         } else {
             // checks if the rule id is null/doesn't exist
             if (allCurrentRules.size() >= 2 && allCurrentRules.get(1) != null) {
-                System.out.println("Rule #2 was not created. Deleting rule from table...");
+                ruleEditErrorLabel.setText("Rule #2 was not created. Deleting rule from table...");
                 // holds the rule id in a variable
                 int secondRuleId = allCurrentRules.get(1);
 
@@ -322,7 +323,7 @@ public class RulesetsEdit implements Initializable {
                 sqlConfiguration.deleteOldRule(secondRuleId);
                 System.out.println("Old rule deleted.");
             } else {
-                System.out.println("Rule #2 was not created.");
+                ruleEditErrorLabel.setText("Rule #2 was not created.");
             }
         }
 
@@ -351,31 +352,31 @@ public class RulesetsEdit implements Initializable {
 
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 3 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 3 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 3 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 3 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule3CheckList: ");
@@ -387,31 +388,31 @@ public class RulesetsEdit implements Initializable {
                 else {
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 3 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 3 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 3 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 3 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule3CheckList: ");
@@ -423,15 +424,15 @@ public class RulesetsEdit implements Initializable {
         } else {
             // checks if the rule id is null/doesn't exist
             if (allCurrentRules.size() >= 3 && allCurrentRules.get(2) != null) {
-                System.out.println("Rule #3 was not created. Deleting rule from table...");
+                ruleEditErrorLabel.setText("Rule #3 was not created. Deleting rule from table...");
                 // saves the second rule id in a variable to make it more readable
                 int thirdRuleId = allCurrentRules.get(2);
 
                 // deletes the rule
                 sqlConfiguration.deleteOldRule(thirdRuleId);
-                System.out.println("Old rule deleted.");
+                ruleEditErrorLabel.setText("Old rule deleted.");
             } else {
-                System.out.println("Rule #3 was not created.");
+                ruleEditErrorLabel.setText("Rule #3 was not created.");
             }
         }
 
@@ -457,28 +458,28 @@ public class RulesetsEdit implements Initializable {
                     ruleId = allCurrentRules.get(3);
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 4 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with all ANDs.\n");
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 4 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with 2 ANDs.\n");
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 4 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with 1 AND.\n");
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 4 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule4CheckList: ");
@@ -490,31 +491,31 @@ public class RulesetsEdit implements Initializable {
                 else {
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 3 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 3 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 4 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 4 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 4 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 4 updated with no ANDs.\n");
                     }
 
                     for (String s4 : rule4CheckList) {
@@ -526,15 +527,15 @@ public class RulesetsEdit implements Initializable {
         } else {
             // checks if the rule id is null/doesn't exist
             if (allCurrentRules.size() >= 4 && allCurrentRules.get(3) != null) {
-                System.out.println("Rule #4 was not created. Deleting rule from table...");
+                ruleEditErrorLabel.setText("Rule #4 was not created. Deleting rule from table...");
                 // holds the rule id in a variable
                 int fourthRuleId = allCurrentRules.get(3);
 
                 // saves the second rule id in a variable to make it more readable
                 sqlConfiguration.deleteOldRule(fourthRuleId);
-                System.out.println("Old rule deleted.");
+                ruleEditErrorLabel.setText("Old rule deleted.");
             } else {
-                System.out.println("Rule #4 was not created.");
+                ruleEditErrorLabel.setText("Rule #4 was not created.");
             }
         }
 
@@ -551,7 +552,7 @@ public class RulesetsEdit implements Initializable {
 
             ArrayList<String> rule5CheckList = new ArrayList<>(Arrays.asList(when, is1, and1, is2, and2, is3, and3, is4, then));
 
-            System.out.println("\nChecking that row 1 and 2 as well as the last for Rule #5 are not null...");
+            ruleEditErrorLabel.setText("\nChecking that row 1 and 2 as well as the last for Rule #5 are not null...");
             // checks the required checkboxes
             if (when != null && is1 != null && then != null) {
                 // checks if the rule exists
@@ -562,31 +563,31 @@ public class RulesetsEdit implements Initializable {
 
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 5 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 5 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 5 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 5 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule5CheckList: ");
@@ -598,31 +599,31 @@ public class RulesetsEdit implements Initializable {
                 else {
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 5 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 5 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 5 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 5 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 5 updated with no ANDs.\n");
                     }
 
                     for (String s5 : rule5CheckList) {
@@ -634,15 +635,15 @@ public class RulesetsEdit implements Initializable {
         } else {
             // checks if the rule id is null/doesn't exist
             if (allCurrentRules.size() >= 5 && allCurrentRules.get(4) != null) {
-                System.out.println("Rule #5 was not created. Deleting rule from table...");
+                ruleEditErrorLabel.setText("Rule #5 was not created. Deleting rule from table...");
                 // holds the rule id in a variable
                 int fifthRuleId = allCurrentRules.get(4);
 
                 // saves the second rule id in a variable to make it more readable
                 sqlConfiguration.deleteOldRule(fifthRuleId);
-                System.out.println("Old rule deleted.");
+                ruleEditErrorLabel.setText("Old rule deleted.");
             } else {
-                System.out.println("Rule #5 was not created.");
+                ruleEditErrorLabel.setText("Rule #5 was not created.");
             }
         }
 
@@ -659,7 +660,7 @@ public class RulesetsEdit implements Initializable {
 
             ArrayList<String> rule6CheckList = new ArrayList<>(Arrays.asList(when, is1, and1, is2, and2, is3, and3, is4, then));
 
-            System.out.println("Checking that row 1 and 2 as well as the last for Rule #6 are not null...");
+            ruleEditErrorLabel.setText("Checking that row 1 and 2 as well as the last for Rule #6 are not null...");
             // checks the required checkboxes
             if (when != null && is1 != null && then != null) {
                 // checks if it exists or not
@@ -670,31 +671,31 @@ public class RulesetsEdit implements Initializable {
 
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 6 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 6 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 6 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.editRuleset(rulesetId, ruleId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 6 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with no ANDs.\n");
                     }
 
                     System.out.println("rule6CheckList: ");
@@ -706,31 +707,31 @@ public class RulesetsEdit implements Initializable {
                 else {
                     // checks the ANDs are filled
                     if (and1 != null && is2 != null && and2 != null && is3 != null && and3 != null && is4 != null) {
-                        System.out.println("Inserting all conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, and3, is4, then);
-                        System.out.println("Rule 6 updated with all ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with all ANDs.\n");
 
                         // checks if 2 AND conditions are filled
                     } else if (and1 != null && is2 != null && and2 != null && is3 != null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 1 AND condition into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 1 AND condition into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, and2, is3, null, null, then);
-                        System.out.println("Rule 6 updated with 2 ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with 2 ANDs.\n");
 
                         // checks if only one AND condition is filled
                     } else if (and1 != null && is2 != null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting all but 2 AND conditions into database...");
+                        ruleEditErrorLabel.setText("Inserting all but 2 AND conditions into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, and1, is2, null, null, null, null, then);
-                        System.out.println("Rule 6 updated with 1 AND.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with 1 AND.\n");
 
                         // checks if all ANDs are empty
                     } else if (and1 == null && is2 == null && and2 == null && is3 == null && and3 == null && is4 == null) {
-                        System.out.println("Inserting only required conditions (no ANDs) into database...");
+                        ruleEditErrorLabel.setText("Inserting only required conditions (no ANDs) into database...");
 
                         sqlConfiguration.insertRule(rulesetId, when, is1, null, null, null, null, null, null, then);
-                        System.out.println("Rule 6 updated with no ANDs.\n");
+                        ruleEditErrorLabel.setText("Rule 6 updated with no ANDs.\n");
                     }
 
                     for (String s6 : rule6CheckList) {
@@ -742,15 +743,15 @@ public class RulesetsEdit implements Initializable {
         } else {
             // checks if the rule id is null/doesn't exist
             if (allCurrentRules.size() >= 6 && allCurrentRules.get(5) != null) {
-                System.out.println("Rule #6 was not created. Deleting rule from table...");
+                ruleEditErrorLabel.setText("Rule #6 was not created. Deleting rule from table...");
                 // holds the rule id in a variable
                 int sixthRuleId = allCurrentRules.get(5);
 
                 // saves the second rule id in a variable to make it more readable
                 sqlConfiguration.deleteOldRule(sixthRuleId);
-                System.out.println("Old rule deleted.");
+                ruleEditErrorLabel.setText("Old rule deleted.");
             } else {
-                System.out.println("Rule #6 was not created.");
+                ruleEditErrorLabel.setText("Rule #6 was not created.");
             }
         }
         // updates rule_count column

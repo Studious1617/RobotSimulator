@@ -152,7 +152,8 @@ public class SimulationRunner implements Initializable {
                 System.out.println();
             }
         } else {
-            System.out.println("Make sure to choose a layout to use.");
+            // repurposed passOrFail label as an error label
+            passOrFailLabel.setText("Make sure to choose a layout to use.");
         }
     }
 
@@ -167,7 +168,8 @@ public class SimulationRunner implements Initializable {
             System.out.println("Ruleset ID: " + rulesetId);
             System.out.println("Ruleset name: " + rulesetName);
         } else {
-            System.out.println("Make sure to choose a ruleset to run.");
+            // repurposed passOrFail label as an error label
+            passOrFailLabel.setText("Make sure to choose a ruleset to run.");
         }
     }
 
@@ -656,7 +658,7 @@ public class SimulationRunner implements Initializable {
             // adds the numbered steps/actions to the listView
             listView.setItems(items);
         } else {
-            System.out.println("Make sure to choose a maximum amount of tries.");
+            passOrFailLabel.setText("Make sure to choose a maximum amount of tries.");
         }
     }
 
