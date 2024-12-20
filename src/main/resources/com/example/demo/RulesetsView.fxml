@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="800.0" minWidth="1550.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
+<AnchorPane minHeight="800.0" minWidth="1550.0" prefHeight="600.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.RulesetsView">
    <children>
       <HBox minWidth="1550.0" prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: Gray;">
          <children>
@@ -171,7 +171,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="83.0" GridPane.columnIndex="1">
                            <children>
-                              <Label fx:id="whenLabel_Rule1" prefHeight="18.0" prefWidth="77.0" text="XXXXXXXX">
+                              <Label fx:id="whenLabel_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -180,7 +180,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
-                              <Label fx:id="and1Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
+                              <Label fx:id="and1Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -189,7 +189,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
-                              <Label fx:id="and2Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
+                              <Label fx:id="and2Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -198,7 +198,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <Label fx:id="and3Label_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
+                              <Label fx:id="and3Label_Rule1" text="XXXXXXXX">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -207,7 +207,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Label fx:id="thenLabel_Rule1" prefHeight="18.0" prefWidth="78.0" text="XXXXXXXX">
+                              <Label fx:id="thenLabel_Rule1" text="XXXXXXXX" textAlignment="RIGHT">
                                  <font>
                                     <Font name="Book Antiqua" size="14.0" />
                                  </font>
@@ -250,7 +250,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule1" text="XXXXXXXX">
                                  <font>
@@ -259,7 +259,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule1" text="XXXXXXXX">
                                  <font>
@@ -268,7 +268,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule1" text="XXXXXXXX">
                                  <font>
@@ -277,7 +277,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule1" text="XXXXXXXX" textAlignment="CENTER">
                                  <font>
@@ -434,7 +434,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule4" text="XXXXXXXX">
                                  <font>
@@ -443,7 +443,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule4" text="XXXXXXXX">
                                  <font>
@@ -452,7 +452,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule4" text="XXXXXXXX">
                                  <font>
@@ -461,7 +461,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule4" text="XXXXXXXX">
                                  <font>
@@ -618,7 +618,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule2" text="XXXXXXXX">
                                  <font>
@@ -627,7 +627,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule2" text="XXXXXXXX">
                                  <font>
@@ -636,7 +636,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule2" text="XXXXXXXX">
                                  <font>
@@ -645,7 +645,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule2" text="XXXXXXXX">
                                  <font>
@@ -802,7 +802,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule5" text="XXXXXXXX">
                                  <font>
@@ -811,7 +811,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule5" text="XXXXXXXX">
                                  <font>
@@ -820,7 +820,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule5" text="XXXXXXXX">
                                  <font>
@@ -829,7 +829,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule5" text="XXXXXXXX">
                                  <font>
@@ -986,7 +986,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule3" text="XXXXXXXX">
                                  <font>
@@ -995,7 +995,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule3" text="XXXXXXXX">
                                  <font>
@@ -1004,7 +1004,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule3" text="XXXXXXXX">
                                  <font>
@@ -1013,7 +1013,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule3" text="XXXXXXXX">
                                  <font>
@@ -1170,7 +1170,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <children>
                               <Label fx:id="is2Label_Rule6" text="XXXXXXXX">
                                  <font>
@@ -1179,7 +1179,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <children>
                               <Label fx:id="is3Label_Rule6" text="XXXXXXXX">
                                  <font>
@@ -1188,7 +1188,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                            <children>
                               <Label fx:id="is4Label_Rule6" text="XXXXXXXX">
                                  <font>
@@ -1197,7 +1197,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                            <children>
                               <Label fx:id="is1Label_Rule6" text="XXXXXXXX">
                                  <font>

@@ -19,7 +19,7 @@ import static com.example.demo.RulesetsDashboard.rulesetName;
 public class RulesetsView {
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
     @FXML
-    public Button backButton;
+    public Button backButton, viewButton;
 
     public Label rulesetNameLabel,
             whenLabel_Rule1, is1Label_Rule1,
@@ -239,7 +239,6 @@ public class RulesetsView {
         }
     }
 
-    @FXML
     public void onBackButtonClick(ActionEvent e) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RulesetsDashboard.fxml"));
         Parent rulesetsDashboardPopUp = loader.load();

@@ -75,7 +75,9 @@ public class DashboardController {
         Parent popUp = loader.load();
         RulesetsDashboard rulesetsDashboard = loader.getController();
 
-        rulesetsDashboard.makeUserRulesetsVisible();
+        if (sqlConfiguration.getUserRulesetAmount(userEmail) != 0) {
+            rulesetsDashboard.makeUserRulesetsVisible();
+        }
 
         Stage stageFive = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene sceneFive = new Scene(popUp,1540,800);
@@ -314,7 +316,7 @@ public class DashboardController {
     }
 
     public void makeUserLayoutVisible() {
-        int layoutAmount = sqlConfiguration.getUserLayoutsAmount();
+        int layoutAmount = sqlConfiguration.getUserLayoutsAmount(userEmail);
         if (layoutAmount == 1) {
             layoutOneVisibility();
         } else if (layoutAmount == 2) {
@@ -336,7 +338,7 @@ public class DashboardController {
             layoutFourVisibility();
             layoutFiveVisibility();
         } else {
-            System.out.println();
+            System.out.println("No layouts made.");
         }
     }
 
