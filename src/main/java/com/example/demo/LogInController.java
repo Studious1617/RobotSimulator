@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import static com.example.demo.CreateUserAccountController.password;
 import static com.example.demo.CreateUserAccountController.userEmail;
 
 public class LogInController {
+    public Label logInErrorLabel;
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     @FXML
@@ -52,13 +54,13 @@ public class LogInController {
                     stageThree.setScene(sceneThree);
                     stageThree.show();
                 } else {
-                    System.out.println("User account does not exist. Try again.");
+                    logInErrorLabel.setText("User account does not exist. Try again.");
                 }
             } else {
-                System.out.println("Invalid email address. Try again.");
+                logInErrorLabel.setText("Invalid email address. Try again.");
             }
         } else {
-            System.out.println("Invalid credentials or user doesn't exist. Please try again or make an account.");
+            logInErrorLabel.setText("Invalid credentials or user doesn't exist, try again or make an account");
         }
     }
 
