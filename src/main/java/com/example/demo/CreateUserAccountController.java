@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateUserAccountController {
+    public Label errorLabel1;
     SQLConfiguration sqlConfiguration = new SQLConfiguration();
 
     @FXML
@@ -51,11 +53,14 @@ public class CreateUserAccountController {
                     stageThree.show();
                 }
                 System.out.println("Account created.");
+                errorLabel1.setText("Account created.");
             } else {
                 System.out.println("Invalid email address. Try again.");
+                errorLabel1.setText("Invalid email address. Try again.");
             }
         } else {
             System.out.println("Invalid credentials. Try again.");
+            errorLabel1.setText("Invalid credentials. Try again.");
         }
     }
 
