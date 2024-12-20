@@ -147,11 +147,14 @@ public class FactoryLayoutEditController implements Initializable {
             sqlConfiguration.editLayout(layoutId, layoutName, layoutData, robotDirection, userEmail);
             messageLabel.setVisible(true);
         } else if (layoutName.isEmpty()) {
-            System.out.println("Enter a name for the layout.");
+            messageLabel.setText("Enter a name for the layout.");
+            messageLabel.setVisible(true);
         } else if (robotDirection.isEmpty()) {
-            System.out.println("Enter a direction for the robot.");
+            messageLabel.setText("Enter a direction for the robot.");
+            messageLabel.setVisible(true);
         } else {
-            System.out.println("You need one Start box and one Exit box selected to save the layout.");
+            messageLabel.setText("You need one Start box and one Exit box selected to save the layout.");
+            messageLabel.setVisible(true);
         }
 
         // checks the info to of the layout
