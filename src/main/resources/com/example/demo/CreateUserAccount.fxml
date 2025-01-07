@@ -88,7 +88,7 @@
                      <children>
                         <Label fx:id="errorLabel1" prefHeight="18.0" prefWidth="409.0" textFill="#dc1111" underline="true">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                         <Button fx:id="CreateAccountButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onCreateAccountButtonClick" style="-fx-background-color: GOLDENROD;" text="Enter">
